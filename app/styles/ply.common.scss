@@ -1,0 +1,15 @@
+@import '_ply.vars.scss';
+
+@import 'ply.chordBuilder.scss';
+
+#wrapper {
+	#topPanel {
+		.row {
+			height: 65px;
+			background-color: #03A9F4; //TODO - set to var
+			h1 {
+				padding-left:25px;
+			}
+		}
+	}
+}
