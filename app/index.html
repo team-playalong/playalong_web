@@ -9,6 +9,7 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css" />
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -20,31 +21,41 @@
   <body ng-app="playalongWebApp">
     
     <div ng-controller="MainCtrl" layout="column">
-      <section layout="row" flex>
-        <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+      <section flex>
+        <md-sidenav class="md-sidenav-left md-whiteframe-z2 ply-sidenav" md-component-id="left">
           <md-toolbar class="md-theme-indigo">
-            <h1 class="md-toolbar-tools">Sidenav Left</h1>
+            <h1 class="md-toolbar-tools">PlaYalong</h1>
           </md-toolbar>
-          <md-content layout-padding ng-controller="sidebarCtrl">
-            <md-button ng-click="close()" class="md-primary">
-              Close Sidenav Left
-            </md-button>
+          <md-content layout-padding ng-controller="SidebarCtrl">
+            <md-list>
+              <div ng-repeat="item in menuItems">
+                <md-list-item class="md-3-line clickable" ui-sref="{{item.ref}}">
+                  <div class="md-list-item-text"  >  
+                    <i class="fa fa-{{item.icon}}"></i>
+                    <md-button class="md-primary">
+                      {{item.text}}
+                    </md-button>
+                  </div>
+                    
+                </md-list-item>
+                <md-divider ></md-divider>  
+               </div>
+              </md-list>
           </md-content>
         </md-sidenav>
-        <md-content flex layout-padding>
+        <md-content flex layout-padding class="ply-topnav">
           <md-toolbar>
             <div class="md-toolbar-tools">
               <md-button class="md-icon-button" aria-label="Settings">
                 <ng-md-icon ng-click="toggleLeft()" icon="menu"></ng-md-icon>
               </md-button>
-              <h2>
-                PlaYalong 
-              </h2>
+              <h2 class="clickable">PlaYalong</h2>
               <span flex></span>
             </div>
           </md-toolbar>
         </md-content>
       </section>
+      <div ui-view></div>
     </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -76,8 +87,11 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/sidebar.js"></script>
         <!-- endbuild -->
-
+    
+    <!-- UI-Router -->
+    <script src="scripts/config/config.route.js"></script>  
 
 </body>
 </html>

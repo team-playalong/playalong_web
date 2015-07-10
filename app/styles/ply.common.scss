@@ -1,15 +1,29 @@
 @import '_ply.vars.scss';
+@import '_ply.class.scss';
 
 @import 'ply.chordBuilder.scss';
 
-#wrapper {
-	#topPanel {
-		.row {
-			height: 65px;
-			background-color: #03A9F4; //TODO - set to var
-			h1 {
-				padding-left:25px;
-			}
+//TODO - move to var
+$PLY-ICON-LG: 20px;
+
+.ply-topnav {
+	.md-icon-button {
+		fill: #ffffff;
+	}
+}
+
+
+.ply-sidenav {
+	margin-top:8px;
+
+	.md-list-item-text {
+		width: 100%;		
+		.md-primary {
+			text-align: left;
+		}
+		i {
+			font-size: $PLY-ICON-LG;
+			margin-left: 10px;
 		}
 	}
 }
