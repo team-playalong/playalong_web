@@ -13,6 +13,11 @@ app.config(
           url: "/",
           templateUrl: '../../views/home.html',
           controller: 'HomeCtrl',
+        })
+        .state("chord", {
+          url: "/chord/:id",
+          templateUrl: '../../views/chord.html',
+          controller: 'ChordCtrl',
         });
 
         $urlRouterProvider.otherwise('/');

@@ -23,7 +23,7 @@ angular.module('playalongWebApp')
             .then(function () {
               $(".ply-main-container").toggleClass("sidebar-open");
             });
-        },300);
+        },100);
     return debounceFn;
   }
 
