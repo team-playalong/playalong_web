@@ -5,8 +5,14 @@
 
 //TODO - move to var
 $PLY-ICON-LG: 20px;
+$PLY-LOGO-SIZE: 50px;
 
 .ply-topnav {
+	.ply-logo {
+		height: $PLY-LOGO-SIZE;
+		width: $PLY-LOGO-SIZE;
+		margin-right: 10px; 
+	}
 	.md-icon-button {
 		fill: #ffffff;
 	}

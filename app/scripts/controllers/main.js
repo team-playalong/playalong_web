@@ -8,8 +8,10 @@
  * Controller of the playalongWebApp
  */
 angular.module('playalongWebApp')
-  .controller('MainCtrl', function ($scope, $timeout, $mdSidenav, $mdUtil, $log) {
-      
+  .controller('MainCtrl', ['$scope', '$timeout', '$mdSidenav', '$mdUtil', '$log', 'paths',
+                  function ($scope, $timeout, $mdSidenav, $mdUtil, $log, paths) {
+  $scope.paths = paths;
+
   /**
    * Build handler to open/close a SideNav; when animation finishes
    * report completion in console
@@ -27,4 +29,4 @@ angular.module('playalongWebApp')
 
   $scope.toggleLeft = buildToggler('left');
 
-});
+}]);

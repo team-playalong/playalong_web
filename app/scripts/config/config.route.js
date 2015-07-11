@@ -1,8 +1,8 @@
 'use strict';
 
 app.config(
-  ['$stateProvider',
-    function ($stateProvider) {
+  ['$stateProvider','$urlRouterProvider',
+    function ($stateProvider, $urlRouterProvider) {
       //////////////////////////
       // State Configurations //
       //////////////////////////
@@ -18,7 +18,9 @@ app.config(
 
           // Use a url of "/" to set a states as the "index".
           url: "/",
-          templateUrl: '../../views/main.html'
+          templateUrl: '../../views/home.html'
         });
+
+        $urlRouterProvider.otherwise('/');
     }
 ]);

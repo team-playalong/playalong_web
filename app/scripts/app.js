@@ -13,8 +13,6 @@
 var app = angular.module('playalongWebApp', ['ngMaterial', 'ngMdIcons', 'ui.router']);
 
 
-
-
 app.run(
   [          '$rootScope', '$state', '$stateParams',
     function ($rootScope,   $state,   $stateParams) {

@@ -32,7 +32,16 @@ module.exports = function(config) {
       'bower_components/angular-material-icons/angular-material-icons.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
-      "app/scripts/**/*.js",
+      
+
+      //App
+      'app/scripts/common.js',
+      'app/scripts/app.js',
+      'app/scripts/config/config.constants.js',
+      'app/scripts/config/config.route.js',
+      'app/scripts/controllers/main.js',
+      'app/scripts/controllers/sidebar.js',
+
       "test/mock/**/*.js",
       "test/spec/**/*.js"
     ],
