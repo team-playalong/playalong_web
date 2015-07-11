@@ -9,16 +9,10 @@ app.config(
 
       // Use $stateProvider to configure your states.
       $stateProvider
-
-        //////////
-        // Home //
-        //////////
-
         .state("home", {
-
-          // Use a url of "/" to set a states as the "index".
           url: "/",
-          templateUrl: '../../views/home.html'
+          templateUrl: '../../views/home.html',
+          controller: 'HomeCtrl',
         });
 
         $urlRouterProvider.otherwise('/');

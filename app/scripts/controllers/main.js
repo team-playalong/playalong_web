@@ -21,7 +21,7 @@ angular.module('playalongWebApp')
           $mdSidenav(navID)
             .toggle()
             .then(function () {
-              $log.debug("toggle " + navID + " is done");
+              $(".ply-main-container").toggleClass("sidebar-open");
             });
         },300);
     return debounceFn;

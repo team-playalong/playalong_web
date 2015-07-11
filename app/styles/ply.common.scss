@@ -7,6 +7,13 @@
 $PLY-ICON-LG: 20px;
 $PLY-LOGO-SIZE: 50px;
 
+
+.ply-main-container {
+	&.sidebar-open {
+		margin-left: 300px;	
+	}
+}
+
 .ply-topnav {
 	.ply-logo {
 		height: $PLY-LOGO-SIZE;

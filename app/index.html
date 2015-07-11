@@ -23,7 +23,7 @@
     <div ng-controller="MainCtrl" layout="column">
       <section flex>
         <md-sidenav class="md-sidenav-left md-whiteframe-z2 ply-sidenav" md-component-id="left">
-          <md-toolbar class="md-theme-indigo">
+          <md-toolbar class="md-theme-indigo" md-scroll-shrink="true">
             <h1 class="md-toolbar-tools">PlaYalong</h1>
           </md-toolbar>
           <md-content layout-padding ng-controller="SidebarCtrl">
@@ -51,7 +51,7 @@
               </md-button>
               <span class="clickable" ui-sref="home">
                   <img ng-src="{{paths.images.logo}}" class="ply-logo" alt="Washed Out" />
-                  PlaYalong  
+                  PlaYalong | {{currPage}}
               </span>
 
               <span flex></span>
@@ -59,7 +59,7 @@
           </md-toolbar>
         </md-content>
       </section>
-      <div ui-view></div>
+      <div ui-view class="ply-main-container"></div>
     </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -87,11 +87,12 @@
     <script src="bower_components/angular-material-icons/angular-material-icons.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-    <script src="scripts/common.js"></script>
+    
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/sidebar.js"></script>
+        <script src="scripts/controllers/home.js"></script>
         <!-- endbuild -->
     
     <!-- UI-Router -->
