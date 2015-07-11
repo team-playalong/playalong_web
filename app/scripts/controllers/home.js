@@ -14,10 +14,7 @@ angular.module('playalongWebApp')
   	$scope.seabrchConfig = {
   		searchByOptions: $scope.searchByOptions[0]
   	};
-
-  	$scope.searchResults = [
-
-  	];
+  	$scope.searchResults = [];
 
   	$scope.searchChords = function() {
   		//TODO - search via service shared with the mobile app

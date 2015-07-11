@@ -2,6 +2,7 @@
 @import '_ply.class.scss';
 
 @import 'ply.home.scss';
+@import 'ply.chord.scss';
 
 //TODO - move to var
 $PLY-ICON-LG: 20px;
@@ -11,6 +12,19 @@ $PLY-LOGO-SIZE: 50px;
 .ply-main-container {
 	&.sidebar-open {
 		margin-left: 300px;	
+	}
+	
+	.ply-fab {
+		position: absolute;
+		bottom:15px;
+		right:20px;
+		.ply-fab-icon {
+			fill: #ffffff;
+			line-height: 68px;
+			&.ply-fab-icon-dark {
+				fill: #212121;
+			}
+		}		
 	}
 }
 

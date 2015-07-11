@@ -1,52 +1,51 @@
-<md-content class="md-padding" id="home">
-    <md-card layout-align="center">
-      <md-card-content>
+<md-content class="md-padding" id="chord">
+    <md-card layout-padding layout-align="left center">
+      <md-card-content>            
+        <div class="row"><span style="padding-left:15px;" class="ply-chord">Fm</span><span style="padding-left:75px;" class="ply-chord">Fm</span></div>
+        <div class="row"><span class="ply-song-text">There's a gold shadow, seeping through the door</span></div>
+        <div class="row"><span style="padding-left:15px;" class="ply-chord">Fm</span><span style="padding-left:75px;" class="ply-chord">Fm</span></div>
+        <div class="row"><span class="ply-song-text">There's a gold shadow, seeping through the door</span></div>
+        <div class="row"><span style="padding-left:15px;" class="ply-chord">Fm</span><span style="padding-left:75px;" class="ply-chord">Fm</span></div>
+        <div class="row"><span class="ply-song-text">There's a gold shadow, seeping through the door</span></div>
+        <div class="row"><span style="padding-left:15px;" class="ply-chord">Fm</span><span style="padding-left:75px;" class="ply-chord">Fm</span></div>
+        <div class="row"><span class="ply-song-text">There's a gold shadow, seeping through the door</span></div> 
 
-        <h2 class="md-title">Search For...</h2>
-        <form name="chordSearchForm" novalidate>
-          <div layout="row" layout-wrap>
-              <div flex="10">
-                <md-select placeholder="..." ng-model="searchConfig.searchBy">
-                  <md-option ng-repeat="curr in searchByOptions" value="{{curr}}">{{curr}}</md-option>
-                </md-select>
-              </div>
-              <div flex="80">
-                <md-input-container>
-                  <input md-maxlength="50" placeholder="Search Text..." required name="searchInput" ng-model="searchConfig.searchInput">
-                  <!-- TODO - Hide required message before submit -->
-                  <div ng-messages="chordSearchForm.searchInput.$error">
-                    <!-- TODO - Messages from texts object -->
-                    <div ng-message="required">This is required.</div>
-                  </div>
-                </md-input-container>
-              </div>
-              <div flex="10">
-                <md-button class="md-raised md-primary" type="submit" ng-click="searchChords()">Go</md-button>
-              </div>
-          </div>
-        </form>      
+        <br/>
+        <br/>
+
+        <div class="row"><span style="padding-left:15px;" class="ply-chord">Fm</span><span style="padding-left:75px;" class="ply-chord">Fm</span></div>
+        <div class="row"><span class="ply-song-text">There's a gold shadow, seeping through the door</span></div>
+        <div class="row"><span style="padding-left:15px;" class="ply-chord">Fm</span><span style="padding-left:75px;" class="ply-chord">Fm</span></div>
+        <div class="row"><span class="ply-song-text">There's a gold shadow, seeping through the door</span></div>
+        <div class="row"><span style="padding-left:15px;" class="ply-chord">Fm</span><span style="padding-left:75px;" class="ply-chord">Fm</span></div>
+        <div class="row"><span class="ply-song-text">There's a gold shadow, seeping through the door</span></div>
+        <div class="row"><span style="padding-left:15px;" class="ply-chord">Fm</span><span style="padding-left:75px;" class="ply-chord">Fm</span></div>
+        <div class="row"><span class="ply-song-text">There's a gold shadow, seeping through the door</span></div> 
+
+        <br/>
+        <br/>
+
+        <div class="ply-chord-rating">
+          <h5>Was I Any Good? Rate me!</h5>
+          <star-rating ng-model="chordRating"></star-rating>
+        </div>
       </md-card-content>
     </md-card>
-    
-    <!-- search results -->
-    <md-card layout-align="center" ng-if="searchResults && searchResults.length" class="ply-search-results">
-      <md-card-content>
 
-        <h4 class="md-title" layout-align="left">You Have {{searchResults.length}} {{searchResults.length > 1 ? 'Results' : 'Result'}}</h4>
-        <md-list>
-          <md-list-item class="md-2-line clickable" ui-sref="chord({id:result.id})" ng-repeat="result in searchResults track by $index">
-            
-            <img ng-src="{{result.imagePath}}" class="md-avatar" ng-if="result.imagePath" />
-            <div class="md-list-item-text">
-              <h3> {{ result.artist }} </h3>
-              <p> {{ result.title }} </p>
-
-              <!-- http://codepen.io/TepigMC/pen/FIdHb -->
-              <star-rating class="non-clickable" ng-model="result.rating" readonly="true"></star-rating>
-            </div>
-            <md-divider ></md-divider>
-          </md-list-item>
-          
-      </md-card-content>
-    </md-card>
 </md-content>
+<md-fab-speed-dial class="ply-fab" md-open="chordFab.isOpen" md-direction="up"
+                   ng-class="chordFab.selectedMode">
+  <md-fab-trigger>
+    <md-button aria-label="menu" class="md-fab md-warn">
+      <ng-md-icon class="ply-fab-icon" icon="add"></ng-md-icon>
+    </md-button>
+  </md-fab-trigger>
+  <md-fab-actions>
+    <md-button aria-label="toneUp" class="md-fab md-raised md-mini">
+      <ng-md-icon class="ply-fab-icon ply-fab-icon-dark" icon="expand_more"></ng-md-icon>
+    </md-button>
+    <md-button aria-label="toneUp" class="md-fab md-raised md-mini">
+      <ng-md-icon class="ply-fab-icon ply-fab-icon-dark" icon="expand_less"></ng-md-icon>
+    </md-button>
+  </md-fab-actions>
+</md-fab-speed-dial>
