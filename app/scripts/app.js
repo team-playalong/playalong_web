@@ -9,8 +9,8 @@
  * Main module of the application.
  */
 
-/*jshint -W079 */ 
-var app = angular.module('playalongWebApp', ['ngMaterial', 'ngMdIcons', 'ui.router']);
+/*jshint -W079 */
+var app = angular.module('playalongWebApp', ['ngMaterial', 'ngMdIcons', 'ui.router', 'playalong.services']);
 
 
 app.run(
