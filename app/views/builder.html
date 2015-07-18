@@ -1,0 +1,6 @@
+<md-content class="md-padding md-whiteframe-z4 builder">
+  <div ng-click="isCordsOn = !isCordsOn">Insert cords</div>
+
+  <div class="editor editor-lyrics" ng-show="!isCordsOn" pla-lyrics-editor contentEditable ng-model="lyrics"></div>
+  <div ng-show="isCordsOn" class="editor editor-tabs" ng-bind-html="htmlLyrics"></div>
+</md-content>

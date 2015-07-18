@@ -19,60 +19,44 @@
     <!-- endbuild -->
   </head>
   <body ng-app="playalongWebApp">
-    
+
   <div ng-controller="MainCtrl" layout="column">
-      <section flex>
-        <md-sidenav class="md-sidenav-left md-whiteframe-z2 ply-sidenav" md-component-id="left">
-          <md-toolbar class="md-theme-indigo" md-scroll-shrink="true">
-            <h1 class="md-toolbar-tools">PlaYalong</h1>
-          </md-toolbar>
-          <md-content layout-padding ng-controller="SidebarCtrl">
-            <md-list>
-              <div ng-repeat="item in menuItems">
-                <md-list-item class="md-3-line clickable">
-                  <div class="md-list-item-text"  ui-sref="{{item.ref}}">  
-                    <i class="fa fa-{{item.icon}}"></i>
-                    <md-button class="md-primary">
-                      {{item.text}}
-                    </md-button>
-                  </div>
-                    
-                </md-list-item>
-                <md-divider ></md-divider>  
-               </div>
-              </md-list>
-          </md-content>
-        </md-sidenav>
-        <md-content flex layout-padding class="ply-topnav">
-          <md-toolbar>
-            <div class="md-toolbar-tools">
-              <md-button class="md-icon-button" aria-label="Settings">
-                <ng-md-icon ng-click="toggleLeft()" icon="menu"></ng-md-icon>
-              </md-button>
-              <span class="clickable" ui-sref="home">
-                  <img ng-src="{{paths.images.logo}}" class="ply-logo" alt="Washed Out" />
-                    {{currPage}}
-              </span>
-            </div>
-          </md-toolbar>
+    <section flex>
+      <md-sidenav class="md-sidenav-left md-whiteframe-z2 ply-sidenav" md-component-id="left">
+        <md-toolbar class="md-theme-indigo" md-scroll-shrink="true">
+          <h1 class="md-toolbar-tools">PlaYalong</h1>
+        </md-toolbar>
+        <md-content layout-padding ng-controller="SidebarCtrl">
+          <md-list>
+            <div ng-repeat="item in menuItems">
+              <md-list-item class="md-3-line clickable">
+                <div class="md-list-item-text"  ui-sref="{{item.ref}}">
+                  <i class="fa fa-{{item.icon}}"></i>
+                  <md-button class="md-primary">{{item.text}}</md-button>
+                </div>
+              </md-list-item>
+              <md-divider ></md-divider>
+             </div>
+            </md-list>
         </md-content>
-        <div ui-view class="ply-main-container"></div>
-      </section>
-    </div>
+      </md-sidenav>
+      <md-content flex layout-padding class="ply-topnav">
+        <md-toolbar>
+          <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" aria-label="Settings">
+              <ng-md-icon ng-click="toggleLeft()" icon="menu"></ng-md-icon>
+            </md-button>
+            <span class="clickable" ui-sref="home">
+                <img ng-src="{{paths.images.logo}}" class="ply-logo" alt="Washed Out" />
+                  {{currPage}}
+            </span>
+          </div>
+        </md-toolbar>
+      </md-content>
+      <div ui-view class="ply-main-container"></div>
+    </section>
+  </div>
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
-    </script>
-
-
-    
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -86,18 +70,20 @@
     <script src="bower_components/playalong.services/dist/app.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-    
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/sidebar.js"></script>
-        <script src="scripts/controllers/home.js"></script>
-        <script src="scripts/controllers/chord.js"></script>
-        <!-- endbuild -->
-    
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/sidebar.js"></script>
+    <script src="scripts/controllers/home.js"></script>
+    <script src="scripts/controllers/chord.js"></script>
+    <script src="scripts/controllers/builder.js"></script>
+    <script src="scripts/directives/plalyricseditor.js"></script>
+    <!-- endbuild -->
+
     <!-- UI-Router -->
-    <script src="scripts/config/config.route.js"></script>  
-    
+    <script src="scripts/config/config.route.js"></script>
+
     <!-- etc -->
     <script src="scripts/config/config.constants.js"></script>
     <script src="scripts/directives/star-rating.js"></script>
