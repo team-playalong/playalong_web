@@ -30,13 +30,6 @@ angular.module('playalongWebApp')
               // if the start of the selection and the end arent in the same object return, too big selection
               if (range.startContainer !== range.endContainer) return;
 
-              $(range.commonAncestorContainer).darkTooltip({
-                animation:'flipIn',
-                gravity:'west',
-                confirm:true,
-                theme:'light'
-              });
-
 
               var newElem = document.createElement('span');
               newElem.className = 'cord cord-A';
