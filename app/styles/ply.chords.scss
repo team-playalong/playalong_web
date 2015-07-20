@@ -1,0 +1,13 @@
+.cord {
+  &:before {
+    position: absolute;
+    top: -.5em;
+    color: #f06;
+  }
+  &-A:before {
+    content: 'A';
+  }
+  &-C:before {
+    content: 'C';
+  }
+}
