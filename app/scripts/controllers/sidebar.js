@@ -21,8 +21,8 @@ angular.module('playalongWebApp')
         icon: 'star'
       },
       {
-        text: 'Builder',
-        ref: 'builder',
+        text: 'New Chords',
+        ref: 'builder.new',
         icon: ''
       }
     ];

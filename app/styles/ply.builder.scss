@@ -4,10 +4,13 @@
     border: 0;
     font-size: 2em;
     line-height: 3em;
+    border-bottom: 1px solid $gray;
+    margin-bottom: 20px;
 
     &:focus {
-      border: 0!important;
+      border: 0;
       outline: none!important;
+      border-bottom: 2px solid $brand-primary;
     }
     > * {
       position: relative;
@@ -16,6 +19,6 @@
   }
 
   h2 {
-    color: #BDBDBD;
+    color: $gray;
   }
 }
