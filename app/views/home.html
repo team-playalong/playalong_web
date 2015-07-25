@@ -5,12 +5,12 @@
         <h2 class="md-title">Search For...</h2>
         <form name="chordSearchForm" novalidate>
           <div layout="row" layout-wrap>
-              <div flex="10">
+              <div flex="10" offset="10">
                 <md-select placeholder="..." ng-model="searchConfig.searchBy">
                   <md-option ng-repeat="curr in searchByOptions" value="{{curr}}">{{curr}}</md-option>
                 </md-select>
               </div>
-              <div flex="80">
+              <div flex="50">
                 <md-input-container>
                   <input md-maxlength="50" placeholder="Search Text..." required name="searchInput" ng-model="searchConfig.searchInput">
                   <!-- TODO - Hide required message before submit -->
@@ -20,8 +20,8 @@
                   </div>
                 </md-input-container>
               </div>
-              <div flex="10">
-                <md-button class="md-raised md-primary" type="submit" ng-click="searchChords()">Go</md-button>
+              <div flex="20">
+                <md-button class="md-raised md-accent" type="submit" ng-click="searchChords()">Go</md-button>
               </div>
           </div>
         </form>      
