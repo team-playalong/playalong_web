@@ -1,13 +1,9 @@
-.cord {
+.chord {
   &:before {
     position: absolute;
-    top: -.5em;
+    top: -1.5em;
     color: #f06;
   }
-  &-A:before {
-    content: 'A';
-  }
-  &-C:before {
-    content: 'C';
-  }
+  &-A:before { content: 'A'; }
+  &-C:before { content: 'C'; }
 }

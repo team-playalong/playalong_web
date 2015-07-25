@@ -8,7 +8,12 @@
  * Controller of the playalongWebApp
  */
 angular.module('playalongWebApp').controller('BuilderCtrl', function ($scope, $sce) {
-  $scope.cords = [ 'A', 'B', 'C', 'E' ];
+  $scope.cordOps = [ 'A', 'B', 'C', 'E' ];
+  $scope.rawLyrics = '';
 
-  $scope.lyrics = '';
+  $scope.$watch('rawLyrics', function(o){
+    $scope.chord['lyrics'] = o;
+  });
+
+  $scope.chord = {};
 });

@@ -1,6 +1,16 @@
 <md-content class="md-padding md-whiteframe-z4 builder">
-  <div class="editor editor-lyrics" pla-lyrics-editor contentEditable ng-model="lyrics"></div>
+  <md-input-container>
+    <label>Title</label>
+    <input ng-model="chord.title">
+  </md-input-container>
 
+  <md-input-container>
+    <label>Artist</label>
+    <input ng-model="chord.artist">
+  </md-input-container>
 
-  {{ lyrics }}
+  <h2>Lyrics and cords</h2>
+  <div class="editor editor-lyrics" pla-lyrics-editor contentEditable ng-model="rawLyrics"></div>
+
+  {{ chord }}
 </md-content>

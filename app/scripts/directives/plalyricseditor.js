@@ -26,13 +26,10 @@ angular.module('playalongWebApp')
             var sel = this.getSelection();
             if (sel.toString().length) {
               var range = sel.getRangeAt(0);
-
-              // if the start of the selection and the end arent in the same object return, too big selection
               if (range.startContainer !== range.endContainer) return;
 
-
               var newElem = document.createElement('span');
-              newElem.className = 'cord cord-A';
+              newElem.className = 'chord chord-A';
 
               range.surroundContents(newElem);
             }
