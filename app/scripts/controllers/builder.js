@@ -17,15 +17,12 @@ angular.module('playalongWebApp').controller('BuilderCtrl', function ($scope) {
     if (!$scope.chord.artist){ $scope.notValid(); return; }
     if (!$scope.chord.lyrics){ $scope.notValid(); return; }
 
+    $scope.chord.lyrics = $scope.rawLyrics;
     // send to firebase
   };
 
-  $scope.cordOps = [ 'A', 'B', 'C', 'E' ];
+  $scope.chordOps = [ 'A', 'B', 'C', 'D', 'E', 'F', 'G' ];
   $scope.rawLyrics = '';
-
-  $scope.$watch('rawLyrics', function(o){
-    $scope.chord['lyrics'] = o;
-  });
 
   $scope.chord = {};
 });

@@ -10,6 +10,7 @@ angular.module('playalongWebApp')
   .directive('plaLyricsEditor', function () {
     return {
       restrict: 'A',
+      scope: 1,
       link: function postLink(scope, element, attrs, ngModel) {
         if (!attrs.ngModel){
           throw 'you need ngModel!';
@@ -21,17 +22,41 @@ angular.module('playalongWebApp')
           scope.$apply();
         });
 
+        function closePopup(){
+          angular.element('.builder-popup').css({
+            visibility: 'hidden'
+          });
+        };
+
         element.on('selectstart'  , function () {
-          $(document).one('mouseup', function() {
+          $(document).one('mouseup', function(e) {
             var sel = this.getSelection();
             if (sel.toString().length) {
               var range = sel.getRangeAt(0);
-              if (range.startContainer !== range.endContainer) return;
+              if (range.startContainer !== range.endContainer){
+                return;
+                closePopup();
+              }
 
-              var newElem = document.createElement('span');
-              newElem.className = 'chord chord-A';
+              var popupElem = angular.element('.builder-popup');
 
-              range.surroundContents(newElem);
+              console.log();
+
+              popupElem.css({
+                visibility: 'visible',
+                top: (e.clientY - 60) + 'px',
+                left: (e.clientX - (popupElem.width() / 2) + 5) + 'px'
+              }).focus();
+
+              scope.addChord = function(c){
+                var newElem = document.createElement('span');
+                newElem.className = 'chord chord-' + c;
+
+                range.surroundContents(newElem);
+                closePopup();
+              };
+            } else {
+              closePopup();
             }
           });
         });

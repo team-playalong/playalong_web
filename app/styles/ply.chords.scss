@@ -1,9 +1,15 @@
 .chord {
   &:before {
     position: absolute;
-    top: -1.5em;
+    top: -1.2em;
     color: #f06;
   }
+
   &-A:before { content: 'A'; }
+  &-B:before { content: 'B'; }
   &-C:before { content: 'C'; }
+  &-D:before { content: 'D'; }
+  &-E:before { content: 'E'; }
+  &-F:before { content: 'F'; }
+  &-G:before { content: 'G'; }
 }

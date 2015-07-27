@@ -10,9 +10,19 @@
   </md-input-container>
 
   <h2>Lyrics and cords</h2>
-  <div class="editor editor-lyrics" pla-lyrics-editor contentEditable ng-model="rawLyrics"></div>
+
+  <div class="builder-popup">
+    <ul>
+      <li ng-repeat="c in chordOps" ng-click="addChord(c)">{{ c }}</li>
+    </ul>
+  </div>
+
+  <div class="editor editor-lyrics" pla-lyrics-editor contentEditable ng-model="rawLyrics">
+
+  </div>
 
   <md-button class="md-raised md-primary" ng-click="sendChord()">Send</md-button>
 
   {{ chord }}
+  {{ rawLyrics }}
 </md-content>
