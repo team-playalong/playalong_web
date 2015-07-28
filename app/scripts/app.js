@@ -10,7 +10,7 @@
  */
 
 /*jshint -W079 */
-var app = angular.module('playalongWebApp', ['ngMaterial', 'ngMdIcons', 'ui.router']);
+var app = angular.module('playalongWebApp', ['ngMaterial', 'ngMdIcons', 'ui.router','playalong.services','ui.bootstrap']);
 
 
 app.run(
