@@ -1,0 +1,75 @@
+@import "_ply.vars.scss";
+
+.builder {
+  .editor {
+    width: 100%;
+    border: 0;
+    font-size: 2em;
+    line-height: 3em;
+    border-bottom: 1px solid #BDBDBD;
+    margin-bottom: 20px;
+
+    &:focus {
+      border: 0;
+      outline: none!important;
+      border-bottom: 2px solid $brand-primary;
+    }
+
+    div {
+      position: relative;
+    }
+
+    span {
+      &:before {
+        top: -2em;
+      }
+    }
+  }
+
+  h2 {
+    color: $primary-text;
+  }
+
+  &-popup {
+    position: fixed;
+    z-index: 100;
+    visibility: hidden;
+
+    ul {
+      list-style: none;
+      padding: 10px;
+      background-color: #000;
+      display: inline-block;
+      margin: 0;
+      border-radius: 19px;
+      position: relative;
+
+
+      &:before {
+        position: absolute;
+        top: 39px;
+        left: 42%;
+        display: inline-block;
+        border-right: 10px solid transparent;
+        border-top: 10px solid #000;
+        border-left: 10px solid transparent;
+
+        content: '';
+      }
+
+      li {
+        display: inline-block;
+        color: #fff;
+        padding: 0 5px;
+        margin: 0 2px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bolder;
+
+        &:hover {
+          background: #f06;
+        }
+      }
+    }
+  }
+}

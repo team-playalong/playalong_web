@@ -19,6 +19,11 @@ angular.module('playalongWebApp')
         text: 'Favorites',
         ref: 'favorites',
         icon: 'star'
+      },
+      {
+        text: 'New Chords',
+        ref: 'builder.new',
+        icon: ''
       }
     ];
 
@@ -26,7 +31,7 @@ angular.module('playalongWebApp')
     $scope.close = function () {
       $mdSidenav('left').close()
         .then(function () {
-          
+
         });
     };
   }]);

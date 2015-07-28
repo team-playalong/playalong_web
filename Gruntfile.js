@@ -417,9 +417,9 @@ module.exports = function (grunt) {
       server: [
         'compass:server'
       ],
-      test: [
-        'compass'
-      ],
+      // test: [
+      //   'compass'
+      // ],
       dist: [
         'compass:dist',
         'imagemin',

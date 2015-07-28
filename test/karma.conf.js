@@ -41,6 +41,7 @@ module.exports = function(config) {
       'app/scripts/config/config.route.js',
       'app/scripts/controllers/main.js',
       'app/scripts/controllers/sidebar.js',
+      'app/scripts/controllers/builder.js',
 
       "test/mock/**/*.js",
       "test/spec/**/*.js"

@@ -1,0 +1,30 @@
+<md-content class="md-padding md-whiteframe-z4 builder">
+  <md-input-container>
+    <label>Artist</label>
+    <input ng-model="chord.artist">
+  </md-input-container>
+
+  <md-input-container>
+    <label>Title</label>
+    <input ng-model="chord.title">
+  </md-input-container>
+
+  
+
+  <h2>Lyrics and chords</h2>
+
+  <div class="builder-popup">
+    <ul>
+      <li ng-repeat="c in chordOps" ng-click="addChord(c)">{{ c }}</li>
+    </ul>
+  </div>
+
+  <div class="editor editor-lyrics" pla-lyrics-editor contentEditable ng-model="rawLyrics">
+
+  </div>
+
+  <md-button class="md-raised md-primary pull-right" ng-click="sendChord()">Send</md-button>
+
+  {{ chord }}
+  {{ rawLyrics }}
+</md-content>
