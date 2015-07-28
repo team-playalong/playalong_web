@@ -11,10 +11,9 @@ angular.module('playalongWebApp')
     return {
       restrict: 'A',
       scope: 1,
-      link: function postLink(scope, element, attrs, ngModel) {
+      link: function postLink(scope, element, attrs) {
         if (!attrs.ngModel){
           throw 'you need ngModel!';
-          return;
         }
 
         element.on('keyup keypress blur change', function(){
@@ -26,7 +25,7 @@ angular.module('playalongWebApp')
           angular.element('.builder-popup').css({
             visibility: 'hidden'
           });
-        };
+        }
 
         element.on('selectstart'  , function () {
           $(document).one('mouseup', function(e) {
@@ -34,8 +33,8 @@ angular.module('playalongWebApp')
             if (sel.toString().length) {
               var range = sel.getRangeAt(0);
               if (range.startContainer !== range.endContainer){
-                return;
                 closePopup();
+                return;
               }
 
               var popupElem = angular.element('.builder-popup');

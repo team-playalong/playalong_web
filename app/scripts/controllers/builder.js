@@ -7,9 +7,10 @@
  * # BuilderctrlCtrl
  * Controller of the playalongWebApp
  */
-angular.module('playalongWebApp').controller('BuilderCtrl', function ($scope) {
+angular.module('playalongWebApp')
+.controller('BuilderCtrl', function ($scope) {
   $scope.notValid = function(){
-    alert('blu');
+    
   };
 
   $scope.sendChord = function(){

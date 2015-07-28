@@ -1,15 +1,17 @@
 <md-content class="md-padding md-whiteframe-z4 builder">
   <md-input-container>
-    <label>Title</label>
-    <input ng-model="chord.title">
-  </md-input-container>
-
-  <md-input-container>
     <label>Artist</label>
     <input ng-model="chord.artist">
   </md-input-container>
 
-  <h2>Lyrics and cords</h2>
+  <md-input-container>
+    <label>Title</label>
+    <input ng-model="chord.title">
+  </md-input-container>
+
+  
+
+  <h2>Lyrics and chords</h2>
 
   <div class="builder-popup">
     <ul>
@@ -21,7 +23,7 @@
 
   </div>
 
-  <md-button class="md-raised md-primary" ng-click="sendChord()">Send</md-button>
+  <md-button class="md-raised md-primary pull-right" ng-click="sendChord()">Send</md-button>
 
   {{ chord }}
   {{ rawLyrics }}

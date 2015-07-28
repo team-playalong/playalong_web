@@ -1,5 +1,5 @@
 // Based on this - https://material.angularjs.org/latest/#/Theming/03_configuring_a_theme
-
+'use strict';
 app.config(function($mdThemingProvider) {
   $mdThemingProvider.definePalette('playalongPrimary', {
       '50': '03A9F4',

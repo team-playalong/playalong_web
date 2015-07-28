@@ -12,9 +12,9 @@ describe('Directive: plaLyricsEditor', function () {
     scope = $rootScope.$new();
   }));
 
-  it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<pla-lyrics-editor></pla-lyrics-editor>');
+  it('should append the directive to a div', inject(function ($compile) {
+    element = angular.element('<div pla-lyrics-editor></div>');
     element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the plaLyricsEditor directive');
+    expect(element[0]).toBeDefined();
   }));
 });
