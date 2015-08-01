@@ -1,4 +1,6 @@
 <form name="builder" novalidate>
+  
+  <div class="message-bar" ng-model="message"></div>
   <md-content class="md-padding md-whiteframe-z4 builder">
     <md-input-container>
       <label>Artist</label>
@@ -18,12 +20,16 @@
       </ul>
     </div>
 
-    <div id="rawLyrics" class="editor editor-lyrics" pla-lyrics-editor contentEditable ng-model="rawContent"></div>
+    <div id="rawContent" class="editor editor-lyrics" pla-lyrics-editor contentEditable ng-model="rawContent"></div>
 
-    <md-button class="md-raised md-primary pull-right" type="submit" ng-click="saveChord()">Send</md-button>
-    
-    {{ chord }} <br />
-    {{ rawLyrics }}
+    <!-- Currently Autosave -->
+    <!-- <md-button class="md-raised md-primary pull-right" type="submit" ng-click="saveChord()"></md-button> -->
+    <md-input-container>
+      <md-switch id="publishChord" ng-model="chord.published" aria-label="Publish Chord">
+        Publish Chord
+      </md-switch>
+    </md-input-container>
+   
   </md-content>
   
 

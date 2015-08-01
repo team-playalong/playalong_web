@@ -8,7 +8,7 @@
  * Controller of the playalongWebApp
  */
 angular.module('playalongWebApp')
-.controller('BuilderCtrl',['$scope','chords', function ($scope,chords) {
+.controller('BuilderCtrl',['$scope','chords', '$interval', '$timeout', function ($scope,chords, $interval,$timeout) {
   console.log(chords);
   $scope.chordRef = null; //Will reference the chord for Firebase process.binding
 
@@ -16,41 +16,43 @@ angular.module('playalongWebApp')
     //TODO
   };
 
-  $scope.saveChord = function(){
+  $scope.createChordInDb = function(){
       
-    if (!$scope.chord.title){ $scope.notValid(); return; }
-    if (!$scope.chord.artist){ $scope.notValid(); return; }
+    // if (!$scope.chord.title){ $scope.notValid(); return; }
+    // if (!$scope.chord.artist){ $scope.notValid(); return; }
+    
+    chords.addChord($scope.chord)
+    .then(function(chord) {
+      $scope.chordRef = chord;
+      //We now have a reference to the entire chord object
+      $scope.chordRef.$bindTo($scope, "chord").then(function() {
+        console.log('binded!');
 
+        $scope.message = 'Chord Added to Database';
+        $timeout(function(){
+          $scope.message = '';
+        }, 1000);
 
-    //TODO - find less hawa solution
-    var rawLyrics = document.getElementById('rawLyrics').innerHTML;
-
-    if (rawLyrics) {
-      $scope.chord.lyrics = rawLyrics;
-      chords.addChord($scope.chord)
-      .then(function(chord) {
-        $scope.chordRef = chord;
-        //We now have a reference to the entire object
-        $scope.chordRef.$bindTo($scope, "chord").then(function() {
-          console.log('binded!');
-        });
       });
-    }
-    
-    
+    });
   };
+
+  //Due to binding issues between the contenteditable div and the model
+  $interval(function() {
+    //TODO - find less hawa solution
+    var rawContent = document.getElementById('rawContent').innerHTML;
+    $scope.chord.content = rawContent;
+
+  }, 2000, 0, true);
 
   $scope.chordOps = [ 'A', 'B', 'C', 'D', 'E', 'F', 'G' ];
   $scope.rawContent = '';
 
   $scope.chord = {
-    content: ''
+    content: '',
+    artist: '',
+    title: ''
   };
 
-  $scope.$watch('rawContent', function(newVal) {
-    console.log('I was Watched');
-    $scope.chord.content = newVal;
-   });
-
-
+  $scope.createChordInDb();
 }]);
