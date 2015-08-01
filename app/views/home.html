@@ -33,9 +33,9 @@
 
         <h4 class="md-title" layout-align="left">You Have {{searchResults.length}} {{searchResults.length > 1 ? 'Results' : 'Result'}}</h4>
         <md-list>
-          <md-list-item class="md-2-line clickable"  ng-repeat="result in searchResults track by $index">
-            <img ng-src="{{result.imagePath}}" class="md-avatar" ng-if="result.imagePath" ui-sref="chord({ id: result.id })" />
-            <div class="md-list-item-text" ui-sref="chord({ id: result.id })"> 
+          <md-list-item class="md-2-line clickable"  ng-repeat="result in searchResults track by $index" >
+            <img ng-src="{{result.imagePath}}" class="md-avatar" ng-if="result.imagePath" />
+            <div class="md-list-item-text" ng-click="goToChordPage(result)"> 
               <h3> {{ result.artist }} </h3>
               <p> {{ result.title }} </p>
 
