@@ -7,7 +7,7 @@
           <div layout="row" layout-wrap>
               <div flex="10" offset="10">
                 <md-select placeholder="..." ng-model="searchConfig.searchBy">
-                  <md-option ng-repeat="curr in searchByOptions" value="{{curr}}">{{curr}}</md-option>
+                  <md-option ng-repeat="curr in searchByOptions" value="{{curr.value}}">{{curr.label}}</md-option>
                 </md-select>
               </div>
               <div flex="50">
@@ -16,7 +16,7 @@
                   <!-- TODO - Hide required message before submit -->
                   <div ng-messages="chordSearchForm.searchInput.$error">
                     <!-- TODO - Messages from texts object -->
-                    <div ng-message="required">This is required.</div>
+                    <div ng-if="chordSearchForm.searchInput.$dirty && chordSearchForm.searchInput.$error" ng-message="required">This is required.</div>
                   </div>
                 </md-input-container>
               </div>
