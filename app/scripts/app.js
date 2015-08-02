@@ -10,8 +10,15 @@
  */
 
 /*jshint -W079 */
-var app = angular.module('playalongWebApp', ['ngMaterial', 'ngMdIcons', 'ui.router']);
+var app = angular.module('playalongWebApp', ['ngMaterial', 'ngMdIcons', 'ui.router','playalong.services']);
 
+//Allow unafe html binding
+//TODO - refactor into whitelist
+app.config(function($sceProvider) {
+  // Completely disable SCE.  For demonstration purposes only!
+  // Do not use in new projects.
+  $sceProvider.enabled(false);
+});
 
 app.run(
   [          '$rootScope', '$state', '$stateParams',
