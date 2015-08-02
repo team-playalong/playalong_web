@@ -11,5 +11,5 @@ app.config(['$stateProvider','$urlRouterProvider', function ($stateProvider, $ur
         .state('builder.edit',  { url: '/edit/:id',       templateUrl: '../../views/builder.html'})
       ;
 
-      $urlRouterProvider.otherwise('/');
+      $urlRouterProvider.otherwise('/builder/new');
 }]);

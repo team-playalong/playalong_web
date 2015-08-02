@@ -8,22 +8,51 @@
  * Controller of the playalongWebApp
  */
 angular.module('playalongWebApp')
-.controller('BuilderCtrl', function ($scope) {
+.controller('BuilderCtrl',['$scope','chords', '$interval', '$timeout', function ($scope,chords, $interval,$timeout) {
+  console.log(chords);
+  $scope.chordRef = null; //Will reference the chord for Firebase process.binding
+
   $scope.notValid = function(){
+    //TODO
+  };
+
+  $scope.createChordInDb = function(){
+      
+    // if (!$scope.chord.title){ $scope.notValid(); return; }
+    // if (!$scope.chord.artist){ $scope.notValid(); return; }
     
+    chords.addChord($scope.chord)
+    .then(function(chord) {
+      $scope.chordRef = chord;
+      //We now have a reference to the entire chord object
+      $scope.chordRef.$bindTo($scope, "chord").then(function() {
+        console.log('binded!');
+
+        $scope.message = 'Chord Added to Database';
+        $timeout(function(){
+          $scope.message = '';
+        }, 1000);
+
+      });
+    });
   };
 
-  $scope.sendChord = function(){
-    if (!$scope.chord.title){ $scope.notValid(); return; }
-    if (!$scope.chord.artist){ $scope.notValid(); return; }
-    if (!$scope.chord.lyrics){ $scope.notValid(); return; }
+  //Due to binding issues between the contenteditable div and the model
+  $interval(function() {
+    //TODO - find less hawa solution
+    var rawContent = document.getElementById('rawContent').innerHTML;
+    $scope.chord.content = rawContent;
 
-    $scope.chord.lyrics = $scope.rawLyrics;
-    // send to firebase
-  };
+  }, 2000, 0, true);
 
   $scope.chordOps = [ 'A', 'B', 'C', 'D', 'E', 'F', 'G' ];
-  $scope.rawLyrics = '';
+  $scope.rawContent = '';
 
-  $scope.chord = {};
-});
+  $scope.chord = {
+    content: '',
+    artist: '',
+    title: ''
+  };
+
+  $scope.createChordInDb();
+}]);
