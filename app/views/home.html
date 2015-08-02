@@ -7,7 +7,7 @@
           <div layout="row" layout-wrap>
               <div flex="10" offset="10">
                 <md-select placeholder="..." ng-model="searchConfig.searchBy">
-                  <md-option ng-repeat="curr in searchByOptions" value="{{curr}}">{{curr}}</md-option>
+                  <md-option ng-repeat="curr in searchByOptions" value="{{curr.value}}">{{curr.label}}</md-option>
                 </md-select>
               </div>
               <div flex="50">
@@ -16,7 +16,7 @@
                   <!-- TODO - Hide required message before submit -->
                   <div ng-messages="chordSearchForm.searchInput.$error">
                     <!-- TODO - Messages from texts object -->
-                    <div ng-message="required">This is required.</div>
+                    <div ng-if="chordSearchForm.searchInput.$dirty && chordSearchForm.searchInput.$error" ng-message="required">This is required.</div>
                   </div>
                 </md-input-container>
               </div>
@@ -33,9 +33,9 @@
 
         <h4 class="md-title" layout-align="left">You Have {{searchResults.length}} {{searchResults.length > 1 ? 'Results' : 'Result'}}</h4>
         <md-list>
-          <md-list-item class="md-2-line clickable"  ng-repeat="result in searchResults track by $index">
-            <img ng-src="{{result.imagePath}}" class="md-avatar" ng-if="result.imagePath" ui-sref="chord({ id: result.id })" />
-            <div class="md-list-item-text" ui-sref="chord({ id: result.id })"> 
+          <md-list-item class="md-2-line clickable"  ng-repeat="result in searchResults track by $index" >
+            <img ng-src="{{result.imagePath}}" class="md-avatar" ng-if="result.imagePath" />
+            <div class="md-list-item-text" ng-click="goToChordPage(result)"> 
               <h3> {{ result.artist }} </h3>
               <p> {{ result.title }} </p>
 

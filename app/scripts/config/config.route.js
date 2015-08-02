@@ -4,7 +4,7 @@ app.config(['$stateProvider','$urlRouterProvider', function ($stateProvider, $ur
 
       $stateProvider
         .state("home",          { url: "/",               templateUrl: '../../views/home.html',     controller: 'HomeCtrl' })
-        .state("chord",         { url: "/chord/:id",      templateUrl: '../../views/chord.html',    controller: 'ChordCtrl' })
+        .state("chord",         { url: "/chord/",      templateUrl: '../../views/chord.html',    controller: 'ChordCtrl' })
 
         .state('builder',       { url: '/builder',        template: '<div ui-view></div>',          controller: 'BuilderCtrl', abstract: true})
         .state('builder.new',   { url: '/new',            templateUrl: '../../views/builder.html'})
