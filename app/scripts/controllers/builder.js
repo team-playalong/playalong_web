@@ -45,6 +45,7 @@ angular.module('playalongWebApp')
 
   }, 2000, 0, true);
 
+  
   $scope.chordOps = [ 'A', 'B', 'C', 'D', 'E', 'F', 'G' ];
   $scope.rawContent = '';
 

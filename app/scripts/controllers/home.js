@@ -25,6 +25,7 @@ angular.module('playalongWebApp')
   	$scope.searchConfig = {
   		searchBy: $scope.searchByOptions[0].value
   	};
+    
   	$scope.searchResults = [];
 
   	$scope.searchChords = function() {
