@@ -1,5 +1,5 @@
 <form name="builder" novalidate>
-  
+
   <div class="message-bar" ng-model="message"></div>
   <md-content class="md-padding md-whiteframe-z4 builder">
     <md-input-container>
@@ -14,13 +14,7 @@
 
     <h2>Lyrics and chords</h2>
 
-    <div class="builder-popup">
-      <ul>
-        <li ng-repeat="c in chordOps" ng-click="addChord(c)">{{ c }}</li>
-      </ul>
-    </div>
-
-    <div id="rawContent" class="editor editor-lyrics" pla-lyrics-editor contentEditable ng-model="rawContent"></div>
+    <div id="rawContent" class="editor col-md-6 editor-lyrics" pla-editor contentEditable ng-model="rawContent"></div>
 
     <!-- Currently Autosave -->
     <!-- <md-button class="md-raised md-primary pull-right" type="submit" ng-click="saveChord()"></md-button> -->
@@ -29,8 +23,10 @@
         Publish Chord
       </md-switch>
     </md-input-container>
-   
+
   </md-content>
-  
+
+  {{ chord }}
+  {{ rawContent }}
 
 </form>
