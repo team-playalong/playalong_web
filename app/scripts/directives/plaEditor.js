@@ -13,11 +13,17 @@ angular.module('playalongWebApp')
       scope: 1,
       link: function postLink(scope, element, attrs) {
         element
-          .on('keyup keypress blur change', function(){
+          .on('keyup keypress blur', function(){
             scope.scanForChords(element.html());
           });
 
         element.focus();
+
+
+        scope.$watch('chord', function(n){
+          element.html(n.content);
+          console.log('binded');
+        }, true);
       }
     };
   });

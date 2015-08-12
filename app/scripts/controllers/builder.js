@@ -41,11 +41,12 @@ angular.module('playalongWebApp')
 
   //$scope.createChordInDb();
 
+  $scope.dirtyContent = false;
+
   $scope.scanForChords = function(str){
-    console.log(str);
-    str = str.replace('&nbsp;', ' ');
-    str = str.replace(/\b(?:G,C,D|A,B,C|E,C,D)|(?:[ABCDEFG](?:#|b)?)(?:\/[ABCDEFG]b)?(?:(?:(?:maj|min|sus|add|aug|dim)(?:\d{0,2}(?:#\d{1,2}|sus\d)?)?)|(?:m\d{0,2}(?:(?:maj|add|#)\d{0,2})?)|(?:-?\d{0,2}(?:\([^)]*\)|#\d{1,2})?))?(^|\s)/g, '<span>$&</span>');
+    str = str.replace(/($|\b|<div>)((?:G,C,D|A,B,C|E,C,D)|(?:[ABCDEFG](?:#|b)?)(?:\/[ABCDEFG]b)?(?:(?:(?:maj|min|sus|add|aug|dim)(?:\d{0,2}(?:#\d{1,2}|sus\d)?)?)|(?:m\d{0,2}(?:(?:maj|add|#)\d{0,2})?)|(?:-?\d{0,2}(?:\([^)]*\)|#\d{1,2})?))?)(^|\s|&nbsp;|<\/div>|<div>)/g, '<span class="chord">$2</span>');
     $scope.chord.content = str;
+
     $scope.$apply();
   };
 }]);
