@@ -18,12 +18,6 @@ angular.module('playalongWebApp')
           });
 
         element.focus();
-
-
-        scope.$watch('chord', function(n){
-          element.html(n.content);
-          console.log('binded');
-        }, true);
       }
     };
   });

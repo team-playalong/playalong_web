@@ -14,7 +14,10 @@
 
     <h2>Lyrics and chords</h2>
 
-    <div id="rawContent" class="editor col-md-6 editor-lyrics" pla-editor contentEditable></div>
+    <div class="row">
+      <div class="col-md-6"><div id="rawContent" class="editor col-md-6 editor-lyrics" pla-editor contentEditable></div></div>
+      <div class="col-md-6"><div class="chord-preview" ng-bind-html="chord.content"></div></div>
+    </div>
 
     <!-- Currently Autosave -->
     <!-- <md-button class="md-raised md-primary pull-right" type="submit" ng-click="saveChord()"></md-button> -->
@@ -25,8 +28,4 @@
     </md-input-container>
 
   </md-content>
-
-  {{ chord }}
-  {{ rawContent }}
-
 </form>
