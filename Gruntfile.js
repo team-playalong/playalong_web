@@ -432,7 +432,11 @@ module.exports = function (grunt) {
       unit: {
         configFile: 'test/karma.conf.js',
         singleRun: true
-      }
+      },
+      dev: {
+        configFile: 'test/karma.conf.js',
+        singleRun: false
+      },
     }
   });
 
@@ -463,7 +467,7 @@ module.exports = function (grunt) {
     //'concurrent:test',
     'autoprefixer',
     'connect:test',
-    'karma'
+    'karma:unit'
   ]);
 
   grunt.registerTask('build', [

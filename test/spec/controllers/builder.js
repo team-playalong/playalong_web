@@ -6,17 +6,27 @@ describe('Controller: BuilderctrlCtrl', function () {
   beforeEach(module('playalongWebApp'));
 
   var BuilderctrlCtrl,
-    scope;
+    scope,
+    chordsMockService,
+    $q;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
+  beforeEach(inject(function ($controller, $rootScope,_$q_) {
+    $q = _$q_;
+    chordsMockService = {
+      addChord: function() {
+        return $q.when({});
+      }
+     };
     scope = $rootScope.$new();
     BuilderctrlCtrl = $controller('BuilderCtrl', {
-      $scope: scope
+      $scope: scope,
+      chords: chordsMockService
     });
   }));
 
   it('should initialize the scope', function () {
     expect(scope).toBeDefined(); 
+    expect(scope.createChordInDb).toBeDefined();
   });
 });
