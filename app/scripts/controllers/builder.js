@@ -9,9 +9,7 @@
  */
 angular.module('playalongWebApp')
 .controller('BuilderCtrl',['$scope','chords', '$interval', '$timeout', function ($scope,chords, $interval,$timeout) {
-  console.log(chords);
   $scope.chordRef = null; //Will reference the chord for Firebase process.binding
-
   $scope.notValid = function(){
     //TODO
   };
@@ -26,12 +24,11 @@ angular.module('playalongWebApp')
       $scope.chordRef = chord;
       //We now have a reference to the entire chord object
       $scope.chordRef.$bindTo($scope, "chord").then(function() {
-        console.log('binded!');
 
-        $scope.message = 'Chord Added to Database';
-        $timeout(function(){
-          $scope.message = '';
-        }, 1000);
+      $scope.message = 'Chord Added to Database';
+      $timeout(function(){
+        $scope.message = '';
+      }, 1000);
 
       });
     });
