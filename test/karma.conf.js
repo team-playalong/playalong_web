@@ -30,6 +30,10 @@ module.exports = function(config) {
       'bower_components/angular-material/angular-material.js',
       'bower_components/angular-ui-router/release/angular-ui-router.js',
       'bower_components/angular-material-icons/angular-material-icons.min.js',
+      'bower_components/bootstrap/dist/js/bootstrap.js',
+      'bower_components/firebase/firebase.js',
+      'bower_components/angularfire/dist/angularfire.js',
+      'bower_components/playalong.services/dist/scripts/scripts.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       
@@ -42,6 +46,8 @@ module.exports = function(config) {
       'app/scripts/controllers/main.js',
       'app/scripts/controllers/sidebar.js',
       'app/scripts/controllers/builder.js',
+      'app/scripts/controllers/chord.js',
+      'app/scripts/controllers/home.js',
 
       "test/mock/**/*.js",
       "test/spec/**/*.js"
