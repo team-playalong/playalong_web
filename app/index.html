@@ -23,7 +23,7 @@
   </head>
   <body ng-app="playalongWebApp">
 
-  <div ng-controller="MainCtrl" layout="column">
+  <div ng-controller="MainCtrl" layout="column" class="ply-app">
     <section flex>
       <md-sidenav class="md-sidenav-left md-whiteframe-z2 ply-sidenav" md-component-id="left">
         <md-toolbar class="md-theme-indigo" md-scroll-shrink="true">
@@ -58,6 +58,9 @@
       </md-content>
       <div ui-view class="ply-main-container"></div>
     </section>
+    <div class="footer">
+      <alert class="ply-alert-container" ng-repeat="alert in allAlerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+    </div>
   </div>
 
     <!-- build:js(.) scripts/vendor.js -->
@@ -74,11 +77,9 @@
     <script src="bower_components/firebase/firebase.js"></script>
     <script src="bower_components/angularfire/dist/angularfire.js"></script>
     <script src="bower_components/playalong.services/dist/scripts/scripts.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-
-    <!-- ui bootstrap -->
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>

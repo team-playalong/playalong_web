@@ -12,7 +12,7 @@ describe('Controller: HomeCtrl', function () {
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope,$q) {
   	chordsMockService = {
-  		searchChordsBy: function(searchBy,searchInput) {
+  		searchChordsBy: function() {
   			return $q.when(mockData.getMockChordResults());
   		}
 	   };
@@ -40,7 +40,6 @@ describe('Controller: HomeCtrl', function () {
 		expect(scope.searchResults.length).toBe(1);
 		expect(scope.searchResults[0].artist).toBe('Test Artist');
   });
-
   
 
 });

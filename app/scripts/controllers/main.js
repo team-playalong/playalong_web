@@ -10,7 +10,11 @@
 angular.module('playalongWebApp')
   .controller('MainCtrl', ['$scope', '$timeout', '$mdSidenav', '$mdUtil', '$log', 'paths',
                   function ($scope, $timeout, $mdSidenav, $mdUtil, $log, paths) {
-  $scope.paths = paths;
+  $scope.initCtrl = function() {
+    $scope.paths = paths;
+    $scope.toggleLeft = buildToggler('left');
+    $scope.allAlerts = [];
+  };
 
   /**
    * Build handler to open/close a SideNav; when animation finishes
@@ -27,6 +31,16 @@ angular.module('playalongWebApp')
     return debounceFn;
   }
 
-  $scope.toggleLeft = buildToggler('left');
+  $scope.addAlert = function(type, message) {
 
+    $scope.allAlerts.push({
+      type: type,
+      msg: message
+    });
+  };
+  $scope.closeAlert = function(index) {
+    $scope.allAlerts.splice(index, 1);
+  };
+  
+  $scope.initCtrl();
 }]);

@@ -1,3 +1,4 @@
+/* exported mockData */
 var mockData = ( function() {
 	function getMockChord() {
 		return {
