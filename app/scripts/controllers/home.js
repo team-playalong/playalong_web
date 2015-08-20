@@ -44,5 +44,4 @@ angular.module('playalongWebApp')
   		$rootScope.chord = chord;
   		$state.go('chord');
   	};
-
   }]);
