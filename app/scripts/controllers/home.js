@@ -22,7 +22,7 @@ angular.module('playalongWebApp')
   	];
   	$scope.searchConfig = {
   		searchBy: $scope.searchByOptions[0].value,
-      searchInput: ''
+      searchInput: null
   	};
     
   	$scope.searchResults = [];

@@ -24,6 +24,7 @@ angular.module('playalongWebApp')
       //We now have a reference to the entire chord object
       $scope.chordRef.$bindTo($scope, "chord").then(function() {
 
+      $scope.addAlert('success','Chord Added to Database');
       $scope.message = 'Chord Added to Database';
       $timeout(function(){
         $scope.message = '';
@@ -50,8 +51,6 @@ angular.module('playalongWebApp')
     artist: '',
     title: ''
   };
-
-  //$scope.createChordInDb();
 
   $scope.dirtyContent = false;
 
