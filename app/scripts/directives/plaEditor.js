@@ -11,7 +11,7 @@ angular.module('playalongWebApp')
     return {
       restrict: 'A',
       scope: 1,
-      link: function postLink(scope, element, attrs) {
+      link: function postLink(scope, element) {
         element
           .on('keyup keypress blur', function(){
             scope.scanForChords(element.html());
@@ -40,7 +40,7 @@ angular.module('playalongWebApp')
 
             // remove unnecesary tags (if paste from word)
             $(this).children('style').remove();
-            $(this).children('meta').remove()
+            $(this).children('meta').remove();
             $(this).children('link').remove();
           });
 
