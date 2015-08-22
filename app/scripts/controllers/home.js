@@ -9,8 +9,6 @@
  */
 angular.module('playalongWebApp')
   .controller('HomeCtrl', ['$scope', '$rootScope','chords','$state', function ($scope, $rootScope, chords,$state) {
-  	console.log(chords);
-
   	$rootScope.currPage = 'Search';
   	$scope.searchByOptions = [
   		{
@@ -23,15 +21,19 @@ angular.module('playalongWebApp')
   		}
   	];
   	$scope.searchConfig = {
-  		searchBy: $scope.searchByOptions[0].value
+  		searchBy: $scope.searchByOptions[0].value,
+      searchInput: ''
   	};
+    
   	$scope.searchResults = [];
+    $scope.handleChordResults = function(results) {
+      $scope.searchResults = results;
+    };
+
 
   	$scope.searchChords = function() {
   		chords.searchChordsBy($scope.searchConfig.searchBy,$scope.searchConfig.searchInput)
-  		.then(function(results) {
-  			$scope.searchResults = results;
-  		})
+  		.then($scope.handleChordResults)
   		.catch(function(error) {
   			console.warn(error);
   		});
@@ -42,5 +44,4 @@ angular.module('playalongWebApp')
   		$rootScope.chord = chord;
   		$state.go('chord');
   	};
-
   }]);

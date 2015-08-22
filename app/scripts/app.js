@@ -10,7 +10,14 @@
  */
 
 /*jshint -W079 */
-var app = angular.module('playalongWebApp', ['ngMaterial', 'ngMdIcons', 'ui.router','playalong.services']);
+var app = angular.module('playalongWebApp', [
+  'ngMaterial', 
+  'ngMdIcons', 
+  'ui.router',
+  'playalong.services',
+  'ngAnimate',
+  'ui.bootstrap'
+]);
 
 //Allow unafe html binding
 //TODO - refactor into whitelist

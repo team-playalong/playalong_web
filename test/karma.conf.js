@@ -34,6 +34,7 @@ module.exports = function(config) {
       'bower_components/firebase/firebase.js',
       'bower_components/angularfire/dist/angularfire.js',
       'bower_components/playalong.services/dist/scripts/scripts.js',
+      'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       
@@ -46,6 +47,8 @@ module.exports = function(config) {
       'app/scripts/controllers/main.js',
       'app/scripts/controllers/sidebar.js',
       'app/scripts/controllers/builder.js',
+      'app/scripts/controllers/chord.js',
+      'app/scripts/controllers/home.js',
 
       "test/mock/**/*.js",
       "test/spec/**/*.js"

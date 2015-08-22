@@ -10,13 +10,15 @@
  */
 
 angular.module('playalongWebApp')
-  .controller('ChordCtrl',['$scope','$rootScope', '$state', function ($scope,$rootScope,$state) {
+  .controller('ChordCtrl',['$scope','$rootScope', '$state','chords', function ($scope,$rootScope,$state,chords) {
   	if (!$scope.chord) { 
   		$state.go('home'); 
   	}
   	else {
 	    $rootScope.currPage = $scope.chord.artist + ' - ' + $scope.chord.title;
 	    $scope.chordRating = 5;
+
+	    chords.increaseChordHitCount($scope.chord.chordKey);
 
 	    $scope.chordFab = {
 		    topDirections: ['left', 'up'],
