@@ -1,0 +1,37 @@
+<form name="builder" novalidate>
+
+  <div class="message-bar" ng-model="message"></div>
+  <md-content class="md-padding md-whiteframe-z4 builder">
+    <md-input-container>
+      <label>Artist</label>
+      <input required name="artist" ng-model="chord.artist">
+    </md-input-container>
+
+    <md-input-container>
+      <label>Title</label>
+      <input required ng-model="chord.title">
+    </md-input-container>
+
+    
+
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Edit section</h4>
+        <div id="rawContent" class="editor col-md-6 editor-lyrics" pla-editor contentEditable></div>
+      </div>
+      <div class="col-md-6">
+        <h4>Preview section</h4>
+        <div class="chord-preview" ng-bind-html="chord.content"></div>
+      </div>
+    </div>
+
+    <!-- Currently Autosave -->
+    <md-button class="md-raised md-accent pull-right" type="submit" ng-click="createChordInDb()">Create Chord</md-button>
+    <md-input-container>
+      <md-switch id="publishChord" ng-model="chord.published" aria-label="Publish Chord">
+        Publish Chord
+      </md-switch>
+    </md-input-container>
+
+  </md-content>
+</form>

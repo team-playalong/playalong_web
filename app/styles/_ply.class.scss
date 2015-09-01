@@ -1,0 +1,15 @@
+@import '_ply.vars.scss';
+
+//Common Classes
+.clickable {
+  cursor: pointer;
+}
+
+.non-clickable {
+	cursor: default;
+}
+
+.ply-chord {
+	color: #0288D1;
+}
+

@@ -1,0 +1,28 @@
+<md-content class="md-padding" id="chord">
+    <md-card layout-padding layout-align="left center">
+      <md-card-content class="ply-chord-container">            
+        <div ng-bind-html="chord.content"></div>
+        <div class="ply-chord-rating">
+          <h5>Was I Any Good? Rate me!</h5>
+          <star-rating ng-model="chordRating"></star-rating>
+        </div>
+      </md-card-content>
+    </md-card>
+
+</md-content>
+<md-fab-speed-dial class="ply-fab " md-open="chordFab.isOpen" md-direction="up"
+                   ng-class="chordFab.selectedMode">
+  <md-fab-trigger>
+    <md-button aria-label="menu" class="md-fab md-accent">
+      <ng-md-icon class="ply-fab-icon" icon="add"></ng-md-icon>
+    </md-button>
+  </md-fab-trigger>
+  <md-fab-actions>
+    <md-button aria-label="toneUp" class="md-fab md-raised md-mini">
+      <ng-md-icon class="ply-fab-icon ply-fab-icon-dark" icon="expand_more"></ng-md-icon>
+    </md-button>
+    <md-button aria-label="toneUp" class="md-fab md-raised md-mini">
+      <ng-md-icon class="ply-fab-icon ply-fab-icon-dark" icon="expand_less"></ng-md-icon>
+    </md-button>
+  </md-fab-actions>
+</md-fab-speed-dial>

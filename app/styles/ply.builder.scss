@@ -1,0 +1,28 @@
+@import "_ply.vars.scss";
+
+.builder {
+  .editor {
+    border: 0;
+    font-size: 1em;
+    border-bottom: 1px solid #BDBDBD;
+    margin-bottom: 20px;
+    width: 100%;
+
+    &:focus {
+      border: 0;
+      outline: none !important;
+      border-bottom: 2px solid $brand-primary;
+    }
+  }
+
+  .chord-preview {
+    font-size: 1.5em;
+    border-bottom: 1px solid #BDBDBD;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  h2 {
+    color: $primary-text;
+  }
+}

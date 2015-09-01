@@ -14,7 +14,9 @@ module.exports = function (grunt) {
 
   // Automatically load required Grunt tasks
   require('jit-grunt')(grunt, {
-    useminPrepare: 'grunt-usemin'
+    useminPrepare: 'grunt-usemin',
+    ngtemplates: 'grunt-angular-templates',
+    cdnify: 'grunt-google-cdn'
   });
 
   // Configurable paths for the application
@@ -132,7 +134,7 @@ module.exports = function (grunt) {
         options: {
           jshintrc: 'test/.jshintrc'
         },
-        src: ['test/spec/{,*/}*.js']
+        src: ['test/spec/**/*.js']
       }
     },
 
@@ -187,7 +189,7 @@ module.exports = function (grunt) {
         devDependencies: true,
         src: '<%= karma.unit.configFile %>',
         ignorePath:  /\.\.\//,
-        fileTypes:{
+        fileTypes: {
           js: {
             block: /(([\s\t]*)\/{2}\s*?bower:\s*?(\S*))(\n|\r|.)*?(\/{2}\s*endbower)/gi,
               detect: {
@@ -415,9 +417,9 @@ module.exports = function (grunt) {
       server: [
         'compass:server'
       ],
-      test: [
-        'compass'
-      ],
+      // test: [
+      //   'compass'
+      // ],
       dist: [
         'compass:dist',
         'imagemin',
@@ -430,7 +432,11 @@ module.exports = function (grunt) {
       unit: {
         configFile: 'test/karma.conf.js',
         singleRun: true
-      }
+      },
+      dev: {
+        configFile: 'test/karma.conf.js',
+        singleRun: false
+      },
     }
   });
 
@@ -458,10 +464,10 @@ module.exports = function (grunt) {
   grunt.registerTask('test', [
     'clean:server',
     'wiredep',
-    'concurrent:test',
+    //'concurrent:test',
     'autoprefixer',
     'connect:test',
-    'karma'
+    'karma:unit'
   ]);
 
   grunt.registerTask('build', [

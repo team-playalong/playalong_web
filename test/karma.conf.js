@@ -22,10 +22,34 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       // bower:js
+      'bower_components/jquery/dist/jquery.js',
       'bower_components/angular/angular.js',
+      'bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
+      'bower_components/angular-animate/angular-animate.js',
+      'bower_components/angular-aria/angular-aria.js',
+      'bower_components/angular-material/angular-material.js',
+      'bower_components/angular-ui-router/release/angular-ui-router.js',
+      'bower_components/angular-material-icons/angular-material-icons.min.js',
+      'bower_components/bootstrap/dist/js/bootstrap.js',
+      'bower_components/firebase/firebase.js',
+      'bower_components/angularfire/dist/angularfire.js',
+      'bower_components/playalong.services/dist/scripts/scripts.js',
+      'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
-      "app/scripts/**/*.js",
+      
+
+      //App
+      'app/scripts/common.js',
+      'app/scripts/app.js',
+      'app/scripts/config/config.constants.js',
+      'app/scripts/config/config.route.js',
+      'app/scripts/controllers/main.js',
+      'app/scripts/controllers/sidebar.js',
+      'app/scripts/controllers/builder.js',
+      'app/scripts/controllers/chord.js',
+      'app/scripts/controllers/home.js',
+
       "test/mock/**/*.js",
       "test/spec/**/*.js"
     ],
