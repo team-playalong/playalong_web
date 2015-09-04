@@ -8,8 +8,8 @@
  * Controller of the playalongWebApp
  */
 angular.module('playalongWebApp')
-  .controller('MainCtrl', ['$scope', '$timeout', '$mdSidenav', '$mdUtil', '$log', 'paths',
-                  function ($scope, $timeout, $mdSidenav, $mdUtil, $log, paths) {
+  .controller('MainCtrl', ['$scope', '$timeout', '$mdSidenav', '$mdUtil', '$log', 'paths', '$state',
+                  function ($scope, $timeout, $mdSidenav, $mdUtil, $log, paths,$state) {
   $scope.initCtrl = function() {
     $scope.paths = paths;
     $scope.toggleLeft = buildToggler('left');
@@ -40,6 +40,10 @@ angular.module('playalongWebApp')
   };
   $scope.closeAlert = function(index) {
     $scope.allAlerts.splice(index, 1);
+  };
+  $scope.goToChordPage = function(chord) {
+    $scope.chord = chord;
+    $state.go('chord');
   };
   
   $scope.initCtrl();

@@ -1,0 +1,23 @@
+<md-content class="md-padding" id="topChords">
+    <div class="md-padding">
+      <h3>Top {{defaultTopLimit}} Chords:</h3>
+    </div>
+    <md-card layout-align="center" ng-if="topChords && topChords.length" class="ply-search-results">
+      <md-card-content>
+        <md-list>
+          <md-list-item class="md-2-line clickable"  ng-repeat="chord in topChords | orderBy: '-hitCount' track by $index" >
+            <img ng-src="{{chord.imagePath}}" class="md-avatar" ng-if="chord.imagePath" />
+            <div class="md-list-item-text" ng-click="goToChordPage(chord)"> 
+              <h3> {{ chord.artist }} </h3>
+              <p> {{ chord.title }} </p>
+              <p>{{chord.hitCount}} Hits</p>
+
+              <!-- http://codepen.io/TepigMC/pen/FIdHb -->
+              <star-rating class="non-clickable" ng-if="chord.rating" readonly="true"></star-rating>
+            </div>
+            <md-divider ></md-divider>
+          </md-list-item>
+          
+      </md-card-content>
+    </md-card>
+</md-content>
