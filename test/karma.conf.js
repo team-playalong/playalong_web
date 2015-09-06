@@ -21,6 +21,9 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      //Conf
+      'app/env.js',
+
       // bower:js
       'bower_components/jquery/dist/jquery.js',
       'bower_components/angular/angular.js',
@@ -38,17 +41,12 @@ module.exports = function(config) {
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       
-
+      
       //App
-      'app/scripts/common.js',
       'app/scripts/app.js',
       'app/scripts/config/config.constants.js',
       'app/scripts/config/config.route.js',
-      'app/scripts/controllers/main.js',
-      'app/scripts/controllers/sidebar.js',
-      'app/scripts/controllers/builder.js',
-      'app/scripts/controllers/chord.js',
-      'app/scripts/controllers/home.js',
+      'app/scripts/controllers/*.js',
 
       "test/mock/**/*.js",
       "test/spec/**/*.js"
@@ -76,6 +74,7 @@ module.exports = function(config) {
     // Which plugins to enable
     plugins: [
       "karma-phantomjs-launcher",
+      "karma-chrome-launcher",
       "karma-jasmine"
     ],
 
