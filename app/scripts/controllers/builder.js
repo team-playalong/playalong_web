@@ -8,31 +8,37 @@
  * Controller of the playalongWebApp
  */
 angular.module('playalongWebApp')
-.controller('BuilderCtrl',['$scope','chords', '$interval', '$timeout', function ($scope,chords, $interval,$timeout) {
+.controller('BuilderCtrl',['$scope','chords', '$interval', '$timeout','$stateParams', 
+  function ($scope,chords, $interval,$timeout,$stateParams) {
   $scope.chordRef = null; //Will reference the chord for Firebase process.binding
-  $scope.notValid = function(){
-    //TODO
-  };
-
-  $scope.createChordInDb = function(){
-    // if (!$scope.chord.title){ $scope.notValid(); return; }
-    // if (!$scope.chord.artist){ $scope.notValid(); return; }
-
-    chords.addChord($scope.chord)
-    .then(function(chord) {
-      $scope.chordRef = chord;
-      //We now have a reference to the entire chord object
-      $scope.chordRef.$bindTo($scope, "chord").then(function() {
-
+  
+  var handleChordSuccess = function(chord) {
+    $scope.chordRef = chord;
+    //We now have a reference to the entire chord object
+    $scope.chordRef.$bindTo($scope, "chord").then(function() {
       $scope.addAlert('success','Chord Added to Database');
-      $scope.message = 'Chord Added to Database';
-      $timeout(function(){
-        $scope.message = '';
-      }, 1000);
-
-      });
     });
   };
+
+  if ($stateParams && $stateParams.id) //Meaning continue editing existing chord
+  {
+    var result = chords.getChordById($stateParams.id);
+    if (result) {
+      //We now have a reference to the entire chord object
+      result.$bindTo($scope, "chord").then(function() {
+        $scope.addAlert('success','You may start editing');
+      });
+    }
+  }
+  else {
+    $scope.createChordInDb = function(){  
+      chords.addChord($scope.chord)
+      .then(handleChordSuccess)
+      .catch(function(error){
+          console.warn(error);
+        });
+    };
+  }  
 
   //Due to binding issues between the contenteditable div and the model
   $interval(function() {
@@ -42,8 +48,7 @@ angular.module('playalongWebApp')
 
   }, 2000, 0, true);
 
-  
-  $scope.chordOps = [ 'A', 'B', 'C', 'D', 'E', 'F', 'G' ];
+
   $scope.rawContent = '';
 
   $scope.chord = {
