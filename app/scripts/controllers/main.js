@@ -37,6 +37,8 @@ angular.module('playalongWebApp')
       type: type,
       msg: message
     });
+
+
   };
   $scope.closeAlert = function(index) {
     $scope.allAlerts.splice(index, 1);

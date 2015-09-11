@@ -26,7 +26,6 @@ describe('Controller: HomeCtrl', function () {
 
   it('should initialize all components', function() {
   	expect(scope).toBeDefined();
-  	expect(scope.currPage).toBe('Search');
   	expect(scope.searchByOptions.length).toBe(2);
   	expect(scope.searchByOptions[0].label).toBe('Song Name');
   	
