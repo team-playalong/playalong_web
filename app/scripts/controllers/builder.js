@@ -26,11 +26,22 @@ angular.module('playalongWebApp')
     if (result) {
       //We now have a reference to the entire chord object
       result.$bindTo($scope, "chord").then(function() {
+        if (document.getElementById('rawContent')) 
+        {
+          document.getElementById('rawContent').innerHTML = $scope.chord.content; 
+        }
         $scope.addAlert('success','You may start editing');
       });
     }
   }
   else {
+    $scope.chord = {
+      content: '',
+      artist: '',
+      title: ''
+    };
+    $scope.rawContent = '';
+
     $scope.createChordInDb = function(){  
       chords.addChord($scope.chord)
       .then(handleChordSuccess)
@@ -51,24 +62,10 @@ angular.module('playalongWebApp')
         $scope.chord.content = rawContent;  
       }
     }
-    
-    
-    
-
   }, 2000, 0, true);
 
-
-  $scope.rawContent = '';
-
-  $scope.chord = {
-    content: '',
-    artist: '',
-    title: ''
-  };
-
-  $scope.dirtyContent = false;
-
   $scope.scanForChords = function(str){
+    if (!str) {return;}
     str = str.replace(/($|\b|<div>)((?:G,C,D|A,B,C|E,C,D)|(?:[ABCDEFG](?:#|b)?)(?:\/[ABCDEFG]b)?(?:(?:(?:maj|min|sus|add|aug|dim)(?:\d{0,2}(?:#\d{1,2}|sus\d)?)?)|(?:m\d{0,2}(?:(?:maj|add|#)\d{0,2})?)|(?:-?\d{0,2}(?:\([^)]*\)|#\d{1,2})?))?)(^|\s|&nbsp;|<\/div>|<div>)/g, '<span class="chord">$2</span>');
     $scope.chord.content = str;
 
