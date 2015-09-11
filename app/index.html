@@ -47,7 +47,7 @@
           <md-list>
             <div ng-repeat="item in menuItems">
               <md-list-item class="md-3-line clickable">
-                <div class="md-list-item-text"  ui-sref="{{item.ref}}">
+                <div class="md-list-item-text" ng-click="close()" ui-sref="{{item.ref}}">
                   <i class="fa fa-{{item.icon}}"></i>
                   <md-button class="md-primary">{{item.text}}</md-button>
                 </div>
@@ -57,20 +57,22 @@
             </md-list>
         </md-content>
       </md-sidenav>
-      <md-content flex layout-padding class="ply-topnav">
-        <md-toolbar>
-          <div class="md-toolbar-tools">
-            <md-button class="md-icon-button" aria-label="Settings">
-              <ng-md-icon ng-click="toggleLeft()" icon="menu"></ng-md-icon>
-            </md-button>
-            <span class="clickable" ui-sref="home">
-                <img ng-src="{{paths.images.logo}}" class="ply-logo" alt="Washed Out" />
-                  {{currPage}}
-            </span>
-          </div>
-        </md-toolbar>
+      
+      <md-toolbar class="ply-topnav">
+        <div class="md-toolbar-tools">
+          <md-button class="md-icon-button" aria-label="Settings">
+            <ng-md-icon ng-click="toggleLeft()" icon="menu"></ng-md-icon>
+          </md-button>
+          <span class="clickable" ui-sref="home">
+              <img ng-src="{{paths.images.logo}}" class="ply-logo" alt="Washed Out" />
+                {{currPage}}
+          </span>
+        </div>
+      </md-toolbar>
+      
+      <md-content layout-padding>
+        <div ui-view class="ply-main-container"></div>
       </md-content>
-      <div ui-view class="ply-main-container"></div>
     </section>
     <div class="footer">
       <alert class="ply-alert-container" ng-repeat="alert in allAlerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>

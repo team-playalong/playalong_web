@@ -43,8 +43,17 @@ angular.module('playalongWebApp')
   //Due to binding issues between the contenteditable div and the model
   $interval(function() {
     //TODO - find less hawa solution
-    var rawContent = document.getElementById('rawContent').innerHTML;
-    $scope.chord.content = rawContent;
+    if (document.getElementById('rawContent')) 
+    {
+      var rawContent = document.getElementById('rawContent').innerHTML;  
+      if (rawContent)
+      {
+        $scope.chord.content = rawContent;  
+      }
+    }
+    
+    
+    
 
   }, 2000, 0, true);
 

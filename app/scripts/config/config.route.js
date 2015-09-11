@@ -3,10 +3,16 @@
 app.config(['$stateProvider','$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
       $stateProvider
-        .state("home",{ url: "/",               templateUrl: '../../views/home.html',     controller: 'HomeCtrl' })
+        .state("home",{ 
+          url: "/",
+          templateUrl: '../../views/home.html',     
+          title: 'Search',
+          controller: 'HomeCtrl' 
+        })
         .state("chord",         { url: "/chord/",      templateUrl: '../../views/chord.html',    controller: 'ChordCtrl' })
         .state('topChords',  { 
         		url: '/topChords',
+            title: 'Top 10 Chords',
         		templateUrl: '../../views/topChords.html',
         		controller: 'TopchordsCtrl'
       	})
@@ -23,5 +29,5 @@ app.config(['$stateProvider','$urlRouterProvider', function ($stateProvider, $ur
           controller: 'BuilderCtrl'
         });
 
-      $urlRouterProvider.otherwise('/builder/new');
+      $urlRouterProvider.otherwise('/');
 }]);

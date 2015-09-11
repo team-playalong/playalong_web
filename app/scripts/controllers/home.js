@@ -9,7 +9,6 @@
  */
 angular.module('playalongWebApp')
   .controller('HomeCtrl', ['$scope', '$rootScope','chords', function ($scope, $rootScope, chords) {
-  	$rootScope.currPage = 'Search';
   	$scope.searchByOptions = [
   		{
   			label: 'Song Name',
@@ -38,4 +37,14 @@ angular.module('playalongWebApp')
   			console.warn(error);
   		});
   	};	
+
+    $rootScope.$on('$stateChangeSuccess', 
+    /*jshint unused:false */
+    function(event, toState, toParams, fromState, fromParams){ 
+      if (toState.title)
+      {
+        $rootScope.currPage = toState.title;
+      }
+    });
+    /*jshint unused:true*/
   }]);

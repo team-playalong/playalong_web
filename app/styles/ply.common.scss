@@ -10,17 +10,18 @@ $PLY-LOGO-SIZE: 50px;
 
 .ply-app {
 	.ply-main-container {
+		margin-top: 70px; 
 		&.sidebar-open {
-			//margin-left: 300px;
 		}
 		
 		.ply-fab {
-			position: absolute;
+			position: fixed;
 			bottom:15px;
 			right:20px;
 			.ply-fab-icon {
 				fill: #ffffff;
 				line-height: 68px;
+				padding-top:5px; 
 				&.ply-fab-icon-dark {
 					fill: #212121;
 				}
@@ -29,6 +30,8 @@ $PLY-LOGO-SIZE: 50px;
 	}
 
 	.ply-topnav {
+		position: fixed;
+		top:0;
 		.ply-logo {
 			height: $PLY-LOGO-SIZE;
 			width: $PLY-LOGO-SIZE;
@@ -41,8 +44,6 @@ $PLY-LOGO-SIZE: 50px;
 
 
 	.ply-sidenav {
-		margin-top:8px;
-
 		.md-list-item-text {
 			width: 100%;		
 			.md-primary {
