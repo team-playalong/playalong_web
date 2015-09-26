@@ -3,7 +3,8 @@ var mockData = ( function() {
 	function getMockChord() {
 		return {
 			artist: 'Test Artist',
-			title: 'Test Title'
+			title: 'Test Title',
+			chordKey: 1
 		};
 	}
 	
