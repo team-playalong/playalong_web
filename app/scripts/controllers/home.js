@@ -9,6 +9,7 @@
  */
 angular.module('playalongWebApp')
   .controller('HomeCtrl', ['$scope', '$rootScope','chords', function ($scope, $rootScope, chords) {
+    $rootScope.currPage = 'Search';
   	$scope.searchByOptions = [
   		{
   			label: 'Song Name',

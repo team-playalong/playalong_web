@@ -8,8 +8,9 @@
  * Controller of the playalongWebApp
  */
 angular.module('playalongWebApp')
-.controller('BuilderCtrl',['$scope','chords', '$interval', '$timeout','$stateParams', 
-  function ($scope,chords, $interval,$timeout,$stateParams) {
+.controller('BuilderCtrl',['$scope','chords', '$interval', '$timeout','$stateParams', '$rootScope',
+  function ($scope,chords, $interval,$timeout,$stateParams,$rootScope) {
+  $rootScope.currPage = 'Chord Builder';
   $scope.chordRef = null; //Will reference the chord for Firebase process.binding
   
   var handleChordSuccess = function(chord) {

@@ -9,8 +9,9 @@
  * Controller of the playalongWebApp
  */
 angular.module('playalongWebApp')
-  .controller('TopchordsCtrl', ['$scope','chords',
-function ($scope,chords) {
+  .controller('TopchordsCtrl', ['$scope','chords','$rootScope',
+function ($scope,chords, $rootScope) {
+	$rootScope.currPage = 'Top 10 Chords';
 	$scope.defaultTopLimit = 10;
 	$scope.getTopChords = function(limitTo) {
 		limitTo = limitTo || $scope.defaultTopLimit;
