@@ -11,19 +11,14 @@ angular.module('playalongWebApp')
   .controller('SidebarCtrl',['$scope','$mdSidenav', function ($scope, $mdSidenav) {
     $scope.menuItems = [
     	{
-    		text: 'Home',
+    		text: 'Search',
     		ref: 'home',
-        icon: 'home'
+        icon: 'search'
     	},
       {
-        text: 'Favorites',
-        ref: 'favorites',
-        icon: 'star'
-      },
-      {
-        text: 'New Chords',
+        text: 'Chord Builder',
         ref: 'builder.new',
-        icon: ''
+        icon: 'pencil'
       }
     ];
 

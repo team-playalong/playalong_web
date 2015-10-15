@@ -3,26 +3,34 @@
       <md-card-content>
 
         <h2 class="md-title">Search For...</h2>
-        <form name="chordSearchForm" novalidate>
+        <form name="chordSearchForm" class="ply-search-form" novalidate>
           <div layout="row" layout-wrap>
-              <div flex="10" offset="10">
-                <md-select placeholder="..." ng-model="searchConfig.searchBy">
-                  <md-option ng-repeat="curr in searchByOptions" value="{{curr.value}}">{{curr.label}}</md-option>
-                </md-select>
+              <div flex="10">
+                <md-input-container>
+                  <md-select class="ply-search-form-select" placeholder="..." ng-model="searchConfig.searchBy">
+                    <md-option ng-repeat="curr in searchByOptions" value="{{curr.value}}">{{curr.label}}</md-option>
+                  </md-select>
+                </md-input-container>
+                
               </div>
-              <div flex="50">
+              <div flex="60">
                 <md-input-container>
                   <input md-maxlength="50" placeholder="Search Text..." required name="searchInput" ng-model="searchConfig.searchInput">
                   <!-- TODO - Hide required message before submit -->
                   <div ng-messages="chordSearchForm.searchInput.$error">
                     <!-- TODO - Messages from texts object -->
-                    <div ng-if="chordSearchForm.searchInput.$dirty && chordSearchForm.searchInput.$error" ng-message="required">This is required.</div>
+                    <div ng-if="chordSearchForm.searchInput.$dirty && chordSearchForm.searchInput.$invalid && chordSearchForm.searchInput.$error" ng-message="required">This is required.</div>
                   </div>
                 </md-input-container>
               </div>
               <div flex="20">
                 <md-button class="md-raised md-accent" type="submit" ng-click="searchChords()">Go</md-button>
               </div>
+          </div>
+          <div layout="row">
+            <div flex>
+              <md-button class="md-primary md-hue-2 md-raised" ui-sref="topChords">Top 10 Chords</md-button>
+            </div>
           </div>
         </form>      
       </md-card-content>

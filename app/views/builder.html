@@ -12,20 +12,34 @@
       <input required ng-model="chord.title">
     </md-input-container>
 
-    <h2>Lyrics and chords</h2>
+    
 
     <div class="row">
-      <div class="col-md-6"><div id="rawContent" class="editor col-md-6 editor-lyrics" pla-editor contentEditable></div></div>
-      <div class="col-md-6"><div class="chord-preview" ng-bind-html="chord.content"></div></div>
+      <div class="col-md-6">
+        <h4>Edit section</h4>
+        <div id="rawContent" class="editor col-md-6 editor-lyrics" pla-editor contentEditable></div>
+      </div>
+      <div class="col-md-6">
+        <h4>Preview section</h4>
+        <div class="chord-preview" ng-bind-html="chord.content"></div>
+      </div>
     </div>
 
     <!-- Currently Autosave -->
-    <!-- <md-button class="md-raised md-primary pull-right" type="submit" ng-click="saveChord()"></md-button> -->
-    <md-input-container>
+    <md-button  class="md-raised md-accent pull-right" 
+                type="submit" 
+                ng-click="createChordInDb()"
+                ng-if="!$stateParams.id">
+                Create Chord
+    </md-button>
+    <!-- <md-input-container>
       <md-switch id="publishChord" ng-model="chord.published" aria-label="Publish Chord">
         Publish Chord
       </md-switch>
-    </md-input-container>
+    </md-input-container> -->
 
   </md-content>
 </form>
+
+<!-- WalkMe -->
+<script type="text/javascript">(function() {var walkme = document.createElement('script'); walkme.type = 'text/javascript'; walkme.async = true; walkme.src = 'https://cdn.walkme.com/users/1c83059565204d8fb80637d97beae8a7/test/walkme_1c83059565204d8fb80637d97beae8a7_https.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(walkme, s); window._walkmeConfig = {smartLoad:true}; })();</script> 

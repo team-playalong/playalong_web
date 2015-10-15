@@ -8,8 +8,8 @@
  * Controller of the playalongWebApp
  */
 angular.module('playalongWebApp')
-  .controller('HomeCtrl', ['$scope', '$rootScope','chords','$state', function ($scope, $rootScope, chords,$state) {
-  	$rootScope.currPage = 'Search';
+  .controller('HomeCtrl', ['$scope', '$rootScope','chords', function ($scope, $rootScope, chords) {
+    $rootScope.currPage = 'Search';
   	$scope.searchByOptions = [
   		{
   			label: 'Song Name',
@@ -22,7 +22,7 @@ angular.module('playalongWebApp')
   	];
   	$scope.searchConfig = {
   		searchBy: $scope.searchByOptions[0].value,
-      searchInput: ''
+      searchInput: null
   	};
     
   	$scope.searchResults = [];
@@ -39,9 +39,13 @@ angular.module('playalongWebApp')
   		});
   	};	
 
-
-  	$scope.goToChordPage = function(chord) {
-  		$rootScope.chord = chord;
-  		$state.go('chord');
-  	};
+    $rootScope.$on('$stateChangeSuccess', 
+    /*jshint unused:false */
+    function(event, toState, toParams, fromState, fromParams){ 
+      if (toState.title)
+      {
+        $rootScope.currPage = toState.title;
+      }
+    });
+    /*jshint unused:true*/
   }]);

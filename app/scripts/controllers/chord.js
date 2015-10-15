@@ -31,5 +31,18 @@ angular.module('playalongWebApp')
 		  };
 	    	
   	}
+
+  	$scope.rateChord = function() {
+  		if (!$scope.chord ||
+  				!$scope.chord.chordKey ||
+  				!$scope.chordRating)
+  		{
+  			return;
+  		}
+  		chords.rateChord($scope.chord.chordKey,$scope.chordRating)
+  		.then(function() {
+  			$scope.addAlert('success','Thanks For Rating...');
+  		});
+  	};
     
   }]);
