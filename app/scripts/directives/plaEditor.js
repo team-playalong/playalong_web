@@ -16,6 +16,24 @@ angular.module('playalongWebApp')
           .on('keyup keypress blur', function(){
             scope.scanForChords(element.html());
           })
+          .on('keydown', function(e){
+            if (e.keyCode === 9) { //  tab key
+              e.preventDefault();  // this will prevent us from tabbing out of the editor
+
+              // now insert four non-breaking spaces for the tab key
+              var doc = element[0].ownerDocument.defaultView;
+              var sel = doc.getSelection();
+              var range = sel.getRangeAt(0);
+
+              var tabNode = document.createTextNode("\u00a0\u00a0\u00a0\u00a0");
+              range.insertNode(tabNode);
+
+              range.setStartAfter(tabNode);
+              range.setEndAfter(tabNode);
+              sel.removeAllRanges();
+              sel.addRange(range);
+            }
+          })
           .on('paste',function(e) {
             e.preventDefault();
 
@@ -28,17 +46,10 @@ angular.module('playalongWebApp')
 
               var $item = $(val);
               if ($item.length > 0){
-                var saveStyle = {
-                  'font-weight': $item.css('font-weight'),
-                  'font-style': $item.css('font-style')
-                };
-                $item.removeAttr('style')
-                  .removeClass()
-                  .css(saveStyle);
+                $item.removeAttr('style').removeClass();
               }
             });
 
-            // remove unnecesary tags (if paste from word)
             $(this).children('style').remove();
             $(this).children('meta').remove();
             $(this).children('link').remove();
