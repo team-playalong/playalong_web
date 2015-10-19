@@ -33,7 +33,7 @@ angular.module('playalongWebApp')
               sel.removeAllRanges();
               sel.addRange(range);
             }
-          })
+          });
           // .on('paste',function(e) {
           //   e.preventDefault();
 

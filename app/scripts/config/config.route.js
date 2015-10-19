@@ -8,7 +8,11 @@ app.config(['$stateProvider','$urlRouterProvider', function ($stateProvider, $ur
           templateUrl: '../../views/home.html',     
           controller: 'HomeCtrl' 
         })
-        .state("chord",         { url: "/chord/",      templateUrl: '../../views/chord.html',    controller: 'ChordCtrl' })
+        .state("chord", { 
+          url: "/chord/:chordKey",
+          templateUrl: '../../views/chord.html',    
+          controller: 'ChordCtrl' 
+        })
         .state('topChords',  { 
         		url: '/topChords',
         		templateUrl: '../../views/topChords.html',

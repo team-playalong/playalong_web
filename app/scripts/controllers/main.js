@@ -45,7 +45,7 @@ angular.module('playalongWebApp')
   };
   $scope.goToChordPage = function(chord) {
     $scope.chord = chord;
-    $state.go('chord');
+    $state.go('chord',{chordKey: chord.chordKey});
   };
   
   $scope.initCtrl();

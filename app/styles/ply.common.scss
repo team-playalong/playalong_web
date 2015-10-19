@@ -8,6 +8,11 @@
 $PLY-ICON-LG: 20px;
 $PLY-LOGO-SIZE: 50px;
 
+body {
+	outline: none !important;
+}
+
+
 .ply-app {
 	.ply-main-container {
 		margin-top: 70px; 
@@ -71,11 +76,8 @@ $PLY-LOGO-SIZE: 50px;
 	    display: inline-block;
 	    cursor: pointer;
 	    &.filled {
-	      color: #fd0; //#21568b
+	      color: $ply-yellow;
 	    }
-	  }
-	  &.readonly li.filled {
-	    color: #666;
 	  }
 	}
 
