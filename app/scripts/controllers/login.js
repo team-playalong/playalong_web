@@ -11,7 +11,9 @@ angular.module('playalongWebApp')
   .controller('LoginCtrl', ['$scope','login',
 		function($scope,login) {
 		$scope.loginSrv = login;
-    $scope.loginSocial = function(platform) {
+		$scope.user = login.getUser();
+
+  	$scope.loginSocial = function(platform) {
       login.loginSocial(platform)
       .then(function(data){
       	console.log(data);

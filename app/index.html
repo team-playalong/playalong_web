@@ -80,8 +80,8 @@
                   <ng-md-icon icon="facebook" size="20"></ng-md-icon>
               </md-button>
             </div>
-            <div ng-if="loginSrv.getUser()">
-              TODO - Logged in
+            <div ng-if="loginSrv.getUser()" ng-click="loginSrv.logout()">
+              <md-button>Logout</md-button>
             </div>
           </div>
         </div>
