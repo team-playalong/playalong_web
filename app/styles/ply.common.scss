@@ -7,6 +7,7 @@
 //TODO - move to var
 $PLY-ICON-LG: 20px;
 $PLY-LOGO-SIZE: 50px;
+$LABEL-FONT-SIZE: 14px; 
 
 body {
 	outline: none !important;
@@ -37,6 +38,15 @@ body {
 	.ply-topnav {
 		position: fixed;
 		top:0;
+		.ply-topnav-login {
+			.ply-topnav-login-title {
+				font-size: $LABEL-FONT-SIZE; 
+			}
+			.ply-topnav-login-btn {
+				padding:0;
+				width: 25px;
+			}
+		}
 		.ply-logo {
 			height: $PLY-LOGO-SIZE;
 			width: $PLY-LOGO-SIZE;
