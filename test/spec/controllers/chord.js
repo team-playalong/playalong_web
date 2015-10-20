@@ -24,6 +24,9 @@ beforeEach(inject(function ($controller, $rootScope,$httpBackend,_$q_) {
         increaseChordHitCount: function() {
           return $q.when({});
         }
+      },
+      $stateParams: {
+        chordKey: 1
       }
     });
 

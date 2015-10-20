@@ -8,10 +8,11 @@
  * Controller of the playalongWebApp
  */
 angular.module('playalongWebApp')
-  .controller('MainCtrl', ['$scope', '$timeout', '$mdSidenav', '$mdUtil', '$log', 'paths', '$state',
-                  function ($scope, $timeout, $mdSidenav, $mdUtil, $log, paths,$state) {
+  .controller('MainCtrl', ['$scope', '$timeout', '$mdSidenav', '$mdUtil', '$log', 'paths', '$state','login',
+                  function ($scope, $timeout, $mdSidenav, $mdUtil, $log, paths,$state, login) {
   $scope.initCtrl = function() {
     $scope.paths = paths;
+    $scope.user = login.getUser();
     $scope.toggleLeft = buildToggler('left');
     $scope.allAlerts = [];
   };

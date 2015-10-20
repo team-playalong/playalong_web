@@ -65,8 +65,25 @@
           </md-button>
           <span class="clickable" ui-sref="home">
               <img ng-src="{{paths.images.logo}}" class="ply-logo" alt="Washed Out" />
-                {{currPage}}
+                
           </span>
+          <span flex></span>
+          <div class="ply-topnav-login"
+                ng-controller="LoginCtrl">
+            <div ng-if="!loginSrv.getUser()">
+              <md-button class="md-icon-button" aria-label="Google"
+                          ng-click="loginSocial('facebook')">
+                  <ng-md-icon icon="google-plus" size="20"></ng-md-icon>
+              </md-button>
+              <md-button  class="md-icon-button" aria-label="Google" 
+                          ng-click="loginSocial('google')">
+                  <ng-md-icon icon="facebook" size="20"></ng-md-icon>
+              </md-button>
+            </div>
+            <div ng-if="loginSrv.getUser()">
+              TODO - Logged in
+            </div>
+          </div>
         </div>
       </md-toolbar>
       
@@ -111,6 +128,7 @@
     <script src="scripts/config/config.themes.js"></script>
     <script src="scripts/directives/star-rating.js"></script>
     <script src="scripts/controllers/topchords.js"></script>
+    <script src="scripts/controllers/login.js"></script>
     <!-- endbuild -->
 
     
