@@ -17,7 +17,7 @@ angular.module('playalongWebApp')
       $scope.chordRating = 5;
 
       $scope.chord.chordKey = $scope.chord.chordKey || angular.copy($stateParams.chordKey) ;
-      chords.increaseChordHitCount($scope.chord.$id);
+      chords.increaseChordHitCount($scope.chord.$id || $scope.chord.chordKey);
 
       $scope.chordFab = {
         topDirections: ['left', 'up'],
