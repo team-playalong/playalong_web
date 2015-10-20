@@ -14,12 +14,12 @@ angular.module('playalongWebApp')
     		text: 'Search',
     		ref: 'home',
         icon: 'search'
-    	},
-      {
-        text: 'Chord Builder',
-        ref: 'builder.new',
-        icon: 'pencil'
-      }
+    	}
+      // ,{
+      //   text: 'Chord Builder',
+      //   ref: 'builder.new',
+      //   icon: 'pencil'
+      // }
     ];
 
 

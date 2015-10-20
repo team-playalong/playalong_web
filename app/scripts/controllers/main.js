@@ -15,6 +15,9 @@ angular.module('playalongWebApp')
     $scope.user = login.getUser();
     $scope.toggleLeft = buildToggler('left');
     $scope.allAlerts = [];
+    $scope.mainCtrlConfig = {
+      alertTimeout: 3000
+    };
   };
 
   /**
@@ -33,12 +36,15 @@ angular.module('playalongWebApp')
   }
 
   $scope.addAlert = function(type, message) {
-
-    $scope.allAlerts.push({
+    var alert = {
       type: type,
       msg: message
-    });
+    };
+    $scope.allAlerts.push(alert);
 
+    $timeout(function(){
+        $scope.allAlerts.splice($scope.allAlerts.indexOf(alert), 1);
+    }, $scope.mainCtrlConfig.alertTimeout,false);
 
   };
   $scope.closeAlert = function(index) {
