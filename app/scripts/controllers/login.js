@@ -8,15 +8,29 @@
  * Controller of the playalongWebApp
  */
 angular.module('playalongWebApp')
-  .controller('LoginCtrl', ['$scope','login',
-		function($scope,login) {
-		$scope.loginSrv = login;
-		$scope.user = login.getUser();
+  .controller('LoginCtrl', ['$scope','login','paths',
+		function($scope,login,paths) {
+		$scope.login = login;
+    $scope.paths = paths; 
+    
 
   	$scope.loginSocial = function(platform) {
       login.loginSocial(platform)
-      .then(function(data){
-      	console.log(data);
+      .then(function(/*data*/){
       });
+    };
+
+    $scope.setAvatarImage = function() {
+      if (!login.isLoggedIn())
+      {
+        return paths.images.emptyAvatar;
+      }
+      else { //get the image from the auth object
+        var auth = $scope.login.getAuth();
+        if (auth && auth.provider)
+        {
+          return auth[auth.provider].profileImageURL;
+        }
+      }
     };
   }]);

@@ -1,0 +1,38 @@
+<md-toolbar class="ply-topnav">
+  <div class="md-toolbar-tools">
+    <md-button class="md-icon-button" aria-label="Settings">
+      <ng-md-icon ng-click="toggleLeft()" icon="menu" size="30"></ng-md-icon>
+    </md-button>
+    <span class="clickable" ui-sref="home">
+        <img ng-src="{{paths.images.logo}}" class="ply-logo" alt="Washed Out" />
+          
+    </span>
+    <span>Playalong | </span>
+    <span>&nbsp;{{currPage}}</span>  
+    <span flex></span>
+
+    <div class="ply-topnav-login"
+          ng-controller="LoginCtrl">
+
+      <div ng-if="!login.isLoggedIn()">
+        <span class="ply-topnav-login-title">Hi There, Login With:</span>
+        <md-button class="md-icon-button ply-topnav-login-btn" 
+                    aria-label="Google"
+                    ng-click="loginSocial('google')">
+          <md-tooltip md-direction="down">Google</md-tooltip>
+          <ng-md-icon icon="google-plus" size="20"></ng-md-icon>
+        </md-button>
+        <md-button  class="md-icon-button ply-topnav-login-btn" 
+                    aria-label="Google" 
+                    ng-click="loginSocial('facebook')">
+          <md-tooltip md-direction="down">Facebook</md-tooltip>
+            <ng-md-icon icon="facebook" size="20"></ng-md-icon>
+        </md-button>
+      </div>
+      <div ng-if="login.isLoggedIn()">
+        <img ng-src="{{::setAvatarImage()}}" class="md-avatar ply-topnav-login-avatar" alt="No Image" />
+        <md-button ng-click="login.logout()">Logout</md-button>
+      </div>
+    </div>
+  </div>
+</md-toolbar>

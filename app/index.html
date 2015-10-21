@@ -39,62 +39,9 @@
 
   <div ng-controller="MainCtrl" layout="column" class="ply-app">
     <section flex>
-      <md-sidenav class="md-sidenav-left md-whiteframe-z2 ply-sidenav" md-component-id="left">
-        <md-toolbar class="md-theme-indigo" md-scroll-shrink="true">
-          <h1 class="md-toolbar-tools">PlaYalong</h1>
-        </md-toolbar>
-        <md-content layout-padding ng-controller="SidebarCtrl">
-          <md-list>
-            <div ng-repeat="item in menuItems">
-              <md-list-item class="md-3-line clickable">
-                <div class="md-list-item-text" ng-click="close()" ui-sref="{{item.ref}}">
-                  <i class="fa fa-{{item.icon}}"></i>
-                  <md-button class="md-primary">{{item.text}}</md-button>
-                </div>
-              </md-list-item>
-              <md-divider ></md-divider>
-             </div>
-            </md-list>
-        </md-content>
-      </md-sidenav>
+      <ng-include src="'views/templates/sidenav.html'"></ng-include>
+      <ng-include src="'views/templates/toolbar.html'"></ng-include>
       
-      <md-toolbar class="ply-topnav">
-        <div class="md-toolbar-tools">
-          <md-button class="md-icon-button" aria-label="Settings">
-            <ng-md-icon ng-click="toggleLeft()" icon="menu" size="30"></ng-md-icon>
-          </md-button>
-          <span class="clickable" ui-sref="home">
-              <img ng-src="{{paths.images.logo}}" class="ply-logo" alt="Washed Out" />
-                
-          </span>
-          <span>Playalong | </span>
-          <span>&nbsp;{{currPage}}</span>  
-          <span flex></span>
-
-          <div class="ply-topnav-login"
-                ng-controller="LoginCtrl">
-
-            <div ng-if="!loginSrv.getUser()">
-              <span class="ply-topnav-login-title">Login With:</span>
-              <md-button class="md-icon-button ply-topnav-login-btn" 
-                          aria-label="Google"
-                          ng-click="loginSocial('facebook')">
-                <md-tooltip md-direction="down">Google</md-tooltip>
-                <ng-md-icon icon="google-plus" size="20"></ng-md-icon>
-              </md-button>
-              <md-button  class="md-icon-button ply-topnav-login-btn" 
-                          aria-label="Google" 
-                          ng-click="loginSocial('google')">
-                <md-tooltip md-direction="down">Facebook</md-tooltip>
-                  <ng-md-icon icon="facebook" size="20"></ng-md-icon>
-              </md-button>
-            </div>
-            <div ng-if="loginSrv.getUser()" ng-click="loginSrv.logout()">
-              <md-button>Logout</md-button>
-            </div>
-          </div>
-        </div>
-      </md-toolbar>
       
       <md-content layout-padding>
         <div ui-view class="ply-main-container"></div>
@@ -102,6 +49,8 @@
     </section>
     <div class="footer">
       <alert class="ply-alert-container" ng-repeat="alert in allAlerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+      
+      <div style="font-size:8px; padding-left:5px;">Icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></div>
     </div>
   </div>
     <script src="env.js"></script>

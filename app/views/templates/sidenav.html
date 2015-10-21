@@ -1,0 +1,18 @@
+<md-sidenav class="md-sidenav-left md-whiteframe-z2 ply-sidenav" md-component-id="left">
+  <md-toolbar class="md-theme-indigo" md-scroll-shrink="true">
+    <h1 class="md-toolbar-tools">PlaYalong</h1>
+  </md-toolbar>
+  <md-content layout-padding ng-controller="SidebarCtrl">
+    <md-list>
+      <div ng-repeat="item in menuItems">
+        <md-list-item class="md-3-line clickable">
+          <div class="md-list-item-text" ng-click="close()" ui-sref="{{item.ref}}">
+            <i class="fa fa-{{item.icon}}"></i>
+            <md-button class="md-primary">{{item.text}}</md-button>
+          </div>
+        </md-list-item>
+        <md-divider ></md-divider>
+       </div>
+      </md-list>
+  </md-content>
+</md-sidenav>

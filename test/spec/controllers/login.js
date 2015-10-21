@@ -22,6 +22,15 @@ describe('Controller: LoginCtrl', function () {
         },
         isLoggedIn: function() {
           return true;
+        },
+        getUser: function(platform) {
+          if (platform === 'google')
+          {
+            return mockData.getMockGoogleUser();
+          }
+          else {
+            return mockData.getMockFacebookUser();
+          }
         }
       }
     });
@@ -45,5 +54,31 @@ describe('Controller: LoginCtrl', function () {
       
       done();
     },50);
+  });
+
+  var defaultAvatar = 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ3ePATIeshhJP8o7lbQLaLLEt-VfMxnmoqURNdAKLu9rmy6z9M';
+  it('should set an avatar image depending on the users social network', function() {
+    //FACEBOOK
+    var res;
+    res = scope.setAvatarImage(); 
+    expect(res).toBe('myImagePath.png');
+
+    //GOOGLE
+    spyOn(scope.login,'getUser').and.callFake(function() {
+      return mockData.getMockGoogleUser();
+    });
+    res = scope.setAvatarImage(); 
+    expect(res).toBe('myGoogleImagePath.png');
+  });
+
+
+  it('should set an empty avatar imageif the user isnt logged in', function() {
+    //Logged out
+    spyOn(scope.login,'isLoggedIn').and.callFake(function() {
+      return false;
+    });
+    var res = scope.setAvatarImage(); 
+
+    expect(res).toBe(defaultAvatar);
   });
 });

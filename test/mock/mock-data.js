@@ -12,8 +12,28 @@ var mockData = ( function() {
 		return [getMockChord()];
 	}
 
+	function getMockGoogleUser() {
+		return {
+			provider: 'facebook',
+			facebook: {
+				profileImageURL: 'myGoogleImagePath.png'
+			}
+		};
+	}
+
+	function getMockFacebookUser() {
+		return {
+			provider: 'facebook',
+			facebook: {
+				profileImageURL: 'myImagePath.png'
+			}
+		};
+	}
+
 	return {
 		getMockChord: getMockChord,
-		getMockChordResults: getMockChordResults
+		getMockChordResults: getMockChordResults,
+		getMockGoogleUser: getMockGoogleUser,
+		getMockFacebookUser: getMockFacebookUser
 	};
 })();

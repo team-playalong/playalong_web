@@ -8,6 +8,7 @@
 $PLY-ICON-LG: 20px;
 $PLY-LOGO-SIZE: 50px;
 $LABEL-FONT-SIZE: 14px; 
+$AVATAR-DEMENSIONS: 64px;
 
 body {
 	outline: none !important;
@@ -46,6 +47,12 @@ body {
 				padding:0;
 				width: 25px;
 			}
+			.ply-topnav-login-avatar {
+				width: $AVATAR-DEMENSIONS;
+				height: $AVATAR-DEMENSIONS;
+				padding:5px;
+				border-radius: 50%;
+			}
 		}
 		.ply-logo {
 			height: $PLY-LOGO-SIZE;
@@ -81,7 +88,6 @@ body {
 	    padding: 1px;
 	    color: #ddd;
 	    font-size: 20px;
-	    text-shadow: .05em .05em #aaa;
 	    list-style-type: none;
 	    display: inline-block;
 	    cursor: pointer;
