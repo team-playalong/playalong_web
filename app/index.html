@@ -28,7 +28,7 @@
       ga('create', 'UA-66639324-1', 'auto');
       ga('send', 'pageview');
 
-    </script>    
+    </script>
 
 
 
@@ -41,16 +41,16 @@
     <section flex>
       <ng-include src="'views/templates/sidenav.html'"></ng-include>
       <ng-include src="'views/templates/toolbar.html'"></ng-include>
-      
-      
+
+
       <md-content layout-padding>
         <div ui-view class="ply-main-container"></div>
       </md-content>
     </section>
     <div class="footer">
       <alert class="ply-alert-container" ng-repeat="alert in allAlerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
-      
-      <div style="font-size:8px; padding-left:5px;">Icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></div>
+
+      <div style="font-size:8px; padding-left:5px; position:absolute; bottom:0;">Icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></div>
     </div>
   </div>
     <script src="env.js"></script>
@@ -90,7 +90,7 @@
     <script src="scripts/controllers/login.js"></script>
     <!-- endbuild -->
 
-    
+
 
 </body>
 </html>

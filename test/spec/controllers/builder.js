@@ -23,7 +23,7 @@ describe('Controller: BuilderctrlCtrl', function () {
       getChordById: function() {
         return {
           $bindTo: function() {
-            return $q.when({});
+            return $q.when(mockData.getMockChord());
           }
         };
       }
@@ -61,5 +61,12 @@ describe('Controller: BuilderctrlCtrl', function () {
     scope.isPreviewMode = true;
     res = scope.getTextByMode();
     expect(res).toBe('Edit');
+  });
+
+  it('should handle switching between edit and preview modes', function() {
+    spyOn(scope,'scanForChords');
+    scope.isPreviewMode = true;
+    scope.handleSwitchModes();
+    expect(scope.scanForChords).toHaveBeenCalled();
   });
 });

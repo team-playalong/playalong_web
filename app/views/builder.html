@@ -2,32 +2,35 @@
 
   <div class="message-bar" ng-model="message"></div>
   <md-content class="md-padding md-whiteframe-z4 builder">
-    <md-input-container>
-      <label>Artist</label>
-      <input required name="artist" ng-model="chord.artist">
-    </md-input-container>
-
-    <md-input-container>
-      <label>Title</label>
-      <input required ng-model="chord.title">
-    </md-input-container>
+    <div layout="row">
+      <md-input-container flex>
+        <label>Artist</label>
+        <input required name="artist" ng-model="chord.artist">
+      </md-input-container>
+      <span flex="10"></span>
+      <md-input-container flex>
+        <label>Title</label>
+        <input required ng-model="chord.title">
+      </md-input-container>
+    </div>
+    
 
     
     <div layout="row" layout-wrap>
         <div flex="50">
-          <md-switch class="ply-switch" ng-model="isPreviewMode" aria-label="Switch 1">
+          <md-switch class="ply-switch" ng-model="isPreviewMode" aria-label="Switch 1" ng-change="handleSwitchModes()">
               Switch To {{getTextByMode()}} Mode
             </md-switch>
         </div>
     </div>
     <div layout="row">
-      <div flex="100" ng-if="!isPreviewMode">
-        <h4>Edit section</h4>
-        <div id="rawContent" class="editor col-md-6 editor-lyrics" pla-editor contentEditable></div>
+      <div flex="100" ng-show="!isPreviewMode">
+        <h5>Lyrics and chords go here... Switch between modes to see how it's like</h5>
+        <div id="rawContent" class="editor editor-editable" pla-editor contentEditable></div>
       </div>
-      <div flex="100" ng-if="isPreviewMode">
-        <h4>Preview section</h4>
-        <div class="chord-preview" ng-bind-html="chord.content"></div>
+      <div flex="100" ng-show="isPreviewMode">
+        <h5>Preview section</h5>
+        <div class="editor chord-preview" ng-bind-html="chord.content"></div>
       </div>
     </div>
 

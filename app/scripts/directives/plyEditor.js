@@ -13,9 +13,9 @@ angular.module('playalongWebApp')
       scope: 1,
       link: function postLink(scope, element) {
         element
-          .on('keyup keypress blur', function(){
-            scope.scanForChords(element.html());
-          })
+          // .on('keyup keypress blur', function(){
+          //   scope.scanForChords(element.html());
+          // })
           .on('keydown', function(e){
             if (e.keyCode === 9) { //  tab key
               e.preventDefault();  // this will prevent us from tabbing out of the editor

@@ -1,25 +1,31 @@
 @import "_ply.vars.scss";
 
+$ply-editor-font-size: 20px;
+
+
 .builder {
   .editor {
     border: 0;
-    font-size: 1em;
+    font-size: $ply-editor-font-size;
     border-bottom: 1px solid #BDBDBD;
     margin-bottom: 20px;
     width: 100%;
-
+    padding: 7px;
+    &.editor-editable {
+      
+      .chord {
+        color: $primary-text !important;  
+      }
+    }
     &:focus {
       border: 0;
       outline: none !important;
       border-bottom: 2px solid $brand-primary;
+      background-color: $ply-grey-light;
     }
   }
 
-  .chord-preview {
-    font-size: 1em;
-    border-bottom: 1px solid #BDBDBD;
-    margin-bottom: 20px;
-    width: 100%;
+  &.chord-preview {
   }
 
   h2 {

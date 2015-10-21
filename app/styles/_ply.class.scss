@@ -1,5 +1,7 @@
 @import '_ply.vars.scss';
 
+$ply-chord-font-size: 16px;
+
 //Common Classes
 .clickable {
   cursor: pointer;
@@ -11,5 +13,10 @@
 
 .ply-chord {
 	color: #0288D1;
+}
+
+.chord {
+  color: $ply-pink;
+  font-size: $ply-chord-font-size;
 }
 
