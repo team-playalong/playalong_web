@@ -13,13 +13,19 @@
     </md-input-container>
 
     
-
-    <div class="row">
-      <div class="col-md-6">
+    <div layout="row" layout-wrap>
+        <div flex="50">
+          <md-switch class="ply-switch" ng-model="isPreviewMode" aria-label="Switch 1">
+              Switch To {{ ::getTextByMode() }}
+            </md-switch>
+        </div>
+    </div>
+    <div layout="row">
+      <div flex="100" ng-if="!isPreviewMode">
         <h4>Edit section</h4>
         <div id="rawContent" class="editor col-md-6 editor-lyrics" pla-editor contentEditable></div>
       </div>
-      <div class="col-md-6">
+      <div flex="100" ng-if="isPreviewMode">
         <h4>Preview section</h4>
         <div class="chord-preview" ng-bind-html="chord.content"></div>
       </div>

@@ -23,7 +23,7 @@ describe('Controller: LoginCtrl', function () {
         isLoggedIn: function() {
           return true;
         },
-        getUser: function(platform) {
+        getAuth: function(platform) {
           if (platform === 'google')
           {
             return mockData.getMockGoogleUser();
@@ -56,7 +56,7 @@ describe('Controller: LoginCtrl', function () {
     },50);
   });
 
-  var defaultAvatar = 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ3ePATIeshhJP8o7lbQLaLLEt-VfMxnmoqURNdAKLu9rmy6z9M';
+  var defaultAvatar = './images/avatar.png';
   it('should set an avatar image depending on the users social network', function() {
     //FACEBOOK
     var res;
@@ -64,7 +64,7 @@ describe('Controller: LoginCtrl', function () {
     expect(res).toBe('myImagePath.png');
 
     //GOOGLE
-    spyOn(scope.login,'getUser').and.callFake(function() {
+    spyOn(scope.login,'getAuth').and.callFake(function() {
       return mockData.getMockGoogleUser();
     });
     res = scope.setAvatarImage(); 

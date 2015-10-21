@@ -51,4 +51,15 @@ describe('Controller: BuilderctrlCtrl', function () {
     expect(scope.addAlert).toHaveBeenCalledWith('success','You may start editing');
     
   });
+
+  it('should get the appopriate text according to the switch mode', function() {
+    var res;
+    res = scope.getTextByMode();
+
+    expect(res).toBe('Preview');
+
+    scope.isPreviewMode = true;
+    res = scope.getTextByMode();
+    expect(res).toBe('Edit');
+  });
 });

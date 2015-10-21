@@ -72,4 +72,8 @@ angular.module('playalongWebApp')
 
     $scope.$apply();
   };
+
+  $scope.getTextByMode = function() {
+    return $scope.isPreviewMode ? 'Edit' : 'Preview';
+  };
 }]);
