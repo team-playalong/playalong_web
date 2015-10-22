@@ -7,15 +7,16 @@
  * # plaLyricsEditor
  */
 angular.module('playalongWebApp')
-  .directive('plaEditor', function () {
+  .directive('plaEditor', ['$interval',function ($interval) {
     return {
       restrict: 'A',
       scope: 1,
       link: function postLink(scope, element) {
+        var hebrewRegex = new RegExp(/[\u0590-\u05e8\u05e9-\u05ff]/g);
+
+
+        element.html('<div class="rowWrapper">&nbsp;</div>');
         element
-          // .on('keyup keypress blur', function(){
-          //   scope.scanForChords(element.html());
-          // })
           .on('keydown', function(e){
             if (e.keyCode === 9) { //  tab key
               e.preventDefault();  // this will prevent us from tabbing out of the editor
@@ -34,6 +35,18 @@ angular.module('playalongWebApp')
               sel.addRange(range);
             }
           });
+          
+          $interval(function() {
+            var match = element[0].innerHTML.match(hebrewRegex);
+            if (match && match.length)
+            {
+              angular.element('.rowWrapper').css('direction','rtl');
+            }
+            else {
+              angular.element('.rowWrapper').css('direction','ltr');
+            }
+          },2000);
+          
           // .on('paste',function(e) {
           //   e.preventDefault();
 
@@ -58,4 +71,4 @@ angular.module('playalongWebApp')
         element.focus();
       }
     };
-  });
+  }]);
