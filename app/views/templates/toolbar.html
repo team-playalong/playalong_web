@@ -31,7 +31,9 @@
       </div>
       <div ng-if="login.isLoggedIn()">
         <img ng-src="{{::setAvatarImage()}}" class="md-avatar ply-topnav-login-avatar" alt="No Image" />
-        <md-button ng-click="login.logout()">Logout</md-button>
+        <span class="ply-topnav-login-title">Hi {{login.getFirstName()}} | </span>
+         
+        <md-button class="ply-btn-ghost" ng-click="login.logout()">Logout</md-button>
       </div>
     </div>
   </div>

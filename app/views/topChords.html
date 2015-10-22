@@ -1,6 +1,7 @@
 <md-content class="md-padding" id="topChords">
     <md-card layout-align="center" ng-if="topChords && topChords.length" class="ply-search-results">
       <md-card-content>
+        <h3>Here are our most viewed chords</h3>
         <md-list>
           <md-list-item class="md-2-line clickable"  ng-repeat="chord in topChords | orderBy: '-hitCount' track by $index" >
             <img ng-src="{{chord.imagePath}}" class="md-avatar" ng-if="chord.imagePath" />
