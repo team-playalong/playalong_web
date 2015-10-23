@@ -10,8 +10,8 @@
  */
 
 angular.module('playalongWebApp')
-  .controller('ChordCtrl',['$scope','$rootScope', '$state','chords', '$stateParams',
-    function ($scope,$rootScope,$state,chords, $stateParams) {
+  .controller('ChordCtrl',['$scope','$rootScope', '$state','chords', '$stateParams','toast',
+    function ($scope,$rootScope,$state,chords, $stateParams,toast) {
     $scope.initCtrl = function() {
       $rootScope.currPage = $scope.chord.artist + ' - ' + $scope.chord.title;
       $scope.chordRating = 5;
@@ -59,9 +59,9 @@ angular.module('playalongWebApp')
   		{
   			return;
   		}
-  		chords.rateChord($scope.chord.$id,$scope.chordRating)
+  		chords.rateChord($scope.chord.$id || $scope.chord.chordKey,$scope.chordRating)
   		.then(function() {
-  			$scope.addAlert('success','Thanks For Rating...');
+        toast.showSimpleToast('Thanks For Rating...');
   		});
   	};
     

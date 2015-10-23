@@ -1,5 +1,5 @@
 {
-  "firebase": "playalong",
+  "firebase": "playalong-prod",
   "public": "./dist",
   "ignore": [
     "firebase.json",

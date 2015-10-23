@@ -8,7 +8,8 @@
  * Controller of the playalongWebApp
  */
 angular.module('playalongWebApp')
-  .controller('HomeCtrl', ['$scope', '$rootScope','chords', function ($scope, $rootScope, chords) {
+  .controller('HomeCtrl', ['$scope', '$rootScope','chords',
+      function ($scope, $rootScope, chords) {
     $rootScope.currPage = 'Search';
   	$scope.searchByOptions = [
   		{
@@ -48,4 +49,5 @@ angular.module('playalongWebApp')
       }
     });
     /*jshint unused:true*/
+
   }]);

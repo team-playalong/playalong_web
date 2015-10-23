@@ -64,9 +64,10 @@ describe('Controller: BuilderctrlCtrl', function () {
   });
 
   it('should handle switching between edit and preview modes', function() {
-    spyOn(scope,'scanForChords');
+    spyOn(angular,'element');
     scope.isPreviewMode = true;
     scope.handleSwitchModes();
-    expect(scope.scanForChords).toHaveBeenCalled();
+    
+    expect(angular.element).toHaveBeenCalled();
   });
 });

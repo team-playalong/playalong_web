@@ -35,18 +35,6 @@ angular.module('playalongWebApp')
     return debounceFn;
   }
 
-  $scope.addAlert = function(type, message) {
-    var alert = {
-      type: type,
-      msg: message
-    };
-    $scope.allAlerts.push(alert);
-
-    $timeout(function(){
-        $scope.allAlerts.splice($scope.allAlerts.indexOf(alert), 1);
-    }, $scope.mainCtrlConfig.alertTimeout,false);
-
-  };
   $scope.closeAlert = function(index) {
     $scope.allAlerts.splice(index, 1);
   };

@@ -8,8 +8,8 @@
  * Controller of the playalongWebApp
  */
 angular.module('playalongWebApp')
-.controller('BuilderCtrl',['$scope','chords', '$interval', '$timeout','$stateParams', '$rootScope',
-  function ($scope,chords, $interval,$timeout,$stateParams,$rootScope) {
+.controller('BuilderCtrl',['$scope','chords', '$interval', '$timeout','$stateParams', '$rootScope','toast',
+  function ($scope,chords, $interval,$timeout,$stateParams,$rootScope,toast) {
   $rootScope.currPage = 'Chord Builder';
   $scope.chordRef = null; //Will reference the chord for Firebase process.binding
   
@@ -17,7 +17,7 @@ angular.module('playalongWebApp')
     $scope.chordRef = chord;
     //We now have a reference to the entire chord object
     $scope.chordRef.$bindTo($scope, "chord").then(function() {
-      $scope.addAlert('success','Chord Added to Database');
+      toast.showSimpleToast('Chord Added to Database');
     });
   };
 
@@ -31,7 +31,7 @@ angular.module('playalongWebApp')
         {
           document.getElementById('rawContent').innerHTML = $scope.chord.content; 
         }
-        $scope.addAlert('success','You may start editing');
+        toast.showSimpleToast('You may start editing');
       });
     }
   }
@@ -70,12 +70,11 @@ angular.module('playalongWebApp')
   $scope.handleSwitchModes = function() {
     if ($scope.isPreviewMode)
     {
-      var rawContent = angular.element('#rawContent').html();
+      var rawContent = angular.element('#rawContent') ? angular.element('#rawContent').html() : null;
       if (rawContent)
       {
         $scope.scanForChords(rawContent);        
       }
-      
     }
   };
 }]);

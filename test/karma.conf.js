@@ -47,6 +47,7 @@ module.exports = function(config) {
       'app/scripts/config/config.constants.js',
       'app/scripts/config/config.route.js',
       'app/scripts/controllers/*.js',
+      'app/scripts/services/*.js',
 
       "test/mock/**/*.js",
       "test/spec/**/*.js"
