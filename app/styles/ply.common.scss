@@ -40,6 +40,9 @@ body {
 		position: fixed;
 		top:0;
 		.ply-topnav-login {
+			> div {
+				float: right;
+			}
 			.ply-topnav-login-title {
 				font-size: $LABEL-FONT-SIZE; 
 			}
@@ -61,6 +64,7 @@ body {
 		}
 		.md-icon-button {
 			fill: #ffffff;
+			vertical-align: middle;
 			padding: 5px;
 		}
 	}

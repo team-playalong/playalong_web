@@ -1,17 +1,17 @@
 <md-toolbar class="ply-topnav">
-  <div class="md-toolbar-tools">
-    <md-button class="md-icon-button" aria-label="Settings">
-      <ng-md-icon ng-click="toggleLeft()" icon="menu" size="30"></ng-md-icon>
-    </md-button>
-    <span class="clickable" ui-sref="home">
-        <img ng-src="{{paths.images.logo}}" class="ply-logo" alt="Washed Out" />
-          
-    </span>
-    <span>Playalong | </span>
-    <span>&nbsp;{{currPage}}</span>  
-    <span flex></span>
+  <div class="md-toolbar-tools" layout="row" layout-align="center">
+    <div flex="60">
+      <md-button class="md-icon-button" aria-label="Settings">
+        <ng-md-icon ng-click="toggleLeft()" icon="menu" size="30"></ng-md-icon>
+      </md-button>
 
-    <div class="ply-topnav-login"
+      <span class="clickable" ui-sref="home">
+        <img ng-src="{{paths.images.logo}}" class="ply-logo" alt="Washed Out" />
+      </span>
+      <span hide-sm>Playalong | {{currPage}}</span>
+    </div>
+    
+    <div flex="40" class="ply-topnav-login pull-right"
           ng-controller="LoginCtrl">
 
       <div ng-if="!login.isLoggedIn()">
@@ -35,6 +35,6 @@
          
         <md-button class="ply-btn-ghost" ng-click="login.logout()">Logout</md-button>
       </div>
-    </div>
+    </div>    
   </div>
 </md-toolbar>

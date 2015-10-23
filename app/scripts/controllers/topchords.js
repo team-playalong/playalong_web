@@ -14,7 +14,7 @@ function ($scope,chords, $rootScope) {
 	$rootScope.currPage = 'Top 10 Chords';
 	$scope.defaultTopLimit = 10;
 	$scope.getTopChords = function(limitTo) {
-		$scope.startSpin();
+		$rootScope.startSpin();
 		limitTo = limitTo || $scope.defaultTopLimit;
 
 		chords.getTopChords(limitTo)
@@ -22,7 +22,7 @@ function ($scope,chords, $rootScope) {
 			$scope.topChords = data;
 		})
 		.finally(function() {
-			$scope.stopSpin();
+			$rootScope.stopSpin();
 		});
 
 	};

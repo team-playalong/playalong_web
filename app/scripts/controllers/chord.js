@@ -61,7 +61,7 @@ angular.module('playalongWebApp')
   		}
   		chords.rateChord($scope.chord.$id || $scope.chord.chordKey,$scope.chordRating)
   		.then(function() {
-        toast.showSimpleToast('Thanks For Rating...');
+        toast.showSimpleToast('Thanks For Rating');
   		});
   	};
     
