@@ -8,8 +8,8 @@
  * Controller of the playalongWebApp
  */
 angular.module('playalongWebApp')
-  .controller('MainCtrl', ['$scope', '$timeout', '$mdSidenav', '$mdUtil', '$log', 'paths', '$state','login',
-                  function ($scope, $timeout, $mdSidenav, $mdUtil, $log, paths,$state, login) {
+  .controller('MainCtrl', ['$scope', '$timeout', '$mdSidenav', '$mdUtil', '$log', 'paths', '$state','login','$rootScope',
+                  function ($scope, $timeout, $mdSidenav, $mdUtil, $log, paths,$state, login,$rootScope) {
   $scope.initCtrl = function() {
     $scope.paths = paths;
     $scope.user = login.getUser();
@@ -43,5 +43,12 @@ angular.module('playalongWebApp')
     $state.go('chord',{chordKey: chord.chordKey});
   };
   
+  $rootScope.startSpin = function() {
+    $scope.$broadcast('startSpin');
+  };
+  $rootScope.stopSpin = function() {
+    $scope.$broadcast('stopSpin');
+  };
+
   $scope.initCtrl();
 }]);

@@ -9,12 +9,14 @@ describe('Controller: BuilderctrlCtrl', function () {
     scope,
     chordsMockService,
     $stateParams,
+    toast,
     $q;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope,_$q_,_$stateParams_,$httpBackend) {
+  beforeEach(inject(function ($controller, $rootScope,_$q_,_$stateParams_,$httpBackend, _toast_) {
     $q = _$q_;
     $stateParams = _$stateParams_;
+    toast = _toast_;
     $stateParams.id = 1;
     chordsMockService = {
       addChord: function() {
@@ -32,7 +34,10 @@ describe('Controller: BuilderctrlCtrl', function () {
     BuilderctrlCtrl = $controller('BuilderCtrl', {
       $scope: scope,
       chords: chordsMockService,
-      $stateParams: $stateParams
+      $stateParams: $stateParams,
+      toast: {
+        showSimpleToast: function() {}
+      }
     });
 
     //Ignores all html requests
@@ -47,10 +52,7 @@ describe('Controller: BuilderctrlCtrl', function () {
     expect(scope).toBeDefined(); 
   });
 
-  it('should support editing existing chord', function() {
-    expect(scope.addAlert).toHaveBeenCalledWith('success','You may start editing');
-    
-  });
+
 
   it('should get the appopriate text according to the switch mode', function() {
     var res;

@@ -14,11 +14,15 @@ function ($scope,chords, $rootScope) {
 	$rootScope.currPage = 'Top 10 Chords';
 	$scope.defaultTopLimit = 10;
 	$scope.getTopChords = function(limitTo) {
+		$scope.startSpin();
 		limitTo = limitTo || $scope.defaultTopLimit;
 
 		chords.getTopChords(limitTo)
 		.then(function(data) {
 			$scope.topChords = data;
+		})
+		.finally(function() {
+			$scope.stopSpin();
 		});
 
 	};

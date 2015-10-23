@@ -38,6 +38,7 @@
   <body ng-app="playalongWebApp">
 
   <div ng-controller="MainCtrl" layout="column" class="ply-app">
+    <ply-spinner trigger-start-event="startSpin" trigger-stop-event="stopSpin"></ply-spinner>
     <section flex>
       <ng-include src="'views/templates/sidenav.html'"></ng-include>
       <ng-include src="'views/templates/toolbar.html'"></ng-include>
@@ -89,6 +90,7 @@
     <script src="scripts/controllers/topchords.js"></script>
     <script src="scripts/controllers/login.js"></script>
     <script src="scripts/services/toast.js"></script>
+    <script src="scripts/directives/plyspinner.js"></script>
     <!-- endbuild -->
 
 

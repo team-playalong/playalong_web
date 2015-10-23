@@ -118,4 +118,12 @@ body {
 md-toast {
 	background-color: #727272;
 	color: #FFFFFF;
+	position: fixed;
+}
+
+md-progress-circular {
+	position: fixed;
+	left:50%;
+	top:50%;
+	z-index:1000;
 }

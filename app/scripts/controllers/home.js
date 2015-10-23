@@ -33,11 +33,15 @@ angular.module('playalongWebApp')
 
 
   	$scope.searchChords = function() {
+      $scope.startSpin();
   		chords.searchChordsBy($scope.searchConfig.searchBy,$scope.searchConfig.searchInput)
   		.then($scope.handleChordResults)
   		.catch(function(error) {
   			console.warn(error);
-  		});
+  		})
+      .finally(function() { 
+        $scope.stopSpin();  
+      });
   	};	
 
     $rootScope.$on('$stateChangeSuccess', 

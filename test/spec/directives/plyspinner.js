@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Directive: plaLyricsEditor', function () {
+describe('Directive: plySpinner', function () {
 
   // load the directive's module
   beforeEach(module('playalongWebApp'));
@@ -12,9 +12,9 @@ describe('Directive: plaLyricsEditor', function () {
     scope = $rootScope.$new();
   }));
 
-  it('should append the directive to a div', inject(function ($compile) {
-    element = angular.element('<div pla-lyrics-editor></div>');
+  it('should make hidden element visible', inject(function ($compile) {
+    element = angular.element('<ply-spinner></ply-spinner>');
     element = $compile(element)(scope);
-    expect(element[0]).toBeDefined();
+    // expect(element('')).toBe('this is the plySpinner directive');
   }));
 });
