@@ -10,8 +10,8 @@
  */
 
 angular.module('playalongWebApp')
-  .controller('ChordCtrl',['$scope','$rootScope', '$state','chords', '$stateParams','toast',
-    function ($scope,$rootScope,$state,chords, $stateParams,toast) {
+  .controller('ChordCtrl',['$scope','$rootScope', '$state','chords', '$stateParams','toast','login',
+    function ($scope,$rootScope,$state,chords, $stateParams,toast,login) {
     $scope.initCtrl = function() {
       $rootScope.currPage = $scope.chord.artist + ' - ' + $scope.chord.title;
       $scope.chordRating = 5;
@@ -64,5 +64,9 @@ angular.module('playalongWebApp')
         toast.showSimpleToast('Thanks For Rating');
   		});
   	};
+
+    $scope.isSuperUser = function() {
+      return login.getUser() && login.getUser().userType.indexOf('superuser') !== -1;
+    };
     
   }]);

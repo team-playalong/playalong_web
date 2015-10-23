@@ -24,3 +24,9 @@ $ply-chord-font-size: 16px;
 .ply-btn-ghost {
 	border: 1px solid #FFFFFF;
 }
+
+.ply-ellipsis {
+	white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

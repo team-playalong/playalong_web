@@ -1,6 +1,6 @@
 <md-toolbar class="ply-topnav">
   <div class="md-toolbar-tools" layout="row" layout-align="center">
-    <div flex="60">
+    <div flex="60" class="ply-ellipsis">
       <md-button class="md-icon-button" aria-label="Settings">
         <ng-md-icon ng-click="toggleLeft()" icon="menu" size="30"></ng-md-icon>
       </md-button>
@@ -8,22 +8,22 @@
       <span class="clickable" ui-sref="home">
         <img ng-src="{{paths.images.logo}}" class="ply-logo" alt="Washed Out" />
       </span>
-      <span hide-sm>Playalong | {{currPage}}</span>
+      <span hide-sm class="ply-ellipsis">Playalong | {{currPage}}</span>
     </div>
-    
+
     <div flex="40" class="ply-topnav-login pull-right"
           ng-controller="LoginCtrl">
 
       <div ng-if="!login.isLoggedIn()">
-        <span class="ply-topnav-login-title">Hi There, Login With:</span>
-        <md-button class="md-icon-button ply-topnav-login-btn" 
+        <span class="ply-topnav-login-title">Hi, Login With:</span>
+        <md-button class="md-icon-button ply-topnav-login-btn"
                     aria-label="Google"
                     ng-click="loginSocial('google')">
           <md-tooltip md-direction="down">Google</md-tooltip>
           <ng-md-icon icon="google-plus" size="20"></ng-md-icon>
         </md-button>
-        <md-button  class="md-icon-button ply-topnav-login-btn" 
-                    aria-label="Google" 
+        <md-button  class="md-icon-button ply-topnav-login-btn"
+                    aria-label="Google"
                     ng-click="loginSocial('facebook')">
           <md-tooltip md-direction="down">Facebook</md-tooltip>
             <ng-md-icon icon="facebook" size="20"></ng-md-icon>
@@ -32,9 +32,9 @@
       <div ng-if="login.isLoggedIn()">
         <img ng-src="{{::setAvatarImage()}}" class="md-avatar ply-topnav-login-avatar" alt="No Image" />
         <span class="ply-topnav-login-title">Hi {{login.getFirstName()}} | </span>
-         
+
         <md-button class="ply-btn-ghost" ng-click="login.logout()">Logout</md-button>
       </div>
-    </div>    
+    </div>
   </div>
 </md-toolbar>

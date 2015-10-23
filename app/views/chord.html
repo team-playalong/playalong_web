@@ -1,6 +1,8 @@
 <md-content class="md-padding" id="chord">
     <md-card layout-padding layout-align="left center">
       <md-card-content class="ply-chord-container">            
+        <h3>{{chord.artist}}</h2>
+        <h4>{{chord.title}}</h4>
         <div ng-bind-html="chord.content"></div>
         <div  class="ply-chord-rating"
               ng-if="chordRating">
@@ -12,6 +14,7 @@
     </md-card>
 </md-content>
 <md-fab-speed-dial 
+    ng-if="isSuperUser()"
     class="ply-fab" 
     md-open="chordFab.isOpen" md-direction="up"
     ng-class="chordFab.selectedMode">
