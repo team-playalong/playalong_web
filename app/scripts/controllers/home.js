@@ -26,14 +26,19 @@ angular.module('playalongWebApp')
       searchInput: ''
   	};
     
-  	$scope.searchResults = [];
     $scope.handleChordResults = function(results) {
-      $scope.searchResults = results;
+      if (!results || !results.length)
+      {
+      }
+      else {
+        $scope.searchResults = results;
+      }
     };
 
 
   	$scope.searchChords = function() {
       $rootScope.startSpin();
+      $scope.searchResults = [];
   		chords.searchChordsBy($scope.searchConfig.searchBy,$scope.searchConfig.searchInput)
   		.then($scope.handleChordResults)
   		.catch(function(error) {

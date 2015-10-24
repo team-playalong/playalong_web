@@ -28,17 +28,22 @@
           </div>
           <div layout="row">
             <div flex>
-              <md-button class="md-primary md-hue-2 md-raised" ui-sref="topChords">Top 10 Chords</md-button>
+              <md-button class="md-primary md-hue-1" ui-sref="topChords">Top Chords</md-button>
             </div>
           </div>
         </form>      
       </md-card-content>
     </md-card>
     <!-- search results -->
-    <md-card layout-align="center" ng-if="searchResults && searchResults.length" class="ply-search-results">
+    <div  ng-include="'views/topChords.html'" 
+          ng-if="!searchResults"
+          ng-controller="TopchordsCtrl"></div>
+    <md-card layout-align="center" ng-if="searchResults" class="ply-search-results">
       <md-card-content>
 
-        <h4 class="md-title" layout-align="left">You Have {{searchResults.length}} {{searchResults.length > 1 ? 'Results' : 'Result'}}</h4>
+        <h4 class="md-title" layout-align="left" ng-if="searchResults && searchResults.length">You Have {{searchResults.length}} {{searchResults.length > 1 ? 'Results' : 'Result'}}</h4>
+        <md-list>
+        <h4 class="md-title" layout-align="left" ng-if="searchResults && !searchResults.length">You have no results, Please try again.</h4>
         <md-list>
           <md-list-item class="md-2-line clickable"  ng-repeat="result in searchResults track by $index" >
             <img ng-src="{{result.imagePath}}" class="md-avatar" ng-if="result.imagePath" />

@@ -11,6 +11,8 @@ describe('Controller: HomeCtrl', function () {
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope,$q) {
+    $rootScope.startSpin = function() {};
+
   	chordsMockService = {
   		searchChordsBy: function() {
   			return $q.when(mockData.getMockChordResults());
