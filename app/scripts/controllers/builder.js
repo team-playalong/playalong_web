@@ -17,7 +17,7 @@ angular.module('playalongWebApp')
     $scope.chordRef = chord;
     //We now have a reference to the entire chord object
     $scope.chordRef.$bindTo($scope, "chord").then(function() {
-      toast.showSimpleToast('Chord Added to Database');
+      toast.showSimpleToast('Chord Added. All changes will automatically be saved.');
     });
   };
 

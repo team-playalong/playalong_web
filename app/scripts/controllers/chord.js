@@ -14,7 +14,7 @@ angular.module('playalongWebApp')
     function ($scope,$rootScope,$state,chords, $stateParams,toast,login) {
     $scope.initCtrl = function() {
       $rootScope.currPage = $scope.chord.artist + ' - ' + $scope.chord.title;
-      $scope.chordRating = 5;
+      $scope.chordRating = $scope.chord.rating || 0;
 
       $scope.chord.chordKey = $scope.chord.chordKey || angular.copy($stateParams.chordKey) ;
       chords.increaseChordHitCount($scope.chord.$id || $scope.chord.chordKey);
