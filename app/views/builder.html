@@ -13,16 +13,27 @@
         <input required ng-model="chord.title">
       </md-input-container>
     </div>
-    
-
-    
+      
     <div layout="row" layout-wrap>
-        <div flex="50">
-          <md-switch class="ply-switch" ng-model="isPreviewMode" aria-label="Switch 1" ng-change="handleSwitchModes()">
-              Switch To {{getTextByMode()}} Mode
-            </md-switch>
-        </div>
+      <div flex="50">
+        <md-switch class="ply-switch" ng-model="isPreviewMode" aria-label="Switch 1" ng-change="handleSwitchModes()">
+            Switch To {{getTextByMode()}} Mode
+          </md-switch>
+      </div>
     </div>
+    <div layout="row" class="ply-editor-wrapper">
+      <text-angular ng-show="!isPreviewMode" class="ply-editor"  flex ng-model="chord.content"></text-angular>
+      <div  ng-show="isPreviewMode" flex class="ply-chord-preview" 
+            ng-bind-html="chord.content"></div>
+    </div>
+    <div layout="row" layout-wrap>
+      <div flex="50">
+        <md-switch class="ply-switch" ng-model="isPreviewMode" aria-label="Switch 1" ng-change="handleSwitchModes()">
+            Switch To {{getTextByMode()}} Mode
+          </md-switch>
+      </div>
+    </div>
+    <!-- 
     <div layout="row">
       <div flex="100" ng-show="!isPreviewMode">
         <h5>Lyrics and chords go here... Switch between modes to see how it's like</h5>
@@ -32,9 +43,8 @@
         <h5>Preview section</h5>
         <div class="editor chord-preview" ng-bind-html="chord.content"></div>
       </div>
-    </div>
+    </div> -->
 
-    <!-- Currently Autosave -->
     <md-button  class="md-raised md-accent pull-right" 
                 type="submit" 
                 ng-click="createChordInDb()"

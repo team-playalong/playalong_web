@@ -68,13 +68,9 @@ angular.module('playalongWebApp')
   };
 
   $scope.handleSwitchModes = function() {
-    if ($scope.isPreviewMode)
+    if ($scope.isPreviewMode && $scope.chord && $scope.chord.content)
     {
-      var rawContent = angular.element('#rawContent') ? angular.element('#rawContent').html() : null;
-      if (rawContent)
-      {
-        $scope.scanForChords(rawContent);        
-      }
+      $scope.scanForChords($scope.chord.content);
     }
   };
 }]);

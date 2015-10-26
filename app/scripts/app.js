@@ -16,7 +16,8 @@ var app = angular.module('playalongWebApp', [
   'ui.router',
   'playalong.services',
   'ngAnimate',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'textAngular'
 ]);
 
 //Allow unafe html binding

@@ -38,6 +38,15 @@ module.exports = function(config) {
       'bower_components/angularfire/dist/angularfire.js',
       'bower_components/playalong.services/dist/scripts/scripts.js',
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+      'bower_components/rangy/rangy-core.js',
+      'bower_components/rangy/rangy-classapplier.js',
+      'bower_components/rangy/rangy-highlighter.js',
+      'bower_components/rangy/rangy-selectionsaverestore.js',
+      'bower_components/rangy/rangy-serializer.js',
+      'bower_components/rangy/rangy-textrange.js',
+      'bower_components/textAngular/dist/textAngular.js',
+      'bower_components/textAngular/dist/textAngular-sanitize.js',
+      'bower_components/textAngular/dist/textAngularSetup.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       
