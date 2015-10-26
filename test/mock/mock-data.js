@@ -4,7 +4,8 @@ var mockData = ( function() {
 		return {
 			artist: 'Test Artist',
 			title: 'Test Title',
-			chordKey: 1
+			chordKey: 1,
+			content: '<div>hello</div>'
 		};
 	}
 	

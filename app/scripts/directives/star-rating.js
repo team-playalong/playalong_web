@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive("starRating", function() {
+app.directive("starRating", ['toast','chords', function(toast,chords) {
   return {
     restrict : "EA",
     template : "<ul class='rating' ng-class='{readonly: readonly}'>" +
@@ -10,6 +10,7 @@ app.directive("starRating", function() {
                "</ul>",
     scope : {
       ratingValue : "=ngModel",
+      chord: "=",
       max : "=?", //optional: default is 5
       onRatingSelected : "&?",
       readonly: "=?"
@@ -27,14 +28,17 @@ app.directive("starRating", function() {
       scope.toggle = function(index) {
         if (scope.readonly === undefined || scope.readonly === false){
           scope.ratingValue = index + 1;
-          scope.onRatingSelected({
-            rating: index + 1
-          });
-        }
+          
+          //Rate chord in the db
+          chords.rateChord(scope.chord.$id || scope.chord.chordKey,scope.ratingValue)
+            .then(function() {
+              toast.showSimpleToast('Thanks For Rating');
+            });
+          }
       };
       scope.$watch("ratingValue", function(oldVal, newVal) {
         if (newVal) { updateStars(); }
       });
     }
   };
-});
+}]);

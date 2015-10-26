@@ -7,7 +7,8 @@
         <div  class="ply-chord-rating"
               ng-if="chordRating">
           <h5>Was I Any Good? Rate me!</h5>
-          <star-rating ng-model="chordRating" on-rating-selected="rateChord()">
+          <star-rating ng-model="chordRating" chord="chord" max="5">
+
           </star-rating>
         </div>
       </md-card-content>

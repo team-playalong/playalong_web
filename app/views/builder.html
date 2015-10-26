@@ -33,17 +33,6 @@
           </md-switch>
       </div>
     </div>
-    <!-- 
-    <div layout="row">
-      <div flex="100" ng-show="!isPreviewMode">
-        <h5>Lyrics and chords go here... Switch between modes to see how it's like</h5>
-        <div id="rawContent" class="editor editor-editable" pla-editor contentEditable></div>
-      </div>
-      <div flex="100" ng-show="isPreviewMode">
-        <h5>Preview section</h5>
-        <div class="editor chord-preview" ng-bind-html="chord.content"></div>
-      </div>
-    </div> -->
 
     <md-button  class="md-raised md-accent pull-right" 
                 type="submit" 
@@ -51,11 +40,5 @@
                 ng-if="!$stateParams.id">
                 Create Chord
     </md-button>
-    <!-- <md-input-container>
-      <md-switch id="publishChord" ng-model="chord.published" aria-label="Publish Chord">
-        Publish Chord
-      </md-switch>
-    </md-input-container> -->
-
   </md-content>
 </form>

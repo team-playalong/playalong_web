@@ -66,10 +66,11 @@ describe('Controller: BuilderctrlCtrl', function () {
   });
 
   it('should handle switching between edit and preview modes', function() {
-    spyOn(angular,'element');
+    spyOn(scope,'scanForChords');
     scope.isPreviewMode = true;
+    scope.chord = mockData.getMockChord();
     scope.handleSwitchModes();
     
-    expect(angular.element).toHaveBeenCalled();
+    expect(scope.scanForChords).toHaveBeenCalled();
   });
 });

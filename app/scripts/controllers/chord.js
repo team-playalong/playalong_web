@@ -14,7 +14,7 @@ angular.module('playalongWebApp')
     function ($scope,$rootScope,$state,chords, $stateParams,toast,login) {
     $scope.initCtrl = function() {
       $rootScope.currPage = $scope.chord.artist + ' - ' + $scope.chord.title;
-      $scope.chordRating = $scope.chord.rating || 0;
+      $scope.chordRating = $scope.chord.rating || 1;
 
       $scope.chord.chordKey = $scope.chord.chordKey || angular.copy($stateParams.chordKey) ;
       chords.increaseChordHitCount($scope.chord.$id || $scope.chord.chordKey);
@@ -29,8 +29,6 @@ angular.module('playalongWebApp')
         selectedDirection: 'up'
       };
     };
-
-
 
   	if (!$stateParams.chordKey) { 
   		$state.go('home'); 
@@ -52,18 +50,7 @@ angular.module('playalongWebApp')
 	    
   	}
 
-  	$scope.rateChord = function() {
-  		if (!$scope.chord ||
-  				(!$scope.chord.$id && !$stateParams.chordKey) ||
-  				!$scope.chordRating)
-  		{
-  			return;
-  		}
-  		chords.rateChord($scope.chord.$id || $scope.chord.chordKey,$scope.chordRating)
-  		.then(function() {
-        toast.showSimpleToast('Thanks For Rating');
-  		});
-  	};
+  	
 
     $scope.isSuperUser = function() {
       return login.getUser() && login.getUser().userType.indexOf('superuser') !== -1;
