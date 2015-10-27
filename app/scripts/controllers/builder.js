@@ -8,8 +8,8 @@
  * Controller of the playalongWebApp
  */
 angular.module('playalongWebApp')
-.controller('BuilderCtrl',['$scope','chords', '$interval', '$timeout','$stateParams', '$rootScope','toast',
-  function ($scope,chords, $interval,$timeout,$stateParams,$rootScope,toast) {
+.controller('BuilderCtrl',['$scope','chords', '$interval', '$timeout','$stateParams', '$rootScope','toast','login',
+  function ($scope,chords, $interval,$timeout,$stateParams,$rootScope,toast,login) {
   $rootScope.currPage = 'Chord Builder';
   $scope.chordRef = null; //Will reference the chord for Firebase process.binding
   
@@ -17,6 +17,7 @@ angular.module('playalongWebApp')
     $scope.chordRef = chord;
     //We now have a reference to the entire chord object
     $scope.chordRef.$bindTo($scope, "chord").then(function() {
+      $scope.chordCreated = true;
       toast.showSimpleToast('Chord Added. All changes will automatically be saved.');
     });
   };
@@ -27,10 +28,6 @@ angular.module('playalongWebApp')
     if (result) {
       //We now have a reference to the entire chord object
       result.$bindTo($scope, "chord").then(function() {
-        if (document.getElementById('rawContent')) 
-        {
-          document.getElementById('rawContent').innerHTML = $scope.chord.content; 
-        }
         toast.showSimpleToast('You may start editing');
       });
     }
@@ -41,9 +38,10 @@ angular.module('playalongWebApp')
       artist: '',
       title: ''
     };
-    $scope.rawContent = '';
 
-    $scope.createChordInDb = function(){  
+
+    $scope.createChordInDb = function(){
+      $scope.chord.creator = login.getUser() ? login.getUser().uid : '';  
       chords.addChord($scope.chord)
       .then(handleChordSuccess)
       .catch(function(error){
@@ -57,7 +55,7 @@ angular.module('playalongWebApp')
     if (!str) {return;}
 
     $timeout(function(){
-      str = str.replace(/($|\b|<div>)((?:G,C,D|A,B,C|E,C,D)|(?:[ABCDEFG](?:#|b)?)(?:\/[ABCDEFG]b)?(?:(?:(?:maj|min|sus|add|aug|dim)(?:\d{0,2}(?:#\d{1,2}|sus\d)?)?)|(?:m\d{0,2}(?:(?:maj|add|#)\d{0,2})?)|(?:-?\d{0,2}(?:\([^)]*\)|#\d{1,2})?))?)(^|\s|&nbsp;*<\/div>|<div>)/g, '<span class="chord">$2</span>');
+      str = str.replace(/($|\b|<div>)((?:G,C,D|A,B,C|E,C,D)|(?:[ABCDEFG](?:#|b)?)(?:\/[ABCDEFG]b)?(?:(?:(?:maj|min|sus|add|aug|dim)(?:\d{0,2}(?:#\d{1,2}|sus\d)?)?)|(?:m\d{0,2}(?:(?:maj|add|#)\d{0,2})?)|(?:-?\d{0,2}(?:\([^)]*\)|#\d{1,2})?))?)(^|\s|&nbsp;*<\/div>|<div>|\b)/g, '<span class="chord">$2</span>');
       $scope.chord.content = str;
     }, 0);
 
