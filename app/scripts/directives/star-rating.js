@@ -28,7 +28,7 @@ app.directive("starRating", ['toast','chords', function(toast,chords) {
       scope.toggle = function(index) {
         if (scope.readonly === undefined || scope.readonly === false){
           scope.ratingValue = index + 1;
-          
+
           //Rate chord in the db
           chords.rateChord(scope.chord.$id || scope.chord.chordKey,scope.ratingValue)
             .then(function() {

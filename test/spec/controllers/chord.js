@@ -41,18 +41,9 @@ beforeEach(inject(function ($controller, $rootScope,$httpBackend,_$q_) {
   it('should initialize all components', function() {
   	expect(scope).toBeDefined();
   	expect(scope.currPage).toBe('Test Artist - Test Title');
-  	expect(scope.chordRating).toBe(0);
+  	expect(scope.chordRating).toBe(1);
 
   	expect(scope.chordFab).toBeDefined();
   	expect(scope.chordFab.selectedMode).toBe('md-fling');
-  });
-
-  it('Should support rating a chord', function(done) {
-    scope.rateChord();
-    setTimeout(function() {
-      expect(scope.chordRating).toBe(0);
-      done();
-    },500);
-
   });
 });

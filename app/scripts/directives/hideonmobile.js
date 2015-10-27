@@ -7,11 +7,11 @@
  * # hideOnMobile
  */
 angular.module('playalongWebApp')
-  .directive('hideOnMobile', ['regexStore',function (regexStore) {
+  .directive('hideOnMobile', ['RegexStore',function (RegexStore) {
     return {
       restrict: 'A',
       link: function postLink(scope, element) {
-        var mobileRegex = regexStore.getMobile();
+        var mobileRegex = RegexStore.getMobile();
         if(mobileRegex.test(navigator.userAgent)) {
         	element.hide();
         }

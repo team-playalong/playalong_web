@@ -6,13 +6,13 @@ describe('Service: regexStore', function () {
   beforeEach(module('playalongWebApp'));
 
   // instantiate service
-  var regexStore;
-  beforeEach(inject(function (_regexStore_) {
-    regexStore = _regexStore_;
+  var RegexStore;
+  beforeEach(inject(function (_RegexStore_) {
+    RegexStore = _RegexStore_;
   }));
 
   it('should do something', function () {
-    expect(!!regexStore).toBe(true);
+    expect(!!RegexStore).toBe(true);
   });
 
 });

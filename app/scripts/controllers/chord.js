@@ -10,14 +10,16 @@
  */
 
 angular.module('playalongWebApp')
-  .controller('ChordCtrl',['$scope','$rootScope', '$state','chords', '$stateParams','toast','login',
-    function ($scope,$rootScope,$state,chords, $stateParams,toast,login) {
+  .controller('ChordCtrl',['$scope','$rootScope', '$state','chords', '$stateParams','toast','login','Common',
+    function ($scope,$rootScope,$state,chords, $stateParams,toast,login,Common) {
     $scope.initCtrl = function() {
       $rootScope.currPage = $scope.chord.artist + ' - ' + $scope.chord.title;
       $scope.chordRating = $scope.chord.rating || 1;
 
       $scope.chord.chordKey = $scope.chord.chordKey || angular.copy($stateParams.chordKey) ;
       chords.increaseChordHitCount($scope.chord.$id || $scope.chord.chordKey);
+
+      $scope.isRtl = Common.isRtlContent($scope.chord.content);
 
       $scope.chordFab = {
         topDirections: ['left', 'up'],
