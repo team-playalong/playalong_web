@@ -19,6 +19,9 @@
         <md-switch class="ply-switch" ng-model="isPreviewMode" aria-label="Switch 1" ng-change="handleSwitchModes()">
             Switch To {{getTextByMode()}} Mode
           </md-switch>
+          <md-switch class="ply-switch" ng-model="chord.approved" aria-label="Approved" ng-if="login.isSuperUser()">
+              Approved?
+            </md-switch>
       </div>
       <div flex="50">
         <md-button  class="md-raised md-accent pull-right" 
@@ -26,6 +29,11 @@
           ng-click="createChordInDb()"
           ng-if="!$stateParams.id && !chordCreated">
           Create Chord
+        </md-button>
+        <md-button  class="md-primary md-hue-1 pull-right"  
+          ng-if="$stateParams.id || chordCreated"
+          ng-click="goToChordPage(chord)">
+          Return To Chord Page
         </md-button>
       </div>
     </div>

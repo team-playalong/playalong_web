@@ -10,9 +10,10 @@
 angular.module('playalongWebApp')
 .controller('BuilderCtrl',['$scope','chords', '$interval', '$timeout','$stateParams', '$rootScope','toast','login',
   function ($scope,chords, $interval,$timeout,$stateParams,$rootScope,toast,login) {
+  $scope.login = login;
   $rootScope.currPage = 'Chord Builder';
   $scope.chordRef = null; //Will reference the chord for Firebase process.binding
-  
+
   var handleChordSuccess = function(chord) {
     $scope.chordRef = chord;
     //We now have a reference to the entire chord object
@@ -39,9 +40,9 @@ angular.module('playalongWebApp')
       title: ''
     };
 
-
     $scope.createChordInDb = function(){
-      $scope.chord.creator = login.getUser() ? login.getUser().uid : '';  
+      $scope.chord.creator = login.getUser() ? login.getUser().uid : '';
+      $scope.isApproved = login.isSuperUser();
       chords.addChord($scope.chord)
       .then(handleChordSuccess)
       .catch(function(error){

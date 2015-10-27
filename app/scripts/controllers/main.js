@@ -40,7 +40,7 @@ angular.module('playalongWebApp')
   };
   $scope.goToChordPage = function(chord) {
     $scope.chord = chord;
-    $state.go('chord',{chordKey: chord.chordKey});
+    $state.go('chord',{chordKey: chord.chordKey || chord.$id });
   };
   
   $rootScope.startSpin = function() {
