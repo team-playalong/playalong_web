@@ -13,7 +13,7 @@
         <input required ng-model="chord.title">
       </md-input-container>
     </div>
-      
+
     <div layout="row" layout-wrap>
       <div flex="50">
         <md-switch class="ply-switch" ng-model="isPreviewMode" aria-label="Switch 1" ng-change="handleSwitchModes()">
@@ -24,13 +24,13 @@
             </md-switch>
       </div>
       <div flex="50">
-        <md-button  class="md-raised md-accent pull-right" 
-          type="submit" 
+        <md-button  class="md-raised md-accent pull-right"
+          type="submit"
           ng-click="createChordInDb()"
           ng-if="!$stateParams.id && !chordCreated">
           Create Chord
         </md-button>
-        <md-button  class="md-primary md-hue-1 pull-right"  
+        <md-button  class="md-primary md-hue-1 pull-right"
           ng-if="$stateParams.id || chordCreated"
           ng-click="goToChordPage(chord)">
           Return To Chord Page
@@ -39,7 +39,7 @@
     </div>
     <div layout="row" class="ply-editor-wrapper">
       <text-angular ng-show="!isPreviewMode" class="ply-editor"  flex ng-model="chord.content"></text-angular>
-      <div  ng-show="isPreviewMode" flex class="ply-chord-preview" 
+      <div  ng-show="isPreviewMode" flex class="ply-chord-preview"
             ng-bind-html="chord.content"></div>
     </div>
     <div layout="row" layout-wrap>
@@ -50,8 +50,8 @@
       </div>
     </div>
 
-    <md-button  class="md-raised md-accent pull-right" 
-                type="submit" 
+    <md-button  class="md-raised md-accent pull-right"
+                type="submit"
                 ng-click="createChordInDb()"
                 ng-if="!$stateParams.id && !chordCreated">
                 Create Chord

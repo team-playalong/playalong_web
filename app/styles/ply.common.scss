@@ -16,25 +16,29 @@ body {
 
 
 .ply-app {
-	.ply-main-container {
-		margin-top: 70px; 
-		&.sidebar-open {
-		}
-		
-		.ply-fab {
-			position: fixed;
-			bottom:15px;
-			right:20px;
-			.ply-fab-icon {
-				fill: #ffffff;
-				line-height: 68px;
-				padding-top:5px; 
-				&.ply-fab-icon-dark {
-					fill: #212121;
-				}
-			}		
+	#plyContent {
+		background: $ply-grey-light;
+		.ply-main-container {
+			margin-top: 70px; 
+			&.sidebar-open {
+			}
+			
+			.ply-fab {
+				position: fixed;
+				bottom:15px;
+				right:20px;
+				.ply-fab-icon {
+					fill: #ffffff;
+					line-height: 68px;
+					padding-top:5px; 
+					&.ply-fab-icon-dark {
+						fill: #212121;
+					}
+				}		
+			}
 		}
 	}
+	
 
 	.ply-topnav {
 		position: fixed;
