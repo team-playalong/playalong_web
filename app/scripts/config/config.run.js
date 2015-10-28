@@ -5,7 +5,8 @@ app.config(['$provide', function ($provide) {
       taOptions.toolbar = [
             ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p'],
             ['bold', 'italics', 'underline', 'redo', 'undo'],
-            ['justifyLeft', 'justifyCenter', 'justifyRight', 'indent', 'outdent']
+            ['justifyLeft', 'justifyCenter', 'justifyRight', 'indent', 'outdent'],
+            ['html']
       ];
       return taOptions;
   }]);

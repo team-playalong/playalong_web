@@ -10,7 +10,7 @@
 angular.module('playalongWebApp')
   .service('toast',['$mdToast', function ($mdToast) {
 		var conf = {
-			delay: 3000, //ms
+			delay: 4000, //ms
 			position: 'bottom left'
 		};
 

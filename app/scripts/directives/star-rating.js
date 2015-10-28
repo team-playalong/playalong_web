@@ -7,7 +7,10 @@ app.directive("starRating", ['toast','chords', function(toast,chords) {
                "  <li ng-repeat='star in stars' ng-class='star' ng-click='toggle($index)'>" +
                "    <i class='fa fa-star'></i>" + //&#9733
                "  </li>" +
-               "</ul>",
+               "</ul>" +
+               "<p class='help-block' ng-if='chord.countRating && !hasRated'>" +
+               "  {{chord.countRating}} people have rated this. Be one of them :)" +
+               "</p>",
     scope : {
       ratingValue : "=ngModel",
       chord: "=",
@@ -32,6 +35,7 @@ app.directive("starRating", ['toast','chords', function(toast,chords) {
           //Rate chord in the db
           chords.rateChord(scope.chord.$id || scope.chord.chordKey,scope.ratingValue)
             .then(function() {
+              scope.hasRated = true;
               toast.showSimpleToast('Thanks For Rating');
             });
           }

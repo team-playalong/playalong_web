@@ -10,6 +10,7 @@ $ply-editor-font-size: 20px;
     padding: 7px;
     background-color: $ply-white;
     color: $primary-text;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     &:focus {
       border: 0;
       outline: none !important;
