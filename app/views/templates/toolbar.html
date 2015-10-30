@@ -30,8 +30,8 @@
         </md-button>
       </div>
       <div ng-if="login.isLoggedIn()">
-        <img ng-src="{{::setAvatarImage()}}" class="md-avatar ply-topnav-login-avatar" alt="No Image" />
-        <span class="ply-topnav-login-title">Hi {{login.getFirstName()}} | </span>
+        <img ng-src="{{::setAvatarImage()}}" class="md-avatar ply-topnav-login-avatar" hide show-gt-sm alt="No Image" />
+        <span hide-sm class="ply-topnav-login-title">Hi {{login.getFirstName()}} | </span>
 
         <md-button class="ply-btn-ghost" ng-click="login.logout()">Logout</md-button>
       </div>

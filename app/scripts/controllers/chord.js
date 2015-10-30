@@ -40,9 +40,14 @@ angular.module('playalongWebApp')
       {
         var result = chords.getChordById($stateParams.chordKey);
         if (result) {
+          $rootScope.startSpin();
           //We now have a reference to the entire chord object
-          result.$bindTo($scope, "chord").then(function() {
+          result.$bindTo($scope, "chord")
+          .then(function() {
             $scope.initCtrl();
+          })
+          .finally(function() {
+            $rootScope.stopSpin();
           });
         }
       }
