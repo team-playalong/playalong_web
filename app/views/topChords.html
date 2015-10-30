@@ -9,9 +9,8 @@
               <h3> {{ chord.artist }} </h3>
               <p> {{ chord.title }} </p>
               <p ng-if="chord.hitCount > 0">Viewed {{chord.hitCount}} {{chord.hitCount > 1 ? 'Times' : 'Time'}}</p>
-
               <!-- http://codepen.io/TepigMC/pen/FIdHb -->
-              <star-rating class="non-clickable" ng-if="chord.rating" readonly="true"></star-rating>
+              <star-rating class="non-clickable" ng-if="chord.rating" ng-model="chord.rating" readonly="true"></star-rating>
             </div>
             <md-divider ></md-divider>
           </md-list-item>
