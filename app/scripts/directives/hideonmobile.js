@@ -11,7 +11,7 @@ angular.module('playalongWebApp')
     return {
       restrict: 'A',
       link: function postLink(scope, element) {
-        var mobileRegex = RegexStore.getMobile();
+        var mobileRegex = RegexStore.get('mobile');
         if(mobileRegex.test(navigator.userAgent)) {
         	element.hide();
         }

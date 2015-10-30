@@ -8,8 +8,8 @@
  * Controller of the playalongWebApp
  */
 angular.module('playalongWebApp')
-.controller('BuilderCtrl',['$scope','chords', '$interval', '$timeout','$stateParams', '$rootScope','toast','login',
-  function ($scope,chords, $interval,$timeout,$stateParams,$rootScope,toast,login) {
+.controller('BuilderCtrl',['$scope','chords', '$interval', '$timeout','$stateParams', '$rootScope','toast','login','RegexStore',
+  function ($scope,chords, $interval,$timeout,$stateParams,$rootScope,toast,login,RegexStore) {
   $scope.login = login;
   $rootScope.currPage = 'Chord Builder';
   $scope.chordRef = null; //Will reference the chord for Firebase process.binding
@@ -56,7 +56,7 @@ angular.module('playalongWebApp')
     if (!str) {return;}
 
     $timeout(function(){
-      str = str.replace(/($|\b|<div>)((?:G,C,D|A,B,C|E,C,D)|(?:[ABCDEFG](?:#|b)?)(?:\/[ABCDEFG]b)?(?:(?:(?:maj|min|sus|add|aug|dim)(?:\d{0,2}(?:#\d{1,2}|sus\d)?)?)|(?:m\d{0,2}(?:(?:maj|add|#)\d{0,2})?)|(?:-?\d{0,2}(?:\([^)]*\)|#\d{1,2})?))?)(^|\s|&nbsp;*<\/div>|<div>|\b)/g, '<span class="chord">$2</span>');
+      str = str.replace(RegexStore.get('chord'), '<span class="chord">$2&nbsp;</span>');
       $scope.chord.content = str;
     }, 0);
 

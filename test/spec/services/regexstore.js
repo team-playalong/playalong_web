@@ -11,8 +11,9 @@ describe('Service: regexStore', function () {
     RegexStore = _RegexStore_;
   }));
 
-  it('should do something', function () {
+  it('should supprt getting a chord', function () {
     expect(!!RegexStore).toBe(true);
+    expect(angular.equals(RegexStore.get('hebrew'),/[\u0590-\u05e8\u05e9-\u05ff]/g)).toBe(true);
   });
 
 });
