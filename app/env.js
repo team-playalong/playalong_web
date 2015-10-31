@@ -1,3 +1,3 @@
 var PLY_CONFIG = {
-	env: 'dev'
+	env: 'dev' //dev | prod
 };
