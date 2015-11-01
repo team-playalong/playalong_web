@@ -18,7 +18,8 @@ var app = angular.module('playalongWebApp', [
   'ngAnimate',
   'ui.bootstrap',
   'textAngular',
-  'ngDragDrop'
+  'ngDragDrop',
+  'frapontillo.gage'
 ]);
 
 //Allow unafe html binding

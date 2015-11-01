@@ -1,9 +1,8 @@
 <div class="md-padding" id="chord" ng-cloak>
     <md-card  layout-padding layout-align="left center" 
               autoscroll speed="{{autoscrollSpeed}}"
-              ng-class="{'text-align-right' : isRtl}"
-              >
-      <autoscroll-widget></autoscroll-widget>
+              ng-class="{'text-align-right' : isRtl}">
+      <autoscroll-widget speed="{{autoscrollSpeed}}"></autoscroll-widget>
       <md-card-content class="ply-chord-container">            
         <div>
           <h2>{{chord.artist}}</h2>

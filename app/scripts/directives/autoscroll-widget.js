@@ -12,7 +12,15 @@ angular.module('playalongWebApp')
     return {
       templateUrl: 'views/templates/autoscroll-widget.html',
       restrict: 'E',
+      scope: {
+        speed: '@?',
+        min: '@?',
+        max: '@?'
+      },
       link: function postLink(scope, element, attrs) {
+        scope.min = scope.min || 0;
+        scope.max = scope.min || 5;
+
       }
     };
   });

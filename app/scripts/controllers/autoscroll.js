@@ -32,7 +32,7 @@ angular.module('playalongWebApp')
 
   		if ($scope.plyInterval)
   		{
-  			$interval.stop($scope.plyInterval);
+  			$interval.cancel($scope.plyInterval);
   		}
   		newInterval = $scope.config.baseInterval * (1/normalizedSpeed);
   		$scope.plyInterval = $interval(function() {

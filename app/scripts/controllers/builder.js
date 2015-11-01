@@ -13,7 +13,6 @@ angular.module('playalongWebApp')
   $scope.login = login;
   $rootScope.currPage = 'Chord Builder';
   $scope.chordRef = null; //Will reference the chord for Firebase process.binding
-  $scope.autoscrollSpeed = 0;
 
   var handleChordSuccess = function(chord) {
     $scope.chordRef = chord;
