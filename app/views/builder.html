@@ -1,8 +1,22 @@
 <form name="builder" novalidate>
-
-  <div class="message-bar" ng-model="message"></div>
+  
   <md-content class="md-padding md-whiteframe-z4 builder">
-    <div layout="row">
+    <div class="ply-overlay" ng-if="!login.isSuperUser()">
+      <div class="jumbotron ply-transparent text-center ply-white">
+        <h1>Want To Create and Edit Chords?</h1>  
+        <br/><br/>
+        <h1 class="ply-white">
+          Contact Us 
+          <a  href="mailto:contact@playalong.io?subject=I Wanna Be a SuperUser!" "Please :)"
+              target="_blank">HERE</a>
+        </h1>
+
+        <h3>If you're already a superuser, simply login...</h3>
+      </div>
+      
+
+    </div>  
+    <div layout="row" >
       <md-input-container flex>
         <label>Artist</label>
         <input required name="artist" ng-model="chord.artist">

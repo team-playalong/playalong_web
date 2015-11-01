@@ -14,18 +14,14 @@ angular.module('playalongWebApp')
     		text: 'Search',
     		ref: 'home',
         icon: 'search'
-    	}
-      // ,
-      // {
-      //   text: 'Chord Builder',
-      //   ref: 'builder.new',
-      //   icon: 'pencil'
-      // }
+    	},
+      {
+        text: 'Chord Builder',
+        ref: 'builder.new',
+        icon: 'pencil'
+      }
     ];
-    $scope.isSuperUser = function() {
-      return login.getUser() && login.getUser().userType.indexOf('superuser') !== -1;  
-    };
-    
+
 
     $scope.close = function () {
       $mdSidenav('left').close()
