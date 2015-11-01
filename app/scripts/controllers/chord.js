@@ -16,6 +16,7 @@ angular.module('playalongWebApp')
       $rootScope.currPage = $scope.chord.artist + ' - ' + $scope.chord.title;
       $scope.chordRating = $scope.chord.rating || 1;
       $scope.autoscrollSpeed = 0;
+      $scope.autoscrollEnabled = false;
 
       $scope.chord.chordKey = $scope.chord.chordKey || angular.copy($stateParams.chordKey) ;
       chords.increaseChordHitCount($scope.chord.$id || $scope.chord.chordKey);
@@ -58,6 +59,9 @@ angular.module('playalongWebApp')
 	    
   	}
 
+    $scope.toggleAutoscroll = function() {
+      $scope.autoscrollEnabled = !$scope.autoscrollEnabled;
+    };
   	
 
     $scope.isSuperUser = function() {

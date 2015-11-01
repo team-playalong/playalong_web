@@ -1,5 +1,10 @@
-<div  class="well ply-autoscroll-widget no-padding" jqyoui-draggable="{animate:true}" data-drag="true">
-		<div layout="row" layout-align="center center" layout-wrap>
+<div  class="well ply-autoscroll-widget no-padding" jqyoui-draggable="{animate:true}" data-drag="true" ng-class="{minified: isMinified}">
+		<div class="ply-autoscroll-widget-minimize">
+			<md-button class="md-icon-button" aria-label="unfold_less" hide-gt-sm>
+        <ng-md-icon ng-click="toggleMinMax()" icon="{{minMaxIcon}}" size="15"></ng-md-icon>
+      </md-button>
+		</div>
+		<div 	layout="row" layout-align="center center" layout-wrap ng-if="!isMinified">
 			<md-button class="md-icon-button" aria-label="Remove" flex-gt-sm="15" flex-sm="100">
         <ng-md-icon ng-click="changeSpeed(-1)" icon="remove" size="30"></ng-md-icon>
         <md-tooltip md-direction="top">Scroll Slower</md-tooltip>

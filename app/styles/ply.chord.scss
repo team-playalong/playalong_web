@@ -2,6 +2,9 @@
 
 #chord {
 	.ply-autoscroll-widget {
+		.ply-autoscroll-widget-minimize {
+			float: right;
+		}
     width: 20%;
     cursor: move;
     float: right;
@@ -12,7 +15,9 @@
     	right: 10px;
     	top: 60px;
 		}
-
+    &.minified {
+      width: 50px;
+    }
     .ply-autoscroll-widget-gauge { 
     	width: 100%;
     	height: 100%;
