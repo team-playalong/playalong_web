@@ -1,13 +1,13 @@
 <div  class="well ply-autoscroll-widget no-padding" jqyoui-draggable="{animate:true}" data-drag="true">
-		<div layout="row" layout-align="center center">
-			<md-button class="md-icon-button" aria-label="Remove" flex="20">
-        <ng-md-icon ng-click="toggleLeft()" icon="remove" size="30"></ng-md-icon>
+		<div layout="row" layout-align="center center" layout-wrap>
+			<md-button class="md-icon-button" aria-label="Remove" flex-gt-sm="15" flex-sm="100">
+        <ng-md-icon ng-click="changeSpeed(-1)" icon="remove" size="30"></ng-md-icon>
         <md-tooltip md-direction="top">Scroll Slower</md-tooltip>
       </md-button>
 			<justgage class="ply-autoscroll-widget-gauge" title="Scroll Speed" value="{{speed}}"
-								min="{{min}}" max="{{max}}" flex="60">
+								min="{{min}}" max="{{max}}" flex-gt-sm="50" flex-sm="100">
 			</justgage>		
-			<md-button class="md-icon-button" aria-label="Add" flex="20">
+			<md-button class="md-icon-button" ng-click="changeSpeed(1)" aria-label="Add" flex-gt-sm="15" flex-sm="100">
 			<md-tooltip md-direction="top">Scroll Quicker</md-tooltip>
         <ng-md-icon ng-click="toggleLeft()" icon="add" size="30"></ng-md-icon>
       </md-button>

@@ -13,13 +13,19 @@ angular.module('playalongWebApp')
       templateUrl: 'views/templates/autoscroll-widget.html',
       restrict: 'E',
       scope: {
-        speed: '@?',
+        speed: '=',
         min: '@?',
         max: '@?'
       },
       link: function postLink(scope, element, attrs) {
         scope.min = scope.min || 0;
         scope.max = scope.min || 5;
+
+        scope.changeSpeed = function(amount) {
+          amount = amount || 0;
+
+          scope.speed += amount;
+        };
 
       }
     };

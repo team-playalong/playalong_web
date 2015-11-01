@@ -3,7 +3,16 @@
 #chord {
 	.ply-autoscroll-widget {
     width: 20%;
-    height: 100px;
+    cursor: move;
+    float: right;
+  	position: fixed !important;
+
+    @media (max-width:500px){
+    	width: 40%;
+    	right: 10px;
+    	top: 60px;
+		}
+
     .ply-autoscroll-widget-gauge { 
     	width: 100%;
     	height: 100%;
