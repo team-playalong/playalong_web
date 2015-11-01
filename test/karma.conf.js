@@ -47,6 +47,11 @@ module.exports = function(config) {
       'bower_components/textAngular/dist/textAngular.js',
       'bower_components/textAngular/dist/textAngular-sanitize.js',
       'bower_components/textAngular/dist/textAngularSetup.js',
+      'bower_components/jquery-ui/jquery-ui.js',
+      'bower_components/angular-dragdrop/src/angular-dragdrop.js',
+      'bower_components/raphael/raphael.js',
+      'bower_components/justgage-bower/justgage.js',
+      'bower_components/angular-gage/dist/angular-gage.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       

@@ -8,7 +8,8 @@
  * Controller of the playalongWebApp
  */
 angular.module('playalongWebApp')
-  .controller('SidebarCtrl',['$scope','$mdSidenav','login', function ($scope, $mdSidenav,login) {
+  .controller('SidebarCtrl',['$scope','$mdSidenav',
+    function ($scope, $mdSidenav) {
     $scope.menuItems = [
     	{
     		text: 'Search',

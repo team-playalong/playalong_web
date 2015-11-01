@@ -1,8 +1,13 @@
 @import '_ply.vars.scss';
 
 #chord {
+	.ply-autoscroll-widget {
+    width: 20%;
+    height: 100px;
+  }
 	.ply-chord-container {
 		padding-left:30px;
+
 	}
 	.ply-chord-rating {
 
