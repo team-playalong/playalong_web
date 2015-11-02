@@ -20,7 +20,7 @@ describe('Controller: AutoscrollCtrl', function () {
     expect(scope).toBeDefined();
     expect(scope.config).toBeDefined();
     expect(scope.speed).toBeDefined();    
-    expect(scope.speed).toBe(1);
+    expect(scope.speed).toBe(0);
 
   });
 
@@ -32,14 +32,14 @@ describe('Controller: AutoscrollCtrl', function () {
 
   it('should normalize scroll speed by top and bottom values', function() {
     var res = scope.normalizeSpeed();
-    expect(res).toBe(1);
+    expect(res).toBe(0.8);
 
     scope.speed = 5;
     res = scope.normalizeSpeed();
-    expect(res).toBe(2);
+    expect(res).toBe(1.8);
 
     scope.speed = 3;
     res = scope.normalizeSpeed();
-    expect(res).toBe(1.5);
+    expect(res).toBe(1.4);
   });
 });
