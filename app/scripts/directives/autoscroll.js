@@ -18,7 +18,7 @@ angular.module('playalongWebApp')
       controller: 'AutoscrollCtrl',
       link: function (scope, element, attrs) {
   			scope.$watch('speed', function() {
-  					scope.updateInterval();
+					scope.updateInterval();
   			});
       }
     };

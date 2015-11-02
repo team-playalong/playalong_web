@@ -15,9 +15,7 @@ angular.module('playalongWebApp')
     $scope.initCtrl = function() {
       $rootScope.currPage = $scope.chord.artist + ' - ' + $scope.chord.title;
       $scope.chordRating = $scope.chord.rating || 1;
-      $scope.autoscrollSpeed = 0;
-      $scope.autoscrollEnabled = false;
-
+      $scope.disableAutoscroll();
       $scope.chord.chordKey = $scope.chord.chordKey || angular.copy($stateParams.chordKey) ;
       chords.increaseChordHitCount($scope.chord.$id || $scope.chord.chordKey);
 
@@ -32,6 +30,34 @@ angular.module('playalongWebApp')
         availableDirections: ['up', 'down', 'left', 'right'],
         selectedDirection: 'up'
       };
+       /*jshint unused:false*/
+      //Disable autoscroll on redirect
+      $rootScope.$on('$stateChangeStart', 
+      function(event, toState, toParams, fromState, fromParams){ 
+        if (fromState.name === 'chord')
+        {
+          $scope.disableAutoscroll();
+        }
+      });
+     /*jshint unused:true*/
+    };
+
+
+    $scope.disableAutoscroll = function() {
+      $scope.autoscrollEnabled = false;
+      $scope.autoscrollSpeed = 0;
+    };
+    $scope.toggleAutoscroll = function() {
+      $scope.autoscrollEnabled = !$scope.autoscrollEnabled;
+
+      if (!$scope.autoscrollEnabled)
+      {
+        $scope.disableAutoscroll();
+      }
+    };
+    
+    $scope.isSuperUser = function() {
+      return login.getUser() && login.getUser().userType.indexOf('superuser') !== -1;
     };
 
   	if (!$stateParams.chordKey) { 
@@ -59,13 +85,6 @@ angular.module('playalongWebApp')
 	    
   	}
 
-    $scope.toggleAutoscroll = function() {
-      $scope.autoscrollEnabled = !$scope.autoscrollEnabled;
-    };
-  	
-
-    $scope.isSuperUser = function() {
-      return login.getUser() && login.getUser().userType.indexOf('superuser') !== -1;
-    };
+    
     
   }]);
