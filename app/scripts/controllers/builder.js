@@ -72,4 +72,9 @@ angular.module('playalongWebApp')
       $scope.scanForChords($scope.chord.content);
     }
   };
+  $scope.handleApproveChange = function() {
+    var toastText = $scope.chord && $scope.chord.approved ? 
+                      'Chord approved' : 'Chord not approved';
+    toast.showSimpleToast(toastText);
+  };
 }]);

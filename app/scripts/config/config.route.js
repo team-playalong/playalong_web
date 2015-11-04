@@ -6,17 +6,23 @@ app.config(['$stateProvider','$urlRouterProvider', function ($stateProvider, $ur
         .state("home",{ 
           url: "/home",
           templateUrl: '../../views/home.html',     
-          controller: 'HomeCtrl' 
+          controller: 'HomeCtrl',
+          data: {
+            title: 'Chord Search'
+          }
         })
         .state("chord", { 
           url: "/chord/:chordKey",
           templateUrl: '../../views/chord.html',    
-          controller: 'ChordCtrl' 
+          controller: 'ChordCtrl'
         })
         .state('topChords',  { 
         		url: '/topChords',
         		templateUrl: '../../views/topChords.html',
-        		controller: 'TopchordsCtrl'
+        		controller: 'TopchordsCtrl',
+            data: {
+              title: 'Top Chords'
+            }
       	})
 
         .state('builder',       { url: '/builder',        template: '<div ui-view></div>', abstract: true})

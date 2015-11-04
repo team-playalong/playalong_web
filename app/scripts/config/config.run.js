@@ -10,10 +10,10 @@ app.config(['$provide', function ($provide) {
       ];
       return taOptions;
   }]);
-	
 }]);
 
-app.run(["$rootScope", "$state", function($rootScope, $state) {
+
+app.run(["$rootScope", "$state" ,'$window', function($rootScope, $state,$window) {
 	$rootScope.$on("$stateChangeError", function(event, toState, toParams, fromState, fromParams, error) {
 	  // We can catch the error thrown when the $requireAuth promise is rejected
 	  // and redirect the user back to the home page
@@ -21,4 +21,19 @@ app.run(["$rootScope", "$state", function($rootScope, $state) {
 	    $state.go("home");
 	  }
 	});
+/*jshint unused:false*/
+	$rootScope.$on("$stateChangeSuccess", function(event, toState, toParams, fromState, fromParams, error) {
+	  //Scroll to the top of the page
+	  $window.scrollTo(0,0);
+
+	  if (toState.data && toState.data.title)
+	  {
+	  	$rootScope.pageTitle = 'Playalong - ' + toState.data.title;
+	  }
+	  else
+	  {
+	  	$rootScope.pageTitle = 'Playalong - Amazing Chords';
+	  }
+	});
 }]);
+

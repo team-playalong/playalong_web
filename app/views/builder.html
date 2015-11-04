@@ -18,12 +18,12 @@
     <div layout="row" >
       <md-input-container flex>
         <label>Artist</label>
-        <input required name="artist" ng-model="chord.artist">
+        <input required name="artist" ng-model="chord.artist" auto-direction />
       </md-input-container>
       <span flex="10"></span>
       <md-input-container flex>
         <label>Title</label>
-        <input required ng-model="chord.title">
+        <input required ng-model="chord.title" auto-direction />
       </md-input-container>
     </div>
 
@@ -32,7 +32,7 @@
         <md-switch class="ply-switch" ng-model="isPreviewMode" aria-label="Switch 1" ng-change="handleSwitchModes()">
             Switch To {{getTextByMode()}} Mode
           </md-switch>
-          <md-switch class="ply-switch" ng-model="chord.approved" aria-label="Approved" ng-if="login.isSuperUser()">
+          <md-switch class="ply-switch" ng-model="chord.approved" aria-label="Approved" ng-if="login.isSuperUser()" ng-change="handleApproveChange()">
               Approved?
             </md-switch>
       </div>

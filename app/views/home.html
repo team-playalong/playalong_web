@@ -15,7 +15,7 @@
               </div>
               <div flex="60">
                 <md-input-container>
-                  <input md-maxlength="50" placeholder="Search Text..." required name="searchInput" ng-model="searchConfig.searchInput">
+                  <input md-maxlength="50" placeholder="Search Text..." required name="searchInput" ng-model="searchConfig.searchInput" auto-direction />
                   <div ng-messages="chordSearchForm.searchInput.$error">
                     <!-- TODO - Messages from texts object -->
                     <div ng-if="chordSearchForm.searchInput.$dirty && chordSearchForm.searchInput.$invalid && chordSearchForm.searchInput.$error" ng-message="required">This is required.</div>
