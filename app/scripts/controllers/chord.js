@@ -10,8 +10,8 @@
  */
 
 angular.module('playalongWebApp')
-  .controller('ChordCtrl',['$scope','$rootScope', '$state','chords', '$stateParams','toast','login','Common',
-    function ($scope,$rootScope,$state,chords, $stateParams,toast,login,Common) {
+  .controller('ChordCtrl',['$scope','$rootScope', '$state','chords', '$stateParams','toast','login','Common','$timeout',
+    function ($scope,$rootScope,$state,chords, $stateParams,toast,login,Common,$timeout) {
     $scope.initCtrl = function() {
       $rootScope.currPage = $scope.chord.artist + ' - ' + $scope.chord.title;
       $rootScope.pageTitle = 'Playalong - ' + $scope.chord.artist + $scope.chord.title;
@@ -37,7 +37,10 @@ angular.module('playalongWebApp')
       function(event, toState, toParams, fromState, fromParams){ 
         if (fromState.name === 'chord')
         {
-          $scope.disableAutoscroll();
+          $timeout(function(){
+            $scope.disableAutoscroll();  
+          },0);
+          
         }
       });
      /*jshint unused:true*/

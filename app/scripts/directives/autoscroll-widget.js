@@ -8,7 +8,7 @@
  */
 /*jshint unused:false*/
 angular.module('playalongWebApp')
-  .directive('autoscrollWidget', function () {
+  .directive('autoscrollWidget', [function () {
     return {
       templateUrl: 'views/templates/autoscroll-widget.html',
       restrict: 'E',
@@ -58,4 +58,4 @@ angular.module('playalongWebApp')
 
       }
     };
-  });
+  }]);
