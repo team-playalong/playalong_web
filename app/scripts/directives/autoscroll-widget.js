@@ -18,6 +18,7 @@ angular.module('playalongWebApp')
         max: '@?',
         enabled: '@?'
       },
+      //TODO - move functions to controller
       link: function postLink(scope, element, attrs) {
         scope.enabled = scope.enabled || false;
         scope.min = scope.min || 0;
@@ -39,6 +40,9 @@ angular.module('playalongWebApp')
         scope.changeSpeed = function(amount) {
           amount = amount || 0;
           scope.speed += amount;
+
+          scope.speed = Math.max(scope.min,scope.speed);
+          scope.speed = Math.min(scope.max,scope.speed);
         };
 
         scope.$watch('enabled', function() {
