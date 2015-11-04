@@ -1,6 +1,17 @@
 <!doctype html>
 <html ng-app="playalongWebApp">
   <head>
+    <!-- Facebook Metatags -->
+    <meta property="og:title" content="Amazing Guitar Chords" />
+    <meta property="og:site_name" content="Playalong Guitar Chords"/>
+    <meta property="og:url" content="https://www.playalong.io" />
+    <meta property="og:description" content="" />
+    <meta property="fb:app_id" content="541650972649460" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="he_HE" />
+    <meta property="og:image" content="https://www.playalong.io/images/plyIcon.9d8785c6.png" />
+
     <meta charset="utf-8">
     <title>{{pageTitle}}</title>
     <meta name="description" content="Playalong is an awesome chord editing and playing app">
@@ -62,7 +73,7 @@
       js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=541650972649460";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
-    
+
   <div ng-controller="MainCtrl" layout="column" class="ply-app">
     <ply-spinner trigger-start-event="startSpin" trigger-stop-event="stopSpin"></ply-spinner>
     <section flex>
