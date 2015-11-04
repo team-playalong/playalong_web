@@ -9,7 +9,7 @@
         <ng-md-icon ng-click="changeSpeed(-1)" icon="remove" size="30"></ng-md-icon>
         <md-tooltip md-direction="top">Scroll Slower</md-tooltip>
       </md-button>
-			<justgage class="ply-autoscroll-widget-gauge" title="Scroll Speed" value="{{speed}}"
+			<justgage level-colors="{{levelColors}}" class="ply-autoscroll-widget-gauge" title="Scroll Speed" value="{{speed}}"
 								min="{{min}}" max="{{max}}" flex-gt-sm="50" flex-sm="100">
 			</justgage>		
 			<md-button class="md-icon-button" ng-click="changeSpeed(1)" aria-label="Add" flex-gt-sm="15" flex-sm="100">

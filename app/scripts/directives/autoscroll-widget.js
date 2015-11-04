@@ -25,6 +25,7 @@ angular.module('playalongWebApp')
         scope.max = scope.min || 5;
         scope.isMinified = false;
         scope.minMaxIcon = 'unfold_less';
+        scope.levelColors = ['#F44336','#D2583B','#B06E40', '#8F8345','#6D994A','#4CAF50'];
 
         scope.toggleMinMax = function() {
           scope.isMinified = !scope.isMinified;
