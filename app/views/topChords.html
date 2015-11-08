@@ -1,14 +1,15 @@
-<div id="topChords">
+<div id="topChords" 
+     translate-namespace="topChords">
     <md-card layout-align="center" ng-if="topChords && topChords.length" class="ply-search-results">
       <md-card-content>
-        <h3>Here are our most viewed chords</h3>
+        <h3 translate=".TITLE"></h3>
         <md-list>
           <md-list-item class="md-2-line clickable"  ng-repeat="chord in topChords | orderBy: '-hitCount' track by $index" >
             <img ng-src="{{chord.imagePath}}" class="md-avatar" ng-if="chord.imagePath" />
             <div class="md-list-item-text" ng-click="goToChordPage(chord)"> 
               <h3> {{ chord.artist }} </h3>
               <p> {{ chord.title }} </p>
-              <p ng-if="chord.hitCount > 0">Viewed {{chord.hitCount}} {{chord.hitCount > 1 ? 'Times' : 'Time'}}</p>
+              <p ng-if="chord.hitCount > 0">{{::setHitCountMessage(chord.hitCount)}}</p>
               <!-- http://codepen.io/TepigMC/pen/FIdHb -->
               <star-rating class="non-clickable" ng-if="chord.rating" ng-model="chord.rating" readonly="true"></star-rating>
             </div>

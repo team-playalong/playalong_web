@@ -30,6 +30,9 @@
 		"SEARCH_BOTTON": "Go"
 	},
 	"topChords": {
-		"PAGE_TITLE": "Top Chords"
+		"PAGE_TITLE": "Top Chords",
+		"TITLE": "Here are our most viewed chords",
+		"SINGLE_HIT": "Viewed 1 Time",
+		"MANY_HITS": "Viewed {hitCount} Times"
 	}
 }
