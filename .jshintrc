@@ -14,6 +14,7 @@
     "angular": false,
     "$" : false,
     "app": false,
-    "prompt": false
+    "prompt": false,
+    "PLY_CONFIG": false
   }
 }

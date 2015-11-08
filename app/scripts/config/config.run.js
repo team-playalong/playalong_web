@@ -12,6 +12,30 @@ app.config(['$provide', function ($provide) {
   }]);
 }]);
 
+//Angular-Translate
+app.config(function($translateProvider) {
+  $translateProvider.useStaticFilesLoader({
+      prefix: '/locales/',
+      suffix: '.json'
+  });
+ 	// match the default locale from the build task
+  $translateProvider.preferredLanguage(PLY_CONFIG.defaultLocale || 'en');
+})
+.run(function($location, $translate) {
+  // split the absolute url based on /
+  var splitUrl = $location.absUrl().split('/');
+  // check if url contains a certain locale or set back to your default locale
+  if (splitUrl.indexOf('he') > -1) 
+	{
+		$translate.use('he');
+	}
+  else 
+	{
+		$translate.use('en');
+	}
+});
+
+
 
 app.run(["$rootScope", "$state" ,'$window', function($rootScope, $state,$window) {
 	$rootScope.$on("$stateChangeError", function(event, toState, toParams, fromState, fromParams, error) {

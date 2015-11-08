@@ -1,0 +1,19 @@
+{
+	"toolbar": {
+		"APP_NAME": "Playalong",
+		"login": {
+			"MESSAGE": "Hi, Login With:",
+			"LOGOUT": "Logout",
+			"HI": "Hi"
+		}
+	},
+	"global": {
+
+	},
+	"sidebar": {
+		"menu": {
+			"SEARCH": "Search",
+			"CHORD_BUILDER": "Chord Builder"
+		}
+	}
+}

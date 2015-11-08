@@ -1,4 +1,5 @@
-<md-toolbar class="ply-topnav">
+<md-toolbar class="ply-topnav" translate-cloak
+            translate-namespace="toolbar">
   <div class="md-toolbar-tools" layout="row" layout-align="center">
     <div flex="60" class="ply-ellipsis">
       <md-button class="md-icon-button" aria-label="Settings">
@@ -8,14 +9,17 @@
       <span class="clickable" ui-sref="home">
         <img ng-src="{{paths.images.logo}}" class="ply-logo" alt="Washed Out" />
       </span>
-      <span hide-sm class="ply-ellipsis">Playalong | {{currPage}}</span>
+      <span hide-sm class="ply-ellipsis">
+        <span translate=".APP_NAME"></span>
+        <span>| {{currPage}}</span>
+      </span>
     </div>
 
     <div flex="40" class="ply-topnav-login pull-right"
-          ng-controller="LoginCtrl">
-
+          ng-controller="LoginCtrl"
+          translate-namespace=".login">
       <div ng-if="!login.isLoggedIn()">
-        <span class="ply-topnav-login-title">Hi, Login With:</span>
+        <span class="ply-topnav-login-title" translate=".MESSAGE"></span>
         <md-button class="md-icon-button ply-topnav-login-btn"
                     aria-label="Google"
                     ng-click="loginSocial('google')">
@@ -25,15 +29,18 @@
         <md-button  class="md-icon-button ply-topnav-login-btn"
                     aria-label="Google"
                     ng-click="loginSocial('facebook')">
-          <md-tooltip md-direction="down">Facebook</md-tooltip>
+          <md-tooltip md-direction="down" >Facebook</md-tooltip>
             <ng-md-icon icon="facebook" size="20"></ng-md-icon>
         </md-button>
       </div>
       <div ng-if="login.isLoggedIn()">
         <img ng-src="{{::setAvatarImage()}}" class="md-avatar ply-topnav-login-avatar" hide show-gt-sm alt="No Image" />
-        <span hide-sm class="ply-topnav-login-title">Hi {{login.getFirstName()}} | </span>
-
-        <md-button class="ply-btn-ghost" ng-click="login.logout()">Logout</md-button>
+        <span hide-sm class="ply-topnav-login-title">
+          <span translate=".HI"></span>
+          <span>{{login.getFirstName()}} | </span>
+        </span>
+        <md-button  class="ply-btn-ghost" ng-click="login.logout()"
+                    translate=".LOGOUT"></md-button>
       </div>
     </div>
   </div>

@@ -38,7 +38,8 @@ module.exports = function (grunt) {
         tasks: ['wiredep']
       },
       js: {
-        files: ['<%= yeoman.app %>/scripts/{,*/}*.js', 'env.js'],
+        files: ['<%= yeoman.app %>/scripts/{,*/}*.js', 
+                '<%= yeoman.app %>/env.js'],
         tasks: ['newer:jshint:all'],
         options: {
           livereload: '<%= connect.options.livereload %>'
@@ -63,7 +64,8 @@ module.exports = function (grunt) {
           '<%= yeoman.app %>/{,*/}*.html',
           '<%= yeoman.app %>/views/**/*.html',
           '.tmp/styles/{,*/}*.css',
-          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+          '<%= yeoman.app %>/locales/*.json',
         ]
       }
     },
@@ -283,6 +285,21 @@ module.exports = function (grunt) {
         patterns: {
           js: [[/(images\/[^''""]*\.(png|jpg|jpeg|gif|webp|svg))/g, 'Replacing references to images']]
         }
+      }
+    },
+
+    i18n: {
+      dist: {
+        options: {
+            baseDir: 'dist',
+            outputDir: 'dist'
+        }
+      },
+      options: {
+        selector: '[translate]',
+        locales: ['en', 'nl'],
+        locale: 'en', // set your default locale
+        localesPath: 'locales'
       }
     },
 
@@ -511,7 +528,8 @@ module.exports = function (grunt) {
     'uglify',
     'filerev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'i18n'
   ]);
 
   grunt.registerTask('default', [
