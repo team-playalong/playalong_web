@@ -18,6 +18,7 @@ app.config(function($translateProvider) {
       prefix: '/locales/',
       suffix: '.json'
   });
+  $translateProvider.useSanitizeValueStrategy('sanitize');
  	// match the default locale from the build task
   $translateProvider.preferredLanguage(PLY_CONFIG.defaultLocale || 'en');
 })

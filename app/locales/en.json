@@ -40,5 +40,23 @@
 		"EDIT_CHORD": "Edit Chord",
 		"AUTO_SCROLL": "Auto-Scroll",
 		"COUNT_RATING_MESSAGE": "users have rated this. Be one of them :)"
+	},
+	"autoscroll" : {
+		"TITLE" : "Scroll Speed",
+		"SLOWER_MESSAGE": "Scroll Slower",
+		"QUICKER_MESSAGE": "Scroll Quicker"
+	},
+	"builder": {
+		"invite": {
+			"TITLE": "Want To Create and Edit Chords?",
+			"CONTACT_US": "Contact us ",
+			"HERE": "HERE",
+			"SUPERUSER": "If you're already a superuser, simply login..."
+		},
+		"ARTIST": "Artist",
+		"TITLE": "Title",
+		"APPROVED": "Approved?",
+		"CREATE": "Create Chord",
+		"GO_TO_CHORD": "See Chord In Action"
 	}
 }

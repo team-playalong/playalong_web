@@ -1,52 +1,60 @@
-<form name="builder" novalidate>
+<form name="builder" novalidate
+      translate-namespace="builder">
   
   <md-content class="md-padding md-whiteframe-z4 builder">
-    <div class="ply-overlay" ng-if="!login.isSuperUser()">
+    <div class="ply-overlay" ng-if="!login.isSuperUser()"
+      translate-namespace=".invite">
       <div class="jumbotron ply-transparent text-center ply-white">
-        <h1>Want To Create and Edit Chords?</h1>  
+        <h1 translate=".TITLE"></h1>  
         <br/><br/>
         <h1 class="ply-white">
-          Contact Us&nbsp;
-          <a href="mailto:contact@playalong.io?subject=I Wanna Be a SuperUser!" target="_blank">HERE</a>
+          <span translate=".CONTACT_US"></span>
+          <a href="mailto:contact@playalong.io?subject=I Wanna Be a SuperUser!" target="_blank" translate="HERE"></a>
         </h1>
 
-        <h3>If you're already a superuser, simply login...</h3>
+        <h3 translate=".SUPERUSER"></h3>
       </div>
       
 
     </div>  
-    <div layout="row" >
+    <div layout="row">
       <md-input-container flex>
-        <label>Artist</label>
+        <label translate=".ARTIST">Artist</label>
         <input required name="artist" ng-model="chord.artist" auto-direction />
       </md-input-container>
       <span flex="10"></span>
       <md-input-container flex>
-        <label>Title</label>
+        <label translate=".TITLE"></label>
         <input required ng-model="chord.title" auto-direction />
       </md-input-container>
     </div>
 
     <div layout="row" layout-wrap>
       <div flex="50">
+
+        <!-- TODO - Translate -->
         <md-switch class="ply-switch" ng-model="isPreviewMode" aria-label="Switch 1" ng-change="handleSwitchModes()">
             Switch To {{getTextByMode()}} Mode
-          </md-switch>
-          <md-switch class="ply-switch" ng-model="chord.approved" aria-label="Approved" ng-if="login.isSuperUser()" ng-change="handleApproveChange()">
-              Approved?
+        </md-switch>
+          <md-switch class="ply-switch" 
+              ng-model="chord.approved" 
+              aria-label="Approved" 
+              ng-if="login.isSuperUser()" ng-change="handleApproveChange()">
+              {{'builder.APPROVED' | translate}}
             </md-switch>
       </div>
       <div flex="50">
         <md-button  class="md-raised md-accent pull-right"
           type="submit"
           ng-click="createChordInDb()"
-          ng-if="!$stateParams.id && !chordCreated">
-          Create Chord
+          ng-if="!$stateParams.id && !chordCreated"
+          translate=".CREATE"
+          aria-label="Create">
         </md-button>
         <md-button  class="md-primary md-hue-1 pull-right"
           ng-if="$stateParams.id || chordCreated"
-          ng-click="goToChordPage(chord)">
-          See Chord In Action
+          ng-click="goToChordPage(chord)"
+          translate=".GO_TO_CHORD">
         </md-button>
       </div>
     </div>
@@ -64,10 +72,11 @@
     </div>
 
     <md-button  class="md-raised md-accent pull-right"
-                type="submit"
-                ng-click="createChordInDb()"
-                ng-if="!$stateParams.id && !chordCreated">
-                Create Chord
+      type="submit"
+      ng-click="createChordInDb()"
+      ng-if="!$stateParams.id && !chordCreated"
+      translate=".CREATE"
+      aria-label="Create">
     </md-button>
   </md-content>
 </form>

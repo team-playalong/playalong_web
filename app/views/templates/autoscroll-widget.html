@@ -1,4 +1,8 @@
-<div  class="well ply-autoscroll-widget no-padding" jqyoui-draggable="{animate:true}" data-drag="true" ng-class="{minified: isMinified}">
+<div  class="well ply-autoscroll-widget no-padding" 
+			jqyoui-draggable="{animate:true}" 
+			data-drag="true" 
+			ng-class="{minified: isMinified}"
+			translate-namespace="autoScroll">
 		<div class="ply-autoscroll-widget-minimize">
 			<md-button class="md-icon-button" aria-label="unfold_less" hide-gt-sm>
         <ng-md-icon ng-click="toggleMinMax()" icon="{{minMaxIcon}}" size="15"></ng-md-icon>
@@ -7,13 +11,13 @@
 		<div 	layout="row" layout-align="center center" layout-wrap ng-if="!isMinified">
 			<md-button class="md-icon-button" aria-label="Remove" flex-gt-sm="15" flex-sm="100">
         <ng-md-icon ng-click="changeSpeed(-1)" icon="remove" size="30"></ng-md-icon>
-        <md-tooltip md-direction="top">Scroll Slower</md-tooltip>
+        <md-tooltip md-direction="top">{{'autoscroll.SLOWER_MESSAGE' | translate}}</md-tooltip>
       </md-button>
-			<justgage level-colors="{{levelColors}}" class="ply-autoscroll-widget-gauge" title="Scroll Speed" value="{{speed}}"
+			<justgage level-colors="{{levelColors}}" class="ply-autoscroll-widget-gauge" title="{{'autoscroll.TITLE' | translate}}" value="{{speed}}"
 								min="{{min}}" max="{{max}}" flex-gt-sm="50" flex-sm="100">
 			</justgage>		
 			<md-button class="md-icon-button" ng-click="changeSpeed(1)" aria-label="Add" flex-gt-sm="15" flex-sm="100">
-			<md-tooltip md-direction="top">Scroll Quicker</md-tooltip>
+			<md-tooltip md-direction="top" >{{'autoscroll.QUICKER_MESSAGE' | translate}}</md-tooltip>
         <ng-md-icon ng-click="toggleLeft()" icon="add" size="30"></ng-md-icon>
       </md-button>
 		</div>
