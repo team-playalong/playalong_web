@@ -9,9 +9,6 @@ app.config(['$stateProvider','$urlRouterProvider', function ($stateProvider, $ur
           controller: 'HomeCtrl',
           data: {
             title: 'Chord Search'
-          },
-          resolve: {
-            plyTranslations: Translator.getTranslationsByPage('home');
           }
         })
         .state("chord", { 

@@ -1,8 +1,9 @@
-<div class="md-padding" id="home">
+<div  class="md-padding" id="home"
+      translate-namespace="home">
     <md-card layout-align="center">
       <md-card-content>
 
-        <h2 class="md-title">Search For...</h2>
+        <h2 class="md-title" translate=".SEARCH_TITLE"></h2>
         <form name="chordSearchForm" class="ply-search-form" novalidate>
           <div layout="row" layout-wrap>
               <div flex-sm="100" flex-gt-sm="25">
@@ -15,23 +16,28 @@
               </div>
               <div flex-sm="100" flex-gt-sm="60">
                 <md-input-container>
-                  <input md-maxlength="50" placeholder="Search Text..." required name="searchInput" ng-model="searchConfig.searchInput" auto-direction />
+                  <input md-maxlength="50" 
+                  placeholder="Search Here" required name="searchInput" ng-model="searchConfig.searchInput" auto-direction />
                   <div ng-messages="chordSearchForm.searchInput.$error">
                     <!-- TODO - Messages from texts object -->
-                    <div ng-if="chordSearchForm.searchInput.$dirty && chordSearchForm.searchInput.$invalid && chordSearchForm.searchInput.$error" ng-message="required">This is required.</div>
+                    <div ng-if="chordSearchForm.searchInput.$dirty && chordSearchForm.searchInput.$invalid && chordSearchForm.searchInput.$error" ng-message="required">{{'globals.errors.REQUIRED' | translate}}</div>
                   </div>
                 </md-input-container>
               </div>
               <div flex hide show-gt-sm>
-                <md-button class="md-raised md-accent" type="submit" ng-click="searchChords()">Go</md-button>
+                <md-button class="md-raised md-accent" type="submit" ng-click="searchChords()" 
+                aria-label="Go"
+                translate=".SEARCH_BOTTON"></md-button>
               </div>
           </div>
           <div layout="row" layout-align="center left" hide-gt-sm>
-            <md-button flex class="md-raised md-accent" type="submit" ng-click="searchChords()">Go</md-button>
+            <md-button flex class="md-raised md-accent" type="submit" ng-click="searchChords()"
+            aria-label="Go"
+            translate=".SEARCH_BOTTON">Go</md-button>
           </div>
           <div layout="row">
             <div flex>
-              <md-button class="md-primary md-hue-1" ui-sref="topChords">Top Chords</md-button>
+              <md-button class="md-primary md-hue-1" ui-sref="topChords" translate="topChords.PAGE_TITLE"></md-button>
             </div>
           </div>
         </form>      

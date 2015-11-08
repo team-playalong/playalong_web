@@ -8,23 +8,30 @@
  * Controller of the playalongWebApp
  */
 angular.module('playalongWebApp')
-  .controller('HomeCtrl', ['$scope', '$rootScope','chords',
-      function ($scope, $rootScope, chords) {
-    $rootScope.currPage = 'Search';
-  	$scope.searchByOptions = [
-  		{
-  			label: 'Song Name',
-  			value: 'title'
-  		},
-  		{
-  			label: 'Artist',
-  			value: 'artist'
-  		}
-  	];
-  	$scope.searchConfig = {
-  		searchBy: $scope.searchByOptions[0].value,
-      searchInput: ''
-  	};
+  .controller('HomeCtrl', ['$scope', '$rootScope','chords','$translate',
+      function ($scope, $rootScope, chords,$translate) {
+    $translate(['home.PAGE_TITLE',
+                'home.SONG_NAME',
+                'home.ARTIST'])
+    .then(function (translations) {
+      $rootScope.currPage = translations['home.PAGE_TITLE'];
+      $scope.searchByOptions = [
+        {
+          label: translations['home.SONG_NAME'],
+          value: 'title'
+        },
+        {
+          label: translations['home.ARTIST'],
+          value: 'artist'
+        }
+      ];
+      $scope.searchConfig = {
+        searchBy: $scope.searchByOptions[0].value,
+        searchInput: ''
+      };
+    });
+    
+  	
     
     $scope.handleChordResults = function(results) {
       if (!results || !results.length)

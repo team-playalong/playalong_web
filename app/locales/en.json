@@ -7,13 +7,26 @@
 			"HI": "Hi"
 		}
 	},
-	"global": {
-
+	"globals": {
+		"errors": {
+			"REQUIRED": "This is required."
+		}
 	},
 	"sidebar": {
 		"menu": {
 			"SEARCH": "Search",
 			"CHORD_BUILDER": "Chord Builder"
 		}
+	},
+	"home": {
+		"PAGE_TITLE": "Search",
+		"SEARCH_PLACEHOLDER": "Search Here",
+		"SEARCH_TITLE": "Find You Song",
+		"SONG_NAME": "Song Name",
+		"ARTIST": "Artist",
+		"SEARCH_BOTTON": "Go"
+	},
+	"topChords": {
+		"PAGE_TITLE": "Top Chords"
 	}
 }

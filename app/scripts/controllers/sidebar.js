@@ -8,26 +8,29 @@
  * Controller of the playalongWebApp
  */
 angular.module('playalongWebApp')
-  .controller('SidebarCtrl',['$scope','$mdSidenav',
-    function ($scope, $mdSidenav) {
-    $scope.menuItems = [
-    	{
-    		text: 'Search',
-    		ref: 'home',
-        icon: 'search'
-    	},
-      {
-        text: 'Chord Builder',
-        ref: 'builder.new',
-        icon: 'pencil'
-      }
-    ];
+  .controller('SidebarCtrl',['$scope','$mdSidenav','$translate',
+    function ($scope, $mdSidenav,$translate) {
+      $translate(['sidebar.menu.SEARCH','sidebar.menu.CHORD_BUILDER'])
+      .then(function (translations) {
+        $scope.menuItems = [
+        	{
+        		text: translations['sidebar.menu.SEARCH'],
+        		ref: 'home',
+            icon: 'search'
+        	},
+          {
+            text: translations['sidebar.menu.CHORD_BUILDER'],
+            ref: 'builder.new',
+            icon: 'pencil'
+          }
+        ];
 
 
-    $scope.close = function () {
-      $mdSidenav('left').close()
-        .then(function () {
+        $scope.close = function () {
+          $mdSidenav('left').close()
+            .then(function () {
 
-        });
-    };
+            });
+        };
+      });
   }]);
