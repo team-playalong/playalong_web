@@ -34,5 +34,11 @@
 		"TITLE": "Here are our most viewed chords",
 		"SINGLE_HIT": "Viewed 1 Time",
 		"MANY_HITS": "Viewed {hitCount} Times"
+	},
+	"chord": {
+		"RATE_MESSAGE": "Was I Any Good? Rate me!",
+		"EDIT_CHORD": "Edit Chord",
+		"AUTO_SCROLL": "Auto-Scroll",
+		"COUNT_RATING_MESSAGE": "users have rated this. Be one of them :)"
 	}
 }

@@ -3,14 +3,7 @@
 app.directive("starRating", ['toast','chords', function(toast,chords) {
   return {
     restrict : "EA",
-    template : "<ul class='rating' ng-class='{readonly: readonly}'>" +
-               "  <li ng-repeat='star in stars' ng-class='star' ng-click='toggle($index)'>" +
-               "    <i class='fa fa-star'></i>" + //&#9733
-               "  </li>" +
-               "</ul>" +
-               "<p class='help-block' ng-if='chord.countRating && !hasRated'>" +
-               "  {{chord.countRating}} people have rated this. Be one of them :)" +
-               "</p>",
+    templateUrl : 'views/templates/star-rating.html',
     scope : {
       ratingValue : "=ngModel",
       chord: "=",

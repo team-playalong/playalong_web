@@ -1,4 +1,5 @@
-<div class="md-padding" id="chord" ng-cloak>
+<div  class="md-padding" id="chord" ng-cloak
+      translate-namespace="chord">
     <md-card  layout-padding layout-align="left center" 
               autoscroll speed="{{autoscrollSpeed}}"
               ng-class="{'text-align-right' : isRtl}">
@@ -12,7 +13,7 @@
         <div ng-bind-html="chord.content"></div>
         <div  class="ply-chord-rating"
               ng-if="chordRating">
-          <h5>Was I Any Good? Rate me!</h5>
+          <h5 tranlate=".RATE_MESSAGE"></h5>
           <star-rating ng-model="chordRating" chord="chord" max="5" readonly="ratingAttempts >= 2"></star-rating>
         </div>
       </md-card-content>
@@ -37,12 +38,12 @@
     <md-button aria-label="create" class="md-fab md-raised md-mini" ui-sref="builder.edit({id:chord.$id || chord.chordKey})"
           ng-if="isSuperUser()">
       <ng-md-icon layout="center center" class="ply-fab-icon ply-fab-icon-dark" icon="create"></ng-md-icon>
-      <md-tooltip md-direction="left">Edit Chord</md-tooltip>
+      <md-tooltip md-direction="left" tranlate=".EDIT_CHORD"></md-tooltip>
     </md-button>
     <md-button aria-label="create" class="md-fab md-raised md-mini"
                 ng-click="toggleAutoscroll()">
       <ng-md-icon layout="center center" class="ply-fab-icon ply-fab-icon-dark" icon="format_line_spacing"></ng-md-icon>
-      <md-tooltip md-direction="left">Auto-Scroll</md-tooltip>
+      <md-tooltip md-direction="left" tranlate="AUTO_SCROLL"></md-tooltip>
     </md-button>
   </md-fab-actions>
 </md-fab-speed-dial>
