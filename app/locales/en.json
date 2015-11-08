@@ -22,6 +22,9 @@
 		"PAGE_TITLE": "Search",
 		"SEARCH_PLACEHOLDER": "Search Here",
 		"SEARCH_TITLE": "Find You Song",
+		"MANY_RESULT_MESSAGE": "You have {numResults} results",
+		"SINGLE_RESULT_MESSAGE": "You have one result",
+		"EMPTY_RESULT_MESSAGE": "You have no results. Please try again.",
 		"SONG_NAME": "Song Name",
 		"ARTIST": "Artist",
 		"SEARCH_BOTTON": "Go"

@@ -1,5 +1,4 @@
 'use strict';
-
 describe('Controller: HomeCtrl', function () {
 
   // load the controller's module
@@ -10,7 +9,7 @@ describe('Controller: HomeCtrl', function () {
 		  chordsMockService;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope,$q) {
+  beforeEach(inject(function ($controller, $rootScope,$q,$httpBackend) {
     $rootScope.startSpin = function() {};
 
   	chordsMockService = {
@@ -24,12 +23,17 @@ describe('Controller: HomeCtrl', function () {
       $scope : scope,
       chords: chordsMockService
     });
+    
+    //Ignores all html requests
+    $httpBackend.whenGET(/views\/.*/).respond();
+
+    $rootScope.$apply();
   }));
 
   it('should initialize all components', function() {
   	expect(scope).toBeDefined();
+    expect(scope.searchByOptions).toBeDefined();
   	expect(scope.searchByOptions.length).toBe(2);
-  	expect(scope.searchByOptions[0].label).toBe('Song Name');
 
   	expect(scope.searchConfig.searchBy).toBe('title');
   });
@@ -40,6 +44,4 @@ describe('Controller: HomeCtrl', function () {
 		expect(scope.searchResults.length).toBe(1);
 		expect(scope.searchResults[0].artist).toBe('Test Artist');
   });
-  
-
 });

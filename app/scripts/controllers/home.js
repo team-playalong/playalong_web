@@ -8,8 +8,8 @@
  * Controller of the playalongWebApp
  */
 angular.module('playalongWebApp')
-  .controller('HomeCtrl', ['$scope', '$rootScope','chords','$translate',
-      function ($scope, $rootScope, chords,$translate) {
+  .controller('HomeCtrl', ['$scope', '$rootScope','chords','$translate','$q',
+      function ($scope, $rootScope, chords,$translate,$q) {
     $translate(['home.PAGE_TITLE',
                 'home.SONG_NAME',
                 'home.ARTIST'])
@@ -31,17 +31,44 @@ angular.module('playalongWebApp')
       };
     });
     
-  	
+  	$scope.formatResultMessage = function() {
+      var deferred = $q.defer();
+      var toTranslate;
+      var manyResults;
+      if (!$scope.searchResults || !$scope.searchResults.length)
+      {
+        toTranslate = 'home.EMPTY_RESULT_MESSAGE';
+      }
+      else if ($scope.searchResults && $scope.searchResults.length === 1)
+      {
+        toTranslate = 'home.SINGLE_RESULT_MESSAGE';
+      }
+      else if ($scope.searchResults && $scope.searchResults.length > 1)
+      {
+        manyResults = true;
+        toTranslate = 'home.MANY_RESULT_MESSAGE'; 
+      }
+      $translate([toTranslate])
+      .then(function (translations) {
+        var res = translations[toTranslate];
+        if (manyResults && res.indexOf('{numResults}') !== -1)
+        { 
+          res = res.replace('{numResults}',$scope.searchResults.length);
+        }
+        deferred.resolve(res);
+      });
+
+      return deferred.promise;
+    };
     
     $scope.handleChordResults = function(results) {
-      if (!results || !results.length)
-      {
-      }
+      if (!results || !results.length) {}
       else {
         $scope.searchResults = results;
       }
     };
-
+    
+    
 
   	$scope.searchChords = function() {
       $rootScope.startSpin();
@@ -49,9 +76,14 @@ angular.module('playalongWebApp')
   		chords.searchChordsBy($scope.searchConfig.searchBy,$scope.searchConfig.searchInput)
   		.then($scope.handleChordResults)
   		.catch(function(error) {
+        $scope.searchResults = [];
   			console.warn(error);
   		})
       .finally(function() { 
+        $scope.formatResultMessage()
+        .then(function(message) {
+          $scope.resultMessage = message;
+        });
         $rootScope.stopSpin();  
       });
   	};	

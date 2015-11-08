@@ -33,7 +33,7 @@
           <div layout="row" layout-align="center left" hide-gt-sm>
             <md-button flex class="md-raised md-accent" type="submit" ng-click="searchChords()"
             aria-label="Go"
-            translate=".SEARCH_BOTTON">Go</md-button>
+            translate=".SEARCH_BOTTON"></md-button>
           </div>
           <div layout="row">
             <div flex>
@@ -50,9 +50,7 @@
     <md-card layout-align="center" ng-if="searchResults" class="ply-search-results">
       <md-card-content>
 
-        <h4 class="md-title" layout-align="left" ng-if="searchResults && searchResults.length">You Have {{searchResults.length}} {{searchResults.length > 1 ? 'Results' : 'Result'}}</h4>
-        <md-list>
-        <h4 class="md-title" layout-align="left" ng-if="searchResults && !searchResults.length">You have no results, Please try again.</h4>
+        <h4 class="md-title" layout-align="left" ng-if="resultMessage"  >{{resultMessage}}</h4>
         <md-list>
           <md-list-item class="md-2-line clickable"  ng-repeat="result in searchResults track by $index" >
             <img ng-src="{{result.imagePath}}" class="md-avatar" ng-if="result.imagePath" />
@@ -65,7 +63,7 @@
             </div>
             <md-divider ></md-divider>
           </md-list-item>
-          
+        </md-list>
       </md-card-content>
     </md-card>
     <div layout="row" class="md-padding">
