@@ -30,7 +30,7 @@ app.config(function($translateProvider) {
 	{
 		$translate.use('he');
 	}
-  else 
+  else if (splitUrl.indexOf('en') > -1) 
 	{
 		$translate.use('en');
 	}

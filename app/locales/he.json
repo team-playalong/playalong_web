@@ -1,4 +1,62 @@
 {
-	"SEARCH": "חיפוש",
-	"CHORD_BUILDER": "בונה אקורדים"
+	"toolbar": {
+		"APP_NAME": "Playalong",
+		"login": {
+			"MESSAGE": "שלום, התחבר עם",
+			"LOGOUT": "התנתק",
+			"HI": "היי"
+		}
+	},
+	"globals": {
+		"errors": {
+			"REQUIRED": "שדה חובה"
+		}
+	},
+	"sidebar": {
+		"menu": {
+			"SEARCH": "חיפוש",
+			"CHORD_BUILDER": "בונה אקורדים"
+		}
+	},
+	"home": {
+		"PAGE_TITLE": "חיפוש",
+		"SEARCH_PLACEHOLDER": "חפש כאן",
+		"SEARCH_TITLE": "מצא את השיר שלך",
+		"MANY_RESULT_MESSAGE": "נמצאו {numResults} תוצאות",
+		"SINGLE_RESULT_MESSAGE": "נמצאה תוצאה אחת",
+		"EMPTY_RESULT_MESSAGE": "אין תוצאות לחיפוש. נסה שוב...",
+		"SONG_NAME": "שם השיר" ,
+		"ARTIST": "אמן",
+		"SEARCH_BOTTON": "חפש"
+	},
+	"topChords": {
+		"PAGE_TITLE": "היכל התהילה",
+		"TITLE": "האקורדים הנצפים ביותר",
+		"SINGLE_HIT": "נצפה פעם אחת",
+		"MANY_HITS": "נצפה {hitCount} פעמים"
+	},
+	"chord": {
+		"RATE_MESSAGE": "הייתי טוב? דרג אותי!",
+		"EDIT_CHORD": "ערוך אקורד",
+		"AUTO_SCROLL": "גלילה אוטומטית",
+		"COUNT_RATING_MESSAGE": "משתמשים דרגו את השיר. תהיה אחד מהם"
+	},
+	"autoscroll" : {
+		"TITLE" : "מהירות גלילה",
+		"SLOWER_MESSAGE": "לאט יותר",
+		"QUICKER_MESSAGE": "מהר יותר"
+	},
+	"builder": {
+		"invite": {
+			"TITLE": "?רוצה לבנות ולערוך אקורדים",
+			"CONTACT_US": "צור קשר ",
+			"HERE": "כאן",
+			"SUPERUSER": "אם יש לך כבר הרשאות, פשוט התחבר"
+		},
+		"ARTIST": "אמן",
+		"TITLE": "שם השיר",
+		"APPROVED": "מאושר?",
+		"CREATE": "צור",
+		"GO_TO_CHORD": "עבור לתצוגה חיה"
+	}
 }
