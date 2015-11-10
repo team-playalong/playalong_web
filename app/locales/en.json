@@ -57,6 +57,7 @@
 		"TITLE": "Title",
 		"APPROVED": "Approved?",
 		"CREATE": "Create Chord",
-		"GO_TO_CHORD": "See Chord In Action"
+		"GO_TO_CHORD": "See Chord In Action",
+		"PREVIEW": "Preview Mode"
 	}
 }

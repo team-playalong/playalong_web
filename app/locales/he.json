@@ -10,6 +10,11 @@
 	"globals": {
 		"errors": {
 			"REQUIRED": "שדה חובה"
+		},
+		"languages": {
+			"HEBREW": "עב",
+			"ENGLISH": "אנ"
+
 		}
 	},
 	"sidebar": {
@@ -48,15 +53,16 @@
 	},
 	"builder": {
 		"invite": {
-			"TITLE": "?רוצה לבנות ולערוך אקורדים",
+			"TITLE": "רוצה לבנות ולערוך אקורדים?",
 			"CONTACT_US": "צור קשר ",
 			"HERE": "כאן",
-			"SUPERUSER": "אם יש לך כבר הרשאות, פשוט התחבר"
+			"SUPERUSER": "אם יש לך כבר הרשאות, פשוט התחבר..."
 		},
 		"ARTIST": "אמן",
 		"TITLE": "שם השיר",
 		"APPROVED": "מאושר?",
 		"CREATE": "צור",
-		"GO_TO_CHORD": "עבור לתצוגה חיה"
+		"GO_TO_CHORD": "עבור לתצוגה חיה",
+		"PREVIEW": "תצוגה מקדימה"
 	}
 }

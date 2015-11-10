@@ -32,9 +32,8 @@
     <div layout="row" layout-wrap>
       <div flex="50">
 
-        <!-- TODO - Translate -->
         <md-switch class="ply-switch" ng-model="isPreviewMode" aria-label="Switch 1" ng-change="handleSwitchModes()">
-            Switch To {{getTextByMode()}} Mode
+          {{'builder.PREVIEW' | translate}}
         </md-switch>
           <md-switch class="ply-switch" 
               ng-model="chord.approved" 
@@ -43,15 +42,16 @@
               {{'builder.APPROVED' | translate}}
             </md-switch>
       </div>
-      <div flex="50">
-        <md-button  class="md-raised md-accent pull-right"
+      <div  flex="50"
+            layout="row" layout-align="end center">
+        <md-button  class="md-raised md-accent"
           type="submit"
           ng-click="createChordInDb()"
           ng-if="!$stateParams.id && !chordCreated"
           translate=".CREATE"
           aria-label="Create">
         </md-button>
-        <md-button  class="md-primary md-hue-1 pull-right"
+        <md-button  class="md-primary md-hue-1"
           ng-if="$stateParams.id || chordCreated"
           ng-click="goToChordPage(chord)"
           translate=".GO_TO_CHORD">
@@ -66,17 +66,8 @@
     <div layout="row" layout-wrap>
       <div flex="50">
         <md-switch class="ply-switch" ng-model="isPreviewMode" aria-label="Switch 1" ng-change="handleSwitchModes()">
-            Switch To {{getTextByMode()}} Mode
-          </md-switch>
-      </div>
+          {{'builder.PREVIEW' | translate}}
+        </md-switch>
     </div>
-
-    <md-button  class="md-raised md-accent pull-right"
-      type="submit"
-      ng-click="createChordInDb()"
-      ng-if="!$stateParams.id && !chordCreated"
-      translate=".CREATE"
-      aria-label="Create">
-    </md-button>
   </md-content>
 </form>
