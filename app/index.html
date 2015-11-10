@@ -1,5 +1,6 @@
 <!doctype html>
-<html ng-app="playalongWebApp" ng-cloak>
+
+<html ng-app="playalongWebApp" ng-cloak dir="{{app.dir}}">
   <head>
     <!-- Facebook Metatags -->
     <meta property="og:title" content="Amazing Guitar Chords" />
@@ -74,7 +75,9 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 
-  <div ng-controller="MainCtrl" layout="column" class="ply-app">
+  <div  ng-controller="MainCtrl" 
+        layout="column" class="ply-app"
+        ng-class="{'hebrew-sans': app.dir === 'rtl'}">
     <ply-spinner trigger-start-event="startSpin" trigger-stop-event="stopSpin"></ply-spinner>
     <section flex>
       <ng-include src="'views/templates/sidenav.html'"></ng-include>
@@ -149,6 +152,8 @@
     <script src="scripts/directives/autoscroll.js"></script>
     <script src="scripts/controllers/autoscroll.js"></script>
     <script src="scripts/directives/autoscroll-widget.js"></script>
+    <script src="scripts/directives/languagepicker.js"></script>
+    <script src="scripts/controllers/languagepicker.js"></script>
     <!-- endbuild -->
 
     <!-- Customer IO -->

@@ -13,7 +13,7 @@ angular.module('playalongWebApp')
   $scope.initCtrl = function() {
     $scope.paths = paths;
     $scope.user = login.getUser();
-    $scope.toggleLeft = buildToggler('left');
+    $scope.toggleLeft = buildToggler('plySidenav');
     $scope.allAlerts = [];
     $scope.mainCtrlConfig = {
       alertTimeout: 3000
@@ -24,9 +24,9 @@ angular.module('playalongWebApp')
    * Build handler to open/close a SideNav; when animation finishes
    * report completion in console
    */
-  function buildToggler(navID) {
+  function buildToggler(navId) {
     var debounceFn =  $mdUtil.debounce(function(){
-          $mdSidenav(navID)
+          $mdSidenav(navId)
             .toggle()
             .then(function () {
               $(".ply-main-container").toggleClass("sidebar-open");

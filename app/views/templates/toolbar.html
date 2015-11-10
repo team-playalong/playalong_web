@@ -7,7 +7,7 @@
       </md-button>
 
       <span class="clickable" ui-sref="home">
-        <img ng-src="{{paths.images.logo}}" class="ply-logo" alt="Washed Out" />
+        <img ng-src="{{paths.images.logo}}" class="ply-logo" alt="Playalong" />
       </span>
       <span hide-sm class="ply-ellipsis">
         <span translate=".APP_NAME"></span>
@@ -15,9 +15,11 @@
       </span>
     </div>
 
-    <div flex="40" class="ply-topnav-login pull-right"
+    <div  flex="40" class="ply-topnav-login"
           ng-controller="LoginCtrl"
-          translate-namespace=".login">
+          translate-namespace=".login"
+          layout="row"
+          layout-align="end center">
       <div ng-if="!login.isLoggedIn()">
         <span class="ply-topnav-login-title" translate=".MESSAGE"></span>
         <md-button class="md-icon-button ply-topnav-login-btn"
@@ -44,6 +46,7 @@
                     aria-label="Logout">
         </md-button>
       </div>
+      <language-picker></language-picker>
     </div>
   </div>
 </md-toolbar>

@@ -36,6 +36,15 @@ app.config(function($translateProvider) {
 	}
 });
 
+//Global config object
+app.run(['$rootScope','$translate',function ($rootScope,$translate) {
+	var dir = $translate.proposedLanguage() === 'he' ? 'rtl' : 'ltr';
+	
+
+	$rootScope.app = {
+	  dir: dir
+	};
+}]);
 
 
 app.run(["$rootScope", "$state" ,'$window', function($rootScope, $state,$window) {

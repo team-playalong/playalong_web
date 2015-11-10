@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/earlyaccess/opensanshebrew.css);
 @import '_ply.vars.scss';
 
 $ply-chord-font-size: 16px;
@@ -57,4 +58,8 @@ $ply-chord-font-size: 16px;
 
 .ply-white {
   color: $ply-white;
+}
+
+.hebrew-sans {
+  font-family: 'Open Sans Hebrew', sans-serif;
 }
