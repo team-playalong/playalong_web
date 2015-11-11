@@ -39,7 +39,8 @@
 		"RATE_MESSAGE": "Was I Any Good? Rate me!",
 		"EDIT_CHORD": "Edit Chord",
 		"AUTO_SCROLL": "Auto-Scroll",
-		"COUNT_RATING_MESSAGE": "users have rated this. Be one of them :)"
+		"COUNT_RATING_MESSAGE": "users have rated this. Be one of them :)",
+		"RATING_SUCCESS": "Thanks for rating!"
 	},
 	"autoscroll" : {
 		"TITLE" : "Scroll Speed",
@@ -58,6 +59,10 @@
 		"APPROVED": "Approved?",
 		"CREATE": "Create Chord",
 		"GO_TO_CHORD": "See Chord In Action",
-		"PREVIEW": "Preview Mode"
+		"PREVIEW": "Preview Mode",
+		"alerts": {
+			"START_EDIT": "You may start editing",
+			"CHORD_ADDED": "Chord Added. All changes will automatically be saved."
+		}
 	}
 }

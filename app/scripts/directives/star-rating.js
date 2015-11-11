@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive("starRating", ['toast','chords', function(toast,chords) {
+app.directive("starRating", ['toast','chords','$translate', function(toast,chords,$translate) {
   return {
     restrict : "EA",
     templateUrl : 'views/templates/star-rating.html',
@@ -29,7 +29,11 @@ app.directive("starRating", ['toast','chords', function(toast,chords) {
           chords.rateChord(scope.chord.$id || scope.chord.chordKey,scope.ratingValue)
             .then(function() {
               scope.hasRated = true;
-              toast.showSimpleToast('Thanks For Rating');
+              $translate(['chord.RATING_SUCCESS'])
+              .then(function (translations) {
+                toast.showSimpleToast(translations['chord.RATING_SUCCESS'] || 'Thanks For Rating');  
+              });
+              
             });
           }
       };

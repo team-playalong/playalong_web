@@ -16,9 +16,9 @@
 			<justgage level-colors="{{levelColors}}" class="ply-autoscroll-widget-gauge" title="{{'autoscroll.TITLE' | translate}}" value="{{speed}}"
 								min="{{min}}" max="{{max}}" flex-gt-sm="50" flex-sm="100">
 			</justgage>		
-			<md-button class="md-icon-button" ng-click="changeSpeed(1)" aria-label="Add" flex-gt-sm="15" flex-sm="100">
+			<md-button class="md-icon-button"  aria-label="Add" flex-gt-sm="15" flex-sm="100">
 			<md-tooltip md-direction="top" >{{'autoscroll.QUICKER_MESSAGE' | translate}}</md-tooltip>
-        <ng-md-icon ng-click="toggleLeft()" icon="add" size="30"></ng-md-icon>
+        <ng-md-icon icon="add" ng-click="changeSpeed(1)" size="30"></ng-md-icon>
       </md-button>
 		</div>
 		

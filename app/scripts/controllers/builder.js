@@ -19,7 +19,7 @@ angular.module('playalongWebApp')
     //We now have a reference to the entire chord object
     $scope.chordRef.$bindTo($scope, "chord").then(function() {
       $scope.chordCreated = true;
-      toast.showSimpleToast('Chord Added. All changes will automatically be saved.');
+      toast.showToastByTranslation('builder.alerts.CHORD_ADDED');
     });
   };
 
@@ -29,7 +29,7 @@ angular.module('playalongWebApp')
     if (result) {
       //We now have a reference to the entire chord object
       result.$bindTo($scope, "chord").then(function() {
-        toast.showSimpleToast('You may start editing');
+        toast.showToastByTranslation('builder.alerts.START_EDIT');
       });
     }
   }

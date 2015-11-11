@@ -20,7 +20,9 @@
     </md-card>
 </div>
 <md-fab-speed-dial 
-    class="ply-fab" 
+    class="ply-fab"
+    ng-class="{'fab-right': app.dir === 'ltr',
+                'fab-left': app.dir !== 'ltr'}" 
     md-open="chordFab.isOpen" md-direction="up"
     ng-class="chordFab.selectedMode">
   <md-fab-trigger>

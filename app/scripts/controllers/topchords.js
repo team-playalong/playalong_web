@@ -12,10 +12,12 @@ angular.module('playalongWebApp')
   .controller('TopchordsCtrl', ['$scope','chords','$rootScope','$translate',
 function ($scope,chords, $rootScope,$translate) {
 	$translate(['topChords.PAGE_TITLE',
+							'home.PAGE_TITLE',
 							'topChords.SINGLE_HIT',
 							'topChords.MANY_HITS'])
 	.then(function (translations) {
-		$rootScope.currPage = $rootScope.currPage === 'Search' ? $rootScope.currPage : translations['topChords.PAGE_TITLE'];
+		$rootScope.currPage = $rootScope.currPage === translations['home.PAGE_TITLE'] ? 
+													$rootScope.currPage : translations['topChords.PAGE_TITLE'];
 
 		$scope.setHitCountMessage = function(hitCount) {
 			if (!hitCount)

@@ -44,7 +44,8 @@
 		"RATE_MESSAGE": "הייתי טוב? דרג אותי!",
 		"EDIT_CHORD": "ערוך אקורד",
 		"AUTO_SCROLL": "גלילה אוטומטית",
-		"COUNT_RATING_MESSAGE": "משתמשים דרגו את השיר. תהיה אחד מהם"
+		"COUNT_RATING_MESSAGE": "משתמשים דרגו את השיר. תהיה אחד מהם :)",
+		"RATING_SUCCESS": "תודה על הדירוג"
 	},
 	"autoscroll" : {
 		"TITLE" : "מהירות גלילה",
@@ -63,6 +64,10 @@
 		"APPROVED": "מאושר?",
 		"CREATE": "צור",
 		"GO_TO_CHORD": "עבור לתצוגה חיה",
-		"PREVIEW": "תצוגה מקדימה"
+		"PREVIEW": "תצוגה מקדימה",
+		"alerts": {
+			"START_EDIT": "ניתן להתחיל לערוך",
+			"CHORD_ADDED": "האקורד נוצר. שינויים מעתה יישמרו אוטומטית"
+		}
 	}
 }

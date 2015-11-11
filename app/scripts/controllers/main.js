@@ -13,7 +13,7 @@ angular.module('playalongWebApp')
   $scope.initCtrl = function() {
     $scope.paths = paths;
     $scope.user = login.getUser();
-    $scope.toggleLeft = buildToggler('plySidenav');
+    $scope.toggleSidebar = buildToggler('plySidenav');
     $scope.allAlerts = [];
     $scope.mainCtrlConfig = {
       alertTimeout: 3000

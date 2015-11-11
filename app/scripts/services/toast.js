@@ -8,7 +8,7 @@
  * Service in the playalongWebApp.
  */
 angular.module('playalongWebApp')
-  .service('toast',['$mdToast', function ($mdToast) {
+  .service('toast',['$mdToast','$translate', function ($mdToast,$translate) {
 		var conf = {
 			delay: 4000, //ms
 			position: 'bottom left'
@@ -22,8 +22,19 @@ angular.module('playalongWebApp')
   		    .hideDelay(conf.delay)
   		);
   	};
+    
+    var showToastByTranslation = function(transKey) {
+      $translate([transKey])
+      .then(function (translations) {
+        if (translations[transKey])
+        {
+          showSimpleToast(translations[transKey]);  
+        }
+      });
+    };
 
     return {
-    	showSimpleToast: showSimpleToast
+    	showSimpleToast: showSimpleToast,
+      showToastByTranslation: showToastByTranslation
     };
   }]);

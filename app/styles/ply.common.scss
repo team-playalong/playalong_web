@@ -43,7 +43,12 @@ body {
 			.ply-fab {
 				position: fixed;
 				bottom:15px;
-				right:20px;
+				&.fab-left {
+					left:25px;
+				}
+				&.fab-right {
+					right:15px;
+				}
 				.ply-fab-icon {
 					fill: #ffffff;
 					line-height: 68px;
