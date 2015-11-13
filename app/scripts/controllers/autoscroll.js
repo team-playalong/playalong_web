@@ -14,7 +14,7 @@ angular.module('playalongWebApp')
   	$scope.config = {
   		bottomSpeed: 1,
   		topSpeed: 2,
-  		baseInterval: 75,
+  		baseInterval: 120,
   		maxSpeed: 5,
   		minSpeed: 0
   	};

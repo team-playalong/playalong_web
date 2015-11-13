@@ -18,16 +18,8 @@ angular.module('playalongWebApp')
       return !!matching && matching.length >= 3;
     };
 
-    var getParameterByName = function(name) {
-      name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-      var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-          results = regex.exec(location.search);
-      return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-    };
-
     // Public API here
     return {
-      isRtlContent: isRtlContent,
-      getParameterByName: getParameterByName
+      isRtlContent: isRtlContent
     };
   }]);
