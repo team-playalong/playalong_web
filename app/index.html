@@ -67,6 +67,7 @@
   <body>
     <!-- Facebook init -->
     <div id="fb-root"></div>
+    
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
@@ -74,6 +75,13 @@
       js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=541650972649460";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
+    <!-- End - Facebook init -->
+
+    <!-- Twitter -->
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+    </script> 
+    <!-- End-Twitter -->
+
 
   <div  ng-controller="MainCtrl" 
         layout="column" class="ply-app"
@@ -86,7 +94,13 @@
 
       <md-content layout-padding id="plyContent">
         <div ui-view class="ply-main-container container"></div>
+        <div layout="row">
+            <div flex="50">
+                <a href="https://twitter.com/playalong_io" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @playalong_io</a>
+            </div>
+        </div>
       </md-content>
+
     </section>
     <div class="footer">
       <alert class="ply-alert-container" ng-repeat="alert in allAlerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>

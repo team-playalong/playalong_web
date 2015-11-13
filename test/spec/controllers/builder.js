@@ -36,7 +36,9 @@ describe('Controller: BuilderctrlCtrl', function () {
       chords: chordsMockService,
       $stateParams: $stateParams,
       toast: {
-        showSimpleToast: function() {}
+        showToastByTranslation: function() {},
+        showSimpleToast: function() {},
+        
       }
     });
 

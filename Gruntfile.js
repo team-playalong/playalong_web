@@ -288,21 +288,6 @@ module.exports = function (grunt) {
       }
     },
 
-    i18n: {
-      dist: {
-        options: {
-            baseDir: 'dist',
-            outputDir: 'dist'
-        }
-      },
-      options: {
-        selector: '[translate]',
-        locales: ['en', 'nl'],
-        locale: 'en', // set your default locale
-        localesPath: 'locales'
-      }
-    },
-
     // The following *-min tasks will produce minified files in the dist folder
     // By default, your `index.html`'s <!-- Usemin block --> will take care of
     // minification. These next options are pre-configured if you do not wish
@@ -417,7 +402,7 @@ module.exports = function (grunt) {
             'fonts/{,*/}*.*',
 
             'fonts/**/*',
-            'i18n/**/*',
+            'locales/**/*',
             'images/**/*',
             
             '{,*/}*.html'
@@ -528,8 +513,7 @@ module.exports = function (grunt) {
     'uglify',
     'filerev',
     'usemin',
-    'htmlmin',
-    'i18n'
+    'htmlmin'
   ]);
 
   grunt.registerTask('default', [
