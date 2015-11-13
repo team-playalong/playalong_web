@@ -3,15 +3,15 @@
 <html ng-app="playalongWebApp" ng-cloak dir="{{app.dir}}">
   <head>
     <!-- Facebook Metatags -->
-    <meta property="og:title" content="Amazing Guitar Chords" />
-    <meta property="og:site_name" content="Playalong Guitar Chords"/>
+    <meta property="og:title" content="{{pageTitle}}" />
+    <meta property="og:site_name" content="{{::Facebook.appName}}"/>
     <meta property="og:url" content="https://www.playalong.io" />
-    <meta property="og:description" content="" />
-    <meta property="fb:app_id" content="541650972649460" />
+    <meta property="og:description" content="{{::Facebook.description}}" />
+    <meta property="fb:app_id" content="{{Facebook.appId}}" />
     <meta property="og:type" content="article" />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content="{{::app.locale}}" />
     <meta property="og:locale:alternate" content="he_HE" />
-    <meta property="og:image" content="https://www.playalong.io/images/plyIcon.9d8785c6.png" />
+    <meta property="og:IMAGE" content="{{paths.images.logo}}" />
 
     <meta charset="utf-8">
     <title>{{pageTitle}}</title>
@@ -167,6 +167,7 @@
     <script src="scripts/controllers/autoscroll.js"></script>
     <script src="scripts/directives/autoscroll-widget.js"></script>
     <script src="scripts/directives/languagepicker.js"></script>
+    <script src="scripts/services/plytooltip.js"></script>
     <!-- endbuild -->
 
     <!-- Customer IO -->

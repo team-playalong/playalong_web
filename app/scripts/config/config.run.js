@@ -35,10 +35,11 @@ app.config(function($translateProvider) {
 //Global config object
 app.run(['$rootScope','$translate',function ($rootScope,$translate) {
 	var dir = $translate.proposedLanguage() === 'he' ? 'rtl' : 'ltr';
-	
+	var locale = $translate.use() || $translate.proposedLanguage();
 
 	$rootScope.app = {
-	  dir: dir
+	  dir: dir,
+	  locale: locale
 	};
 }]);
 

@@ -10,8 +10,8 @@
  */
 
 angular.module('playalongWebApp')
-  .controller('ChordCtrl',['$scope','$rootScope', '$state','chords', '$stateParams','toast','login','Common','$timeout',
-    function ($scope,$rootScope,$state,chords, $stateParams,toast,login,Common,$timeout) {
+  .controller('ChordCtrl',['$scope','$rootScope', '$state','chords', '$stateParams','toast','login','Common','$timeout','plyTooltip',
+    function ($scope,$rootScope,$state,chords, $stateParams,toast,login,Common,$timeout,plyTooltip) {
     $scope.initCtrl = function() {
       $rootScope.currPage = $scope.chord.artist + ' - ' + $scope.chord.title;
       $rootScope.pageTitle = 'Playalong - ' + $scope.chord.artist + ' ' + $scope.chord.title;
@@ -19,7 +19,7 @@ angular.module('playalongWebApp')
       $scope.disableAutoscroll();
       $scope.chord.chordKey = $scope.chord.chordKey || angular.copy($stateParams.chordKey) ;
       chords.increaseChordHitCount($scope.chord.$id || $scope.chord.chordKey);
-
+      $scope.plyTooltip = plyTooltip;
       $scope.isRtl = Common.isRtlContent($scope.chord.content);
 
       $scope.chordFab = {
