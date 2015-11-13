@@ -18,5 +18,4 @@ describe('Service: Common', function () {
     result = Common.isRtlContent('My עברית Content');
     expect(result).toBe(true);
   });
-
 });

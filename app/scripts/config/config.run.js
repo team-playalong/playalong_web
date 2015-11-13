@@ -22,19 +22,15 @@ app.config(function($translateProvider) {
  	// match the default locale from the build task
   $translateProvider.preferredLanguage(PLY_CONFIG.defaultLocale || 'en');
 })
-.run(function($location, $translate) {
-  // split the absolute url based on /
-  var splitUrl = $location.absUrl().split('/');
+.run(['$location', '$translate', 
+		function($location, $translate) {
   // check if url contains a certain locale or set back to your default locale
-  if (splitUrl.indexOf('he') > -1) 
-	{
-		$translate.use('he');
-	}
-  else if (splitUrl.indexOf('en') > -1) 
-	{
-		$translate.use('en');
-	}
-});
+  var locale = $location.search().locale;
+  if (locale === 'he' || locale === 'en')
+  {
+ 		$translate.use(locale);
+  }
+}]);
 
 //Global config object
 app.run(['$rootScope','$translate',function ($rootScope,$translate) {
