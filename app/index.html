@@ -67,7 +67,7 @@
   <body>
     <!-- Facebook init -->
     <div id="fb-root"></div>
-    
+
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
@@ -79,11 +79,11 @@
 
     <!-- Twitter -->
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-    </script> 
+    </script>
     <!-- End-Twitter -->
 
 
-  <div  ng-controller="MainCtrl" 
+  <div  ng-controller="MainCtrl"
         layout="column" class="ply-app"
         ng-class="{'hebrew-sans': app.dir === 'rtl'}">
     <ply-spinner trigger-start-event="startSpin" trigger-stop-event="stopSpin"></ply-spinner>
@@ -94,10 +94,6 @@
 
       <md-content layout-padding id="plyContent">
         <div ui-view class="ply-main-container container"></div>
-        <dir-disqus disqus-shortname="Playalong"
-                 disqus-identifier="{{ pageTitle }}"
-                 disqus-url="playalong.disqus.com/embed.js">
-        </dir-disqus>
         <div layout="row">
             <div flex="50">
                 <a href="https://twitter.com/playalong_io" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @playalong_io</a>
@@ -145,7 +141,6 @@
     <script src="bower_components/angular-gage/dist/angular-gage.js"></script>
     <script src="bower_components/angular-translate/angular-translate.js"></script>
     <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
-    <script src="bower_components/angularUtils-disqus/dirDisqus.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
