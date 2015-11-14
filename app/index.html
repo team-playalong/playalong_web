@@ -94,6 +94,10 @@
 
       <md-content layout-padding id="plyContent">
         <div ui-view class="ply-main-container container"></div>
+        <dir-disqus disqus-shortname="Playalong"
+                 disqus-identifier="{{ pageTitle }}"
+                 disqus-url="playalong.disqus.com/embed.js">
+        </dir-disqus>
         <div layout="row">
             <div flex="50">
                 <a href="https://twitter.com/playalong_io" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @playalong_io</a>
@@ -141,6 +145,7 @@
     <script src="bower_components/angular-gage/dist/angular-gage.js"></script>
     <script src="bower_components/angular-translate/angular-translate.js"></script>
     <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+    <script src="bower_components/angularUtils-disqus/dirDisqus.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
