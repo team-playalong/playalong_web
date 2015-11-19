@@ -10,7 +10,7 @@
           <h4>{{chord.title}}</h4>  
         </div>
         
-        <div ng-bind-html="chord.content"></div>
+        <div class="ply-chord-container-content" bindonce bo-html="chord.content"></div>
         <div  class="ply-chord-rating"
               ng-if="chordRating">
           <h5 tranlate=".RATE_MESSAGE"></h5>

@@ -10,6 +10,7 @@
  */
 
 /*jshint -W079 */
+/*jshint unused:false*/
 var app = angular.module('playalongWebApp', [
   'ngMaterial', 
   'ngMdIcons', 
@@ -21,5 +22,6 @@ var app = angular.module('playalongWebApp', [
   'ngDragDrop',
   'frapontillo.gage',
   'pascalprecht.translate',
-  'angularUtils.directives.dirDisqus'
+  'angularUtils.directives.dirDisqus',
+  'pasvaz.bindonce'
 ]);

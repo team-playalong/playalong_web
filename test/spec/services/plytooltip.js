@@ -15,4 +15,8 @@ describe('Service: plyTooltip', function () {
     expect(!!plyTooltip).toBe(true);
   });
 
+  it('should set a tooltip on an element', function() {
+    var res = plyTooltip.setTooltip();
+    expect(res).not.toBeDefined();
+  });
 });

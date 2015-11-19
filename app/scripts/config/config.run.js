@@ -76,6 +76,12 @@ app.config(function($sceProvider) {
   $sceProvider.enabled(false);
 });
 
+app.config(['$tooltipProvider', function ($tooltipProvider) {
+  $tooltipProvider.options({
+      appendToBody: true
+  });
+}]);
+
 app.run(
   [          '$rootScope', '$state', '$stateParams',
     function ($rootScope,   $state,   $stateParams) {
