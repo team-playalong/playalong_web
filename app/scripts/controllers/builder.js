@@ -13,6 +13,9 @@ angular.module('playalongWebApp')
   $scope.login = login;
   $rootScope.currPage = 'Chord Builder';
   $scope.chordRef = null; //Will reference the chord for Firebase process.binding
+  $scope.flags = {
+    isPreviewMode: false
+  };  
 
   var handleChordSuccess = function(chord) {
     $scope.chordRef = chord;
@@ -56,18 +59,18 @@ angular.module('playalongWebApp')
     if (!str) {return;}
 
     $timeout(function(){
-      str = str.replace(RegexStore.get('chord'), '<span class="chord">$2&nbsp;</span>');
+      str = str.replace(RegexStore.get('chord'), '<span class="chord">$2</span>');
       $scope.chord.content = str;
     }, 0);
 
   };
 
   $scope.getTextByMode = function() {
-    return $scope.isPreviewMode ? 'Edit' : 'Preview';
+    return $scope.flags.isPreviewMode ? 'Edit' : 'Preview';
   };
 
   $scope.handleSwitchModes = function() {
-    if ($scope.isPreviewMode && $scope.chord && $scope.chord.content)
+    if ($scope.flags.isPreviewMode && $scope.chord && $scope.chord.content)
     {
       $scope.scanForChords($scope.chord.content);
     }

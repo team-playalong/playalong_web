@@ -32,7 +32,7 @@
     <div layout="row" layout-wrap>
       <div flex="50">
 
-        <md-switch class="ply-switch" ng-model="isPreviewMode" aria-label="Switch 1" ng-change="handleSwitchModes()">
+        <md-switch class="ply-switch" ng-model="flags.isPreviewMode" aria-label="Switch 1" ng-change="handleSwitchModes()">
           {{'builder.PREVIEW' | translate}}
         </md-switch>
           <md-switch class="ply-switch" 
@@ -54,18 +54,19 @@
         <md-button  class="md-primary md-hue-1"
           ng-if="$stateParams.id || chordCreated"
           ng-click="goToChordPage(chord)"
+          aria-label="Go Live"
           translate=".GO_TO_CHORD">
         </md-button>
       </div>
     </div>
     <div layout="row" class="ply-editor-wrapper">
-      <text-angular auto-direction ng-show="!isPreviewMode" class="ply-editor"  flex ng-model="chord.content"></text-angular>
-      <div  ng-show="isPreviewMode" flex class="ply-chord-preview"
+      <text-angular auto-direction auto-direction-trigger="load" ng-show="!flags.isPreviewMode" class="ply-editor"  flex ng-model="chord.content"></text-angular>
+      <div  ng-show="flags.isPreviewMode" flex class="ply-chord-preview"
             ng-bind-html="chord.content"></div>
     </div>
     <div layout="row" layout-wrap>
       <div flex="50">
-        <md-switch class="ply-switch" ng-model="isPreviewMode" aria-label="Switch 1" ng-change="handleSwitchModes()">
+        <md-switch class="ply-switch" ng-model="flags.isPreviewMode" aria-label="Switch 1" ng-change="handleSwitchModes()">
           {{'builder.PREVIEW' | translate}}
         </md-switch>
     </div>
