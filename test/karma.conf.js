@@ -68,6 +68,7 @@ module.exports = function(config) {
       'app/scripts/services/*.js',
       'app/scripts/directives/*.js',
 
+      "test/globals.js",
       "test/mock/**/*.js",
       "test/spec/**/*.js"
     ],

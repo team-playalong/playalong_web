@@ -36,7 +36,7 @@ beforeEach(inject(function ($controller, $rootScope,$httpBackend,_$q_) {
     scope.addAlert = function() {};
     spyOn(scope,'addAlert');
     $rootScope.$apply();
-  }));
+}));
 
   it('should initialize all components', function() {
   	expect(scope).toBeDefined();
@@ -46,4 +46,6 @@ beforeEach(inject(function ($controller, $rootScope,$httpBackend,_$q_) {
   	expect(scope.chordFab).toBeDefined();
   	expect(scope.chordFab.selectedMode).toBe('md-fling');
   });
+
+  
 });
