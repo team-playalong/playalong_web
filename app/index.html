@@ -14,7 +14,7 @@
     <meta property="og:IMAGE" content="{{paths.images.logo}}" />
 
     <meta charset="utf-8">
-    <title>{{pageTitle}}</title>
+    <title ng-bind="pageTitle">Playalong</title>
     <meta name="description" content="{{::Facebook.description}}">
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />    <!-- build:css(.) styles/vendor.css -->
@@ -92,7 +92,7 @@
       <ng-include src="'views/templates/toolbar.html'"></ng-include>
 
 
-      <md-content layout-padding id="plyContent">
+      <md-content id="plyContent">
         <div ui-view class="ply-main-container container"></div>
         <div layout="row">
             <div flex="50">

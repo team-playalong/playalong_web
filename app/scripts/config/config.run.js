@@ -2,11 +2,25 @@
 app.config(['$provide', function ($provide) {
 	// this demonstrates how to register a new tool and add it to the default toolbar
   $provide.decorator('taOptions', ['taRegisterTool', '$delegate', function(taRegisterTool, taOptions) { // $delegate is the taOptions we are decorating
+      taRegisterTool('dirRtl', {
+        iconclass: "fa fa-square red",
+        action: function(){
+          this.$editor().wrapSelection('dir', 'ltr');
+        }
+      });
+
+      taRegisterTool('dirLtr', {
+        iconclass: "fa fa-square red",
+        action: function(){
+          this.$editor().wrapSelection('dir', 'rtl');
+        }
+      });
+
       taOptions.toolbar = [
-            ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p'],
-            ['bold', 'italics', 'underline', 'redo', 'undo'],
-            ['justifyLeft', 'justifyCenter', 'justifyRight', 'indent', 'outdent'],
-            ['html']
+        ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p'],
+        ['bold', 'italics', 'underline', 'redo', 'undo'],
+        ['justifyLeft', 'justifyCenter', 'justifyRight', 'indent', 'outdent'],
+        ['html', 'dirLtr', 'dirRtl']
       ];
       return taOptions;
   }]);

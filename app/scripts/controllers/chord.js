@@ -9,8 +9,8 @@
  */
 
 angular.module('playalongWebApp')
-  .controller('ChordCtrl',['$scope','$rootScope', '$state','chords', '$stateParams','toast','login','Common','$timeout','plyTooltip','$compile',
-    function ($scope,$rootScope,$state,chords, $stateParams,toast,login,Common,$timeout,plyTooltip,$compile) {
+  .controller('ChordCtrl',['$scope','$rootScope', '$state','chords', '$stateParams','toast','login','Common','$timeout','plyTooltip',
+    function ($scope,$rootScope,$state,chords, $stateParams,toast,login,Common,$timeout,plyTooltip) {
     
     var setChordsPopover = function() {
       

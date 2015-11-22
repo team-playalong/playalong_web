@@ -59,7 +59,7 @@ angular.module('playalongWebApp')
     if (!str) {return;}
 
     $timeout(function(){
-      str = str.replace(RegexStore.get('chord'), '<span class="chord">$2</span>');
+      str = str.replace(RegexStore.get('chord'), '<span class="chord">$2$3</span>');
       $scope.chord.content = str;
     }, 0);
 
