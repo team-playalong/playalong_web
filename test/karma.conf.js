@@ -70,7 +70,8 @@ module.exports = function(config) {
 
       "test/globals.js",
       "test/mock/**/*.js",
-      "test/spec/**/*.js"
+      "test/spec/**/*.js",
+      "!test/spec/E2E/**/*.js"
     ],
 
     // list of files / patterns to exclude

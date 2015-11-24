@@ -8,6 +8,7 @@
 // 'test/spec/**/*.js'
 
 module.exports = function (grunt) {
+  grunt.loadNpmTasks('grunt-protractor-runner');
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
@@ -465,7 +466,20 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: false
       },
-    }
+    },
+
+
+    protractor: {
+      options: {
+        configFile: "test/protractor.conf.js", // Default config file 
+        keepAlive: false, // If false, the grunt process stops when the test fails. 
+        noColor: false, // If true, protractor will not use colors in its output. 
+        args: {
+          // Arguments passed to the command 
+        }
+      },
+      all: {}   // Grunt requires at least one target to run so you can simply put 'all: {}' here too. 
+    }  
   });
 
 
@@ -495,7 +509,8 @@ module.exports = function (grunt) {
     //'concurrent:test',
     'autoprefixer',
     'connect:test',
-    'karma:unit'
+    'karma:unit',
+    'protractor:all'
   ]);
 
   grunt.registerTask('build', [

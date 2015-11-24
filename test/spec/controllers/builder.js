@@ -55,24 +55,12 @@ describe('Controller: BuilderctrlCtrl', function () {
   });
 
 
-
-  it('should get the appopriate text according to the switch mode', function() {
-    var res;
-    res = scope.getTextByMode();
-
-    expect(res).toBe('Preview');
-
-    scope.isPreviewMode = true;
-    res = scope.getTextByMode();
-    expect(res).toBe('Edit');
-  });
-
-  it('should handle switching between edit and preview modes', function() {
-    spyOn(scope,'scanForChords');
-    scope.isPreviewMode = true;
-    scope.chord = mockData.getMockChord();
-    scope.handleSwitchModes();
+  // it('should handle switching between edit and preview modes', function() {
+  //   spyOn(scope,'scanForChords');
+  //   scope.isPreviewMode = true;
+  //   scope.chord = mockData.getMockChord();
+  //   scope.handleSwitchModes();
     
-    expect(scope.scanForChords).toHaveBeenCalled();
-  });
+  //   expect(scope.scanForChords).toHaveBeenCalled();
+  // });
 });
