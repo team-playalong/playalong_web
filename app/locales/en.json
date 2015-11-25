@@ -40,7 +40,8 @@
 		"EDIT_CHORD": "Edit Chord",
 		"AUTO_SCROLL": "Auto-Scroll",
 		"COUNT_RATING_MESSAGE": "users have rated this. Be one of them :)",
-		"RATING_SUCCESS": "Thanks for rating!"
+		"RATING_SUCCESS": "Thanks for rating!",
+		"FONTSIZE_CHANGE": "Change Font Size"
 	},
 	"autoscroll" : {
 		"TITLE" : "Scroll Speed",

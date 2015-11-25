@@ -45,21 +45,6 @@ angular.module('playalongWebApp')
       });
     };
 
-
-    // $scope.changeFontSize = function(amount) {
-    //   if (!amount || isNaN(amount)) { return false;}
-      
-    //   var container = angular.element('.ply-chord-container-content');
-    //   if (container)
-    //   {
-    //     var oldFontSize = container.css('fontSize');
-    //     alert(oldFontSize);
-    //   }
-
-    //   return true;
-
-    // };
-
     $scope.disableAutoscroll = function() {
       $scope.autoscrollEnabled = false;
       $scope.autoscrollSpeed = 0;

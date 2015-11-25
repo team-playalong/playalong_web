@@ -30,6 +30,8 @@
 	}
 
   text-size-slider {
+    direction: ltr;
+    text-align: center;
     .text-size-slider {
       line-height: 100%;
       font-size: 14px;
@@ -42,9 +44,7 @@
 
     .text-size-slider .slider {
       -webkit-appearance: none;
-      margin: 0 8px;
       display: inline;
-      width: auto;
     }
 
     .text-size-slider .slider:focus {
