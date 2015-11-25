@@ -22,7 +22,7 @@ describe('Directive: autoscrollWidget', function () {
   	var html = '<autoscroll-widget speed="autoscrollSpeed" enabled="{{autoscrollEnabled}}"></autoscroll-widget>';
   	var compiled = $compile(html)(scope);
   	scope.$apply();
-    dumper(compiled);
+    print(compiled);
   	expect(compiled).toBeDefined();
 	});  
 });

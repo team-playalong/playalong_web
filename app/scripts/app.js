@@ -22,6 +22,5 @@ var app = angular.module('playalongWebApp', [
   'ngDragDrop',
   'frapontillo.gage',
   'pascalprecht.translate',
-  'angularUtils.directives.dirDisqus',
-  'pasvaz.bindonce'
+  'textSizeSlider'
 ]);

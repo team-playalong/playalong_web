@@ -12,23 +12,6 @@ angular.module('playalongWebApp')
   .controller('ChordCtrl',['$scope','$rootScope', '$state','chords', '$stateParams','toast','login','Common','$timeout','plyTooltip',
     function ($scope,$rootScope,$state,chords, $stateParams,toast,login,Common,$timeout,plyTooltip) {
     
-    var setChordsPopover = function() {
-      
-      $scope.$evalAsync(function(){
-        angular.element(document).ready(function() {
-          angular.forEach(angular.element('.chord'), function(value){
-            plyTooltip.setTooltip(value);
-          });
-        });
-        // var container = angular.element('.ply-chord-container-contents');
-        // console.log(container);
-        // $compile(container.contents())($scope);
-      });
-      
-    };
-    
-
-
     $scope.initCtrl = function() {
       $rootScope.currPage = $scope.chord.artist + ' - ' + $scope.chord.title;
       $rootScope.pageTitle = 'Playalong - ' + $scope.chord.artist + ' ' + $scope.chord.title;
@@ -60,10 +43,22 @@ angular.module('playalongWebApp')
           
         }
       });
-     /*jshint unused:true*/
-      setChordsPopover();
     };
 
+
+    // $scope.changeFontSize = function(amount) {
+    //   if (!amount || isNaN(amount)) { return false;}
+      
+    //   var container = angular.element('.ply-chord-container-content');
+    //   if (container)
+    //   {
+    //     var oldFontSize = container.css('fontSize');
+    //     alert(oldFontSize);
+    //   }
+
+    //   return true;
+
+    // };
 
     $scope.disableAutoscroll = function() {
       $scope.autoscrollEnabled = false;
@@ -107,6 +102,6 @@ angular.module('playalongWebApp')
 	    
   	}
 
-    
+      
     
   }]);

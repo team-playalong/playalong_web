@@ -54,8 +54,6 @@ module.exports = function(config) {
       'bower_components/angular-gage/dist/angular-gage.js',
       'bower_components/angular-translate/angular-translate.js',
       'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
-      'bower_components/angularUtils-disqus/dirDisqus.js',
-      'bower_components/angular-bindonce/bindonce.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       

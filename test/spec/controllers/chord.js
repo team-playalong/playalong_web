@@ -47,5 +47,13 @@ beforeEach(inject(function ($controller, $rootScope,$httpBackend,_$q_) {
   	expect(scope.chordFab.selectedMode).toBe('md-fling');
   });
 
+  // it('should change font size', function() {
+  //   var res = scope.changeFontSize();
+  //   expect(res).toBe(false);
+  //   res = scope.changeFontSize(1);
+  //   expect(res).toBe(true);
+
+  // });
+
   
 });
