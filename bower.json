@@ -22,5 +22,8 @@
     "angular-mocks": "^1.3.0"
   },
   "appPath": "app",
-  "moduleName": "playalongWebApp"
+  "moduleName": "playalongWebApp",
+  "resolutions": {
+    "angular": "1.4.8"
+  }
 }
