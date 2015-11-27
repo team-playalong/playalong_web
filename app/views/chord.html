@@ -14,7 +14,7 @@
             </text-size-slider>
           </div>
         </div>
-        <div layout="row">
+        <div layout="row" class="direction-initial" >
           <div flex>
             <h2>{{chord.artist}}</h2>
             <h4>{{chord.title}}</h4>    
@@ -22,7 +22,7 @@
         </div>
           
                 
-        <div class="ply-chord-container-content" ng-bind-html="chord.content"></div>
+        <div class="ply-chord-container-content direction-initial" ng-bind-html="chord.content"></div>
         <div  class="ply-chord-rating"
               ng-if="chordRating">
           <h5 tranlate=".RATE_MESSAGE"></h5>
