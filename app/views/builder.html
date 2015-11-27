@@ -61,7 +61,7 @@
     </div>
     <div layout="row" class="ply-editor-wrapper">
       <text-angular auto-direction auto-direction-scope-var="app.dir" ng-show="!flags.isPreviewMode" class="ply-editor"  flex ng-model="chord.content"></text-angular>
-      <div  ng-show="flags.isPreviewMode" flex class="ply-chord-preview"
+      <div  ng-show="flags.isPreviewMode" flex class="ply-chord-preview direction-initial"
             ng-bind-html="chord.content"></div>
     </div>
     <div layout="row" layout-wrap>
