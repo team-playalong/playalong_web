@@ -1,33 +1,27 @@
 <div  class="md-padding" id="chord" ng-cloak
       translate-namespace="chord">
-    <md-card  layout-padding layout-align="left center" 
+    <md-card  layout-padding layout-align="center" 
               autoscroll speed="{{autoscrollSpeed}}"
               ng-class="{'text-align-right' : isRtl}">
       <autoscroll-widget speed="autoscrollSpeed" enabled="{{autoscrollEnabled}}"></autoscroll-widget>
       <md-card-content class="ply-chord-container">            
-        <div layout="row">
-          <div flex="70">
-            <h2>{{chord.artist}}</h2>
-            <h4>{{chord.title}}</h4>    
-          </div>
-          <div flex>
+        <div layout="row" layout-align="{{!!isRtl ? 'end' : 'start'}} center">
+          <div flex="30">
             <md-tooltip md-direction="top">
               {{'chord.FONTSIZE_CHANGE' | translate}}
             </md-tooltip>
             <text-size-slider element-class="ply-chord-container-content" min="12" max="24" unit="px" value="18" step="0">  
             </text-size-slider>
-            <!-- <md-button  aria-label="auto scroll" 
-                class="md-fab md-raised md-mini"
-                ng-click="changeFontSize(1)">
-      <ng-md-icon layout="center center" class="ply-fab-icon ply-fab-icon-dark" icon="add"></ng-md-icon>
-      <md-tooltip 
-        md-direction="{{::plyTooltip.getHorizontalDirection()}}">
-        
-      </md-tooltip>
-    </md-button> -->
           </div>
         </div>
-        
+        <div layout="row">
+          <div flex>
+            <h2>{{chord.artist}}</h2>
+            <h4>{{chord.title}}</h4>    
+          </div>
+        </div>
+          
+                
         <div class="ply-chord-container-content" ng-bind-html="chord.content"></div>
         <div  class="ply-chord-rating"
               ng-if="chordRating">
