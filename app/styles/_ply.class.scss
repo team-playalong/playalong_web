@@ -1,8 +1,6 @@
 @import url(https://fonts.googleapis.com/earlyaccess/opensanshebrew.css);
 @import '_ply.vars.scss';
 
-$ply-chord-font-size: 16px;
-
 //Common Classes
 .clickable {
   cursor: pointer;
@@ -18,7 +16,6 @@ $ply-chord-font-size: 16px;
 
 .chord {
   color: $ply-pink;
-  font-size: $ply-chord-font-size;
   direction: ltr;
 }
 
