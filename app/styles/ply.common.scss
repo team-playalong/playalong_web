@@ -13,6 +13,10 @@ $AVATAR-DEMENSIONS: 64px;
 body {
 	outline: none !important;
 	background: $ply-grey-light;
+	::selection {
+		background: $ply-pink;
+		color: $ply-white;
+	}
 }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
