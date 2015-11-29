@@ -5,7 +5,8 @@
 			"MESSAGE": "שלום, התחבר עם",
 			"LOGOUT": "התנתק",
 			"HI": "היי"
-		}
+		},
+		"CHOOSE_LANGUAGE": "בחר שפה"
 	},
 	"globals": {
 		"errors": {

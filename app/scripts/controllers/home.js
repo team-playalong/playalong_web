@@ -30,7 +30,7 @@ angular.module('playalongWebApp')
         searchInput: ''
       };
     });
-    
+
   	$scope.formatResultMessage = function() {
       var deferred = $q.defer();
       var toTranslate;
@@ -46,13 +46,13 @@ angular.module('playalongWebApp')
       else if ($scope.searchResults && $scope.searchResults.length > 1)
       {
         manyResults = true;
-        toTranslate = 'home.MANY_RESULT_MESSAGE'; 
+        toTranslate = 'home.MANY_RESULT_MESSAGE';
       }
       $translate([toTranslate])
       .then(function (translations) {
         var res = translations[toTranslate];
         if (manyResults && res.indexOf('{numResults}') !== -1)
-        { 
+        {
           res = res.replace('{numResults}',$scope.searchResults.length);
         }
         deferred.resolve(res);
@@ -60,15 +60,15 @@ angular.module('playalongWebApp')
 
       return deferred.promise;
     };
-    
+
     $scope.handleChordResults = function(results) {
       if (!results || !results.length) {}
       else {
         $scope.searchResults = results;
       }
     };
-    
-    
+
+
 
   	$scope.searchChords = function() {
       $rootScope.startSpin();
@@ -79,18 +79,18 @@ angular.module('playalongWebApp')
         $scope.searchResults = [];
   			console.warn(error);
   		})
-      .finally(function() { 
+      .finally(function() {
         $scope.formatResultMessage()
         .then(function(message) {
           $scope.resultMessage = message;
         });
-        $rootScope.stopSpin();  
+        $rootScope.stopSpin();
       });
-  	};	
+  	};
 
-    $rootScope.$on('$stateChangeSuccess', 
+    $rootScope.$on('$stateChangeSuccess',
     /*jshint unused:false */
-    function(event, toState, toParams, fromState, fromParams){ 
+    function(event, toState, toParams, fromState, fromParams){
       if (toState.title)
       {
         $rootScope.currPage = toState.title;

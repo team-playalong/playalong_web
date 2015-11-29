@@ -5,7 +5,8 @@
 			"MESSAGE": "Hi, Login With:",
 			"LOGOUT": "Logout",
 			"HI": "Hi"
-		}
+		},
+		"CHOOSE_LANGUAGE": "Choose Language"
 	},
 	"globals": {
 		"errors": {

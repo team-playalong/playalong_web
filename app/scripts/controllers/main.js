@@ -8,8 +8,8 @@
  * Controller of the playalongWebApp
  */
 angular.module('playalongWebApp')
-  .controller('MainCtrl', ['$scope', '$timeout', '$mdSidenav', '$mdUtil', '$log', 'paths', '$state','login','$rootScope',
-                  function ($scope, $timeout, $mdSidenav, $mdUtil, $log, paths,$state, login,$rootScope) {
+  .controller('MainCtrl', ['$scope', '$timeout', '$mdSidenav', '$mdUtil', '$log', 'paths', '$state','login','$rootScope','$translate',
+                  function ($scope, $timeout, $mdSidenav, $mdUtil, $log, paths,$state, login,$rootScope,$translate) {
   $scope.initCtrl = function() {
     $rootScope.paths = paths;
     $scope.user = login.getUser();
@@ -49,6 +49,23 @@ angular.module('playalongWebApp')
   $rootScope.stopSpin = function() {
     $scope.$broadcast('stopSpin');
   };
+
+  $scope.onLanguageChange = 
+  function (locale) {
+    $scope.$evalAsync(function() {
+      if (locale && (locale.country === 'us' || locale.country === 'he'))
+      {
+        var localeFormatted = locale.code.split('-')[0];
+        $translate.use(localeFormatted);
+        $rootScope.app = {
+          dir: localeFormatted === 'he' ? 'rtl' : 'ltr',
+          locale: localeFormatted
+        };
+      }
+    });
+  };
+
+
 
   $scope.initCtrl();
 }]);
