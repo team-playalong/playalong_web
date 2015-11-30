@@ -16,8 +16,8 @@ function ($scope,chords, $rootScope,$translate) {
 							'topChords.SINGLE_HIT',
 							'topChords.MANY_HITS'])
 	.then(function (translations) {
-		$rootScope.currPage = $rootScope.currPage === translations['home.PAGE_TITLE'] ? 
-													$rootScope.currPage : translations['topChords.PAGE_TITLE'];
+		$rootScope.currPage = $rootScope.currPage === 'home.PAGE_TITLE' ? 
+													$rootScope.currPage : 'topChords.PAGE_TITLE';
 
 		$scope.setHitCountMessage = function(hitCount) {
 			if (!hitCount)

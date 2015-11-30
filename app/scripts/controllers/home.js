@@ -10,18 +10,14 @@
 angular.module('playalongWebApp')
   .controller('HomeCtrl', ['$scope', '$rootScope','chords','$translate','$q',
       function ($scope, $rootScope, chords,$translate,$q) {
-    $translate(['home.PAGE_TITLE',
-                'home.SONG_NAME',
-                'home.ARTIST'])
-    .then(function (translations) {
-      $rootScope.currPage = translations['home.PAGE_TITLE'];
+      $rootScope.currPage = 'home.PAGE_TITLE';
       $scope.searchByOptions = [
         {
-          label: translations['home.SONG_NAME'],
+          label: 'home.SONG_NAME',
           value: 'title'
         },
         {
-          label: translations['home.ARTIST'],
+          label: 'home.ARTIST',
           value: 'artist'
         }
       ];
@@ -29,7 +25,6 @@ angular.module('playalongWebApp')
         searchBy: $scope.searchByOptions[0].value,
         searchInput: ''
       };
-    });
 
   	$scope.formatResultMessage = function() {
       var deferred = $q.defer();

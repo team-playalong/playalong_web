@@ -53,9 +53,13 @@ angular.module('playalongWebApp')
   $scope.onLanguageChange = 
   function (locale) {
     $scope.$evalAsync(function() {
-      if (locale && (locale.country === 'us' || locale.country === 'he'))
+      if (locale && (locale.country === 'us' || locale.country === 'il'))
       {
         var localeFormatted = locale.code.split('-')[0];
+        if (localeFormatted === 'il')
+        {
+          localeFormatted = 'he';
+        }
         $translate.use(localeFormatted);
         $rootScope.app = {
           dir: localeFormatted === 'he' ? 'rtl' : 'ltr',

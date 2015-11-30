@@ -20,8 +20,8 @@ app.config(function($translateProvider) {
   $translateProvider.useSanitizeValueStrategy('sanitize');
  	// match the default locale from the build task
   $translateProvider.preferredLanguage(PLY_CONFIG.defaultLocale || 'en');
-})
-.run(['$location', '$translate', 
+});
+app.run(['$location', '$translate', 
 		function($location, $translate) {
   // check if url contains a certain locale or set back to your default locale
   var locale = $location.search().locale;

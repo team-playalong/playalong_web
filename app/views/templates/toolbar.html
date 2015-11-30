@@ -11,7 +11,7 @@
       </span>
       <span hide-sm class="ply-ellipsis">
         <span translate=".APP_NAME"></span>
-        <span>| {{currPage}}</span>
+        <span>| {{currPage | translate}}</span>
       </span>
     </div>
 
@@ -21,8 +21,9 @@
           layout="row"
           layout-align="end center">
       <language-picker
-          languages="['en-US', 'he-HE']"
-          on-change="onLanguageChange(language)">
+          languages="['en-US', 'il']"
+          on-change="onLanguageChange(language)"
+          icon="fa fa-globe">
           {{'toolbar.CHOOSE_LANGUAGE' | translate}}
       </language-picker>
       <div ng-if="!login.isLoggedIn()">

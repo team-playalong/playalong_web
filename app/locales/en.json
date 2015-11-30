@@ -6,7 +6,7 @@
 			"LOGOUT": "Logout",
 			"HI": "Hi"
 		},
-		"CHOOSE_LANGUAGE": "Choose Language"
+		"CHOOSE_LANGUAGE": "Language"
 	},
 	"globals": {
 		"errors": {
