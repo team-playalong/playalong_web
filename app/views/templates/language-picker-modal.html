@@ -1,0 +1,23 @@
+<md-dialog aria-label="Mango (Fruit)"  ng-cloak translate-namespace="toolbar.language">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2 translate=".MODAL_TITLE"></h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="cancel()">
+        &times;
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content>
+    <div class="md-dialog-content">
+      <div layout="row">
+      	<div ng-repeat="language in languages" flex="50">
+      			<md-button class="md-mini" ng-click="changeLanguage(language.locale);">
+							<span class="flag-icon flag-icon-{{language.flag}}"></span>
+        			<span ng-bind="language.label"></span>	
+      			</md-button>
+      	</div>
+    	</div>
+    </div>
+  </md-dialog-content>
+</md-dialog>

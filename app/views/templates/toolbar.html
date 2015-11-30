@@ -20,12 +20,7 @@
           translate-namespace=".login"
           layout="row"
           layout-align="end center">
-      <language-picker
-          languages="['en-US', 'il']"
-          on-change="onLanguageChange(language)"
-          icon="fa fa-globe">
-          {{'toolbar.CHOOSE_LANGUAGE' | translate}}
-      </language-picker>
+      
       <div ng-if="!login.isLoggedIn()">
         <span class="ply-topnav-login-title" translate=".MESSAGE"></span>
         <md-button class="md-icon-button ply-topnav-login-btn"
@@ -52,6 +47,7 @@
                     aria-label="Logout">
         </md-button>
       </div>
+      <ply-language-picker></ply-language-picker>
     </div>
   </div>
 </md-toolbar>

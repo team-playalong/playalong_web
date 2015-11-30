@@ -8,8 +8,8 @@
  * Controller of the playalongWebApp
  */
 angular.module('playalongWebApp')
-  .controller('MainCtrl', ['$scope', '$timeout', '$mdSidenav', '$mdUtil', '$log', 'paths', '$state','login','$rootScope','$translate',
-                  function ($scope, $timeout, $mdSidenav, $mdUtil, $log, paths,$state, login,$rootScope,$translate) {
+  .controller('MainCtrl', ['$scope', '$timeout', '$mdSidenav', '$mdUtil', '$log', 'paths', '$state','login','$rootScope',
+                  function ($scope, $timeout, $mdSidenav, $mdUtil, $log, paths,$state, login,$rootScope) {
   $scope.initCtrl = function() {
     $rootScope.paths = paths;
     $scope.user = login.getUser();
@@ -49,27 +49,6 @@ angular.module('playalongWebApp')
   $rootScope.stopSpin = function() {
     $scope.$broadcast('stopSpin');
   };
-
-  $scope.onLanguageChange = 
-  function (locale) {
-    $scope.$evalAsync(function() {
-      if (locale && (locale.country === 'us' || locale.country === 'il'))
-      {
-        var localeFormatted = locale.code.split('-')[0];
-        if (localeFormatted === 'il')
-        {
-          localeFormatted = 'he';
-        }
-        $translate.use(localeFormatted);
-        $rootScope.app = {
-          dir: localeFormatted === 'he' ? 'rtl' : 'ltr',
-          locale: localeFormatted
-        };
-      }
-    });
-  };
-
-
 
   $scope.initCtrl();
 }]);

@@ -6,7 +6,10 @@
 			"LOGOUT": "התנתק",
 			"HI": "היי"
 		},
-		"CHOOSE_LANGUAGE": "שפה"
+		"language": {
+			"CHOOSE": "שפה"	
+		}
+		
 	},
 	"globals": {
 		"errors": {

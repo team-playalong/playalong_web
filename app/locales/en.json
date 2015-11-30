@@ -6,7 +6,11 @@
 			"LOGOUT": "Logout",
 			"HI": "Hi"
 		},
-		"CHOOSE_LANGUAGE": "Language"
+		"language": {
+			"CHOOSE": "Language",
+			"MODAL_TITLE": "Choose Language"
+		}
+		
 	},
 	"globals": {
 		"errors": {
