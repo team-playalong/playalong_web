@@ -24,7 +24,8 @@
 	"sidebar": {
 		"menu": {
 			"SEARCH": "חיפוש",
-			"CHORD_BUILDER": "בונה אקורדים"
+			"CHORD_BUILDER": "בונה אקורדים",
+			"FAVORITES": "מועדפים"
 		}
 	},
 	"home": {
@@ -43,6 +44,9 @@
 		"TITLE": "האקורדים הנצפים ביותר",
 		"SINGLE_HIT": "נצפה פעם אחת",
 		"MANY_HITS": "נצפה {hitCount} פעמים"
+	},
+	"topChords": {
+		"PAGE_TITLE": "מועדפים"
 	},
 	"chord": {
 		"RATE_MESSAGE": "הייתי טוב? דרג אותי!",

@@ -24,6 +24,14 @@ app.config(['$stateProvider','$urlRouterProvider', function ($stateProvider, $ur
               title: 'Top Chords'
             }
       	})
+        .state('favorites',  { 
+            url: '/favorites',
+            templateUrl: '../../views/favorites.html',
+            controller: 'FavoritesCtrl',
+            data: {
+              title: 'Favorites'
+            }
+        })
 
         .state('builder',       { url: '/builder',        template: '<div ui-view></div>', abstract: true})
         .state('builder.edit', { 

@@ -116,6 +116,7 @@ body {
 			i {
 				font-size: $PLY-ICON-LG;
 				margin-left: 10px;
+				color: $primary-text; 
 			}
 		}
 	}
@@ -139,9 +140,7 @@ body {
 	}
 
 	.footer { 
-		position: fixed;
-		bottom:0;
-		width:100%;
+		background: $ply-grey-light;
 		.ply-alert-container {
 			float:right;
 			width: 30%;

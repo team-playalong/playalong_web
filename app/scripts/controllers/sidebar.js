@@ -20,6 +20,11 @@ angular.module('playalongWebApp')
           text: 'sidebar.menu.CHORD_BUILDER',
           ref: 'builder.new',
           icon: 'pencil'
+        },
+        {
+          text: 'sidebar.menu.FAVORITES',
+          ref: 'favorites',
+          icon: 'heart'
         }
       ];
       $scope.close = function () {

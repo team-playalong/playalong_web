@@ -20,7 +20,8 @@
 	"sidebar": {
 		"menu": {
 			"SEARCH": "Search",
-			"CHORD_BUILDER": "Chord Builder"
+			"CHORD_BUILDER": "Chord Builder",
+			"FAVORITES": "Favorites"
 		}
 	},
 	"home": {
@@ -39,6 +40,9 @@
 		"TITLE": "Here are our most viewed chords",
 		"SINGLE_HIT": "Viewed 1 Time",
 		"MANY_HITS": "Viewed {hitCount} Times"
+	},
+	"favorites": {
+		"PAGE_TITLE": "Favorites"
 	},
 	"chord": {
 		"RATE_MESSAGE": "Was I Any Good? Rate me!",
