@@ -39,8 +39,16 @@ angular.module('playalongWebApp')
     $scope.allAlerts.splice(index, 1);
   };
   $scope.goToChordPage = function(chord) {
-    $scope.chord = chord;
-    $state.go('chord',{chordKey: chord.chordKey || chord.$id });
+    if (typeof chord === 'object')
+    {
+      $scope.chord = chord;
+      $state.go('chord',{chordKey: chord.chordKey || chord.$id });  
+    }
+    else if (typeof chord === 'string')
+    {
+      $state.go('chord',{chordKey: chord });  
+    }
+    
   };
   
   $rootScope.startSpin = function() {

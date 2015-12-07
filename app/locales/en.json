@@ -42,7 +42,9 @@
 		"MANY_HITS": "Viewed {hitCount} Times"
 	},
 	"favorites": {
-		"PAGE_TITLE": "Favorites"
+		"PAGE_TITLE": "Favorites",
+		"LOGIN_TITLE": "Please Login...",
+		"TITLE": "Your Favorites"
 	},
 	"chord": {
 		"RATE_MESSAGE": "Was I Any Good? Rate me!",

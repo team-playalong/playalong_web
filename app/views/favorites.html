@@ -1,38 +1,24 @@
 <div id="favorites" 
      translate-namespace="favorites">
-    <md-card layout-align="center" ng-if="favorites && favorites.length" class="ply-search-results">
+    <md-card layout-align="center" class="ply-search-results">
       <md-card-content>
-        <div class="ply-overlay" ng-if="!login.isSuperUser()"
-          translate-namespace=".invite">
-          <div class="jumbotron ply-transparent text-center ply-white">
-            <h1 translate=".TITLE"></h1>  
-            <br/><br/>
-            <h1 class="ply-white">
-              <span translate=".CONTACT_US"></span>
-              <a href="mailto:contact@playalong.io?subject=I Wanna Be a SuperUser!" target="_blank" translate=".HERE"></a>
-            </h1>
-
-            <h3 translate=".SUPERUSER"></h3>
-          </div>
-          
-
-        </div>  
+        
         <div ng-if="login.isLoggedIn()">
           <h3 translate=".TITLE"></h3>
           <md-list>
-            <md-list-item class="md-2-line clickable"  ng-repeat="chord in topChords | orderBy: '-hitCount' track by $index" >
-              <img ng-src="{{chord.imagePath}}" class="md-avatar" ng-if="chord.imagePath" />
-              <div class="md-list-item-text" ng-click="goToChordPage(chord)"> 
-                <h3> {{ chord.artist }} </h3>
-                <p> {{ chord.title }} </p>
-                <p ng-if="chord.hitCount > 0">{{::setHitCountMessage(chord.hitCount)}}</p>
-                <!-- http://codepen.io/TepigMC/pen/FIdHb -->
-                <star-rating class="non-clickable" ng-if="chord.rating" ng-model="chord.rating" readonly="true"></star-rating>
+            <md-list-item class="md-2-line clickable"  ng-repeat="favorite in favorites track by $index" >
+              <div class="md-list-item-text" ng-click="goToChordPage(favorite.chordKey)"> 
+                <h3> {{ favorite.artist }} </h3>
+                <p> {{ favorite.title }} </p>
               </div>
               <md-divider ></md-divider>
             </md-list-item>  
         </div>
-        
+        <div class="ply-overlay ply-relative" ng-if="!login.isLoggedIn()">
+          <div class="jumbotron ply-transparent text-center ply-white">
+            <h1 translate=".LOGIN_TITLE"></h1>  
+          </div>
+        </div>  
           
       </md-card-content>
     </md-card>
