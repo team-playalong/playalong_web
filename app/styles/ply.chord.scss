@@ -26,6 +26,10 @@
   }
 	.ply-chord-container {
 		padding-left:30px;
+    .ply-icon-favorites {
+      color: $ply-pink;
+      font-size: $PLY-ICON-LG;
+    }
 	}
 
   text-size-slider {

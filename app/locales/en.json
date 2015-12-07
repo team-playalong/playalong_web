@@ -44,7 +44,9 @@
 	"favorites": {
 		"PAGE_TITLE": "Favorites",
 		"LOGIN_TITLE": "Please Login...",
-		"TITLE": "Your Favorites"
+		"TITLE": "Your Favorites",
+		"REMOVED_MESSAGE": "Song removed from favorites",
+		"ADDED_MESSAGE": "Song added from favorites"
 	},
 	"chord": {
 		"RATE_MESSAGE": "Was I Any Good? Rate me!",

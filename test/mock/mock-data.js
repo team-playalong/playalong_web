@@ -18,7 +18,8 @@ var mockData = ( function() {
 			provider: 'facebook',
 			facebook: {
 				profileImageURL: 'myGoogleImagePath.png'
-			}
+			},
+			userKey: 1
 		};
 	}
 
@@ -31,10 +32,24 @@ var mockData = ( function() {
 		};
 	}
 
+	var getMockFavorites = function() {
+		return {
+			1: {
+				artist:'Dadi',
+				title: 'test'
+			},
+			2: {
+				artist:'Dadi2',
+				title: 'test2'
+			}
+		}
+	};
+
 	return {
 		getMockChord: getMockChord,
 		getMockChordResults: getMockChordResults,
 		getMockGoogleUser: getMockGoogleUser,
-		getMockFacebookUser: getMockFacebookUser
+		getMockFacebookUser: getMockFacebookUser,
+		getMockFavorites:getMockFavorites
 	};
 })();

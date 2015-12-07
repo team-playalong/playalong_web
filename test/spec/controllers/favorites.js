@@ -16,11 +16,21 @@ describe('Controller: FavoritesCtrl', function () {
         return $q.when(mockData.getMockFavorites());
       }
     };
+    $rootScope.startSpin = function() {};
+    $rootScope.stopSpin = function() {};
     FavoritesCtrl = $controller('FavoritesCtrl', {
       $scope: scope,
-      user: mockUserSrv
+      user: mockUserSrv,
+      login: {
+        getUser: function() {
+          return mockData.getMockGoogleUser();
+        },
+        isLoggedIn: function() {
+          return true;
+        }
+      }
     });
-
+    
     $rootScope.$apply();
   }));
 
@@ -33,7 +43,7 @@ describe('Controller: FavoritesCtrl', function () {
 
     setTimeout(function() {
       expect(scope.favorites).toBeDefined();
-      expect(scope.favorites.length).toBe(2);
+      expect(Object.keys(scope.favorites).length).toBe(2);
       done();
     },10);
   });
