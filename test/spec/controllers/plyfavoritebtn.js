@@ -10,11 +10,11 @@ describe('Controller: PlyfavoritebtnCtrl', function () {
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     PlyfavoritebtnCtrl = $controller('PlyfavoritebtnCtrl', {
-      // place here mocked dependencies
+      $scope: $rootScope.$new()
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(PlyfavoritebtnCtrl.awesomeThings.length).toBe(3);
+  it('should initialize all components', function () {
+    expect(PlyfavoritebtnCtrl).toBeDefined();
   });
 });

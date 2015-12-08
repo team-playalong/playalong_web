@@ -10,7 +10,16 @@
 angular.module('playalongWebApp')
   .controller('PlyfavoritebtnCtrl',['$scope','user','login','toast',
    function ($scope,user,login,toast) {
+    var resetValues = function() {
+      $scope.favorites = undefined;
+    };
+
    	$scope.toggleFavorites = function() {
+      
+      if (!login.isLoggedIn()) {
+        resetValues();
+        return;
+      }
 		  var params = {
 		  	isAddFlag: !$scope.isFavorite,
 		  	chordObj: $scope.chord,
@@ -18,8 +27,8 @@ angular.module('playalongWebApp')
 		  };
 	    user.addRemoveFavorites(params)
 	    .then(function() {
-  			$scope.isFavorite = !$scope.isFavorite;
   			var message;
+        $scope.isFavorite = !$scope.isFavorite;
   			if ($scope.isFavorite)
   			{
   				message = 'favorites.ADDED_MESSAGE';
@@ -33,7 +42,7 @@ angular.module('playalongWebApp')
    	};
 
   	var checkIsFavorite = function() {
-  		user.isChordFavorite(login.getUser().userKey,$scope.chord.$id)
+  		user.isChordFavorite(login.getUser().userKey,$scope.chord.$id || $scope.chord.chordKey)
   		.then(function(isFavorite)
   		{
 				$scope.isFavorite = !!isFavorite;
@@ -43,15 +52,20 @@ angular.module('playalongWebApp')
   		if (!$scope.chord)
   		{
   			$scope.$watch('chord', function(newValue) {
-	    	if (!!newValue && !!newValue.chordKey)
+	    	if (!!newValue)
 	    	{
+          newValue.chordKey = newValue.chordKey || newValue.$id;
 	    		$scope.chord = newValue;
 	    		checkIsFavorite();
 	    	}
 	    });	
   		}
   		else {
-  			checkIsFavorite();
+        if ($scope.isFavorite === undefined )
+        {
+          checkIsFavorite();  
+        }
+  			
   		}
   	};
 
@@ -62,5 +76,7 @@ angular.module('playalongWebApp')
     else {
     	checkForChord();
     }
-    
+
+    $scope.$on('plyUserLoggedOut',resetValues);
+    resetValues();
   }]);
