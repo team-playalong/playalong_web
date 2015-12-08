@@ -47,8 +47,19 @@ angular.module('playalongWebApp')
     };
 }]);
 angular.module('playalongWebApp')
-  .controller('PlylanguagepickerCtrl',['$scope','$mdDialog','$mdMedia',
-   function ($scope,$mdDialog,$mdMedia) {
+  .controller('PlylanguagepickerCtrl',['$scope','$mdDialog','$mdMedia','$rootScope',
+   function ($scope,$mdDialog,$mdMedia,$rootScope) {
+
+    $scope.getFlagClass = function() {
+      var res = 'il';
+      if ($rootScope.app && $rootScope.app.locale === 'en')
+      {
+        res = 'us';
+      }
+
+      return res;
+    };
+
 
     $scope.showLanguageModal = function(ev) {
       $mdDialog.show({

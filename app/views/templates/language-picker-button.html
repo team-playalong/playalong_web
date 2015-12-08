@@ -1,5 +1,6 @@
-<md-button class="md-mini" 
+<md-button class="md-mini ply-flex" 
   ng-click="showLanguageModal($event)">
-	<i class="fa fa-globe"></i>
-  <!-- {{'toolbar.language.CHOOSE' | translate}} -->
+  <md-tooltip md-direction="down">{{'toolbar.language.CHOOSE' | translate}}</md-tooltip>
+
+	<i class="flag-icon flag-icon-{{getFlagClass()}}"></i>
 </md-button>

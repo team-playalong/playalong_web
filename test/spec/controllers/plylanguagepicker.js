@@ -22,4 +22,9 @@ describe('Controller: PlylanguagepickerCtrl', function () {
   it('should open the language modal', function() {
     scope.showLanguageModal();      
   });
+
+  it('should get the right flag class', function() {
+    var res = scope.getFlagClass();
+    expect(res).toBe('il');
+  });
 });

@@ -35,7 +35,7 @@ function ($scope,chords, $rootScope,$translate) {
 
 	});
 	
-	$scope.defaultTopLimit = 10;
+	$scope.defaultTopLimit = 50;
 	$scope.getTopChords = function(limitTo) {
 		$rootScope.startSpin();
 		limitTo = limitTo || $scope.defaultTopLimit;

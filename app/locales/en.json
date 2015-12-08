@@ -7,7 +7,7 @@
 			"HI": "Hi"
 		},
 		"language": {
-			"CHOOSE": "Language",
+			"CHOOSE": "Choose language",
 			"MODAL_TITLE": "Choose Language"
 		}
 		
@@ -37,7 +37,7 @@
 	},
 	"topChords": {
 		"PAGE_TITLE": "Top Chords",
-		"TITLE": "Here are our most viewed chords",
+		"TITLE": " Most viewed chords",
 		"SINGLE_HIT": "Viewed 1 Time",
 		"MANY_HITS": "Viewed {hitCount} Times"
 	},
