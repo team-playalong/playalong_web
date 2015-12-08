@@ -406,10 +406,7 @@ module.exports = function (grunt) {
             'locales/**/*',
             'images/**/*',
             
-            '{,*/}*.html',
-
-            //flag-icon-css
-            'bower_components/flag-icon-css/flags/**/*'
+            '{,*/}*.html'
           ]
         }, 
         {
@@ -428,6 +425,14 @@ module.exports = function (grunt) {
             cwd: 'bower_components/fontawesome',
             src: ['fonts/*.*'],
             dest: '<%= yeoman.dist %>'
+        },
+        {
+          //flag-icon-css
+          expand: true,
+          dot: true,
+          cwd: 'bower_components/flag-icon-css',
+          src: ['flags/**/*.*'],
+          dest: '<%= yeoman.dist %>'
         },
         {
           expand: true,
