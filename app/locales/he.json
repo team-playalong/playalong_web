@@ -2,7 +2,7 @@
 	"toolbar": {
 		"APP_NAME": "Playalong",
 		"login": {
-			"MESSAGE": "שלום, התחבר עם",
+			"MESSAGE": "התחבר עם",
 			"LOGOUT": "התנתק",
 			"HI": "היי"
 		},

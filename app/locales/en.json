@@ -2,7 +2,7 @@
 	"toolbar": {
 		"APP_NAME": "Playalong",
 		"login": {
-			"MESSAGE": "Hi, Login With:",
+			"MESSAGE": "Login With:",
 			"LOGOUT": "Logout",
 			"HI": "Hi"
 		},

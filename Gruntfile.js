@@ -406,7 +406,10 @@ module.exports = function (grunt) {
             'locales/**/*',
             'images/**/*',
             
-            '{,*/}*.html'
+            '{,*/}*.html',
+
+            //flag-icon-css
+            'bower_components/flag-icon-css/flags/**/*'
           ]
         }, 
         {

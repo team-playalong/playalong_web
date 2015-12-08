@@ -8,7 +8,7 @@ describe('Controller: PlyfavoritebtnCtrl', function () {
   var PlyfavoritebtnCtrl;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
+  beforeEach(inject(function ($controller) {
     PlyfavoritebtnCtrl = $controller('PlyfavoritebtnCtrl', {
       // place here mocked dependencies
     });
