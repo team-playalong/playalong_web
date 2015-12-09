@@ -1,4 +1,4 @@
 var PLY_CONFIG = {
-	env: 'prod', //dev | prod
+	env: 'dev', //dev | prod
 	defaultLocale: 'en'
 };
