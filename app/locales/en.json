@@ -33,7 +33,9 @@
 		"EMPTY_RESULT_MESSAGE": "You have no results. Please try again.",
 		"SONG_NAME": "Song Name",
 		"ARTIST": "Artist",
-		"SEARCH_BOTTON": "Go"
+		"SEARCH_BOTTON": "Go",
+		"REQUEST_SONG": "Let us know which song you want ",
+		"HERE": "HERE"
 	},
 	"topChords": {
 		"PAGE_TITLE": "Top Chords",

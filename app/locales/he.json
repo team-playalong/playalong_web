@@ -37,7 +37,9 @@
 		"EMPTY_RESULT_MESSAGE": "אין תוצאות לחיפוש. נסה שוב...",
 		"SONG_NAME": "שם השיר" ,
 		"ARTIST": "אמן",
-		"SEARCH_BOTTON": "חפש"
+		"SEARCH_BOTTON": "חפש",
+		"REQUEST_SONG": "ספר לנו איזה שיר אתה רוצה ",
+		"HERE": "כאן"
 	},
 	"topChords": {
 		"PAGE_TITLE": "היכל התהילה",

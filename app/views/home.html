@@ -52,6 +52,10 @@
       <md-card-content>
 
         <h4 class="md-title" layout-align="left" ng-if="resultMessage"  >{{resultMessage}}</h4>
+        <h5 ng-if="!searchResults.length">
+          <span translate=".REQUEST_SONG"></span>
+          <a href="mailto:contact@playalong.io?subject=Please get me my beautiful song!" target="_blank" translate=".HERE"></a>
+        </h5>
         <md-list>
           <md-list-item class="md-2-line clickable"  ng-repeat="result in searchResults track by $index" >
             <img ng-src="{{result.imagePath}}" class="md-avatar" ng-if="result.imagePath" />
