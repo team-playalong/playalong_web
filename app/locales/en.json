@@ -2,7 +2,7 @@
 	"toolbar": {
 		"APP_NAME": "Playalong",
 		"login": {
-			"MESSAGE": "Login With:",
+			"MESSAGE": "Login:",
 			"LOGOUT": "Logout",
 			"HI": "Hi"
 		},
@@ -58,7 +58,9 @@
 		"RATING_SUCCESS": "Thanks for rating!",
 		"FONTSIZE_CHANGE": "Change Font Size",
 		"TONE_UP": "Transpose up",
-		"TONE_DOWN": "Transpose down"
+		"TONE_DOWN": "Transpose down",
+		"TRANSPOSITION": "Transposition: ",
+		"RESET_TRANSPOSE": "Reset"
 	},
 	"autoscroll" : {
 		"TITLE" : "Scroll Speed",

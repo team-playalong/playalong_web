@@ -2,7 +2,7 @@
 	"toolbar": {
 		"APP_NAME": "Playalong",
 		"login": {
-			"MESSAGE": "התחבר עם",
+			"MESSAGE": "התחבר:",
 			"LOGOUT": "התנתק",
 			"HI": "היי"
 		},
@@ -60,7 +60,9 @@
 		"RATING_SUCCESS": "תודה על הדירוג",
 		"FONTSIZE_CHANGE": "שנה גודל טקסט",
 		"TONE_UP": "חצי טון למעלה",
-		"TONE_DOWN": "חצי טון למטה"
+		"TONE_DOWN": "חצי טון למטה",
+		"TRANSPOSITION": "שינוי בטונים: ",
+		"RESET_TRANSPOSE": "אפס"
 	},
 	"autoscroll" : {
 		"TITLE" : "מהירות גלילה",

@@ -9,8 +9,8 @@
  */
 
 angular.module('playalongWebApp')
-  .controller('ChordCtrl',['$scope','$rootScope', '$state','chords', '$stateParams','toast','login','Common','$timeout','plyTooltip',
-    function ($scope,$rootScope,$state,chords, $stateParams,toast,login,Common,$timeout,plyTooltip) {
+  .controller('ChordCtrl',['$scope','$rootScope', '$state','chords', '$stateParams','toast','login','Common','$timeout','plyTooltip','transposer',
+    function ($scope,$rootScope,$state,chords, $stateParams,toast,login,Common,$timeout,plyTooltip,transposer) {
 
     $scope.initCtrl = function() {
       $rootScope.currPage = $scope.chord.artist + ' - ' + $scope.chord.title;
@@ -87,6 +87,17 @@ angular.module('playalongWebApp')
 
   	}
 
+    $scope.transposition = 0;
+    $scope.transposeChords = function(numTones) {
+      var chords = angular.element(document.querySelectorAll('.ply-chord-container-content .chord'));
+      
+      angular.forEach(chords, function(value){
+        var oldText = angular.element(value).text();
+        var newText = transposer.transpose(oldText,numTones);
+        angular.element(value).text(newText);
+      });
 
+      $scope.transposition += numTones;
+    };
 
   }]);
