@@ -23,7 +23,9 @@ angular.module('playalongWebApp')
       	scope.$on('plyUserLoggedIn', function(){
       		element.show();
       	});
-        scope.$on('plyUserLoggedOut',element.hide);
+        scope.$on('plyUserLoggedOut',function() {
+          element.hide();
+        });
       }	
     };
   }]);

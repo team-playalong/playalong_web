@@ -41,6 +41,9 @@ body {
 			.ply-fab {
 				position: fixed;
 				bottom:15px;
+				.ply-fab-more {
+					padding-left: 15px; 
+				}
 				&.fab-left {
 					left:25px;
 				}
@@ -49,12 +52,17 @@ body {
 				}
 				.ply-fab-icon {
 					fill: #ffffff;
-					line-height: 68px;
-					padding-top:5px; 
+					display: flex;
 					&.ply-fab-icon-dark {
 						fill: #212121;
 					}
-				}		
+				}	
+				.md-fab-action-item {
+					a { 
+						display: flex;
+					}
+						
+				}
 			}
 		}
 	}

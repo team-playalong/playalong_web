@@ -58,7 +58,9 @@
 		"AUTO_SCROLL": "גלילה אוטומטית",
 		"COUNT_RATING_MESSAGE": "משתמשים דרגו את השיר. תהיה אחד מהם :)",
 		"RATING_SUCCESS": "תודה על הדירוג",
-		"FONTSIZE_CHANGE": "שנה גודל טקסט"
+		"FONTSIZE_CHANGE": "שנה גודל טקסט",
+		"TONE_UP": "חצי טון למעלה",
+		"TONE_DOWN": "חצי טון למטה"
 	},
 	"autoscroll" : {
 		"TITLE" : "מהירות גלילה",

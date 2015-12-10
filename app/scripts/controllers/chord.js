@@ -11,7 +11,7 @@
 angular.module('playalongWebApp')
   .controller('ChordCtrl',['$scope','$rootScope', '$state','chords', '$stateParams','toast','login','Common','$timeout','plyTooltip',
     function ($scope,$rootScope,$state,chords, $stateParams,toast,login,Common,$timeout,plyTooltip) {
-    
+
     $scope.initCtrl = function() {
       $rootScope.currPage = $scope.chord.artist + ' - ' + $scope.chord.title;
       $rootScope.pageTitle = 'Playalong - ' + $scope.chord.artist + ' ' + $scope.chord.title;
@@ -33,14 +33,14 @@ angular.module('playalongWebApp')
       };
        /*jshint unused:false*/
       //Disable autoscroll on redirect
-      $rootScope.$on('$stateChangeStart', 
-      function(event, toState, toParams, fromState, fromParams){ 
+      $rootScope.$on('$stateChangeStart',
+      function(event, toState, toParams, fromState, fromParams){
         if (fromState.name === 'chord')
         {
           $timeout(function(){
-            $scope.disableAutoscroll();  
+            $scope.disableAutoscroll();
           },0);
-          
+
         }
       });
     };
@@ -57,13 +57,13 @@ angular.module('playalongWebApp')
         $scope.disableAutoscroll();
       }
     };
-    
+
     $scope.isSuperUser = function() {
       return login.getUser() && login.getUser().userType.indexOf('superuser') !== -1;
     };
 
-  	if (!$stateParams.chordKey) { 
-  		$state.go('home'); 
+  	if (!$stateParams.chordKey) {
+  		$state.go('home');
   	}
   	else {
       if (!$scope.chord) //After refresh
@@ -84,9 +84,9 @@ angular.module('playalongWebApp')
       else {
         $scope.initCtrl();
       }
-	    
+
   	}
 
-      
-    
+
+
   }]);

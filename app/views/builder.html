@@ -30,7 +30,7 @@
     </div>
 
     <div layout="row" layout-wrap>
-      <div flex="50">
+      <!-- <div flex="50">
 
         <md-switch class="ply-switch" ng-model="flags.isPreviewMode" aria-label="Switch 1" ng-change="handleSwitchModes()">
           {{'builder.PREVIEW' | translate}}
@@ -40,8 +40,8 @@
               aria-label="Approved" 
               ng-if="login.isSuperUser()" ng-change="handleApproveChange()">
               {{'builder.APPROVED' | translate}}
-            </md-switch>
-      </div>
+        </md-switch>
+      </div> -->
       <div  flex="50"
             layout="row" layout-align="end center">
         <md-button  class="md-raised md-accent"
@@ -65,10 +65,11 @@
             ng-bind-html="chord.content"></div>
     </div>
     <div layout="row" layout-wrap>
-      <div flex="50">
+      <!-- <div flex="50">
         <md-switch class="ply-switch" ng-model="flags.isPreviewMode" aria-label="Switch 1" ng-change="handleSwitchModes()">
           {{'builder.PREVIEW' | translate}}
         </md-switch>
+      </div> -->
     </div>
   </md-content>
 </form>

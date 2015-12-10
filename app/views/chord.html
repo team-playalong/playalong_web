@@ -1,16 +1,16 @@
 <div  class="md-padding" id="chord" ng-cloak
       translate-namespace="chord">
-    <md-card  layout-padding layout-align="center" 
+    <md-card  layout-padding layout-align="center"
               autoscroll speed="{{autoscrollSpeed}}"
               ng-class="{'text-align-right' : isRtl}">
       <autoscroll-widget speed="autoscrollSpeed" enabled="{{autoscrollEnabled}}"></autoscroll-widget>
-      <md-card-content class="ply-chord-container">            
+      <md-card-content class="ply-chord-container">
         <div layout="row" layout-align="{{!!isRtl ? 'end' : 'start'}} center">
           <div flex="30">
             <md-tooltip md-direction="top">
               {{'chord.FONTSIZE_CHANGE' | translate}}
             </md-tooltip>
-            <text-size-slider element-class="ply-chord-container-content" min="12" max="24" unit="px" value="18" step="0">  
+            <text-size-slider element-class="ply-chord-container-content" min="12" max="24" unit="px" value="18" step="0">
             </text-size-slider>
           </div>
           <div flex>
@@ -20,11 +20,11 @@
         <div layout="row" class="direction-initial" >
           <div flex>
             <h2>{{chord.artist}}</h2>
-            <h4>{{chord.title}}</h4>    
+            <h4>{{chord.title}}</h4>
           </div>
         </div>
-          
-                
+
+
         <div class="ply-chord-container-content direction-initial" ng-bind-html="chord.content"></div>
         <div  class="ply-chord-rating"
               ng-if="chordRating">
@@ -34,44 +34,53 @@
       </md-card-content>
     </md-card>
 </div>
-<md-fab-speed-dial 
+<md-fab-speed-dial
     class="ply-fab"
     ng-class="{'fab-right': app.dir === 'ltr',
-                'fab-left': app.dir !== 'ltr'}" 
+                'fab-left': app.dir !== 'ltr'}"
     md-open="chordFab.isOpen" md-direction="up"
     ng-class="chordFab.selectedMode">
   <md-fab-trigger>
-    <md-button aria-label="menu" class="md-fab md-accent">
+    <md-button aria-label="menu" class="md-fab md-accent ply-fab-more">
       <ng-md-icon class="ply-fab-icon" icon="more_vert"></ng-md-icon>
     </md-button>
   </md-fab-trigger>
   <md-fab-actions>
-    <!-- <md-button aria-label="toneUp" class="md-fab md-raised md-mini">
+    <md-button aria-label="tone down" class="md-fab md-raised md-mini">
+      <md-tooltip
+          md-direction="{{::plyTooltip.getHorizontalDirection()}}">
+          {{'chord.TONE_DOWN' | translate}}
+      </md-tooltip>
       <ng-md-icon class="ply-fab-icon ply-fab-icon-dark" icon="expand_more"></ng-md-icon>
     </md-button>
     <md-button aria-label="toneUp" class="md-fab md-raised md-mini">
+      <md-tooltip
+        md-direction="{{::plyTooltip.getHorizontalDirection()}}">
+        {{'chord.TONE_UP' | translate}}
+      </md-tooltip>
       <ng-md-icon class="ply-fab-icon ply-fab-icon-dark" icon="expand_less"></ng-md-icon>
-    </md-button> -->
-    <md-button  aria-label="auto scroll" 
+    </md-button>
+    
+    <md-button  aria-label="auto scroll"
                 class="md-fab md-raised md-mini"
                 ng-click="toggleAutoscroll()">
-      <ng-md-icon layout="center center" class="ply-fab-icon ply-fab-icon-dark" icon="format_line_spacing"></ng-md-icon>
-      <md-tooltip 
+      <ng-md-icon class="ply-fab-icon ply-fab-icon-dark" icon="format_line_spacing"></ng-md-icon>
+      <md-tooltip
         md-direction="{{::plyTooltip.getHorizontalDirection()}}">
         {{'chord.AUTO_SCROLL' | translate}}
       </md-tooltip>
     </md-button>
-    
-    <md-button  aria-label="edit chord" 
-                class="md-fab md-raised md-mini" 
+
+    <md-button  aria-label="edit chord"
+                class="md-fab md-raised md-mini"
                 ui-sref="builder.edit({id:chord.$id || chord.chordKey})"
                 ng-if="isSuperUser()">
-      <ng-md-icon layout="center center" class="ply-fab-icon ply-fab-icon-dark" icon="create"></ng-md-icon>
-      <md-tooltip 
+      <ng-md-icon class="ply-fab-icon ply-fab-icon-dark" icon="create"></ng-md-icon>
+      <md-tooltip
         md-direction="{{::plyTooltip.getHorizontalDirection()}}">
         {{'chord.EDIT_CHORD' | translate}}
       </md-tooltip>
     </md-button>
-    
+
   </md-fab-actions>
 </md-fab-speed-dial>
