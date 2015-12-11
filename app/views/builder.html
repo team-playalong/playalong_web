@@ -31,6 +31,9 @@
 
     <div layout="row" layout-wrap>
       <div flex="50">
+        <md-switch class="ply-switch" ng-model="flags.isPreviewMode" aria-label="Switch 1" ng-change="handleSwitchModes()">
+          {{'builder.PREVIEW' | translate}}
+        </md-switch>
         <md-switch class="ply-switch" 
             ng-model="chord.approved" 
             aria-label="Approved" 
@@ -61,11 +64,7 @@
             ng-bind-html="chord.content"></div>
     </div>
     <div layout="row" layout-wrap>
-      <!-- <div flex="50">
-        <md-switch class="ply-switch" ng-model="flags.isPreviewMode" aria-label="Switch 1" ng-change="handleSwitchModes()">
-          {{'builder.PREVIEW' | translate}}
-        </md-switch>
-      </div> -->
+      
     </div>
   </md-content>
 </form>
