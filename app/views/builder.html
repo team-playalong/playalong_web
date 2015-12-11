@@ -30,18 +30,14 @@
     </div>
 
     <div layout="row" layout-wrap>
-      <!-- <div flex="50">
-
-        <md-switch class="ply-switch" ng-model="flags.isPreviewMode" aria-label="Switch 1" ng-change="handleSwitchModes()">
-          {{'builder.PREVIEW' | translate}}
+      <div flex="50">
+        <md-switch class="ply-switch" 
+            ng-model="chord.approved" 
+            aria-label="Approved" 
+            ng-if="login.isSuperUser()" ng-change="handleApproveChange()">
+            {{'builder.APPROVED' | translate}}
         </md-switch>
-          <md-switch class="ply-switch" 
-              ng-model="chord.approved" 
-              aria-label="Approved" 
-              ng-if="login.isSuperUser()" ng-change="handleApproveChange()">
-              {{'builder.APPROVED' | translate}}
-        </md-switch>
-      </div> -->
+      </div>
       <div  flex="50"
             layout="row" layout-align="end center">
         <md-button  class="md-raised md-accent"
