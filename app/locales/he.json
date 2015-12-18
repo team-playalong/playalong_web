@@ -50,7 +50,11 @@
 	"favorites": {
 		"PAGE_TITLE": "מועדפים",
 		"LOGIN_TITLE": "אינך מחובר...",
-		"TITLE": "המועדפים שלך"
+		"TITLE": "המועדפים שלך",
+		"REMOVED_MESSAGE": "השיר הוסר מהמועדפים",
+		"ADDED_MESSAGE": "השיר נוסף למועדפים",
+		"REMOVE_MESSAGE": "הסר ממועדפים",
+		"ADD_MESSAGE": "הוסף למועדפים"
 	},
 	"chord": {
 		"RATE_MESSAGE": "הייתי טוב? דרג אותי!",

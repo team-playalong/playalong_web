@@ -1,6 +1,11 @@
 <md-button class="md-mini ply-icon-favorites" 
     ng-click="toggleFavorites()"
     aria-label="favorites">
-  <i class="fa fa-heart" ng-if="isFavorite"></i>
-  <i class="fa fa-heart-o" ng-if="!isFavorite"></i>
+  
+  <i class="fa fa-heart" ng-if="isFavorite">
+  	<md-tooltip>{{'favorites.REMOVE_MESSAGE' | translate}}</md-tooltip>
+  </i>
+  <i class="fa fa-heart-o" ng-if="!isFavorite">
+  	<md-tooltip>{{'favorites.ADD_MESSAGE' | translate}}</md-tooltip>
+  </i>
 </md-button>
