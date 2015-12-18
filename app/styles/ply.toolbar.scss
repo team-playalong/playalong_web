@@ -1,0 +1,42 @@
+@import '_ply.vars.scss';
+
+//Toolbar
+.ply-topnav {
+	position: fixed;
+	top:0;
+	z-index: 10;
+	.ply-topnav-login {
+		
+		.ply-topnav-login-title {
+			font-size: $LABEL-FONT-SIZE; 
+		}
+		.ply-topnav-login-btn {
+			padding:0;
+			width: 25px;
+		}
+		.ply-topnav-login-avatar {
+			width: $AVATAR-DEMENSIONS;
+			height: $AVATAR-DEMENSIONS;
+			padding:5px;
+			border-radius: 50%;
+		}
+		
+	}
+	ply-language-picker {
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+	.ply-logo {
+		height: $PLY-LOGO-SIZE;
+		width: $PLY-LOGO-SIZE;
+		margin-right: 10px; 
+	}
+	.md-icon-button {
+		fill: #ffffff;
+		vertical-align: middle;
+		padding: 5px;
+	}
+}
+//End Toolbar

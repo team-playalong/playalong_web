@@ -1,0 +1,14 @@
+@import '_ply.vars.scss';
+
+.ply-sidenav {
+	.md-list-item-text {
+		width: 100%;		
+		.md-primary {
+		}
+		i {
+			font-size: $ply-icon-lg;
+			margin-left: 10px;
+			color: $primary-text; 
+		}
+	}
+}

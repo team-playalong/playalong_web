@@ -1,0 +1,25 @@
+@import '_ply.vars.scss';
+
+.ply-autoscroll-widget {
+  .ply-autoscroll-widget-minimize {
+    float: right;
+  }
+  width: 20%;
+  cursor: move;
+  float: right;
+  position: fixed !important;
+
+  @media (max-width:500px){
+    width: 40%;
+    right: 10px;
+    top: 60px;
+  }
+  &.minified {
+    width: 50px;
+  }
+  .ply-autoscroll-widget-gauge { 
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+  }
+}
