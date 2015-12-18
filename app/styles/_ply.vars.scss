@@ -1,22 +1,5 @@
-//Bootstrap Overrides
-$brand-primary:         #0288D1 !default;
-$brand-success:         #5cb85c !default;
-$brand-info:            #5bc0de !default;
-$brand-warning:         #f0ad4e !default;
-$brand-danger:          #d9534f !default;
-
-$ply-grey-light:        #EFEFEF;
-$ply-divider:           #B6B6B6;
-$ply-yellow:            #FFA000 !default;
-$ply-pink:              #FF4081;
-$ply-blue-light:        #B3E5FC;
-$ply-white:             #FFFFFF;
-
-$primary-text:          #212121;
-
-$body-bg:				#FFFFFF;
-
-
+@import "_ply.colors.scss";
+@import "_ply.fonts.scss";
 
 
 $ply-icon-lg: 20px;
@@ -24,25 +7,3 @@ $ply-icon-xl: 25px;
 $PLY-LOGO-SIZE: 50px;
 $LABEL-FONT-SIZE: 14px; 
 $AVATAR-DEMENSIONS: 64px;
-
-
-
-@font-face {
-  font-family:"icomoon";
-  src:url("https://cdn.rawgit.com/angular/material/master/docs/app/fonts/icomoon.eot");
-  font-weight:normal;
-  font-style:normal;
-}
-
-@font-face {
-  font-family: 'icomoon';
-  src:url('https://rawgit.com/angular/material/master/docs/app/fonts/icomoon.eot?-cmq1um');
-  src:url('https://cdn.rawgit.com/angular/material/master/docs/app/fonts/icomoon.eot?#iefix-cmq1um') format('embedded-opentype'),
-  url('https://cdn.rawgit.com/angular/material/master/docs/app/fonts/icomoon.woff?-cmq1um') format('woff'),
-  url('https://cdn.rawgit.com/angular/material/master/docs/app/fonts/icomoon.ttf?-cmq1um') format('truetype'),
-  url('https://cdn.rawgit.com/angular/material/master/docs/app/fonts/icomoon.svg?-cmq1um#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
-

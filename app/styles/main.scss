@@ -1,4 +1,14 @@
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 @import "ply.common";
+
+//Pages
 @import "ply.builder";
 @import "ply.chord";
+
+//Partials
+@import 'ply.toolbar.scss';
+@import 'ply.sidenav.scss';
+
+//Components
+@import 'ply.autoscroll-widget.scss';
+@import 'ply.text-size-slider.scss';
