@@ -80,4 +80,8 @@ angular.module('playalongWebApp')
                       'Chord approved' : 'Chord not approved';
     toast.showSimpleToast(toastText);
   };
+
+  $scope.createDisabled = function() {
+    return !$scope.chord.artist || !$scope.chord.title || !$scope.chord.content;
+  };
 }]);

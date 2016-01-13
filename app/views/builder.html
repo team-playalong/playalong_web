@@ -1,6 +1,5 @@
 <form name="builder" novalidate
-      translate-namespace="builder">
-  
+      translate-namespace="builder">  
   <md-content class="md-padding md-whiteframe-z4 builder">
     <div class="ply-overlay" ng-if="!login.isSuperUser()"
       translate-namespace=".invite">
@@ -45,6 +44,7 @@
             layout="row" layout-align="end center">
         <md-button  class="md-raised md-accent"
           type="submit"
+          ng-disabled="createDisabled()"
           ng-click="createChordInDb()"
           ng-if="!$stateParams.id && !chordCreated"
           translate=".CREATE"
