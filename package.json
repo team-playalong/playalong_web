@@ -41,6 +41,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test",
+    "postinstall": "cd node_modules/grunt-contrib-imagemin/node_modules/imagemin/node_modules && del /F /Q vinyl-fs && cd.. && npm install vinyl-fs@2.2.x"
   }
 }
