@@ -51,11 +51,11 @@ angular.module('playalongWebApp')
     
   };
   
-  $rootScope.startSpin = function() {
-    $scope.$broadcast('startSpin');
+  $rootScope.startSpin = function(eventName) {
+    $scope.$broadcast(eventName || 'startSpin');
   };
-  $rootScope.stopSpin = function() {
-    $scope.$broadcast('stopSpin');
+  $rootScope.stopSpin = function(eventName) {
+    $scope.$broadcast(eventName || 'stopSpin');
   };
 
   $scope.initCtrl();

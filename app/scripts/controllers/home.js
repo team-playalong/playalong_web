@@ -63,10 +63,19 @@ angular.module('playalongWebApp')
       }
     };
 
+    $scope.chordsFinallyHandler = function() {
+      $scope.formatResultMessage()
+      .then(function(message) {
+        $scope.resultMessage = message;
+
+        $rootScope.startSpin('stopSearchChordsSpinner');
+      });
+    };
+
 
 
   	$scope.searchChords = function() {
-      $rootScope.startSpin();
+      $rootScope.startSpin('startSearchChordsSpinner');
       $scope.searchResults = [];
   		chords.searchChordsBy($scope.searchConfig.searchBy,$scope.searchConfig.searchInput)
   		.then($scope.handleChordResults)
@@ -74,14 +83,13 @@ angular.module('playalongWebApp')
         $scope.searchResults = [];
   			console.warn(error);
   		})
-      .finally(function() {
-        $scope.formatResultMessage()
-        .then(function(message) {
-          $scope.resultMessage = message;
-        });
-        $rootScope.stopSpin();
-      });
+      .finally($scope.chordsFinallyHandler);
   	};
+
+    //For spinner event listening
+    $scope.triggerSearchChords = function() {
+      $scope.searchChords();
+    };
 
     $rootScope.$on('$stateChangeSuccess',
     /*jshint unused:false */

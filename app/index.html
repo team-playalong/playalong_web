@@ -94,7 +94,7 @@
   <div  ng-controller="MainCtrl"
         layout="column" class="ply-app"
         ng-class="{'hebrew-sans': app.dir === 'rtl'}">
-    <ply-spinner trigger-start-event="startSpin" trigger-stop-event="stopSpin"></ply-spinner>
+    <ply-spinner id="plyMainSpinner" trigger-start-event="startSpin" trigger-stop-event="stopSpin"></ply-spinner>
     <section flex>
       <ng-include src="'views/templates/sidenav.html'"></ng-include>
       <ng-include src="'views/templates/toolbar.html'"></ng-include>
@@ -117,7 +117,7 @@
           <div id="fb-root"></div>
         </div>
       </div>
-      
+
     </div>
   </div>
     <script src="env.js"></script>

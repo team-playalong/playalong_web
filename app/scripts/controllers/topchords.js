@@ -20,7 +20,7 @@ function ($scope,chords, $rootScope,$translate) {
 
 		$scope.setHitCountMessage = function(hitCount) {
 			if (!hitCount)
-			{	
+			{
 				return null;
 			}
 			else if (hitCount === 1)
@@ -34,10 +34,10 @@ function ($scope,chords, $rootScope,$translate) {
 		};
 
 	});
-	
+
 	$scope.defaultTopLimit = 50;
 	$scope.getTopChords = function(limitTo) {
-		$rootScope.startSpin();
+		$rootScope.startSpin('startTopChordsSpinner');
 		limitTo = limitTo || $scope.defaultTopLimit;
 
 		chords.getTopChords(limitTo)
@@ -45,14 +45,13 @@ function ($scope,chords, $rootScope,$translate) {
 			$scope.topChords = data;
 		})
 		.finally(function() {
-			$rootScope.stopSpin();
+			$rootScope.stopSpin('stopTopChordsSpinner');
 		});
-
 	};
 
-
-
+	//Race condition with spinner directive
+	setTimeout(function() {
+		$scope.getTopChords();
+	},20);
 	
-
-	$scope.getTopChords();
 }]);

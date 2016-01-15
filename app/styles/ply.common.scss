@@ -106,9 +106,11 @@ md-toast {
 	position: fixed;
 }
 
-md-progress-circular {
-	position: fixed;
-	left:50%;
-	top:50%;
-	z-index:1000;
+ply-spinner {
+	md-progress-circular {
+		z-index:1000;		
+		position: absolute;
+		top:50%;
+		left:50%;	
+	}
 }

@@ -43,6 +43,8 @@ describe('Controller: TopchordsCtrl', function () {
       expect(scope.topChords.length).toBe(1);
       done();  
     },10);
+
+    scope.$digest();
     
 
   });
