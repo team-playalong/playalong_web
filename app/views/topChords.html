@@ -4,20 +4,24 @@
   <md-card layout-align="center" class="ply-search-results" >  
     <md-card-content>
       <h3 translate=".TITLE"></h3>
-      <ply-spinner trigger-start-event="startTopChordsSpinner" trigger-stop-event="stopTopChordsSpinner"></ply-spinner>
 
-      <md-list ng-if="topChords && topChords.length" >
-        <md-list-item class="md-2-line clickable"  ng-repeat="chord in topChords | orderBy: '-hitCount' track by $index" >
-          <img ng-src="{{chord.imagePath}}" class="md-avatar" ng-if="chord.imagePath" />
-          <div class="md-list-item-text" ng-click="goToChordPage(chord)"> 
-            <h3> {{ chord.artist }} </h3>
-            <p> {{ chord.title }} </p>
-            <p ng-if="chord.hitCount > 0">{{::setHitCountMessage(chord.hitCount)}}</p>
-            <!-- http://codepen.io/TepigMC/pen/FIdHb -->
-            <star-rating class="non-clickable" ng-if="chord.rating" ng-model="chord.rating" readonly="true"></star-rating>
-          </div>
-          <md-divider ></md-divider>
-        </md-list-item>
+      <div class="ply-search-results-wrapper">
+        <ply-spinner trigger-start-event="startTopChordsSpinner" trigger-stop-event="stopTopChordsSpinner"></ply-spinner>
+
+        <md-list ng-if="topChords && topChords.length" >
+          <md-list-item class="md-2-line clickable"  ng-repeat="chord in topChords | orderBy: '-hitCount' track by $index" >
+            <img ng-src="{{chord.imagePath}}" class="md-avatar" ng-if="chord.imagePath" />
+            <div class="md-list-item-text" ng-click="goToChordPage(chord)"> 
+              <h3> {{ chord.artist }} </h3>
+              <p> {{ chord.title }} </p>
+              <p ng-if="chord.hitCount > 0">{{::setHitCountMessage(chord.hitCount)}}</p>
+              <!-- http://codepen.io/TepigMC/pen/FIdHb -->
+              <star-rating class="non-clickable" ng-if="chord.rating" ng-model="chord.rating" readonly="true"></star-rating>
+            </div>
+            <md-divider ></md-divider>
+          </md-list-item>
+          
+      </div>
         
     </md-card-content>
   </md-card>
