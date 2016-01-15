@@ -30,13 +30,16 @@
         </div>
         <div layout="row" class="direction-initial" >
           <div flex>
-            <h2>{{chord.artist}}</h2>
-            <h4>{{chord.title}}</h4>
+            <h2 ng-bind="chord.artist"></h2>
+            <h4 ng-bind="chord.title"></h4>
           </div>
         </div>
 
-
-        <div class="ply-chord-container-content direction-initial" ng-bind-html="chord.content"></div>
+        <div class="ply-spinner-wrapper">
+          <ply-spinner trigger-start-event="startChordSpinner" trigger-stop-event="stopChordSpinner"></ply-spinner>
+          <div class="ply-chord-container-content direction-initial" ng-bind-html="chord.content"></div>  
+        </div>
+        
         <div  class="ply-chord-rating"
               ng-if="chordRating">
           <h5 tranlate=".RATE_MESSAGE"></h5>
