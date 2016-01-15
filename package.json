@@ -35,13 +35,12 @@
     "karma-phantomjs-launcher": "*",
     "phantomjs": "^1.9.19",
     "time-grunt": "^1.0.0",
-    "vinyl-fs": "^2.2.1"
+    "vinyl-fs": "2.2.1"
   },
   "engines": {
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "grunt test",
-    "postinstall": "cd node_modules/grunt-contrib-imagemin/node_modules/imagemin/node_modules && del /F /Q vinyl-fs && cd.. && npm install vinyl-fs@2.2.x"
+    "test": "grunt test"
   }
 }
