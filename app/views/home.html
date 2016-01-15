@@ -2,7 +2,6 @@
       translate-namespace="home">
     <md-card layout-align="center">
       <md-card-content>
-
         <h2 class="md-title" translate=".SEARCH_TITLE"></h2>
         <form name="chordSearchForm" class="ply-search-form" novalidate>
           <div layout="row" layout-wrap>
@@ -12,11 +11,11 @@
                     <md-option ng-repeat="curr in searchByOptions" value="{{curr.value}}">{{curr.label | translate}}</md-option>
                   </md-select>
                 </md-input-container>
-                
+
               </div>
               <div flex-sm="100" flex-gt-sm="60">
                 <md-input-container>
-                  <input md-maxlength="50" 
+                  <input md-maxlength="50"
                   placeholder="Search Here" required name="searchInput" ng-model="searchConfig.searchInput" auto-direction />
                   <div ng-messages="chordSearchForm.searchInput.$error">
                     <!-- TODO - Messages from texts object -->
@@ -25,7 +24,7 @@
                 </md-input-container>
               </div>
               <div flex hide show-gt-sm>
-                <md-button class="md-raised md-accent" type="submit" ng-click="searchChords()" 
+                <md-button class="md-raised md-accent" type="submit" ng-click="searchChords()"
                 aria-label="Go"
                 id="plySearchButton"
                 translate=".SEARCH_BOTTON"></md-button>
@@ -41,14 +40,15 @@
               <md-button class="md-primary md-hue-1" aria-label="Top Chords" ui-sref="topChords" translate="topChords.PAGE_TITLE"></md-button>
             </div>
           </div>
-        </form>      
+        </form>
       </md-card-content>
     </md-card>
     <!-- search results -->
-    <div  ng-include="'views/topChords.html'" 
+    <div  ng-include="'views/topChords.html'"
           ng-if="!searchResults"
           ng-controller="TopchordsCtrl"></div>
     <md-card layout-align="center" ng-if="searchResults" class="ply-search-results">
+      <ply-spinner trigger-start-event="startSearchChordsSpinner" trigger-stop-event="stopSearchChordsSpinner"></ply-spinner>
       <md-card-content>
 
         <h4 class="md-title" layout-align="left" ng-if="resultMessage"  >{{resultMessage}}</h4>
@@ -59,7 +59,7 @@
         <md-list>
           <md-list-item class="md-2-line clickable"  ng-repeat="result in searchResults track by $index" >
             <img ng-src="{{result.imagePath}}" class="md-avatar" ng-if="result.imagePath" />
-            <div class="md-list-item-text" ng-click="goToChordPage(result)"> 
+            <div class="md-list-item-text" ng-click="goToChordPage(result)">
               <h3> {{ result.artist }} </h3>
               <p> {{ result.title }} </p>
 
