@@ -25,6 +25,6 @@ describe('Controller: PlylanguagepickerCtrl', function () {
 
   it('should get the right flag class', function() {
     var res = scope.getFlagClass();
-    expect(res).toBe('il');
+    expect(res).toBe('us');
   });
 });

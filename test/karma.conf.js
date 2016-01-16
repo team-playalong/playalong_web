@@ -36,6 +36,9 @@ module.exports = function(config) {
       'bower_components/bootstrap/dist/js/bootstrap.js',
       'bower_components/firebase/firebase.js',
       'bower_components/angularfire/dist/angularfire.js',
+      'bower_components/angular-translate/angular-translate.js',
+      'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
+      'bower_components/angular-sanitize/angular-sanitize.js',
       'bower_components/playalong.services/dist/scripts/scripts.js',
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       'bower_components/rangy/rangy-core.js',
@@ -52,8 +55,6 @@ module.exports = function(config) {
       'bower_components/raphael/raphael.js',
       'bower_components/justgage-bower/justgage.js',
       'bower_components/angular-gage/dist/angular-gage.js',
-      'bower_components/angular-translate/angular-translate.js',
-      'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       

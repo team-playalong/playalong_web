@@ -10,7 +10,7 @@ describe('Controller: LoginCtrl', function () {
       scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, _$rootScope_,$q,$httpBackend) {
+  beforeEach(inject(function ($controller, _$rootScope_,$q,_$httpBackend_) {
     $rootScope = _$rootScope_;
     scope = $rootScope.$new();
 
@@ -35,8 +35,8 @@ describe('Controller: LoginCtrl', function () {
       }
     });
     //Ignores all html requests
-    $httpBackend.whenGET(/views\/.*/).respond();
-
+    _$httpBackend_.whenGET(/views\/.*/).respond();
+    _$httpBackend_.whenGET(/locales\/en.json/).respond();
 
     scope.$apply();
   }));

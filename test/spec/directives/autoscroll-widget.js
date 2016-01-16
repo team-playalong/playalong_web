@@ -10,12 +10,14 @@ describe('Directive: autoscrollWidget', function () {
     scope,
 		$compile;
 
-  beforeEach(inject(function ($rootScope,_$compile_,$httpBackend) {
+  beforeEach(inject(function ($rootScope,_$compile_,_$httpBackend_) {
     scope = $rootScope.$new();
     $compile = _$compile_;
 
     //Ignores all html requests
-    $httpBackend.whenGET(/views\/.*/).respond();
+    _$httpBackend_.whenGET(/views\/.*/).respond();
+    _$httpBackend_.whenGET(/locales\/en.json/).respond();
+
   }));
 
   it('should initialize an autoscroll widget html to the page', function() {

@@ -12,7 +12,7 @@ describe('Controller: TopchordsCtrl', function () {
 
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope,$q,$httpBackend) {
+  beforeEach(inject(function ($controller, $rootScope,$q,_$httpBackend_) {
     $rootScope.startSpin = function() {};
     scope = $rootScope.$new();
     chordsSrv = {
@@ -26,7 +26,8 @@ describe('Controller: TopchordsCtrl', function () {
     });
 
     //Ignores all html requests
-    $httpBackend.whenGET(/views\/.*/).respond();
+    _$httpBackend_.whenGET(/views\/.*/).respond();
+    _$httpBackend_.whenGET(/locales\/en.json/).respond();
     $rootScope.$apply();
   }));
 

@@ -439,6 +439,14 @@ module.exports = function (grunt) {
           cwd: '.tmp/images',
           dest: '<%= yeoman.dist %>/images',
           src: ['generated/*']
+        },
+
+        //Dadi - move locales into dist
+        {
+          expand: true,
+          cwd: 'bower_components/playalong.services/dist/locales',
+          dest: '<%= yeoman.dist %>/locales',
+          src: ['*.json']
         }]
       },
       styles: {

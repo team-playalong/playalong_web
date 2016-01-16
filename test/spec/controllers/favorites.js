@@ -9,7 +9,7 @@ describe('Controller: FavoritesCtrl', function () {
       scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope,$q) {
+  beforeEach(inject(function ($controller, $rootScope,$q, _$httpBackend_) {
     scope = $rootScope.$new();
     var mockUserSrv = {
       getFavorites: function() {
@@ -30,7 +30,9 @@ describe('Controller: FavoritesCtrl', function () {
         }
       }
     });
-    
+
+    _$httpBackend_.whenGET(/locales\/en.json/).respond();
+
     $rootScope.$apply();
   }));
 

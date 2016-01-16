@@ -10,7 +10,7 @@ describe('Controller: ChordCtrl', function () {
         $q;
 
 // Initialize the controller and a mock scope
-beforeEach(inject(function ($controller, $rootScope,$httpBackend,_$q_) {
+beforeEach(inject(function ($controller, $rootScope,_$httpBackend_,_$q_) {
   $q = _$q_;  
 	$rootScope.chord = window.mockData.getMockChord();
   	scope = $rootScope.$new();
@@ -31,8 +31,8 @@ beforeEach(inject(function ($controller, $rootScope,$httpBackend,_$q_) {
     });
 
     //Ignores all html requests
-    $httpBackend.whenGET(/views\/.*/).respond();
-
+    _$httpBackend_.whenGET(/views\/.*/).respond();
+    _$httpBackend_.whenGET(/locales\/en.json/).respond();
     scope.addAlert = function() {};
     spyOn(scope,'addAlert');
     $rootScope.$apply();

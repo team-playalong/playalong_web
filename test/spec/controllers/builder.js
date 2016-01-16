@@ -13,7 +13,7 @@ describe('Controller: BuilderctrlCtrl', function () {
     $q;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope,_$q_,_$stateParams_,$httpBackend, _toast_) {
+  beforeEach(inject(function ($controller, $rootScope,_$q_,_$stateParams_,_$httpBackend_, _toast_) {
     $q = _$q_;
     $stateParams = _$stateParams_;
     toast = _toast_;
@@ -43,8 +43,8 @@ describe('Controller: BuilderctrlCtrl', function () {
     });
 
     //Ignores all html requests
-    $httpBackend.whenGET(/views\/.*/).respond();
-
+    _$httpBackend_.whenGET(/views\/.*/).respond();
+    _$httpBackend_.whenGET(/locales\/en.json/).respond();
     scope.addAlert = function() {};
     spyOn(scope,'addAlert');
     $rootScope.$apply();

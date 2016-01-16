@@ -9,7 +9,7 @@ describe('Controller: HomeCtrl', function () {
 		  chordsMockService;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope,$q,$httpBackend) {
+  beforeEach(inject(function ($controller, $rootScope,$q,_$httpBackend_) {
     $rootScope.startSpin = function() {};
 
   	chordsMockService = {
@@ -25,8 +25,8 @@ describe('Controller: HomeCtrl', function () {
     });
     
     //Ignores all html requests
-    $httpBackend.whenGET(/views\/.*/).respond();
-
+    _$httpBackend_.whenGET(/views\/.*/).respond();
+    _$httpBackend_.whenGET(/locales\/en.json/).respond();
     $rootScope.$apply();
   }));
 
