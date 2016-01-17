@@ -59,10 +59,8 @@ module.exports = function(config) {
       // endbower
       
       //Tuner
-      'bower_components/Guitar-Tuner-Webapp/app/scripts/controllers/AudioContextMonkeyPatch.js',
-      'bower_components/Guitar-Tuner-Webapp/app/scripts/app.js',
-      'app/components/spectrum/spectrum.js',
-      'app/components/spectrum/dsp.js',
+      'app/pages/tuner/AudioContextMonkeyPatch.js',
+      'app/pages/tuner/dsp.js',
 
       //App
       'app/scripts/app.js',
