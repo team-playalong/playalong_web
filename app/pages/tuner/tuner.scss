@@ -1,22 +1,4 @@
-/* Space out content a bit */
-body {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  background-color:#333;
-}
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.jumbotron{
-  padding: 0px;
-}
-
-
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
-}
 
 /* Custom page header */
 .header {
@@ -30,12 +12,6 @@ body {
   padding-bottom: 19px;
 }
 
-/* Custom page footer */
-.footer {
-  padding-top: 5px; /* 19px */
-  color: #777;
-  /*border-top: 1px solid #e5e5e5;*/
-}
 
 /* Customize container */
 @media (min-width: 768px) {
@@ -87,17 +63,6 @@ body {
 }
 
 
-/* Empty. Add your own CSS if you like */
-body, p, div{
-  color: #ccc !important;
-}
-.text-muted{color:#ccc !important;}
-
-#title {
-  width: 300px;
-  text-align: right;
-  float: right;
-}
 #control {
   
   width:400px;
@@ -139,7 +104,6 @@ body, p, div{
 #tunerViewContainer {
   position: relative;
   width:100%;
-  background-color:#333;
 
 }
 #tunerViewContainer h2{
@@ -217,11 +181,9 @@ body, p, div{
 
 #noteView {
   float:left;
-  font-family: Verdana;
   text-align: left;
   position: relative;
   font-size: 4em;
-  color:#ccc;
   left:30px;
   top:10px;
 }
