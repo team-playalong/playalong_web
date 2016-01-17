@@ -8,7 +8,8 @@
  * Controller of the playalongWebApp
  */
 angular.module('playalongWebApp')
-  .controller('TunerCtrl', ['login','$scope','$timeout',function(login,$scope,$timeout) {
+  .controller('TunerCtrl', ['login','$scope','$timeout','$state','$rootScope',
+    function(login,$scope,$timeout,$state,$rootScope) {
   		$scope.currPage = 'tuner.PAGE_TITLE';
 	  	$scope.login = login;
 
@@ -29,26 +30,14 @@ angular.module('playalongWebApp')
 		    };
 	    }); 
 
-	  	 
-    // $scope.sp = [];
-    // $scope.sp[39] = 0;
-    // console.log("length " , $scope.sp.length );
-  $scope.noteFreq = 0;
-  $scope.$watch('noteFreq', function(){  });
-  var numTicks = 10;
-  var dialDegrees = 45;
-  $scope.timer = "Pausad"
-
-
-  window.addEventListener('load', function(){
-    var $tunerViewContainer = $("#tunerView");
-    for (var i = 1; i <= numTicks; i++) {
-      var $div = $("<div>", {id: "tick_"+i});
-      $tunerViewContainer.append($div);
-      var $div = $("<div>", {id: "tick_"+(-1)*i});
-      $tunerViewContainer.append($div);
-    };
-  }); 
+      $rootScope.$on('$stateChangeStart', 
+      function(event, toState, toParams, fromState, fromParams){ 
+        if (fromState.name === 'tuner')
+        {
+          pause();  
+        }
+        
+      });
 
   var timerInterval;
 
@@ -115,16 +104,19 @@ angular.module('playalongWebApp')
     var seconds = Math.floor(timeoutLengthSeconds%60);
     //Kallar onTimeout för att $scope.timer ska uppdateras i DOM
     $scope.onTimeout = function(){
+      if ($state.current.name === 'tuner')
+      {
         mytimeout = $timeout($scope.onTimeout,100);
-        $scope.timer = formatNumberLength(minutes,2)+":"+formatNumberLength(seconds,2);
+      $scope.timer = formatNumberLength(minutes,2)+":"+formatNumberLength(seconds,2);  
+      }   
     }
-    var mytimeout = $timeout($scope.onTimeout,100);
-    
-    // var clock = document.getElementById("#message").text("Timeout: "+formatNumberLength(minutes,2)+":"+formatNumberLength(seconds,2));
+    var mytimeout = $timeout($scope.onTimeout,100); 
   }
 
   function updateTuner(noteIndex, noteError, noteFrequency) 
   {
+    if ($state.current.name !== 'tuner') {return;}
+
     //TODO: Assert params
     if(!(noteIndex && noteError) || !(noteIndex > 0 && noteIndex <12) || !(noteError > -50 && noteError < 50))
       return;
@@ -323,10 +315,8 @@ angular.module('playalongWebApp')
       inputStreamNode.connect(gainNode); //Kopplar ihop med ljudkontrollen
 
       scriptProcessorNode = audioContext.createScriptProcessor(bufferSize, 1, 1); //För ljudanalys, en inkanal och en utkanal
-      console.log('script ', scriptProcessorNode);
 
       sampleRate = audioContext.sampleRate; //Hämta sample per sekund från audio input, används för alla objekt/noder 
-      console.log('sampleRate ', sampleRate, audioWindowSize);
       fft = new FFT(audioWindowSize, sampleRate); //Skapar fouriertransform. Hitta en balans mellan windowsize och samplerate (65536 standard?)
 
       gainNode.connect (scriptProcessorNode); //koppla ihop volym och ljudobjekt 

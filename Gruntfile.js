@@ -39,7 +39,7 @@ module.exports = function (grunt) {
         tasks: ['wiredep']
       },
       js: {
-        files: ['<%= yeoman.app %>/scripts/{,*/}*.js', 
+        files: ['<%= yeoman.app %>/scripts/{,*/}*.js',
                 '<%= yeoman.app %>/env.js'],
         tasks: ['newer:jshint:all'],
         options: {
@@ -362,7 +362,7 @@ module.exports = function (grunt) {
           usemin: 'scripts/scripts.js'
         },
         cwd: '<%= yeoman.app %>',
-        src: 'views/{,*/}*.html',
+        src: ['views/{,*/}*.html', 'pages/**/*.html'],
         dest: '.tmp/templateCache.js'
       }
     },
@@ -405,26 +405,28 @@ module.exports = function (grunt) {
             'fonts/**/*',
             'locales/**/*',
             'images/**/*',
-            
+
+            //Dadi - due to uglifying issues
+            'pages/tuner/dsp.js',
             '{,*/}*.html'
           ]
-        }, 
+        },
         {
         //for bootstrap fonts
-            expand: true,
-            dot: true,
-            cwd: 'bower_components/bootstrap/dist',
-            src: ['fonts/*.*'],
-            dest: '<%= yeoman.dist %>'
+          expand: true,
+          dot: true,
+          cwd: 'bower_components/bootstrap/dist',
+          src: ['fonts/*.*'],
+          dest: '<%= yeoman.dist %>'
         },
         {
 
         //for font-awesome
-            expand: true,
-            dot: true,
-            cwd: 'bower_components/fontawesome',
-            src: ['fonts/*.*'],
-            dest: '<%= yeoman.dist %>'
+          expand: true,
+          dot: true,
+          cwd: 'bower_components/fontawesome',
+          src: ['fonts/*.*'],
+          dest: '<%= yeoman.dist %>'
         },
         {
           //flag-icon-css
@@ -487,15 +489,15 @@ module.exports = function (grunt) {
 
     protractor: {
       options: {
-        configFile: "test/protractor.conf.js", // Default config file 
-        keepAlive: false, // If false, the grunt process stops when the test fails. 
-        noColor: false, // If true, protractor will not use colors in its output. 
+        configFile: "test/protractor.conf.js", // Default config file
+        keepAlive: false, // If false, the grunt process stops when the test fails.
+        noColor: false, // If true, protractor will not use colors in its output.
         args: {
-          // Arguments passed to the command 
+          // Arguments passed to the command
         }
       },
-      all: {}   // Grunt requires at least one target to run so you can simply put 'all: {}' here too. 
-    }  
+      all: {}   // Grunt requires at least one target to run so you can simply put 'all: {}' here too.
+    }
   });
 
 

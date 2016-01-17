@@ -6,7 +6,7 @@
  * @description
  * # spectrum
  */
-angular.module('guitarTunerAppApp')
+angular.module('playalongWebApp')
   .directive('spectrum', function ($window) {
     return {
       templateUrl: 'components/spectrum/spectrum.html',

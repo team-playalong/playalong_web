@@ -42,7 +42,7 @@ describe('Controller: TopchordsCtrl', function () {
     setTimeout(function() {
       expect(scope.topChords).toBeDefined();
       expect(scope.topChords.length).toBe(1);
-      done();  
+      done();
     },10);
 
     scope.$digest();

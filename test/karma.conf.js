@@ -55,14 +55,15 @@ module.exports = function(config) {
       'bower_components/raphael/raphael.js',
       'bower_components/justgage-bower/justgage.js',
       'bower_components/angular-gage/dist/angular-gage.js',
-      'bower_components/angular-cookies/angular-cookies.js',
-      'bower_components/angular-resource/angular-resource.js',
-      'bower_components/angular-route/angular-route.js',
-      'bower_components/angular-touch/angular-touch.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       
-      
+      //Tuner
+      'bower_components/Guitar-Tuner-Webapp/app/scripts/controllers/AudioContextMonkeyPatch.js',
+      'bower_components/Guitar-Tuner-Webapp/app/scripts/app.js',
+      'app/components/spectrum/spectrum.js',
+      'app/components/spectrum/dsp.js',
+
       //App
       'app/scripts/app.js',
       'app/scripts/config/config.constants.js',
@@ -70,6 +71,8 @@ module.exports = function(config) {
       'app/scripts/controllers/*.js',
       'app/scripts/services/*.js',
       'app/scripts/directives/*.js',
+
+      'app/pages/tuner/tuner.controller.js',
 
       "test/globals.js",
       "test/mock/**/*.js",

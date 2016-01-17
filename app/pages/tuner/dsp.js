@@ -13,6 +13,7 @@
 /**
  * DSP is an object which contains general purpose utility functions and constants
  */
+
 var DSP = {
   // Channels
   LEFT:           0,
