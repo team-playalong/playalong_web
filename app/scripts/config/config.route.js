@@ -32,6 +32,14 @@ app.config(['$stateProvider','$urlRouterProvider', function ($stateProvider, $ur
               title: 'Favorites'
             }
         })
+        .state('tuner',  { 
+            url: '/tuner',
+            templateUrl: 'pages/tuner/tuner.html',
+            controller: 'TunerCtrl',
+            data: {
+              title: 'Tuner'
+            }
+        })
 
         .state('builder',       { url: '/builder',        template: '<div ui-view></div>', abstract: true})
         .state('builder.edit', { 

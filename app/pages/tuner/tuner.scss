@@ -1,0 +1,549 @@
+/* Space out content a bit */
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color:#333;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.jumbotron{
+  padding: 0px;
+}
+
+
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+  padding-bottom: 19px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 5px; /* 19px */
+  color: #777;
+  /*border-top: 1px solid #e5e5e5;*/
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.jumbotron .btn {
+  font-size: 21px;
+  padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 0px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+
+
+}
+
+
+/* Empty. Add your own CSS if you like */
+body, p, div{
+  color: #ccc !important;
+}
+.text-muted{color:#ccc !important;}
+
+#title {
+  width: 300px;
+  text-align: right;
+  float: right;
+}
+#control {
+  
+  width:400px;
+}
+#message {
+  font-family: Verdana;
+  text-align: left;
+  position: absolute;
+  top:500px;
+}
+#playPauseContainer {
+
+  width: 70px;
+}
+
+.pause {
+  margin-left: 5px;
+  width: 20px;
+  height: 31px;
+  border-left: 6px solid #FFFFFF;
+  border-right: 6px solid #FFFFFF;
+  line-height: 50px;
+}
+
+.play {
+  border-left: 30px solid white;
+  border-top: 16px solid transparent;
+  border-bottom: 16px solid transparent;
+  font-size: 0;
+}
+
+#playPause{
+  z-index: 10;
+  position: relative;
+  left: 5px;
+  top: 380px;
+  display:none;
+}
+#tunerViewContainer {
+  position: relative;
+  width:100%;
+  background-color:#333;
+
+}
+#tunerViewContainer h2{
+  margin: 0 0 10px 0;
+  padding: 0;
+  text-align: center;
+}
+
+#noteViewContainer{
+  margin: 0 auto; 
+  position:relative;
+  height:75px; 
+  text-align: center;
+  width:150px;
+}
+
+#tuneArrowLeft{
+    left:10px; 
+    top:40px;
+    width:30px; 
+    height:20px; 
+    position:relative;
+    margin: 0 auto; 
+    float:left;
+
+    border-left: 20px solid white;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    font-size: 0;
+}
+
+#tuneArrowRight{
+
+    left:60px; 
+    top:40px; 
+    width:30px; 
+    height:20px; 
+    position:relative; 
+    margin: 0 auto;
+
+    border-right: 20px solid white;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    font-size: 0;
+}
+
+.tuneArrowLeft_ok{
+
+    border-left: 20px solid #66cc33 !important;
+    border-top: 12px solid transparent !important;
+    border-bottom: 12px solid transparent !important;
+}
+
+.tuneArrowRight_ok{
+
+    border-right: 20px solid #66cc33 !important;
+    border-top: 12px solid transparent !important;
+    border-bottom: 12px solid transparent !important;
+
+}
+
+.tuneArrowLeft_wrong{
+
+    border-left: 20px solid rgba(255, 0, 0, 0.8) !important;
+    border-top: 12px solid transparent !important;
+    border-bottom: 12px solid transparent !important;
+
+}
+
+.tuneArrowRight_wrong{
+    border-right: 20px solid rgba(255, 0, 0, 0.8) !important;
+    border-top: 12px solid transparent !important;
+    border-bottom: 12px solid transparent !important;
+}
+
+#noteView {
+  float:left;
+  font-family: Verdana;
+  text-align: left;
+  position: relative;
+  font-size: 4em;
+  color:#ccc;
+  left:30px;
+  top:10px;
+}
+
+#tunerView {
+  margin: 0 auto;
+  position: relative;
+  height: 215px;
+  width: 400px;
+}
+
+.tipNormal {
+  margin: 0 auto;
+  height: 0;
+  width:11px;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 50px solid black;
+  font-size: 0;
+  line-height: 0;
+}
+
+.tip {
+  margin: 0 auto;
+  height: 0;
+  width:11px;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 50px solid red;
+}
+
+.tick_0_normal {
+  opacity:0.8;
+  border-color: #ccc !important;
+}
+
+.noteWrongHighlighted {
+
+  /*color:rgba(255, 0, 0, 0.7) !important;*/
+
+  color:red !important;
+  opacity:0.8;
+  border-color: red !important;
+  text-shadow: 0 0 7px red;
+
+}
+.noteCleanHighlighted {color:#66cc33 !important;
+
+  color:#66cc33 !important;
+  opacity:0.8;
+  border-color: #66cc33 !important;
+  text-shadow: 0 0 7px #66cc33;
+
+}
+
+.tickHighlighted{
+  background-color:red !important;
+  opacity:0.8;
+  border-color: red !important;
+  box-shadow: 0 0 10px red;
+
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.tick_0Highlighted{
+  background-color:#66cc33 !important;
+  opacity:0.8;
+  border-color: #66cc33 !important;
+  box-shadow: 0 0 10px #66cc33;
+}
+
+#tick_0,#tick_1,#tick_-1,
+#tick_2,#tick_-2,
+#tick_3,#tick_-3,
+#tick_4,#tick_-4,
+#tick_5,#tick_-5,
+#tick_6,#tick_-6,
+#tick_7,#tick_-7{
+  display:inline-block;
+  margin: 0;
+  width:11px;
+  position:absolute;
+  border: 1px solid #ccc;
+  background-color:#ccc;
+  border-radius: 3px;
+}
+
+#tick_0 {
+  top: 25px;
+  left: 198px;
+  height: 160px;
+}
+
+#tick_1 {
+  background-color:#ccc;
+  top: 30px;
+  left: 198px;
+  height: 115px;
+  -webkit-transform: translate(30px, 20px);
+  transform: translate(30px, 20px);
+ 
+}
+
+#tick_-1 {
+  background-color:#ccc;
+  top: 30px;
+  left: 198px;
+  height: 115px;
+  -webkit-transform: translate(-30px, 20px);
+  transform: translate(-30px, 20px);
+
+  
+}
+
+#tick_2 {
+  background-color:#ccc;
+  top: 30px;
+  left: 198px;
+  height: 100px;
+  -webkit-transform: translate(60px, 27.5px);
+  transform: translate(60px, 27.5px);
+}
+
+#tick_-2 {
+  background-color:#ccc;
+  top: 30px;
+  left: 198px;
+  height: 100px;
+  -webkit-transform: translate(-60px, 27.5px);
+  transform: translate(-60px, 27.5px);
+
+
+}
+
+#tick_3 {
+  background-color:#ccc;
+  top: 30px;
+  left: 198px;
+  height: 85px;
+  -webkit-transform: translate(90px, 35px);
+  transform: translate(90px, 35px);
+
+
+}
+
+#tick_-3 {
+  background-color:#ccc;
+  top: 30px;
+  left: 198px;
+  height: 85px;
+  -webkit-transform: translate(-90px, 35px);
+  transform: translate(-90px, 35px);
+
+  
+}
+
+#tick_4 {
+  background-color:#ccc;
+  top: 30px;
+  left: 198px;
+  height: 70px;
+  -webkit-transform: translate(120px, 42.5px);
+  transform: translate(120px, 42.5px);
+
+
+}
+#tick_-4 {
+  background-color:#ccc;
+  top: 30px;
+  left: 198px;
+  height: 70px;
+  -webkit-transform: translate(-120px, 42.5px);
+  transform: translate(-120px, 42.5px);
+ 
+}
+#tick_5 {
+  background-color:#ccc;
+  top: 30px;
+  left: 198px;
+  height: 55px;
+  -webkit-transform: translate(150px, 50px);
+  transform: translate(150px, 50px);
+
+}
+#tick_-5 {
+  background-color:#ccc;
+  top: 30px;
+  left: 198px;
+  height: 55px;
+  -webkit-transform: translate(-150px, 50px);
+  transform: translate(-150px, 50px);
+  
+}
+#tick_6 {
+  background-color:#ccc;
+  top: 30px;
+  left: 198px;
+  height: 40px;
+  -webkit-transform: translate(180px, 57.5px);
+  transform: translate(180px, 57.5px);
+ 
+}
+#tick_-6 {
+  background-color:#ccc;
+  top: 30px;
+  left: 198px;
+  height: 40px;
+  -webkit-transform: translate(-180px, 57.5px);
+  transform: translate(-180px, 57.5px);
+  
+}
+#tick_7 {
+  background-color:#ccc;
+  top: 30px;
+  left: 198px;
+  height: 25px;
+  -webkit-transform: translate(210px, 65px);
+  transform: translate(210px, 65px);
+
+}
+#tick_-7 {
+  background-color:#ccc;
+  top: 30px;
+  left: 198px;
+  height: 25px;
+  -webkit-transform: translate(-210px, 65px);
+  transform: translate(-210px, 65px);
+}
+#needle2 {
+  
+  display:none;
+  top: 35px;
+  left: 198px;
+  position: absolute;
+  width: 8px;
+  height: 160px;
+  -moz-transform-origin: 50% 400px;
+
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  
+  /*padding: 4px;*/
+  margin: 0;
+  border: 1px solid black;
+  z-index:1;
+  border-radius: 3px;
+}
+
+
+.sharp {
+  font-family: 'Verdana';
+  font-size: 0.3em;
+  margin-top:20px;
+}
+
+/*SPECTRUM DIRECTIVE*/
+
+#spectrumWrapper{
+  /*border: 2px solid black;*/
+  height: 232px;
+  /*width: 680px;*/
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+
+}
+#stapleWrapper{
+  position: relative;
+  display: inline-block;
+  padding: 0px;
+  margin: 0px;
+  /*width:  16px;*/
+  height: 200px;
+}
+
+#stapleInDir{
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  width: 12px; /*sets dynamically in directive */
+  border-bottom: 1px solid black;
+  /*border: 1px solid black;*/
+  bottom: 0;
+  position: absolute;
+  background: -webkit-linear-gradient(#86ff49, #095f00); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#86ff49, #095f00); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#86ff49, #095f00); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#86ff49, #095f00); /* Standard syntax */
+}
+
+#spectrumLine{
+  position: relative;
+  border-top: 1px solid #ccc;
+}
+
+#spectrumLow,
+#spectrumMiddle,
+#spectrumHigh{
+  display: inline-block;
+  position: absolute;
+}
+#spectrumLow a,
+#spectrumMiddle a,
+#spectrumHigh a{
+  font-size: 10px;
+  color: white;
+  text-decoration: none;
+}
+#spectrumLow{
+  top:0;
+  left:0;
+}
+#spectrumMiddle{
+  top:0;
+  left:50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+}
+#spectrumHigh{
+  top:0;
+  right:0;
+}

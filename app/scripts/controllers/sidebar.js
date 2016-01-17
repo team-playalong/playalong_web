@@ -25,6 +25,11 @@ angular.module('playalongWebApp')
           text: 'sidebar.menu.FAVORITES',
           ref: 'favorites',
           icon: 'heart'
+        },
+        {
+          text: 'sidebar.menu.TUNER',
+          ref: 'tuner',
+          icon: 'music'
         }
       ];
       $scope.close = function () {
