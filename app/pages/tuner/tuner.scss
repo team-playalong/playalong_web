@@ -118,6 +118,7 @@
   margin: 0 auto;
   position: relative;
   height: 215px;
+  width: 400px;
 }
 
 .tipNormal {
@@ -212,6 +213,7 @@
   height: 115px;
   -webkit-transform: translate(30px, 20px);
   transform: translate(30px, 20px);
+ 
 }
 
 #tick_-1 {
@@ -366,9 +368,8 @@
   margin-top:20px;
 }
 
-
-
 /*SPECTRUM DIRECTIVE*/
+
 #spectrumWrapper{
   /*border: 2px solid black;*/
   height: 232px;
