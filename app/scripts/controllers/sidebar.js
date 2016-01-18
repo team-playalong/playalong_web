@@ -30,7 +30,13 @@ angular.module('playalongWebApp')
           text: 'sidebar.menu.TUNER',
           ref: 'tuner',
           icon: 'music'
+        },
+        {
+          text: 'sidebar.menu.METRONOME',
+          ref: 'metronome',
+          icon: 'caret-up'
         }
+        
       ];
       $scope.close = function () {
         $mdSidenav('left').close()

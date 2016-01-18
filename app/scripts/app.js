@@ -22,5 +22,6 @@ var app = angular.module('playalongWebApp', [
   'ngDragDrop',
   'frapontillo.gage',
   'pascalprecht.translate',
-  'textSizeSlider'
+  'textSizeSlider',
+  'MetronomeApp'
 ]);

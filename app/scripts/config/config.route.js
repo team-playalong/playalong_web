@@ -40,6 +40,14 @@ app.config(['$stateProvider','$urlRouterProvider', function ($stateProvider, $ur
               title: 'Tuner'
             }
         })
+        .state('metronome',  { 
+            url: '/metronome',
+            templateUrl: 'pages/metronome/metronome.html',
+            controller: 'MetronomeCtrl',
+            data: {
+              title: 'Metronome'
+            }
+        })
 
         .state('builder',       { url: '/builder',        template: '<div ui-view></div>', abstract: true})
         .state('builder.edit', { 

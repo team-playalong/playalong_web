@@ -1,11 +1,12 @@
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 @import "ply.common";
-@import "../pages/tuner/tuner.scss";
+
 
 //Pages
 @import "ply.builder";
 @import "ply.chord";
 @import "ply.topChords";
+@import "../pages/tuner/tuner.scss";
 
 //Partials
 @import 'ply.toolbar.scss';
@@ -14,3 +15,4 @@
 //Components
 @import 'ply.autoscroll-widget.scss';
 @import 'ply.text-size-slider.scss';
+@import "../components/metronome/metronome.scss";
