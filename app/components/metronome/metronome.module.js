@@ -168,6 +168,7 @@ var MetronomeCtrl = function($scope, $timeout) {
           
       }
     };
+    $scope.handleBpmChange(120);
 };
 
 MetronomeCtrl.prototype.toggleMetronome = function() {
