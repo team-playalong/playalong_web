@@ -62,6 +62,10 @@ module.exports = function(config) {
       'app/pages/tuner/AudioContextMonkeyPatch.js',
       'app/pages/tuner/dsp.js',
 
+      //Metronome
+      'app/components/metronome/buzz.min.js',
+      'app/components/metronome/metronome.module.js',
+
       //App
       'app/scripts/app.js',
       'app/scripts/config/config.constants.js',
