@@ -96,8 +96,9 @@
         layout="column" class="ply-app"
         ng-class="{'hebrew-sans': app.dir === 'rtl'}">
     <ply-spinner id="plyMainSpinner" trigger-start-event="startSpin" trigger-stop-event="stopSpin"></ply-spinner>
+    <header ng-include="'views/templates/sidenav.html'"></header>
     <section flex>
-      <ng-include src="'views/templates/sidenav.html'"></ng-include>
+      
       <ng-include src="'views/templates/toolbar.html'"></ng-include>
 
 
