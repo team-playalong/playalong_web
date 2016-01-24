@@ -97,19 +97,13 @@
         ng-class="{'hebrew-sans': app.dir === 'rtl'}">
     <ply-spinner id="plyMainSpinner" trigger-start-event="startSpin" trigger-stop-event="stopSpin"></ply-spinner>
     <header ng-include="'views/templates/sidenav.html'"></header>
-    <section flex>
-      
-      <ng-include src="'views/templates/toolbar.html'"></ng-include>
-
-
-      <md-content id="plyContent">
-        <div ui-view class="ply-main-container container"></div>
+    <nav ng-include="'views/templates/toolbar.html'"></nav>
+      <md-content id="plyContent" flex>
+        <main ui-view class="ply-main-container container"></main>
       </md-content>
-
-    </section>
-    <div class="footer">
+    <footer class="footer">
       <alert class="ply-alert-container" ng-repeat="alert in allAlerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
-      <div layout="row">
+      <div class="md-padding" layout="row" >
         <div flex="30">
           <a href="http://www.acum.org.il" target="_blank"><img src="images/acumlogo.png" height="50" width="50" alt=""></a>
           <a href="https://twitter.com/playalong_io" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @playalong_io</a>
@@ -117,10 +111,11 @@
         <div flex>
           <!-- Facebook init -->
           <div id="fb-root"></div>
-        </div>
+          <div class="fb-like" data-href="https://www.facebook.com/playalongio/" data-width="50%" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+          </div>
       </div>
 
-    </div>
+    </footer>
   </div>
     <script src="env.js"></script>
     <script src="pages/tuner/dsp.js"></script>   
