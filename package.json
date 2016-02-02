@@ -42,5 +42,8 @@
   },
   "scripts": {
     "test": "grunt test"
+  },
+  "dependencies": {
+    "angular-youtube-embed": "^1.1.1"
   }
 }

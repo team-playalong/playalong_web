@@ -40,7 +40,8 @@ angular.module('playalongWebApp')
     $scope.chord = {
       content: '',
       artist: '',
-      title: ''
+      title: '',
+      youtubeLink: ''
     };
 
     $scope.createChordInDb = function(){

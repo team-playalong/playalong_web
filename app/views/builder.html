@@ -27,7 +27,12 @@
         <input required ng-model="chord.title" auto-direction />
       </md-input-container>
     </div>
-
+    <div layout="row">
+      <ply-text-input
+        text-input-label="'.YOUTUBE'"
+        text-input-model="chord.youtubeLink">
+      </ply-text-input>
+    </div>
     <div layout="row" layout-wrap>
       <div flex="50">
         <md-switch class="ply-switch" ng-model="flags.isPreviewMode" aria-label="Switch 1" ng-change="handleSwitchModes()">

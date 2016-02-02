@@ -34,6 +34,14 @@
             <h4 ng-bind="chord.title"></h4>
           </div>
         </div>
+        <div  layout="row" class="direction-initial" 
+              ng-if="!!chord.youtubeLink">
+          <div flex>
+            <ply-youtube 
+              ply-youtube-src="chord.youtubeLink">
+            </ply-youtube>
+          </div>
+        </div>
 
         <div class="ply-spinner-wrapper">
           <ply-spinner trigger-start-event="startChordSpinner" trigger-stop-event="stopChordSpinner"></ply-spinner>

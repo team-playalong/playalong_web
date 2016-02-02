@@ -23,5 +23,7 @@ var app = angular.module('playalongWebApp', [
   'frapontillo.gage',
   'pascalprecht.translate',
   'textSizeSlider',
-  'MetronomeApp'
+  'MetronomeApp',
+  'plyFormElements',
+  'plyYoutube'
 ]);
