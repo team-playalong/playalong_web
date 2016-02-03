@@ -11,7 +11,7 @@
 angular.module('playalongWebApp')
   .controller('ChordCtrl',['$scope','$rootScope', '$state','chords', '$stateParams','toast','login','Common','$timeout','plyTooltip','transposer',
     function ($scope,$rootScope,$state,chords, $stateParams,toast,login,Common,$timeout,plyTooltip,transposer) {
-
+    $scope.login = login;
     $scope.initCtrl = function() {
       $rootScope.currPage = $scope.chord.artist + ' - ' + $scope.chord.title;
       $rootScope.pageTitle = 'Playalong - ' + $scope.chord.artist + ' ' + $scope.chord.title;

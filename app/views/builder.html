@@ -1,7 +1,7 @@
 <form name="builder" novalidate
       translate-namespace="builder">  
   <md-content class="md-padding md-whiteframe-z4 builder">
-    <div class="ply-overlay" ng-if="!login.isSuperUser()"
+    <div class="ply-overlay" ng-if="!login.isLoggedIn()"
       translate-namespace=".invite">
       <div class="jumbotron ply-transparent text-center ply-white">
         <h1 translate=".TITLE"></h1>  
@@ -28,10 +28,18 @@
       </md-input-container>
     </div>
     <div layout="row">
-      <ply-text-input
-        text-input-label="'.YOUTUBE'"
-        text-input-model="chord.youtubeLink">
-      </ply-text-input>
+      <div flex="50">
+        <ply-text-input
+          text-input-label="'.YOUTUBE'"
+          text-input-model="chord.youtubeLink">
+        </ply-text-input>  
+      </div>
+      <div flex="50">
+        <ply-text-input
+          text-input-label="'.ARTIST_IMAGE'"
+          text-input-model="chord.imagePath">
+        </ply-text-input>  
+      </div>
     </div>
     <div layout="row" layout-wrap>
       <div flex="50">
