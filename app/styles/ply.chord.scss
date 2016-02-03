@@ -6,7 +6,10 @@
 		padding-left:30px;
     .ply-icon-favorites {
       color: $ply-pink;
-      font-size: $ply-icon-xl;
+      .fa {
+      	font-size: $ply-icon-xl;	
+      }
+      
     }
 	}
 	.ply-spinner-wrapper {
