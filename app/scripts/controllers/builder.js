@@ -8,8 +8,8 @@
  * Controller of the playalongWebApp
  */
 angular.module('playalongWebApp')
-.controller('BuilderCtrl',['$scope','chords', '$interval', '$timeout','$stateParams', '$rootScope','toast','login','RegexStore',
-  function ($scope,chords, $interval,$timeout,$stateParams,$rootScope,toast,login,RegexStore) {
+.controller('BuilderCtrl',['$scope','chords', '$interval', '$timeout','$stateParams', '$rootScope','toast','login','RegexStore','$state',
+  function ($scope,chords, $interval,$timeout,$stateParams,$rootScope,toast,login,RegexStore,$state) {
   $scope.login = login;
   $rootScope.currPage = 'Chord Builder';
   $scope.chordRef = null; //Will reference the chord for Firebase process.binding
@@ -18,12 +18,13 @@ angular.module('playalongWebApp')
   };  
 
   var handleChordSuccess = function(chord) {
-    $scope.chordRef = chord;
-    //We now have a reference to the entire chord object
-    $scope.chordRef.$bindTo($scope, "chord").then(function() {
-      $scope.chordCreated = true;
-      toast.showToastByTranslation('builder.alerts.CHORD_ADDED');
-    });
+    $state.go('builder.edit',{id:chord.$id || chord.chordKey});
+    // $scope.chordRef = chord;
+    // //We now have a reference to the entire chord object
+    // $scope.chordRef.$bindTo($scope, "chord").then(function() {
+    //   $scope.chordCreated = true;
+    //   toast.showToastByTranslation('builder.alerts.CHORD_ADDED');
+    // });
   };
 
   if ($stateParams && $stateParams.id) //Meaning continue editing existing chord
