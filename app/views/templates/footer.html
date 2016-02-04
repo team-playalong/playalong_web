@@ -1,0 +1,31 @@
+<section layout-padding>
+  <h1 hide>Disqus</h1>
+  <ply-disqus ply-disqus-url="home"></ply-disqus>  
+</section>
+<section>
+  <h1 hide>Alerts</h1>
+  <alert class="ply-alert-container" ng-repeat="alert in allAlerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+</section>
+<section>
+  <h1 hide>Footer</h1>
+  <div class="md-padding" layout="row" >
+  <div flex="30">
+    <a href="http://www.acum.org.il" target="_blank"><img src="images/acumlogo.png" height="50" width="50" alt=""></a>
+    <a href="https://twitter.com/playalong_io" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @playalong_io</a>
+  </div>
+  <div flex="40">
+    <!-- Facebook init -->
+    <div id="fb-root"></div>
+    <div class="fb-like" data-href="https://www.facebook.com/playalongio/" data-width="50%" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+  </div>
+  <div flex layout-padding >
+    <a href="http://www.ketsev.com" target="_blank" >
+      <figure>
+        <figcaption>בשיתוף עם</figcaption>
+        <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfa1/v/t1.0-1/p160x160/11008386_917044791649944_1000147250979801934_n.jpg?oh=ea467c3c45645dda7aa0698ab3c06f96&oe=5736035A&__gda__=1466684115_f77d15160f9c0ebf10ad93e11c1f482e" alt="" height="70" width="70" />
+      </figure>
+      
+    </a>
+  </div>
+</div>
+</section>

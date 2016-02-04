@@ -101,7 +101,7 @@
       <md-content id="plyContent" flex>
         <main ui-view class="ply-main-container container"></main>
       </md-content>
-    <footer class="footer">
+    <footer ng-include="'views/templates/footer.html'" class="footer">
       <alert class="ply-alert-container" ng-repeat="alert in allAlerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
       <div class="md-padding" layout="row" >
         <div flex="30">
