@@ -3,11 +3,12 @@
     <md-card layout-align="center" class="ply-search-results">
       <md-card-content>
         
-        <div ng-if="login.isLoggedIn()">
+        <div ng-if="login.isLoggedIn() && favorites.length">
           <h3 translate=".TITLE"></h3>
           <md-list>
             <md-list-item class="md-2-line clickable"  ng-repeat="favorite in favorites track by $index" >
-              <div class="md-list-item-text" ng-click="goToChordPage(favorite.chordKey)"> 
+              <div  class="md-list-item-text" 
+                    ng-click="goToChordPage(favorite.chordKey)"> 
                 <h3> {{ favorite.artist }} </h3>
                 <p> {{ favorite.title }} </p>
               </div>
@@ -19,6 +20,12 @@
           <div class="jumbotron ply-transparent text-center ply-white">
             <h1 translate=".LOGIN_TITLE"></h1>  
           </div>
+        </div>
+        <div ng-if="login.isLoggedIn() && !favorites">
+          <div class="jumbotron ply-transparent text-center">
+            <h2 translate=".NO_FAVORITES"></h2>  
+          </div>
+                
         </div>  
           
       </md-card-content>
