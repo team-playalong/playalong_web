@@ -10,7 +10,7 @@
 angular.module('playalongWebApp')
   .controller('FavoritesCtrl',['login','$scope','user','$rootScope',
   	function (login,$scope,user,$rootScope) {
-  		$scope.currPage = 'topChords.PAGE_TITLE';
+  		$scope.currPage = 'favorites.PAGE_TITLE';
 	  	$scope.init = function() {
 	  		$scope.userModel = login.getUser();
 	  		if ($scope.userModel && $scope.userModel.userKey)
