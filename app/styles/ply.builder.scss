@@ -1,7 +1,7 @@
 @import "_ply.vars.scss";
 
 $ply-editor-font-size: 20px;
-
+$EDITOR_MIN_HEIGHT: 300px;
 
 .builder {
   .ply-editor-wrapper {
@@ -21,6 +21,9 @@ $ply-editor-font-size: 20px;
       .chord {
         color: $primary-text; //To override pink chords
       }
+    }
+    .ply-chord-preview {
+      min-height: $EDITOR_MIN_HEIGHT;
     }
   }
 }
