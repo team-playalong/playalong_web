@@ -35,7 +35,13 @@ angular.module('playalongWebApp')
           text: 'sidebar.menu.METRONOME',
           ref: 'metronome',
           icon: 'caret-up'
-        }
+        },
+        {
+          text: 'Suggestions',
+          ref: 'suggestions',
+          icon: 'lightbulb-o'
+        },
+        
         
       ];
       $scope.close = function () {
