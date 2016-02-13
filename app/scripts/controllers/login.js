@@ -1,7 +1,11 @@
 (function() {
   'use strict';
 
-  var LoginCtrl = function($scope,login,paths) {
+  angular.module('playalongWebApp')
+  .controller('LoginCtrl',LoginCtrl);  
+
+  LoginCtrl.$inject = ['$scope','login','paths'];
+  function LoginCtrl($scope,login,paths) {
     $scope.login = login;
     $scope.paths = paths; 
     
@@ -25,15 +29,5 @@
         }
       }
     };
-  };
-
-  /**
-   * @ngdoc function
-   * @name playalongWebApp.controller:LoginCtrl
-   * @description
-   * # LoginCtrl
-   * Controller of the playalongWebApp
-   */
-  angular.module('playalongWebApp')
-  .controller('LoginCtrl', ['$scope','login','paths',LoginCtrl]);  
+  }
 })();

@@ -1,7 +1,11 @@
 (function() {
   'use strict';
 
-  var BuilderCtrl = function ($scope,chords, $interval,$timeout,$stateParams,$rootScope,toast,login,RegexStore,$state) {
+  BuilderCtrl.$inject = [
+    '$scope','chords', '$interval', '$timeout','$stateParams', 
+    '$rootScope','toast','login','RegexStore','$state'
+  ];
+  function BuilderCtrl($scope,chords, $interval,$timeout,$stateParams,$rootScope,toast,login,RegexStore,$state) {
     $scope.login = login;
     $rootScope.currPage = 'Chord Builder';
     $scope.chordRef = null; //Will reference the chord for Firebase process.binding
@@ -78,16 +82,9 @@
     $scope.createDisabled = function() {
       return !$scope.chord.artist || !$scope.chord.title || !$scope.chord.content;
     };
-  };
+  }
 
-  /**
-   * @ngdoc function
-   * @name playalongWebApp.controller:BuilderctrlCtrl
-   * @description
-   * # BuilderctrlCtrl
-   * Controller of the playalongWebApp
-   */
   angular.module('playalongWebApp')
-  .controller('BuilderCtrl',['$scope','chords', '$interval', '$timeout','$stateParams', '$rootScope','toast','login','RegexStore','$state',BuilderCtrl]);
+  .controller('BuilderCtrl',BuilderCtrl);
   
 })();

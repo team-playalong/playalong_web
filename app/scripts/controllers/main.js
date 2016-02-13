@@ -1,7 +1,15 @@
 (function() {
   'use strict';
 
-  var MainCtrl = function ($scope, $timeout, $mdSidenav, $mdUtil, paths,$state, login,$rootScope) {
+  angular.module('playalongWebApp')
+  .controller('MainCtrl', MainCtrl);  
+  
+
+  MainCtrl.$inject = [
+    '$scope', '$timeout', '$mdSidenav', '$mdUtil', 
+    'paths', '$state','login','$rootScope'
+  ];
+  function MainCtrl($scope, $timeout, $mdSidenav, $mdUtil, paths,$state, login,$rootScope) {
     $scope.initCtrl = function() {
       $rootScope.paths = paths;
       $scope.user = login.getUser();
@@ -51,25 +59,5 @@
     };
 
     $scope.initCtrl();
-  };
-
-  /**
-   * @ngdoc function
-   * @name playalongWebApp.controller:MainCtrl
-   * @description
-   * # MainCtrl
-   * Controller of the playalongWebApp
-   */
-  angular.module('playalongWebApp')
-  .controller('MainCtrl', [
-    '$scope', 
-    '$timeout', 
-    '$mdSidenav', 
-    '$mdUtil', 
-    'paths', 
-    '$state',
-    'login',
-    '$rootScope',
-    MainCtrl
-  ]);  
+  }
 })();

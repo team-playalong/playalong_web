@@ -1,7 +1,14 @@
 (function() {
   'use strict';
 
-  var ChordCtrl = function ($scope,$rootScope,$state,chords, $stateParams,toast,login,Common,$timeout,plyTooltip,transposer) {
+  angular.module('playalongWebApp')
+  .controller('ChordCtrl',ChordCtrl);
+
+  ChordCtrl.$inject = [
+    '$scope','$rootScope','$state','chords','$stateParams',
+    'toast','login','Common','$timeout','plyTooltip','transposer'
+  ];
+  function ChordCtrl($scope,$rootScope,$state,chords, $stateParams,toast,login,Common,$timeout,plyTooltip,transposer) {
     $scope.login = login;
     $scope.initCtrl = function() {
       $rootScope.currPage = $scope.chord.artist + ' - ' + $scope.chord.title;
@@ -91,30 +98,5 @@
       $scope.transposition += numTones;
     };
 
-  };
-
-  /**
-   * @ngdoc function
-   * @name playalongWebApp.controller:ChordCtrl
-   * @description
-   * # ChordCtrl
-   * Controller of the playalongWebApp
-   */
-
-  angular.module('playalongWebApp')
-  .controller('ChordCtrl',[
-    '$scope',
-    '$rootScope', 
-    '$state',
-    'chords', 
-    '$stateParams',
-    'toast',
-    'login',
-    'Common',
-    '$timeout',
-    'plyTooltip',
-    'transposer',
-    ChordCtrl
-  ]);
-  
+  }  
 })();

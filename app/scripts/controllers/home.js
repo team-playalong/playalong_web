@@ -1,7 +1,13 @@
 (function() {
   'use strict';
 
-  var HomeCtrl = function ($scope, $rootScope, chords,$translate,$q) {
+  angular.module('playalongWebApp')
+  .controller('HomeCtrl',HomeCtrl);
+  
+  HomeCtrl.$inject = [
+    '$scope', '$rootScope','chords','$translate','$q'
+  ];
+  function HomeCtrl($scope, $rootScope, chords,$translate,$q) {
     $rootScope.currPage = 'home.PAGE_TITLE';
     $scope.searchByOptions = [
       {
@@ -90,23 +96,5 @@
       }
     });
     /*jshint unused:true*/
-  };
-
-  /**
-   * @ngdoc function
-   * @name playalongWebApp.controller:HomeCtrl
-   * @description
-   * # HomeCtrl
-   * Controller of the playalongWebApp
-   */
-  angular.module('playalongWebApp')
-  .controller('HomeCtrl', [
-    '$scope', 
-    '$rootScope',
-    'chords',
-    '$translate',
-    '$q',
-    HomeCtrl
-  ]);
-  
+  }
 })();

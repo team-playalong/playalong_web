@@ -1,7 +1,11 @@
 (function() {
 	'use strict';
 
-	var TopchordsCtrl = function ($scope,chords, $rootScope,$translate) {
+	angular.module('playalongWebApp')
+	.controller('TopchordsCtrl',TopchordsCtrl);
+
+	TopchordsCtrl.$inject = ['$scope','chords','$rootScope','$translate'];
+ 	function TopchordsCtrl($scope,chords, $rootScope,$translate) {
 		$translate(['topChords.PAGE_TITLE',
 								'home.PAGE_TITLE',
 								'topChords.SINGLE_HIT',
@@ -44,8 +48,7 @@
 		setTimeout(function() {
 			$scope.getTopChords();
 		},20);
-		
-	};
+	}
 	
 	/**
 	 * @ngdoc function
@@ -55,6 +58,5 @@
 	 * # TopchordsCtrl
 	 * Controller of the playalongWebApp
 	 */
-	angular.module('playalongWebApp')
-	.controller('TopchordsCtrl', ['$scope','chords','$rootScope','$translate',TopchordsCtrl]);
+	
 })();

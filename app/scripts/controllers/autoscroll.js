@@ -1,7 +1,11 @@
 (function() {
   'use strict';
+  
+  angular.module('playalongWebApp')
+  .controller('AutoscrollCtrl',AutoscrollCtrl);
 
-  var AutoscrollCtrl = function ($scope,$interval,$window,$state) {
+  AutoscrollCtrl.$inject = ['$scope','$interval','$window','$state'];
+  function AutoscrollCtrl($scope,$interval,$window,$state) {
     var newInterval;
     $scope.config = {
       bottomSpeed: 1,
@@ -37,16 +41,5 @@
         }
       },newInterval,0/*infinite*/, false /*no apply*/);
     };
-  };
-
-  /**
-   * @ngdoc function
-   * @name playalongWebApp.controller:AutoscrollCtrl
-   * @description
-   * # AutoscrollCtrl
-   * Controller of the playalongWebApp
-   */
-  angular.module('playalongWebApp')
-    .controller('AutoscrollCtrl', ['$scope','$interval','$window','$state',AutoscrollCtrl]);
-  
+  }
 })();

@@ -1,7 +1,14 @@
 (function() {
   'use strict';
 
-  var LanguageModalDialogController = function ($scope, $mdDialog,$translate,$rootScope) {
+  angular.module('playalongWebApp')
+  .controller('PlylanguagepickerCtrl',PlylanguagepickerCtrl)
+  .controller('LanguageModalDialogController',LanguageModalDialogController);
+
+  LanguageModalDialogController.$inject = [
+    '$scope', '$mdDialog','$translate','$rootScope'
+  ];
+  function LanguageModalDialogController($scope, $mdDialog,$translate,$rootScope) {
       $scope.languages = [
         {
           locale: 'he',
@@ -37,9 +44,13 @@
       $scope.answer = function(answer) {
         $mdDialog.hide(answer);
       };
-  };
+  }
   
-  var PlylanguagepickerCtrl = function ($scope,$mdDialog,$mdMedia,$rootScope) {
+
+  PlylanguagepickerCtrl.$inject = [
+    '$scope','$mdDialog','$mdMedia','$rootScope'
+  ];
+  function PlylanguagepickerCtrl($scope,$mdDialog,$mdMedia,$rootScope) {
     $scope.getFlagClass = function() {
       var res = 'il';
       if ($rootScope.app && $rootScope.app.locale === 'en')
@@ -70,29 +81,6 @@
         $scope.customFullscreen = (sm === true);
       });
       };
-  };
-
-
-  /**
-   * @ngdoc function
-   * @name playalongWebApp.controller:PlylanguagepickerCtrl
-   * @description
-   * # PlylanguagepickerCtrl
-   * Controller of the playalongWebApp
-   */
-  angular.module('playalongWebApp')
-  .controller('PlylanguagepickerCtrl',['$scope',
-    '$mdDialog',
-    '$mdMedia',
-    '$rootScope',
-    PlylanguagepickerCtrl
-  ])
-  .controller('LanguageModalDialogController',[
-    '$scope', 
-    '$mdDialog',
-    '$translate',
-    '$rootScope',
-    LanguageModalDialogController
-  ]);
+  }
   
 })();
