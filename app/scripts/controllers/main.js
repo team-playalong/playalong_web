@@ -26,12 +26,12 @@ angular.module('playalongWebApp')
    */
   function buildToggler(navId) {
     var debounceFn =  $mdUtil.debounce(function(){
-          $mdSidenav(navId)
-            .toggle()
-            .then(function () {
-              $(".ply-main-container").toggleClass("sidebar-open");
-            });
-        },100);
+      $mdSidenav(navId)
+        .toggle()
+        .then(function () {
+          $(".ply-main-container").toggleClass("sidebar-open");
+        });
+    },0);
     return debounceFn;
   }
 
