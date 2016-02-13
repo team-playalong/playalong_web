@@ -1,15 +1,7 @@
-'use strict';
+(function() {
+	'use strict';
 
-/**
- * @ngdoc function
- * @name playalongWebApp.controller:FavoritesCtrl
- * @description
- * # FavoritesCtrl
- * Controller of the playalongWebApp
- */
-angular.module('playalongWebApp')
-  .controller('FavoritesCtrl',['login','$scope','user','$rootScope',
-  	function (login,$scope,user,$rootScope) {
+	var FavoritesCtrl = function (login,$scope,user,$rootScope) {
   		$scope.currPage = 'favorites.PAGE_TITLE';
 	  	$scope.init = function() {
 	  		$scope.userModel = login.getUser();
@@ -35,4 +27,22 @@ angular.module('playalongWebApp')
 	    else {
 	    	$scope.$on('plyUserLoggedIn',$scope.init);
 	    }
-  }]);
+  };
+
+	/**
+	 * @ngdoc function
+	 * @name playalongWebApp.controller:FavoritesCtrl
+	 * @description
+	 * # FavoritesCtrl
+	 * Controller of the playalongWebApp
+	 */
+	angular.module('playalongWebApp')
+  .controller('FavoritesCtrl',[
+  	'login',
+  	'$scope',
+  	'user',
+  	'$rootScope',
+  	FavoritesCtrl
+	]);
+	
+})();

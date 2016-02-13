@@ -1,32 +1,24 @@
-'use strict';
+(function() {
+  'use strict';
 
-/**
- * @ngdoc function
- * @name playalongWebApp.controller:HomeCtrl
- * @description
- * # HomeCtrl
- * Controller of the playalongWebApp
- */
-angular.module('playalongWebApp')
-  .controller('HomeCtrl', ['$scope', '$rootScope','chords','$translate','$q',
-      function ($scope, $rootScope, chords,$translate,$q) {
-      $rootScope.currPage = 'home.PAGE_TITLE';
-      $scope.searchByOptions = [
-        {
-          label: 'home.SONG_NAME',
-          value: 'title'
-        },
-        {
-          label: 'home.ARTIST',
-          value: 'artist'
-        }
-      ];
-      $scope.searchConfig = {
-        searchBy: $scope.searchByOptions[0].value,
-        searchInput: ''
-      };
+  var HomeCtrl = function ($scope, $rootScope, chords,$translate,$q) {
+    $rootScope.currPage = 'home.PAGE_TITLE';
+    $scope.searchByOptions = [
+      {
+        label: 'home.SONG_NAME',
+        value: 'title'
+      },
+      {
+        label: 'home.ARTIST',
+        value: 'artist'
+      }
+    ];
+    $scope.searchConfig = {
+      searchBy: $scope.searchByOptions[0].value,
+      searchInput: ''
+    };
 
-  	$scope.formatResultMessage = function() {
+    $scope.formatResultMessage = function() {
       var deferred = $q.defer();
       var toTranslate;
       var manyResults;
@@ -72,19 +64,17 @@ angular.module('playalongWebApp')
       });
     };
 
-
-
-  	$scope.searchChords = function() {
+    $scope.searchChords = function() {
       $rootScope.startSpin('startSearchChordsSpinner');
       $scope.searchResults = [];
-  		chords.searchChordsBy($scope.searchConfig.searchBy,$scope.searchConfig.searchInput)
-  		.then($scope.handleChordResults)
-  		.catch(function(error) {
+      chords.searchChordsBy($scope.searchConfig.searchBy,$scope.searchConfig.searchInput)
+      .then($scope.handleChordResults)
+      .catch(function(error) {
         $scope.searchResults = [];
-  			console.warn(error);
-  		})
+        console.warn(error);
+      })
       .finally($scope.chordsFinallyHandler);
-  	};
+    };
 
     //For spinner event listening
     $scope.triggerSearchChords = function() {
@@ -100,5 +90,23 @@ angular.module('playalongWebApp')
       }
     });
     /*jshint unused:true*/
+  };
 
-  }]);
+  /**
+   * @ngdoc function
+   * @name playalongWebApp.controller:HomeCtrl
+   * @description
+   * # HomeCtrl
+   * Controller of the playalongWebApp
+   */
+  angular.module('playalongWebApp')
+  .controller('HomeCtrl', [
+    '$scope', 
+    '$rootScope',
+    'chords',
+    '$translate',
+    '$q',
+    HomeCtrl
+  ]);
+  
+})();

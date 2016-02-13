@@ -1,20 +1,12 @@
-'use strict';
+(function() {
+  'use strict';
 
-/**
- * @ngdoc function
- * @name playalongWebApp.controller:LoginCtrl
- * @description
- * # LoginCtrl
- * Controller of the playalongWebApp
- */
-angular.module('playalongWebApp')
-  .controller('LoginCtrl', ['$scope','login','paths',
-		function($scope,login,paths) {
-		$scope.login = login;
+  var LoginCtrl = function($scope,login,paths) {
+    $scope.login = login;
     $scope.paths = paths; 
     
 
-  	$scope.loginSocial = function(platform) {
+    $scope.loginSocial = function(platform) {
       login.loginSocial(platform)
       .then(function(/*data*/){
       });
@@ -33,4 +25,15 @@ angular.module('playalongWebApp')
         }
       }
     };
-  }]);
+  };
+
+  /**
+   * @ngdoc function
+   * @name playalongWebApp.controller:LoginCtrl
+   * @description
+   * # LoginCtrl
+   * Controller of the playalongWebApp
+   */
+  angular.module('playalongWebApp')
+  .controller('LoginCtrl', ['$scope','login','paths',LoginCtrl]);  
+})();
