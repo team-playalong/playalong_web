@@ -44,7 +44,7 @@ describe('Controller: BuilderctrlCtrl', function () {
 
     //Ignores all html requests
     _$httpBackend_.whenGET(/views\/.*/).respond();
-    _$httpBackend_.whenGET(/locales\/en.json/).respond();
+    _$httpBackend_.whenGET(/i18n/).respond();
     scope.addAlert = function() {};
     spyOn(scope,'addAlert');
     $rootScope.$apply();
@@ -53,14 +53,4 @@ describe('Controller: BuilderctrlCtrl', function () {
   it('should initialize the scope', function () {
     expect(scope).toBeDefined(); 
   });
-
-
-  // it('should handle switching between edit and preview modes', function() {
-  //   spyOn(scope,'scanForChords');
-  //   scope.isPreviewMode = true;
-  //   scope.chord = mockData.getMockChord();
-  //   scope.handleSwitchModes();
-    
-  //   expect(scope.scanForChords).toHaveBeenCalled();
-  // });
 });

@@ -27,7 +27,7 @@ describe('Controller: TopchordsCtrl', function () {
 
     //Ignores all html requests
     _$httpBackend_.whenGET(/views\/.*/).respond();
-    _$httpBackend_.whenGET(/locales\/en.json/).respond();
+    _$httpBackend_.whenGET(/i18n/).respond();
     $rootScope.$apply();
   }));
 

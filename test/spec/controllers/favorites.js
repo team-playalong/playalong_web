@@ -31,8 +31,7 @@ describe('Controller: FavoritesCtrl', function () {
       }
     });
 
-    _$httpBackend_.whenGET(/locales\/en.json/).respond();
-
+    _$httpBackend_.whenGET(/i18n/).respond();
     $rootScope.$apply();
   }));
 
