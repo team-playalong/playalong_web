@@ -60,9 +60,9 @@
             <a href="mailto:contact@playalong.io?subject=Please get me my beautiful song!" target="_blank" translate=".HERE"></a>
           </h5>
           <md-list>
-            <md-list-item class="md-2-line clickable"  ng-repeat="result in searchResults track by $index" >
-              <img ng-src="{{result.imagePath}}" class="md-avatar" ng-if="result.imagePath" />
-              <div class="md-list-item-text" ng-click="goToChordPage(result)">
+            <md-list-item class="md-2-line clickable"  ng-repeat="result in searchResults track by $index" ng-click="goToChordPage(result)">
+              <div class="md-list-item-text" >
+                <img ng-src="{{result.imagePath}}" class="md-avatar" ng-if="result.imagePath" />
                 <h3> {{ result.artist }} </h3>
                 <p> {{ result.title }} </p>
 

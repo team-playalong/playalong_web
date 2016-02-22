@@ -42,7 +42,10 @@
             </ply-youtube>
           </div>
         </div>
-
+        <figure hide>
+          <figcaption ng-bind="chord.imagePath"></figcaption>
+          <img src="{{chord.imagePath}}" alt="no image">
+        </figure>
         <div class="ply-spinner-wrapper">
           <ply-spinner trigger-start-event="startChordSpinner" trigger-stop-event="stopChordSpinner"></ply-spinner>
           <div class="ply-chord-container-content direction-initial" ng-bind-html="chord.content"></div>  

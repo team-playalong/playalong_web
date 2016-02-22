@@ -3,7 +3,7 @@
     <md-card layout-align="center" class="ply-search-results">
       <md-card-content>
         
-        <div ng-if="login.isLoggedIn() && favorites.length">
+        <div ng-if="login.isLoggedIn() && !!favorites">
           <h3 translate=".TITLE"></h3>
           <md-list>
             <md-list-item class="md-2-line clickable"  ng-repeat="favorite in favorites track by $index" >

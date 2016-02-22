@@ -1,20 +1,16 @@
-'use strict';
+(function() {
+  'use strict';
 
-/**
- * @ngdoc function
- * @name playalongWebApp.controller:LoginCtrl
- * @description
- * # LoginCtrl
- * Controller of the playalongWebApp
- */
-angular.module('playalongWebApp')
-  .controller('LoginCtrl', ['$scope','login','paths',
-		function($scope,login,paths) {
-		$scope.login = login;
+  angular.module('playalongWebApp')
+  .controller('LoginCtrl',LoginCtrl);  
+
+  LoginCtrl.$inject = ['$scope','login','paths'];
+  function LoginCtrl($scope,login,paths) {
+    $scope.login = login;
     $scope.paths = paths; 
     
 
-  	$scope.loginSocial = function(platform) {
+    $scope.loginSocial = function(platform) {
       login.loginSocial(platform)
       .then(function(/*data*/){
       });
@@ -33,4 +29,5 @@ angular.module('playalongWebApp')
         }
       }
     };
-  }]);
+  }
+})();

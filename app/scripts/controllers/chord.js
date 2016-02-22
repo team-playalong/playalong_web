@@ -1,16 +1,14 @@
-'use strict';
+(function() {
+  'use strict';
 
-/**
- * @ngdoc function
- * @name playalongWebApp.controller:ChordCtrl
- * @description
- * # ChordCtrl
- * Controller of the playalongWebApp
- */
+  angular.module('playalongWebApp')
+  .controller('ChordCtrl',ChordCtrl);
 
-angular.module('playalongWebApp')
-  .controller('ChordCtrl',['$scope','$rootScope', '$state','chords', '$stateParams','toast','login','Common','$timeout','plyTooltip','transposer',
-    function ($scope,$rootScope,$state,chords, $stateParams,toast,login,Common,$timeout,plyTooltip,transposer) {
+  ChordCtrl.$inject = [
+    '$scope','$rootScope','$state','chords','$stateParams',
+    'toast','login','Common','$timeout','plyTooltip','transposer'
+  ];
+  function ChordCtrl($scope,$rootScope,$state,chords, $stateParams,toast,login,Common,$timeout,plyTooltip,transposer) {
     $scope.login = login;
     $scope.initCtrl = function() {
       $rootScope.currPage = $scope.chord.artist + ' - ' + $scope.chord.title;
@@ -62,10 +60,10 @@ angular.module('playalongWebApp')
       return login.getUser() && login.getUser().userType.indexOf('superuser') !== -1;
     };
 
-  	if (!$stateParams.chordKey) {
-  		$state.go('home');
-  	}
-  	else {
+    if (!$stateParams.chordKey) {
+      $state.go('home');
+    }
+    else {
       if (!$scope.chord) //After refresh
       {
         var result = chords.getChordById($stateParams.chordKey);
@@ -85,7 +83,7 @@ angular.module('playalongWebApp')
         $scope.initCtrl();
       }
 
-  	}
+    }
 
     $scope.transposition = 0;
     $scope.transposeChords = function(numTones) {
@@ -100,4 +98,5 @@ angular.module('playalongWebApp')
       $scope.transposition += numTones;
     };
 
-  }]);
+  }  
+})();

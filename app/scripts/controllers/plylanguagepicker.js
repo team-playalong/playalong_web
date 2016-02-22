@@ -1,55 +1,56 @@
-'use strict';
+(function() {
+  'use strict';
 
-/**
- * @ngdoc function
- * @name playalongWebApp.controller:PlylanguagepickerCtrl
- * @description
- * # PlylanguagepickerCtrl
- * Controller of the playalongWebApp
- */
-angular.module('playalongWebApp')
-  .controller('LanguageModalDialogController',['$scope', '$mdDialog','$translate','$rootScope',
-  function ($scope, $mdDialog,$translate,$rootScope) {
-    $scope.languages = [
-      {
-        locale: 'he',
-        label: 'עברית',
-        'flag': 'il'
-      },
-      {
-        locale: 'en',
-        label: 'English',
-        'flag': 'us'
-      }
-    ];
+  angular.module('playalongWebApp')
+  .controller('PlylanguagepickerCtrl',PlylanguagepickerCtrl)
+  .controller('LanguageModalDialogController',LanguageModalDialogController);
 
-    $scope.changeLanguage = function(locale) {
-      if (locale)
-      {
-        $translate.use(locale);
-        $rootScope.app = {
-          dir: locale === 'he' ? 'rtl' : 'ltr',
-          locale: locale
-        };
-      }
-      $scope.cancel();
-    };
+  LanguageModalDialogController.$inject = [
+    '$scope', '$mdDialog','$translate','$rootScope'
+  ];
+  function LanguageModalDialogController($scope, $mdDialog,$translate,$rootScope) {
+      $scope.languages = [
+        {
+          locale: 'he',
+          label: 'עברית',
+          'flag': 'il'
+        },
+        {
+          locale: 'en',
+          label: 'English',
+          'flag': 'us'
+        }
+      ];
+
+      $scope.changeLanguage = function(locale) {
+        if (locale)
+        {
+          $translate.use(locale);
+          $rootScope.app = {
+            dir: locale === 'he' ? 'rtl' : 'ltr',
+            locale: locale
+          };
+        }
+        $scope.cancel();
+      };
 
 
-    $scope.hide = function() {
-      $mdDialog.hide();
-    };
-    $scope.cancel = function() {
-      $mdDialog.cancel();
-    };
-    $scope.answer = function(answer) {
-      $mdDialog.hide(answer);
-    };
-}]);
-angular.module('playalongWebApp')
-  .controller('PlylanguagepickerCtrl',['$scope','$mdDialog','$mdMedia','$rootScope',
-   function ($scope,$mdDialog,$mdMedia,$rootScope) {
+      $scope.hide = function() {
+        $mdDialog.hide();
+      };
+      $scope.cancel = function() {
+        $mdDialog.cancel();
+      };
+      $scope.answer = function(answer) {
+        $mdDialog.hide(answer);
+      };
+  }
+  
 
+  PlylanguagepickerCtrl.$inject = [
+    '$scope','$mdDialog','$mdMedia','$rootScope'
+  ];
+  function PlylanguagepickerCtrl($scope,$mdDialog,$mdMedia,$rootScope) {
     $scope.getFlagClass = function() {
       var res = 'il';
       if ($rootScope.app && $rootScope.app.locale === 'en')
@@ -80,6 +81,6 @@ angular.module('playalongWebApp')
         $scope.customFullscreen = (sm === true);
       });
       };
-}]);
-
-
+  }
+  
+})();

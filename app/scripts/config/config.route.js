@@ -48,7 +48,15 @@ app.config(['$stateProvider','$urlRouterProvider', function ($stateProvider, $ur
               title: 'Metronome'
             }
         })
-
+        .state('suggestions',  { 
+            url: '/suggestions',
+            templateUrl: 'pages/suggestions/suggestions.html',
+            controller: 'MetronomeCtrl',
+            data: {
+              title: 'Metronome'
+            }
+        })
+        
         .state('builder',       { url: '/builder',        template: '<div ui-view></div>', abstract: true})
         .state('builder.edit', { 
           url: '/edit/:id',
