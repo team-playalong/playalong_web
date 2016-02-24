@@ -11,6 +11,7 @@
   ];
   function MainCtrl($scope, $timeout, $mdSidenav, $mdUtil, paths,$state, login,$rootScope) {
     $scope.initCtrl = function() {
+      mixpanel.track("ply_page_load");
       $rootScope.paths = paths;
       $scope.user = login.getUser();
       $scope.toggleSidebar = buildToggler('left');
