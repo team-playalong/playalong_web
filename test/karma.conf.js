@@ -40,6 +40,8 @@ module.exports = function(config) {
       'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
       'bower_components/angular-sanitize/angular-sanitize.js',
       'bower_components/angular-translate-loader-url/angular-translate-loader-url.js',
+      'bower_components/messageformat/messageformat.js',
+      'bower_components/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.js',
       'bower_components/playalong.services/dist/scripts/scripts.js',
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       'bower_components/rangy/rangy-core.js',
