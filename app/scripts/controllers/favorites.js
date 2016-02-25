@@ -8,6 +8,9 @@
 		'login','$scope','user','$rootScope'
 	];
 	function FavoritesCtrl(login,$scope,user,$rootScope) {
+    if (!!window.mixpanel) {
+      window.mixpanel.track("ply_page_view_favorites");  
+    }
 		$scope.currPage = 'favorites.PAGE_TITLE';
   	$scope.init = function() {
   		$scope.userModel = login.getUser();

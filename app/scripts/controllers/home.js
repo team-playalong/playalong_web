@@ -8,6 +8,9 @@
     '$scope', '$rootScope','chords','$translate','$q'
   ];
   function HomeCtrl($scope, $rootScope, chords,$translate,$q) {
+    if (!!window.mixpanel) {
+      window.mixpanel.track("ply_page_view_home");  
+    }
     $rootScope.currPage = 'home.PAGE_TITLE';
     $scope.searchByOptions = [
       {

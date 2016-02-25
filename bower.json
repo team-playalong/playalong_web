@@ -16,7 +16,7 @@
     "Guitar-Tuner-Webapp": "https://github.com/oankarberg/Guitar-Tuner-Webapp.git",
     "angular-dragdrop": "~1.0.12",
     "angular-gage": "~0.1.0",
-    "angular-translate": "~2.8.1",
+    "angular-translate": "^2.9.2",
     "angular-translate-loader-static-files": "~2.8.1",
     "flag-icon-css": "~0.8.5"
   },

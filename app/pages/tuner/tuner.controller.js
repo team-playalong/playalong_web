@@ -10,6 +10,9 @@
 angular.module('playalongWebApp')
   .controller('TunerCtrl', ['login','$scope','$timeout','$state','$rootScope',
     function(login,$scope,$timeout,$state,$rootScope) {
+      if (!!window.mixpanel) {
+        window.mixpanel.track("ply_page_view_tuner");  
+      }
   		$scope.currPage = 'tuner.PAGE_TITLE';
 	  	$scope.login = login;
 
