@@ -406,8 +406,9 @@ module.exports = function (grunt) {
             'locales/**/*',
             'images/**/*',
 
-            //Dadi - vaddy's verification file
+            //Dadi - verification files
             'vaddy-63b427047fc2e5f.html',
+            'loaderio-2f504826e857e81367df274f5b0cacf5.txt',
 
             //Dadi - due to uglifying issues
             'pages/tuner/dsp.js',
