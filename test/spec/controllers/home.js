@@ -32,16 +32,16 @@ describe('Controller: HomeCtrl', function () {
 
   it('should initialize all components', function() {
   	expect(scope).toBeDefined();
-    expect(scope.searchByOptions).toBeDefined();
-  	expect(scope.searchByOptions.length).toBe(2);
+    expect(HomeCtrl.searchByOptions).toBeDefined();
+  	expect(HomeCtrl.searchByOptions.length).toBe(2);
 
-  	expect(scope.searchConfig.searchBy).toBe('title');
+  	expect(HomeCtrl.searchConfig.searchBy).toBe('title');
   });
 
   it('should search chords by given input', function() {
-	  	scope.searchChords();
-		scope.handleChordResults(mockData.getMockChordResults());
-		expect(scope.searchResults.length).toBe(1);
-		expect(scope.searchResults[0].artist).toBe('Test Artist');
+  	HomeCtrl.searchChords();
+		HomeCtrl.handleChordResults(mockData.getMockChordResults());
+		expect(HomeCtrl.searchResults.length).toBe(1);
+		expect(HomeCtrl.searchResults[0].artist).toBe('Test Artist');
   });
 });

@@ -8,15 +8,15 @@
             <div layout="row" layout-wrap>
                 <div flex-sm="100" flex-gt-sm="25">
                   <md-input-container>
-                    <md-select class="ply-search-form-select" placeholder="..." ng-model="searchConfig.searchBy">
-                      <md-option ng-repeat="curr in searchByOptions" value="{{curr.value}}">{{curr.label | translate}}</md-option>
+                    <md-select class="ply-search-form-select" placeholder="..." ng-model="home.searchConfig.searchBy">
+                      <md-option ng-repeat="curr in home.searchByOptions" value="{{curr.value}}">{{curr.label | translate}}</md-option>
                     </md-select>
                   </md-input-container>
                 </div>
                 <div flex-sm="100" flex-gt-sm="60">
                   <md-input-container>
                     <input md-maxlength="50"
-                    placeholder="Search Here" required name="searchInput" ng-model="searchConfig.searchInput" auto-direction />
+                    placeholder="Search Here" required name="searchInput" ng-model="home.searchConfig.searchInput" auto-direction />
                     <div ng-messages="chordSearchForm.searchInput.$error">
                       <!-- TODO - Messages from texts object -->
                       <div ng-if="chordSearchForm.searchInput.$dirty && chordSearchForm.searchInput.$invalid && chordSearchForm.searchInput.$error" ng-message="required">{{'globals.errors.REQUIRED' | translate}}</div>
@@ -24,14 +24,14 @@
                   </md-input-container>
                 </div>
                 <div flex hide show-gt-sm>
-                  <md-button class="md-raised md-accent" type="submit" ng-click="searchChords()"
+                  <md-button class="md-raised md-accent" type="submit" ng-click="home.searchChords()"
                   aria-label="Go"
                   id="plySearchButton"
                   translate=".SEARCH_BOTTON"></md-button>
                 </div>
             </div>
             <div layout="row" layout-align="center left" hide-gt-sm>
-              <md-button flex class="md-raised md-accent" type="submit" ng-click="searchChords()"
+              <md-button flex class="md-raised md-accent" type="submit" ng-click="home.searchChords()"
               aria-label="Go"
               translate=".SEARCH_BOTTON"></md-button>
             </div>
@@ -47,27 +47,32 @@
     
     <!-- search results -->
     <section  ng-include="'views/topChords.html'"
-          ng-if="!searchResults"
+          ng-if="!home.searchResults"
           ng-controller="TopchordsCtrl"></section>
     <section>
-      <md-card layout-align="center" ng-if="searchResults" class="ply-search-results">
+      <md-card layout-align="center" ng-if="!!home.searchResults" class="ply-search-results">
         <ply-spinner trigger-start-event="startSearchChordsSpinner" trigger-stop-event="stopSearchChordsSpinner"></ply-spinner>
         <md-card-content>
 
-          <h1 class="md-title" layout-align="left" ng-if="resultMessage"  >{{resultMessage}}</h1>
-          <h5 ng-if="!searchResults.length">
+          <h1 
+            class="md-title" 
+            layout-align="left" 
+            ng-if="home.resultMessage"
+            ng-bind="home.resultMessage">
+          </h1>
+          <h5 ng-if="!home.searchResults.length">
             <span translate=".REQUEST_SONG"></span>
             <a href="mailto:contact@playalong.io?subject=Please get me my beautiful song!" target="_blank" translate=".HERE"></a>
           </h5>
           <md-list>
-            <md-list-item class="md-2-line clickable"  ng-repeat="result in searchResults track by $index" ng-click="goToChordPage(result)">
-              <div class="md-list-item-text" >
-                <img ng-src="{{result.imagePath}}" class="md-avatar" ng-if="result.imagePath" />
-                <h3> {{ result.artist }} </h3>
-                <p> {{ result.title }} </p>
+            <md-list-item class="md-2-line clickable"  ng-repeat="result in home.searchResults track by $index" ng-click="goToChordPage(result)">
+              <img ng-src="{{result.imagePath}}" class="md-avatar" ng-if="result.imagePath" />
+              <div class="md-list-item-text" >  
+                <h3 ng-bind="result.artist"></h3>
+                <p ng-bind="result.title"></p>
 
                 <!-- http://codepen.io/TepigMC/pen/FIdHb -->
-                <star-rating class="non-clickable" ng-model="result.rating" readonly="true"></star-rating>
+                <star-rating class="non-clickable" ng-model="home.result.rating" readonly="true"></star-rating>
               </div>
               <md-divider ></md-divider>
             </md-list-item>

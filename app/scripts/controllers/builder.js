@@ -18,12 +18,6 @@
 
     var handleChordSuccess = function(chord) {
       $state.go('builder.edit',{id:chord.$id || chord.chordKey});
-      // $scope.chordRef = chord;
-      // //We now have a reference to the entire chord object
-      // $scope.chordRef.$bindTo($scope, "chord").then(function() {
-      //   $scope.chordCreated = true;
-      //   toast.showToastByTranslation('builder.alerts.CHORD_ADDED');
-      // });
     };
 
     if ($stateParams && $stateParams.id) //Meaning continue editing existing chord
