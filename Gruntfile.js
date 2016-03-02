@@ -9,7 +9,7 @@
 
 module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-protractor-runner');
-
+  
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
@@ -34,6 +34,10 @@ module.exports = function (grunt) {
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
+      ts: {
+        files: ['<%= yeoman.app %>/**/*.ts'],
+        tasks: ['ts']
+      },
       bower: {
         files: ['bower.json'],
         tasks: ['wiredep']
@@ -490,6 +494,12 @@ module.exports = function (grunt) {
       },
     },
 
+    ts: {
+      default: {
+        // specifying tsconfig as a boolean will use the 'tsconfig.json' in same folder as Gruntfile.js 
+        tsconfig: true
+      }
+    },
 
     protractor: {
       options: {
