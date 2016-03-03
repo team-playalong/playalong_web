@@ -50,7 +50,7 @@
     <!-- search results -->
     <section  ng-include="'views/topChords.html'"
           ng-if="!home.searchResults"
-          ng-controller="TopchordsCtrl"></section>
+          ng-controller="TopchordsCtrl as top"></section>
     <section>
       <md-card layout-align="center" ng-if="!!home.searchResults" class="ply-search-results">
         <ply-spinner trigger-start-event="startSearchChordsSpinner" trigger-stop-event="stopSearchChordsSpinner"></ply-spinner>

@@ -1,40 +1,44 @@
-(function() {
-	'use strict';
-
-	angular.module('playalongWebApp')
-  .controller('FavoritesCtrl',FavoritesCtrl);
-	
-	FavoritesCtrl.$inject = [
-		'login','$scope','user','$rootScope'
-	];
-	function FavoritesCtrl(login,$scope,user,$rootScope) {
-    if (!!window.mixpanel) {
-      window.mixpanel.track("ply_page_view_favorites");  
+(function () {
+    'use strict';
+    angular.module('playalongWebApp')
+        .directive('plyFavorites', PlyFavorites)
+        .controller('FavoritesCtrl', FavoritesCtrl);
+    function PlyFavorites() {
+        return {
+            controller: FavoritesCtrl,
+            controllerAs: 'fav',
+            templateUrl: '../../views/favorites.html'
+        };
     }
-		$scope.currPage = 'favorites.PAGE_TITLE';
-  	$scope.init = function() {
-  		$scope.userModel = login.getUser();
-  		if ($scope.userModel && $scope.userModel.userKey)
-  		{
-  			$rootScope.startSpin();
-  			user.getFavorites($scope.userModel.userKey)
-	  		.then(function(data) {
-	  			if (data)
-	  			{
-	  				$scope.favorites = data;
-	  			}
-	  		})
-	  		.finally($rootScope.stopSpin);	
-  		}
-  		
-  	};
-    $scope.login = login;
-    if (login.isLoggedIn())
-    {
-    	$scope.init();
+    FavoritesCtrl.$inject = [
+        'login', 'user', '$rootScope', '$scope'
+    ];
+    function FavoritesCtrl(login, user, $rootScope, $scope) {
+        var vm = this;
+        if (!!window.mixpanel) {
+            window.mixpanel.track("ply_page_view_favorites");
+        }
+        $rootScope.currPage = 'favorites.PAGE_TITLE';
+        vm.init = function () {
+            vm.userModel = login.getUser();
+            if (vm.userModel && vm.userModel.userKey) {
+                $rootScope.startSpin();
+                user.getFavorites(vm.userModel.userKey)
+                    .then(function (data) {
+                    if (data) {
+                        vm.favorites = data;
+                    }
+                })
+                    .finally($rootScope.stopSpin);
+            }
+        };
+        vm.login = login;
+        if (login.isLoggedIn()) {
+            vm.init();
+        }
+        else {
+            $scope.$on('plyUserLoggedIn', vm.init);
+        }
     }
-    else {
-    	$scope.$on('plyUserLoggedIn',$scope.init);
-    }
-  }
 })();
+//# sourceMappingURL=favorites.js.map

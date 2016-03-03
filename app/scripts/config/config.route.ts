@@ -11,9 +11,7 @@ function RouteConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvid
   $stateProvider
     .state("home",{ 
       url: "/home",
-      templateUrl: '../../views/home.html',     
-      controller: 'HomeCtrl',
-      controllerAs: 'home',
+      template: '<ply-home></ply-home>',
       data: {
         title: 'Chord Search'
       }
@@ -34,8 +32,7 @@ function RouteConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvid
     })
     .state('favorites',  { 
         url: '/favorites',
-        templateUrl: '../../views/favorites.html',
-        controller: 'FavoritesCtrl',
+        template: '<ply-favorites></ply-favorites>',
         data: {
           title: 'Favorites'
         }

@@ -2,7 +2,15 @@
 (function () {
     'use strict';
     angular.module('playalongWebApp')
-        .controller('HomeCtrl', HomeCtrl);
+        .controller('HomeCtrl', HomeCtrl)
+        .directive('plyHome', PlyHome);
+    function PlyHome() {
+        return {
+            templateUrl: 'pages/home/home.template.html',
+            controller: 'HomeCtrl',
+            controllerAs: 'home'
+        };
+    }
     HomeCtrl.$inject = [
         '$rootScope', 'chords', '$translate', '$q'
     ];
