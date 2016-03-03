@@ -8,13 +8,16 @@
       <div class="ply-search-results-wrapper">
         <ply-spinner trigger-start-event="startTopChordsSpinner" trigger-stop-event="stopTopChordsSpinner"></ply-spinner>
 
-        <md-list ng-if="topChords && topChords.length" >
-          <md-list-item class="md-2-line clickable"  ng-repeat="chord in topChords | orderBy: '-hitCount' track by $index" >
+        <md-list ng-if="top.topChords && top.topChords.length" >
+          <md-list-item class="md-2-line clickable"  ng-repeat="chord in top.topChords | orderBy: '-hitCount' track by $index" >
             <img ng-src="{{chord.imagePath}}" class="md-avatar" ng-if="chord.imagePath" />
             <div class="md-list-item-text" ng-click="goToChordPage(chord)"> 
-              <h3> {{ chord.artist }} </h3>
-              <p> {{ chord.title }} </p>
-              <p ng-if="chord.hitCount > 0">{{::setHitCountMessage(chord.hitCount)}}</p>
+              <h3 ng-bind="chord.artist"></h3>
+              <p ng-bind="chord.title"></p>
+              <p 
+                ng-if="chord.hitCount > 0"
+                ng-bind="::setHitCountMessage(chord.hitCount)">
+              </p>
               <star-rating class="non-clickable" ng-if="chord.rating" ng-model="chord.rating" readonly="true"></star-rating>
             </div>
             <md-divider ></md-divider>

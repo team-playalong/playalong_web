@@ -27,6 +27,7 @@ function RouteConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvid
         url: '/topChords',
         templateUrl: '../../views/topChords.html',
         controller: 'TopchordsCtrl',
+        controllerAs: 'top',
         data: {
           title: 'Top Chords'
         }

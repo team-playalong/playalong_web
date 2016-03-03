@@ -30,6 +30,11 @@
       searchInput: ''
     };
 
+    //Workaround due to translations
+    setTimeout(function() {
+      document.querySelector('md-select-value > span').textContent = 'Song Name';
+    },200)
+
     vm.formatResultMessage = function() {
       var deferred = $q.defer();
       var toTranslate;

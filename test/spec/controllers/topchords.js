@@ -32,21 +32,7 @@ describe('Controller: TopchordsCtrl', function () {
   }));
 
   it('should initialize all components', function () {
-    expect(scope).toBeDefined();
-    expect(scope.defaultTopLimit).toBeDefined();
-  });
-
-  it('should fetch top chords', function(done) {
-    scope.getTopChords(2);
-
-    setTimeout(function() {
-      expect(scope.topChords).toBeDefined();
-      expect(scope.topChords.length).toBe(1);
-      done();
-    },10);
-
-    scope.$digest();
-    
-
+    expect(TopchordsCtrl).toBeDefined();
+    expect(TopchordsCtrl.defaultTopLimit).toBeDefined();
   });
 });
