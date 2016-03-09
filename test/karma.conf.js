@@ -77,8 +77,7 @@ module.exports = function(config) {
       'app/scripts/services/*.js',
       'app/scripts/directives/*.js',
       'app/components/**/*.js',
-
-      'app/pages/tuner/tuner.controller.js',
+      'app/pages/**/*.js',
 
       "test/globals.js",
       "test/mock/**/*.js",

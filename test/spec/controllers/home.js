@@ -17,7 +17,6 @@ describe('Controller: HomeCtrl', function () {
   			return $q.when(mockData.getMockChordResults());
   		}
 	   };
-
     scope = $rootScope.$new();
     HomeCtrl = $controller('HomeCtrl', {
       $scope : scope,

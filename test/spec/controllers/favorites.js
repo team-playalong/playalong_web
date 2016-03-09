@@ -40,11 +40,11 @@ describe('Controller: FavoritesCtrl', function () {
   });
 
   it('should get all users favorites', function(done) {
-    scope.init();
+    FavoritesCtrl.init();
 
     setTimeout(function() {
-      expect(scope.favorites).toBeDefined();
-      expect(Object.keys(scope.favorites).length).toBe(2);
+      expect(FavoritesCtrl.favorites).toBeDefined();
+      expect(Object.keys(FavoritesCtrl.favorites).length).toBe(2);
       done();
     },10);
   });

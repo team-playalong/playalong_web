@@ -36,7 +36,10 @@
         };
         //Workaround due to translations
         setTimeout(function () {
-            document.querySelector('md-select-value > span').textContent = 'Song Name';
+            var elem = document.querySelector('md-select-value > span');
+            if (!!elem) {
+                elem.textContent = 'Song Name';
+            }
         }, 200);
         vm.formatResultMessage = function () {
             var deferred = $q.defer();
