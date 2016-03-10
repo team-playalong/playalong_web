@@ -1,16 +1,14 @@
-'use strict';
-
-/**
- * @ngdoc directive
- * @name playalongWebApp.directive:plyLanguagePicker
- * @description
- * # plyLanguagePicker
- */
-angular.module('playalongWebApp')
-  .directive('plyLanguagePicker', function () {
-    return {
-      templateUrl: 'views/templates/language-picker-button.html',
-      restrict: 'E',
-      controller:'PlylanguagepickerCtrl'
-    };
-  });
+(function () {
+    'use strict';
+    angular.module('playalongWebApp')
+        .directive('plyLanguagePicker', function () {
+        return {
+            templateUrl: 'views/templates/language-picker-button.html',
+            restrict: 'E',
+            controller: 'PlylanguagepickerCtrl',
+            controllerAs: 'vm',
+            bindToController: true
+        };
+    });
+})();
+//# sourceMappingURL=plylanguagepicker.js.map

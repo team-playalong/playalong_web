@@ -57,7 +57,11 @@
                 title: 'Metronome'
             }
         })
-            .state('builder', { url: '/builder', template: '<div ui-view></div>', abstract: true })
+            .state('builder', {
+            url: '/builder',
+            template: '<div ui-view></div>',
+            abstract: true
+        })
             .state('builder.edit', {
             url: '/edit/:id',
             resolve: {
