@@ -70,6 +70,10 @@
     mixpanel.init("6675a9dcba297bd681275790e47d8d5f");</script><!-- end Mixpanel -->
   </head>
   <body>
+    
+    <!-- Eager -->
+    <script src="//fast.eager.io/IS9OQXqCKz.js"></script>
+    
     <!-- Google Tag Manager -->
     <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KRKGTZ"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -99,7 +103,7 @@
         layout="column" class="ply-app"
         ng-class="{'hebrew-sans': app.dir === 'rtl'}">
     <ply-spinner id="plyMainSpinner" trigger-start-event="startSpin" trigger-stop-event="stopSpin"></ply-spinner>
-    <header ng-include="'views/templates/sidenav.html'"></header>
+    <ply-sidebar></ply-sidebar>
     <nav ng-include="'views/templates/toolbar.html'"></nav>
       <md-content id="plyContent" flex>
         <main ui-view class="ply-main-container container"></main>

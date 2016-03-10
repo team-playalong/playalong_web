@@ -5,41 +5,38 @@ describe('Controller: AutoscrollCtrl', function () {
   // load the controller's module
   beforeEach(module('playalongWebApp'));
 
-  var AutoscrollCtrl,
-      scope;
+  var AutoscrollCtrl;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
+  beforeEach(inject(function ($controller) {
     AutoscrollCtrl = $controller('AutoscrollCtrl', {
-      $scope: scope
     });
   }));
 
   it('should initialize all components', function() {
-    expect(scope).toBeDefined();
-    expect(scope.config).toBeDefined();
-    expect(scope.speed).toBeDefined();    
-    expect(scope.speed).toBe(0);
+    expect(AutoscrollCtrl).toBeDefined();
+    expect(AutoscrollCtrl.config).toBeDefined();
+    expect(AutoscrollCtrl.speed).toBeDefined();    
+    expect(AutoscrollCtrl.speed).toBe(0);
 
   });
 
   it('should update interval parameters', function () {
-    spyOn(scope,'normalizeSpeed');
-    scope.updateInterval();
-    expect(scope.normalizeSpeed).toHaveBeenCalled();
+    spyOn(AutoscrollCtrl,'normalizeSpeed');
+    AutoscrollCtrl.updateInterval();
+    expect(AutoscrollCtrl.normalizeSpeed).toHaveBeenCalled();
   });
 
   it('should normalize scroll speed by top and bottom values', function() {
-    var res = scope.normalizeSpeed();
+    var res = AutoscrollCtrl.normalizeSpeed();
     expect(res).toBe(0.8);
 
-    scope.speed = 5;
-    res = scope.normalizeSpeed();
+    AutoscrollCtrl.speed = 5;
+    res = AutoscrollCtrl.normalizeSpeed();
     expect(res).toBe(1.8);
 
-    scope.speed = 3;
-    res = scope.normalizeSpeed();
+    AutoscrollCtrl.speed = 3;
+    res = AutoscrollCtrl.normalizeSpeed();
     expect(res).toBe(1.4);
   });
 });
