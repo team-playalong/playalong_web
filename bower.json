@@ -26,12 +26,12 @@
   "appPath": "app",
   "moduleName": "playalongWebApp",
   "resolutions": {
-    "angular": "1.4.9",
+    "angular": "1.5.4",
     "angular-bootstrap": "~0.13.3",
     "flag-icon-css": "~0.8.5",
     "angular-animate": "~1.4.4",
     "angular-sanitize": "~1.4.8",
-    "angular-translate": "~2.10.0",
+    "angular-translate": "~2.11.0",
     "messageformat": "^0.3.1"
   }
 }
