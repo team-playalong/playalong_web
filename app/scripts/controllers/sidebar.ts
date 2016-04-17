@@ -12,9 +12,10 @@ function plySidebar(): ng.IDirective {
     controllerAs: 'vm',
     template: `
       <header>
-        <md-sidenav class=" md-whiteframe-z2 ply-sidenav" 
-                    md-component-id="left"
-                    ng-class="{'md-sidenav-right': app.dir === 'rtl', 'md-sidenav-left': app.dir !== 'rtl' }">
+        <md-sidenav 
+          class=" md-whiteframe-z2 ply-sidenav" 
+          md-component-id="left"
+          ng-class="{'md-sidenav-right': app.dir === 'rtl', 'md-sidenav-left': app.dir !== 'rtl' }">
           <md-toolbar class="md-theme-indigo" md-scroll-shrink="true">
             <h1 class="md-toolbar-tools" translate="toolbar.APP_NAME" ></h1>
           </md-toolbar>
@@ -22,7 +23,7 @@ function plySidebar(): ng.IDirective {
             <md-list>
               <div ng-repeat="item in vm.menuItems">
                 <md-list-item class="md-3-line clickable">
-                  <div class="md-list-item-text" ng-click="close()"  ui-sref="{{item.ref}}"  ui-sref-active="active">
+                  <div class="md-list-item-text" ng-click="vm.close()"  ui-sref="{{item.ref}}"  ui-sref-active="active">
                     <i class="fa fa-{{item.icon}}"></i>
                     <md-button class="md-primary">{{item.text | translate}}</md-button>
                   </div>
