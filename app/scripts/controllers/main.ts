@@ -42,7 +42,8 @@
     $scope.closeAlert = function(index) {
       $scope.allAlerts.splice(index, 1);
     };
-    $scope.goToChordPage = function(chord) {
+    
+    $rootScope.goToChordPage = function(chord) {
       if (typeof chord === 'object')
       {
         $scope.chord = chord;

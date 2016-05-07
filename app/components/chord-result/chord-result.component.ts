@@ -6,7 +6,7 @@
 	  template: `
 	  	<md-list-item class="md-2-line clickable">
 				<img ng-src="{{$ctrl.chord.imagePath}}" class="md-avatar" ng-if="$ctrl.chord.imagePath" />
-				<div class="md-list-item-text" ng-click="$ctrl.redirect(chord)"> 
+				<div class="md-list-item-text" ng-click="$ctrl.redirect($ctrl.chord)"> 
 				  <h3 ng-bind="$ctrl.chord.artist"></h3>
 				  <p ng-bind="$ctrl.chord.title"></p>
 				  <p translate="home.HIT_COUNT" translate-values="{hitCount: $ctrl.chord.hitCount}"></p>
@@ -18,8 +18,7 @@
 	  bindings: {
 	  	chord: '<'
 	  },
-	  controller: function() {
-	  }
+	  controller: ChordResult
 	});
 
 	ChordResult.$inject = ['$rootScope'];
