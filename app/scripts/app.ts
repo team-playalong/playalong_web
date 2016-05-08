@@ -26,5 +26,6 @@ var app = angular.module('playalongWebApp', [
   'textSizeSlider',
   'MetronomeApp',
   'plyFormElements',
+  'LocalStorageModule',
   'plyYoutube'
 ]);
