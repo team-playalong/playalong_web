@@ -1,0 +1,63 @@
+
+<md-menu>
+	<md-button 
+		aria-label="Open avatar menu" 
+		ng-click="$mdOpenMenu($event)">
+			<div ng-if="!ctrl.login.isLoggedIn()">
+				<span  translate=".LOGIN"></span>
+				<ng-md-icon style="fill: #ffffff; padding-top: 5px; vertical-align: text-top;" icon="keyboard_arrow_down" size="30">
+				</ng-md-icon>		
+			</div>
+			<span ng-if="ctrl.login.isLoggedIn()"  translate=".LOGOUT"></span>
+			
+	</md-button>
+  <md-menu-content class="ply-avatar-menu">
+    <md-menu-item>
+		  <div flex="25">
+				<ply-text-input
+		      text-input-label="'.EMAIL'"
+		      text-input-model="ctrl.email">
+		    </ply-text-input>
+			</div>
+			<div flex="25">
+				<ply-text-input
+		      text-input-label="'.PASSWORD'"
+		      text-input-model="ctrl.password">
+		    </ply-text-input>
+			</div>
+		  <div flex="10" layout-align="center center">
+				<md-button class="md-primary md-hue-1"
+				  ng-click="ctrl.signUp()"
+				  aria-label="Sign up"
+				  translate=".SIGN_UP">
+				</md-button>
+			</div>
+			<div flex="10" layout-align="center center">
+				<md-button class="md-primary md-hue-1"
+				  ng-click="ctrl.login()"
+				  aria-label="Login"
+				  translate=".LOGIN">
+				</md-button>
+			</div>			  
+		</md-menu-item>
+		<md-menu-item></md-menu-item>
+
+		<md-menu-item>
+  		<span flex="25" class="ply-topnav-login-title" translate=".LOGIN_WITH"></span>
+			<md-button class="md-icon-button ply-topnav-login-btn"
+			            aria-label="Google"
+			            ng-click="ctrl.loginSocial('google')">
+			  <md-tooltip md-direction="down">Google</md-tooltip>
+			  <ng-md-icon icon="google-plus" class="ply-topnav-login-btn-icon" size="40"></ng-md-icon>
+			</md-button>
+			<md-button  class="md-icon-button ply-topnav-login-btn"
+			            aria-label="Facebook"
+			            ng-click="ctrl.oginSocial('facebook')">
+			  <md-tooltip md-direction="down" >Facebook</md-tooltip>
+			    <ng-md-icon class="ply-topnav-login-btn-icon" icon="facebook" size="40"></ng-md-icon>
+			</md-button>	
+
+		</md-menu-item>
+	
+  </md-menu-content>
+</md-menu>

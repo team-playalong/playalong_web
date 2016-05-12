@@ -20,8 +20,8 @@
           translate-namespace=".login"
           layout="row"
           layout-align="end center">
-      
-      <div ng-if="!login.isLoggedIn()">
+      <ply-avatar-menu></ply-avatar-menu>
+      <!-- <div ng-if="!login.isLoggedIn()">
         <span hide-sm class="ply-topnav-login-title" translate=".MESSAGE"></span>
         <md-button class="md-icon-button ply-topnav-login-btn"
                     aria-label="Google"
@@ -35,7 +35,7 @@
           <md-tooltip md-direction="down" >Facebook</md-tooltip>
             <ng-md-icon class="ply-topnav-login-btn-icon" icon="facebook" size="20"></ng-md-icon>
         </md-button>
-      </div>
+      </div> -->
       <div ng-if="login.isLoggedIn()">
         <img ng-src="{{::setAvatarImage()}}" class="md-avatar ply-topnav-login-avatar" hide show-gt-sm alt="No Image" />
         <span hide-sm class="ply-topnav-login-title">

@@ -1,12 +1,17 @@
 @import '_ply.vars.scss';
 
+.login-email-container {
+	height: 150px;
+}
+.ply-avatar-menu {
+	height: 300px;	
+}
 //Toolbar
 .ply-topnav {
 	position: fixed;
 	top:0;
 	z-index: 10;
 	.ply-topnav-login {
-		
 		.ply-topnav-login-title {
 			font-size: $LABEL-FONT-SIZE; 
 		}
