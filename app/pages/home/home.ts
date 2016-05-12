@@ -3,7 +3,7 @@
   'use strict';
 
   angular.module('playalongWebApp')
-  .controller('HomeCtrl',HomeCtrl)
+  .controller('HomeCtrl', HomeCtrl)
   .directive('plyHome', PlyHome);
 
   function PlyHome() {
@@ -15,13 +15,13 @@
   }
 
   HomeCtrl.$inject = [
-    '$rootScope','chords','$translate','$q'
+    '$rootScope','chords', '$translate','$q'
   ];
   function HomeCtrl($rootScope, chords,$translate,$q) {
-    var vm = this;
+    let vm = this;
     
     if (!!window.mixpanel) {
-      window.mixpanel.track("ply_page_view_home");  
+      window.mixpanel.track('ply_page_view_home');  
     }
     $rootScope.currPage = 'home.PAGE_TITLE';
     vm.searchByOptions = [
@@ -46,7 +46,7 @@
         elem.textContent = 'Song Name';  
       }
       
-    },200)
+    }, 200);
 
     vm.formatResultMessage = function() {
       var deferred = $q.defer();
@@ -97,7 +97,7 @@
     vm.searchChords = function() {
       $rootScope.startSpin('startSearchChordsSpinner');
       vm.searchResults = [];
-      chords.searchChordsBy(vm.searchConfig.searchBy,vm.searchConfig.searchInput)
+      chords.searchChordsBy(vm.searchConfig.searchBy, vm.searchConfig.searchInput)
       .then(vm.handleChordResults)
       .catch(function(error) {
         vm.searchResults = [];
@@ -114,8 +114,7 @@
     $rootScope.$on('$stateChangeSuccess',
     /*jshint unused:false */
     function(event, toState, toParams, fromState, fromParams){
-      if (toState.title)
-      {
+      if (toState.title) {
         $rootScope.currPage = toState.title;
       }
     });

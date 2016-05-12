@@ -2,8 +2,8 @@
 'use strict';
 
 angular.module('playalongWebApp')
-.controller('PlylanguagepickerCtrl',PlylanguagepickerCtrl)
-.controller('LanguageModalDialogController',LanguageModalDialogController);
+.controller('PlylanguagepickerCtrl', PlylanguagepickerCtrl)
+.controller('LanguageModalDialogController', LanguageModalDialogController);
 
 LanguageModalDialogController.$inject = [
   '$mdDialog','$translate','$rootScope', 'PlyStorage'
@@ -73,7 +73,7 @@ function PlylanguagepickerCtrl($scope,$mdDialog,$mdMedia,$rootScope) {
       templateUrl: 'views/templates/language-picker-modal.html',
       parent: angular.element(document.body),
       targetEvent: ev,
-      clickOutsideToClose:true,
+      clickOutsideToClose: true,
       fullscreen: $mdMedia('sm') && vm.customFullscreen
     })
     .then(function() {

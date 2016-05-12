@@ -42,6 +42,7 @@ module.exports = function(config) {
       'bower_components/angular-translate-loader-url/angular-translate-loader-url.js',
       'bower_components/messageformat/messageformat.js',
       'bower_components/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.js',
+      'bower_components/angular-local-storage/dist/angular-local-storage.js',
       'bower_components/playalong.services/dist/scripts/scripts.js',
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       'bower_components/rangy/rangy-core.js',
@@ -58,7 +59,6 @@ module.exports = function(config) {
       'bower_components/raphael/raphael.js',
       'bower_components/justgage-bower/justgage.js',
       'bower_components/angular-gage/dist/angular-gage.js',
-      'bower_components/angular-local-storage/dist/angular-local-storage.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       

@@ -4,9 +4,9 @@
         .controller('PlylanguagepickerCtrl', PlylanguagepickerCtrl)
         .controller('LanguageModalDialogController', LanguageModalDialogController);
     LanguageModalDialogController.$inject = [
-        '$mdDialog', '$translate', '$rootScope'
+        '$mdDialog', '$translate', '$rootScope', 'PlyStorage'
     ];
-    function LanguageModalDialogController($mdDialog, $translate, $rootScope) {
+    function LanguageModalDialogController($mdDialog, $translate, $rootScope, PlyStorage) {
         var vm = this;
         vm.languages = [
             {
@@ -23,6 +23,7 @@
         vm.changeLanguage = function (locale) {
             if (locale) {
                 $translate.use(locale);
+                PlyStorage.set('locale', locale);
                 $rootScope.app = {
                     dir: locale === 'he' ? 'rtl' : 'ltr',
                     locale: locale

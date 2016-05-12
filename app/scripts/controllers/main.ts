@@ -12,7 +12,7 @@
   function MainCtrl($scope, $timeout, $mdSidenav, $mdUtil, paths,$state, login,$rootScope) {
     $scope.initCtrl = function() {
       if (!!window.mixpanel) {
-        window.mixpanel.track("ply_page_load");  
+        window.mixpanel.track('ply_page_load');  
       }
       
       $rootScope.paths = paths;
@@ -44,14 +44,12 @@
     };
     
     $rootScope.goToChordPage = function(chord) {
-      if (typeof chord === 'object')
-      {
+      if (typeof chord === 'object') {
         $scope.chord = chord;
-        $state.go('chord',{chordKey: chord.chordKey || chord.$id });  
+        $state.go('chord', { chordKey: chord.chordKey || chord.$id });  
       }
-      else if (typeof chord === 'string')
-      {
-        $state.go('chord',{chordKey: chord });  
+      else if (typeof chord === 'string') {
+        $state.go('chord',{ chordKey: chord });  
       }
       
     };

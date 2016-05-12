@@ -17,7 +17,7 @@
     function HomeCtrl($rootScope, chords, $translate, $q) {
         var vm = this;
         if (!!window.mixpanel) {
-            window.mixpanel.track("ply_page_view_home");
+            window.mixpanel.track('ply_page_view_home');
         }
         $rootScope.currPage = 'home.PAGE_TITLE';
         vm.searchByOptions = [

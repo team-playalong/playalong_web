@@ -7,7 +7,7 @@ angular.module('playalongWebApp')
   return {
     templateUrl: 'views/templates/language-picker-button.html',
     restrict: 'E',
-    controller:'PlylanguagepickerCtrl',
+    controller: 'PlylanguagepickerCtrl',
     controllerAs: 'vm',
     bindToController: true
   };
