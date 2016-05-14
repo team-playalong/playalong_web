@@ -5,6 +5,7 @@
         var ctrl = this;
         ctrl.login = login;
         ctrl.paths = paths;
+        ctrl.passwordText = 'password';
         ctrl.loginSocial = function (platform) {
             login.loginSocial(platform)
                 .then(function () {
@@ -12,7 +13,7 @@
         };
         ctrl.setMenuStyles = function () {
             var result = {
-                height: '300px',
+                height: '100px',
             };
             if (login.isLoggedIn()) {
                 result.height = 'auto';

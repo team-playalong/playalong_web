@@ -6,6 +6,7 @@
 		let ctrl = this;
 		ctrl.login = login;
 		ctrl.paths = paths;
+		ctrl.passwordText = 'password';
 
 		ctrl.loginSocial = function(platform) {
 		  login.loginSocial(platform)
@@ -15,7 +16,7 @@
 
 		ctrl.setMenuStyles = () => {
 			let result = {
-				height: '300px',
+				height: '100px',
 			};
 
 			if (login.isLoggedIn()) {
