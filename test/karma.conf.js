@@ -32,7 +32,6 @@ module.exports = function(config) {
       'bower_components/angular-aria/angular-aria.js',
       'bower_components/angular-material/angular-material.js',
       'bower_components/angular-ui-router/release/angular-ui-router.js',
-      'bower_components/angular-material-icons/angular-material-icons.min.js',
       'bower_components/bootstrap/dist/js/bootstrap.js',
       'bower_components/firebase/firebase.js',
       'bower_components/angularfire/dist/angularfire.js',
@@ -59,6 +58,7 @@ module.exports = function(config) {
       'bower_components/raphael/raphael.js',
       'bower_components/justgage-bower/justgage.js',
       'bower_components/angular-gage/dist/angular-gage.js',
+      'bower_components/angular-material-icons/angular-material-icons.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       

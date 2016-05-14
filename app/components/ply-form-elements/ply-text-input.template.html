@@ -1,6 +1,7 @@
 <md-input-container flex>
   <label translate="{{textInputLabel}}"></label>
   <input 	ng-required="textInputRequired || false"
-  				ng-model="textInputModel"
-  				auto-direction />
+  	type="{{textInputType || 'text'}}"
+		ng-model="textInputModel"
+		auto-direction />
 </md-input-container>

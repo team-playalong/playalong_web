@@ -1,12 +1,20 @@
 @import '_ply.vars.scss';
 
+.ply-avatar-menu {
+	.login-email-container {
+		height: 150px;	
+	}	
+	.ply-topnav-login-btn-icon {
+		height: 50px;
+		width: 50px;
+	}
+}
 //Toolbar
 .ply-topnav {
 	position: fixed;
 	top:0;
 	z-index: 10;
 	.ply-topnav-login {
-		
 		.ply-topnav-login-title {
 			font-size: $LABEL-FONT-SIZE; 
 		}
@@ -20,7 +28,6 @@
 			padding:5px;
 			border-radius: 50%;
 		}
-		
 	}
 	ply-language-picker {
 		img {
@@ -32,11 +39,6 @@
 		height: $PLY-LOGO-SIZE;
 		width: $PLY-LOGO-SIZE;
 		margin-right: 10px; 
-	}
-	.md-icon-button {
-		fill: #ffffff;
-		vertical-align: middle;
-		padding: 5px;
 	}
 }
 //End Toolbar
