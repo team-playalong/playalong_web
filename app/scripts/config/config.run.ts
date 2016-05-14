@@ -18,16 +18,16 @@
   });
 
 
-  app.run(["$rootScope", "$state" ,'$window', function($rootScope, $state,$window) {
-    $rootScope.$on("$stateChangeError", function(event, toState, toParams, fromState, fromParams, error) {
+  app.run(['$rootScope', '$state' , '$window', function($rootScope, $state,$window) {
+    $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
       // We can catch the error thrown when the $requireAuth promise is rejected
       // and redirect the user back to the home page
-      if (error === "AUTH_REQUIRED") {
-        $state.go("home");
+      if (error === 'AUTH_REQUIRED') {
+        $state.go('home');
       }
     });
   /*jshint unused:false*/
-    $rootScope.$on("$stateChangeSuccess", function(event, toState, toParams, fromState, fromParams, error) {
+    $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams, error) {
       //Scroll to the top of the page
       $window.scrollTo(0,0);
 
@@ -62,7 +62,7 @@
 
       // It's very handy to add references to $state and $stateParams to the $rootScope
       // so that you can access them from any scope within your applications.For example,
-      // <li ng-class="{ active: $state.include s('contacts.list') }"> will set the <li>
+      // <li ng-class='{ active: $state.include s('contacts.list') }'> will set the <li>
       // to active whenever 'contacts.list' or one of its decendents is active.
       $rootScope.$state = $state;
       $rootScope.$stateParams = $stateParams;

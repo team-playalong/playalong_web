@@ -5,14 +5,18 @@
 		ng-click="$mdOpenMenu($event)">
 			<div ng-if="!ctrl.login.isLoggedIn()">
 				<span  translate=".LOGIN"></span>
-				<ng-md-icon style="fill: #ffffff; padding-top: 5px; vertical-align: text-top;" icon="keyboard_arrow_down" size="30">
+				<ng-md-icon icon="keyboard_arrow_down" size="30">
 				</ng-md-icon>		
 			</div>
-			<span ng-if="ctrl.login.isLoggedIn()"  translate=".LOGOUT"></span>
-			
+			<div ng-if="ctrl.login.isLoggedIn()">
+				<img ng-src="{{ctrl.setAvatarImage()}}" class="md-avatar ply-topnav-login-avatar" alt="No Image" />
+				<ng-md-icon icon="keyboard_arrow_down" size="30">
+				</ng-md-icon>	
+			</div>
 	</md-button>
-  <md-menu-content class="ply-avatar-menu">
-    <md-menu-item>
+  <md-menu-content class="ply-avatar-menu"
+  	ng-style="ctrl.setMenuStyles()">
+    <md-menu-item ng-if="!ctrl.login.isLoggedIn()"
 		  <div flex="25">
 				<ply-text-input
 		      text-input-label="'.EMAIL'"
@@ -40,24 +44,31 @@
 				</md-button>
 			</div>			  
 		</md-menu-item>
-		<md-menu-item></md-menu-item>
+		
 
-		<md-menu-item>
+		<md-menu-item ng-if="!ctrl.login.isLoggedIn()">
   		<span flex="25" class="ply-topnav-login-title" translate=".LOGIN_WITH"></span>
 			<md-button class="md-icon-button ply-topnav-login-btn"
 			            aria-label="Google"
 			            ng-click="ctrl.loginSocial('google')">
 			  <md-tooltip md-direction="down">Google</md-tooltip>
-			  <ng-md-icon icon="google-plus" class="ply-topnav-login-btn-icon" size="40"></ng-md-icon>
+			  <img src="images/social-circle-google-plus.svg" class="ply-topnav-login-btn-icon" alt="Google Plus" />
 			</md-button>
 			<md-button  class="md-icon-button ply-topnav-login-btn"
 			            aria-label="Facebook"
-			            ng-click="ctrl.oginSocial('facebook')">
+			            ng-click="ctrl.loginSocial('facebook')">
 			  <md-tooltip md-direction="down" >Facebook</md-tooltip>
-			    <ng-md-icon class="ply-topnav-login-btn-icon" icon="facebook" size="40"></ng-md-icon>
+			    <img src="images/social-facebook-circle.svg" class="ply-topnav-login-btn-icon" alt="Facebook" />
 			</md-button>	
 
 		</md-menu-item>
-	
+		
+		<md-menu-item ng-if="ctrl.login.isLoggedIn()">
+  		<md-button class="md-primary md-hue-1"
+  		  ng-click="ctrl.login.logout()"
+  		  aria-label="Logout"
+  		  translate=".LOGOUT">
+  		</md-button>
+		</md-menu-item>	
   </md-menu-content>
 </md-menu>

@@ -1,10 +1,13 @@
 @import '_ply.vars.scss';
 
-.login-email-container {
-	height: 150px;
-}
 .ply-avatar-menu {
-	height: 300px;	
+	.login-email-container {
+		height: 150px;	
+	}	
+	.ply-topnav-login-btn-icon {
+		height: 50px;
+		width: 50px;
+	}
 }
 //Toolbar
 .ply-topnav {
@@ -25,7 +28,6 @@
 			padding:5px;
 			border-radius: 50%;
 		}
-		
 	}
 	ply-language-picker {
 		img {
@@ -37,11 +39,6 @@
 		height: $PLY-LOGO-SIZE;
 		width: $PLY-LOGO-SIZE;
 		margin-right: 10px; 
-	}
-	.md-icon-button {
-		fill: #ffffff;
-		vertical-align: middle;
-		padding: 5px;
 	}
 }
 //End Toolbar

@@ -10,6 +10,15 @@
                 .then(function () {
             });
         };
+        ctrl.setMenuStyles = function () {
+            var result = {
+                height: '300px',
+            };
+            if (login.isLoggedIn()) {
+                result.height = 'auto';
+            }
+            return result;
+        };
         ctrl.setAvatarImage = function () {
             if (!login.isLoggedIn()) {
                 return paths.images.emptyAvatar;
