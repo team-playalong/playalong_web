@@ -25,7 +25,7 @@
     "grunt-ng-annotate": "^0.9.2",
     "grunt-protractor-runner": "^2.1.0",
     "grunt-svgmin": "^2.0.0",
-    "grunt-ts": "^5.3.2",
+    "grunt-ts": "^5.4.0",
     "grunt-usemin": "^3.0.0",
     "grunt-wiredep": "^2.0.0",
     "jit-grunt": "^0.9.1",
@@ -49,4 +49,3 @@
     "angular-youtube-embed": "^1.1.1"
   }
 }
-

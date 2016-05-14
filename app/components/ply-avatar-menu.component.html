@@ -1,24 +1,22 @@
-
 <md-menu>
-	<md-button 
-		aria-label="Open avatar menu" 
+	<md-button
+		aria-label="Open avatar menu"
 		ng-click="$mdOpenMenu($event)">
 			<div ng-if="!ctrl.login.isLoggedIn()">
 				<span  translate=".LOGIN"></span>
 				<ng-md-icon icon="keyboard_arrow_down" size="30">
-				</ng-md-icon>		
+				</ng-md-icon>
 			</div>
 			<div ng-if="ctrl.login.isLoggedIn()">
 				<img ng-src="{{ctrl.setAvatarImage()}}" class="md-avatar ply-topnav-login-avatar" alt="No Image" />
 				<ng-md-icon icon="keyboard_arrow_down" size="30">
-				</ng-md-icon>	
+				</ng-md-icon>
 			</div>
 	</md-button>
   <md-menu-content class="ply-avatar-menu"
   	ng-style="ctrl.setMenuStyles()">
 
-  	<!-- Hiding it for now... -->
-    <md-menu-item ng-if="false && !ctrl.login.isLoggedIn()">
+    <md-menu-item ng-if="!ctrl.login.isLoggedIn()">
 		  <div flex="25">
 				<ply-text-input
 		      text-input-label="'.EMAIL'"
@@ -32,23 +30,30 @@
 		      text-input-model="ctrl.password">
 		    </ply-text-input>
 			</div>
-		  <div flex="10" layout-align="center center">
-				<md-button class="md-primary md-hue-1"
-				  ng-click="ctrl.signUp()"
-				  aria-label="Sign up"
-				  translate=".SIGN_UP">
-				</md-button>
-			</div>
-			<div flex="10" layout-align="center center">
-				<md-button class="md-primary md-hue-1"
-				  ng-click="ctrl.login.loginEmail(ctrl.email, ctrl.password)"
+			<div flex="10" layout-align="center center" >
+				<md-button
+					class="md-raised md-hue-1 ply-login-btn"
+				  ng-click="ctrl.loginEmail(ctrl.email, ctrl.password)"
 				  aria-label="Login"
 				  translate=".LOGIN">
 				</md-button>
-			</div>			  
+			</div>
+		  <div
+		  	flex="10"
+		  	layout-align="center center" >
+				<!-- <md-button class="md-primary Md-hue-1 "
+				  aria-label="Change PASSWORD"
+				  translate=".CHANGE_PASSWORD">
+				</md-button> -->
+				<md-button class="md-primary md-hue-1"
+				  aria-label="Reset Password"
+				  translate=".RESET_PASSWORD"
+				  ng-click="ctrl.openResetPasswordModal($event)">
+				</md-button>
+			</div>
+
 		</md-menu-item>
-		
-		
+		<md-menu-item ng-if="!ctrl.login.isLoggedIn()"></md-menu-item>
 		<md-menu-item ng-if="!ctrl.login.isLoggedIn()">
   		<span flex="25" class="ply-topnav-login-title" translate=".LOGIN_WITH"></span>
 			<md-button class="md-icon-button ply-topnav-login-btn"
@@ -62,16 +67,16 @@
 			            ng-click="ctrl.loginSocial('facebook')">
 			  <md-tooltip md-direction="down" >Facebook</md-tooltip>
 			    <img src="images/social-facebook-circle.svg" class="ply-topnav-login-btn-icon" alt="Facebook" />
-			</md-button>	
+			</md-button>
 
 		</md-menu-item>
-		
+
 		<md-menu-item ng-if="ctrl.login.isLoggedIn()">
   		<md-button class="md-hue-1"
   		  ng-click="ctrl.login.logout()"
   		  aria-label="Logout"
   		  translate=".LOGOUT">
   		</md-button>
-		</md-menu-item>	
+		</md-menu-item>
   </md-menu-content>
 </md-menu>
