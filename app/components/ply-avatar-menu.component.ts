@@ -1,9 +1,10 @@
 (function() {
 	'use strict';
 	
-	resetPassword.$inject = ['login'];
-	function resetPassword(login) {
+	resetPassword.$inject = ['login', '$mdDialog'];
+	function resetPassword(login, $mdDialog) {
 		let ctrl = this;
+		ctrl.$mdDialog = $mdDialog;
 
 		ctrl.resetPassword = (email: string) => {
 			login.resetPassword(ctrl.email)
@@ -18,12 +19,37 @@
 		};
 	}
 
+	changePassword.$inject = ['login', '$mdDialog'];
+	function changePassword(login, $mdDialog) {
+		let ctrl = this;
+		ctrl.$mdDialog = $mdDialog;
+
+		ctrl.passwordType = 'password';
+		ctrl.emailType = 'email';
+
+		ctrl.changePassword = (email: string, oldPassword: string, newPassword: string) => {
+			login.changePassword(email, oldPassword, newPassword)
+			.then(data => {
+				ctrl.changeSuccess = true;
+				ctrl.changeError = false;
+			})
+			.catch(error => {
+				ctrl.changeSuccess = false;
+				ctrl.changeError = true;
+			}); 
+		};
+	}
+
 	ctrl.$inject = ['$mdDialog', 'login', 'paths', 'toast', '$translate'];
 	function ctrl($mdDialog, login, paths, toast, $translate) {
 		let ctrl = this;
 		ctrl.login = login;
 		ctrl.paths = paths;
-		ctrl.passwordText = 'password';
+
+		ctrl.$onInit = () => {
+			ctrl.passwordText = 'password';
+		};
+		
 
 		ctrl.loginSocial = function(platform) {
 		  login.loginSocial(platform)
@@ -71,7 +97,7 @@
 			  	    <div class="md-toolbar-tools">
 			  	      <h2 translate=".RESET_PASSWORD"></h2>
 			  	      <span flex></span>
-			  	      <md-button class="md-icon-button" ng-click="ctrl.cancel()">
+			  	      <md-button class="md-icon-button" ng-click="ctrl.$mdDialog.cancel()">
 			  	        &times;
 			  	      </md-button>
 			  	    </div>
@@ -97,6 +123,77 @@
 									<span translate=".RESET_MESSAGE" ng-if="ctrl.resetSuccess"></span>
 									<span translate=".RESET_ERROR" ng-if="ctrl.resetError"></span>
 			  	    	</div>
+
+		  	    	</div>
+			  	  </md-dialog-content>
+			  	</md-dialog>
+			  `,
+			  parent: angular.element(document.body),
+			  clickOutsideToClose: true,
+			})
+			.then(function() {
+			}, function() {
+			});
+			
+		};
+
+		ctrl.openChangePasswordModal = (event) => {
+			$mdDialog.show({
+			  controller: changePassword,
+			  bindToController: true,
+			  controllerAs: 'ctrl',
+			  template: `
+			  	<md-dialog aria-label="Change Password"
+			  		flex="1"
+			  	  ng-cloak translate-namespace="toolbar.login">
+			  	  <md-toolbar>
+			  	    <div class="md-toolbar-tools">
+			  	      <h2 translate=".CHANGE_PASSWORD"></h2>
+			  	      <span flex></span>
+			  	      <md-button class="md-icon-button" ng-click="ctrl.$mdDialog.cancel()">
+			  	        &times;
+			  	      </md-button>
+			  	    </div>
+			  	  </md-toolbar>
+			  	  <md-dialog-content>
+			  	    <div class="md-dialog-content">
+			  	    <form name="changePassword">
+			  	      <div layout="row" layout-sm="column">
+			  	      	<div flex="2">
+			  	      			<ply-text-input
+			  	      				text-input-type="ctrl.emailType"
+			  	      	      text-input-label="'.EMAIL'"
+			  	      	      text-input-model="ctrl.email">
+			  	      	    </ply-text-input>
+			  	      	</div>
+			  	      	<div flex="2">
+			  	      			<ply-text-input
+			  	      				text-input-type="ctrl.passwordType"
+			  	      	      text-input-label="'.OLD_PASSWORD'"
+			  	      	      text-input-model="ctrl.oldPassword">
+			  	      	    </ply-text-input>
+			  	      	</div>
+			  	      	<div flex="2">
+			  	      			<ply-text-input
+			  	      				text-input-type="ctrl.passwordType"
+			  	      	      text-input-label="'.NEW_PASSWORD'"
+			  	      	      text-input-model="ctrl.newPassword">
+			  	      	    </ply-text-input>
+			  	      	</div>
+  			  	    	<div flex="1">
+  	  	      			<md-button class="md-raised md-hue-1"
+  	  	      			  aria-label="Change Password"
+  	  	      			  translate=".CHANGE_PASSWORD"
+  	  	      			  ng-click="ctrl.changePassword(ctrl.email, ctrl.oldPassword, ctrl.newPassword)">
+  	  	      			</md-button>
+  		  	      	</div>
+			  	    	</div>
+			  	    	<div layout="row">
+									<span translate=".CHANGE_MESSAGE" ng-if="ctrl.changeSuccess"></span>
+									<span translate=".CHANGE_ERROR" ng-if="ctrl.changeError"></span>
+			  	    	</div>
+			  	    </form>
+			  	      
 
 		  	    	</div>
 			  	  </md-dialog-content>
