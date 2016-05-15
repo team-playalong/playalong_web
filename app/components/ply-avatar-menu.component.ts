@@ -33,11 +33,11 @@
 
 		ctrl.setMenuStyles = () => {
 			let result = {
-				height: '300px',
+				minHeight: '400px',
 			};
 
 			if (login.isLoggedIn()) {
-				result.height = 'auto';
+				result.minHeight = 'auto';
 			}
 
 			return result;

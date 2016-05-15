@@ -16,21 +16,21 @@
   <md-menu-content class="ply-avatar-menu"
   	ng-style="ctrl.setMenuStyles()">
 
-    <md-menu-item ng-if="!ctrl.login.isLoggedIn()">
-		  <div flex="25">
+    <div ng-if="!ctrl.login.isLoggedIn()" layout="row" layout-sm="column" layout-padding>
+		  <div flex="1">
 				<ply-text-input
 		      text-input-label="'.EMAIL'"
 		      text-input-model="ctrl.email">
 		    </ply-text-input>
 			</div>
-			<div flex="25">
+			<div flex="1">
 				<ply-text-input
 					text-input-type="ctrl.passwordText"
 		      text-input-label="'.PASSWORD'"
 		      text-input-model="ctrl.password">
 		    </ply-text-input>
 			</div>
-			<div flex="10" layout-align="center center" >
+			<div flex="1" layout-align="center center" >
 				<md-button
 					class="md-raised md-hue-1 ply-login-btn"
 				  ng-click="ctrl.loginEmail(ctrl.email, ctrl.password)"
@@ -39,7 +39,7 @@
 				</md-button>
 			</div>
 		  <div
-		  	flex="10"
+		  	flex="1"
 		  	layout-align="center center" >
 				<!-- <md-button class="md-primary Md-hue-1 "
 				  aria-label="Change PASSWORD"
@@ -52,31 +52,34 @@
 				</md-button>
 			</div>
 
-		</md-menu-item>
-		<md-menu-item ng-if="!ctrl.login.isLoggedIn()"></md-menu-item>
-		<md-menu-item ng-if="!ctrl.login.isLoggedIn()">
-  		<span flex="25" class="ply-topnav-login-title" translate=".LOGIN_WITH"></span>
-			<md-button class="md-icon-button ply-topnav-login-btn"
-			            aria-label="Google"
-			            ng-click="ctrl.loginSocial('google')">
-			  <md-tooltip md-direction="down">Google</md-tooltip>
-			  <img src="images/social-circle-google-plus.svg" class="ply-topnav-login-btn-icon" alt="Google Plus" />
-			</md-button>
-			<md-button  class="md-icon-button ply-topnav-login-btn"
-			            aria-label="Facebook"
-			            ng-click="ctrl.loginSocial('facebook')">
-			  <md-tooltip md-direction="down" >Facebook</md-tooltip>
-			    <img src="images/social-facebook-circle.svg" class="ply-topnav-login-btn-icon" alt="Facebook" />
-			</md-button>
+		</div>
+		
+		<div ng-if="!ctrl.login.isLoggedIn()" layout="row" layout-padding>
+  		<span flex="20" class="ply-topnav-login-title" translate=".LOGIN_WITH"></span>
+  		<span flex="1" layout-align="start start">
+	  		<md-button class="md-icon-button ply-topnav-login-btn"
+	  		            aria-label="Google"
+	  		            ng-click="ctrl.loginSocial('google')">
+	  		  <md-tooltip md-direction="down">Google</md-tooltip>
+	  		  <img src="images/social-circle-google-plus.svg" class="ply-topnav-login-btn-icon" alt="Google Plus" />
+	  		</md-button>
+	  		<md-button  class="md-icon-button ply-topnav-login-btn"
+	  		            aria-label="Facebook"
+	  		            ng-click="ctrl.loginSocial('facebook')">
+	  		  <md-tooltip md-direction="down" >Facebook</md-tooltip>
+	  		    <img src="images/social-facebook-circle.svg" class="ply-topnav-login-btn-icon" alt="Facebook" />
+	  		</md-button>
+	
+  		</span>
+			
+		</div>
 
-		</md-menu-item>
-
-		<md-menu-item ng-if="ctrl.login.isLoggedIn()">
+		<div ng-if="ctrl.login.isLoggedIn()">
   		<md-button class="md-hue-1"
   		  ng-click="ctrl.login.logout()"
   		  aria-label="Logout"
   		  translate=".LOGOUT">
   		</md-button>
-		</md-menu-item>
+		</div>
   </md-menu-content>
 </md-menu>
