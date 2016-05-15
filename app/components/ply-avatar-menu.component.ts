@@ -84,6 +84,7 @@
 					});
 		};
 
+
 		ctrl.openResetPasswordModal = (event) => {
 			$mdDialog.show({
 			  controller: resetPassword,
