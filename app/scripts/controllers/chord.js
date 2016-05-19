@@ -4,9 +4,9 @@
         .controller('ChordCtrl', ChordCtrl);
     ChordCtrl.$inject = [
         '$scope', '$rootScope', '$state', 'chords', '$stateParams',
-        'toast', 'login', 'Common', '$timeout', 'plyTooltip', 'transposer'
+        'toast', 'login', 'Common', '$timeout', 'plyTooltip', 'transposer', '$sce',
     ];
-    function ChordCtrl($scope, $rootScope, $state, chords, $stateParams, toast, login, Common, $timeout, plyTooltip, transposer) {
+    function ChordCtrl($scope, $rootScope, $state, chords, $stateParams, toast, login, Common, $timeout, plyTooltip, transposer, $sce) {
         $scope.login = login;
         $scope.initCtrl = function () {
             if (!!window.mixpanel) {
@@ -27,9 +27,8 @@
                 availableModes: ['md-fling', 'md-scale'],
                 selectedMode: 'md-fling',
                 availableDirections: ['up', 'down', 'left', 'right'],
-                selectedDirection: 'up'
+                selectedDirection: 'up',
             };
-            /*jshint unused:false*/
             //Disable autoscroll on redirect
             $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
                 if (fromState.name === 'chord') {
@@ -38,7 +37,15 @@
                     }, 0);
                 }
             });
+            $scope.chordContent = addChordImages($scope.chord.content);
         };
+        $scope.setPopoverHtml = function (chord) {
+            return $sce.trustAsHtml("\n        <div>\n          <img src=\"images/Guitar%20chords/" + chord.trim() + ".png\" height=\"100\" width=\"85\" alt=\"No chord Available\" />\n        </div>\n      ");
+        };
+        function addChordImages(chordContent) {
+            var regex = /(<span class="chord">)([^<]+)(<\/span>)/g;
+            return chordContent.replace(regex, "<span class=\"chord\" popover-trigger=\"mouseenter\" uib-popover-html=\"setPopoverHtml('$2')\">$2</span>");
+        }
         $scope.disableAutoscroll = function () {
             $scope.autoscrollEnabled = false;
             $scope.autoscrollSpeed = 0;

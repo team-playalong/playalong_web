@@ -34,10 +34,10 @@
             <h4 ng-bind="chord.title"></h4>
           </div>
         </div>
-        <div  layout="row" class="direction-initial" 
+        <div  layout="row" class="direction-initial"
               ng-if="!!chord.youtubeLink">
           <div flex>
-            <ply-youtube 
+            <ply-youtube
               ply-youtube-src="chord.youtubeLink">
             </ply-youtube>
           </div>
@@ -48,9 +48,10 @@
         </figure>
         <div class="ply-spinner-wrapper">
           <ply-spinner trigger-start-event="startChordSpinner" trigger-stop-event="stopChordSpinner"></ply-spinner>
-          <div class="ply-chord-container-content direction-initial" ng-bind-html="chord.content"></div>  
+
+          <div ng-show="chordContent" class="ply-chord-container-content direction-initial" compile="chordContent"></div>
         </div>
-        
+
         <div  class="ply-chord-rating"
               ng-if="chordRating">
           <h5 tranlate=".RATE_MESSAGE"></h5>
@@ -88,7 +89,7 @@
       </md-tooltip>
       <ng-md-icon class="ply-fab-icon ply-fab-icon-dark" icon="expand_less"></ng-md-icon>
     </md-button>
-    
+
     <md-button  aria-label="auto scroll"
                 class="md-fab md-raised md-mini"
                 ng-click="toggleAutoscroll()">

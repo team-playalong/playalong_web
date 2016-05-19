@@ -2,13 +2,13 @@
   'use strict';
 
   angular.module('playalongWebApp')
-  .controller('ChordCtrl',ChordCtrl);
+  .controller('ChordCtrl', ChordCtrl);
 
   ChordCtrl.$inject = [
-    '$scope','$rootScope','$state','chords','$stateParams',
-    'toast','login','Common','$timeout','plyTooltip','transposer'
+    '$scope', '$rootScope', '$state', 'chords', '$stateParams',
+    'toast', 'login' , 'Common', '$timeout', 'plyTooltip', 'transposer', '$sce',
   ];
-  function ChordCtrl($scope,$rootScope,$state,chords, $stateParams,toast,login,Common,$timeout,plyTooltip,transposer) {
+  function ChordCtrl($scope,$rootScope,$state,chords, $stateParams,toast,login,Common,$timeout,plyTooltip,transposer, $sce: ng.ISCEService) {
     $scope.login = login;
     $scope.initCtrl = function() {
       if (!!window.mixpanel) {
@@ -30,21 +30,35 @@
         availableModes: ['md-fling', 'md-scale'],
         selectedMode: 'md-fling',
         availableDirections: ['up', 'down', 'left', 'right'],
-        selectedDirection: 'up'
+        selectedDirection: 'up',
       };
-       /*jshint unused:false*/
       //Disable autoscroll on redirect
       $rootScope.$on('$stateChangeStart',
       function(event, toState, toParams, fromState, fromParams){
-        if (fromState.name === 'chord')
-        {
+        if (fromState.name === 'chord') {
           $timeout(function(){
             $scope.disableAutoscroll();
-          },0);
-
+          }, 0);
         }
       });
+
+
+      $scope.chordContent = addChordImages($scope.chord.content);
+    };  
+
+    $scope.setPopoverHtml = (chord) => {
+      return $sce.trustAsHtml(`
+        <div>
+          <img src="images/Guitar%20chords/${chord.trim()}.png" height="100" width="85" alt="No chord Available" />
+        </div>
+      `);   
     };
+
+    function addChordImages(chordContent: string) {
+      
+      const regex = /(<span class="chord">)([^<]+)(<\/span>)/g;
+      return chordContent.replace(regex, `<span class="chord" popover-trigger="mouseenter" uib-popover-html="setPopoverHtml('$2')">$2</span>`);
+    }
 
     $scope.disableAutoscroll = function() {
       $scope.autoscrollEnabled = false;
@@ -53,8 +67,7 @@
     $scope.toggleAutoscroll = function() {
       $scope.autoscrollEnabled = !$scope.autoscrollEnabled;
 
-      if (!$scope.autoscrollEnabled)
-      {
+      if (!$scope.autoscrollEnabled) {
         $scope.disableAutoscroll();
       }
     };
@@ -94,7 +107,7 @@
       
       angular.forEach(chords, function(value){
         var oldText = angular.element(value).text();
-        var newText = transposer.transpose(oldText,numTones);
+        var newText = transposer.transpose(oldText, numTones);
         angular.element(value).text(newText);
       });
 

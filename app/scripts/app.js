@@ -25,6 +25,6 @@ var app = angular.module('playalongWebApp', [
     'MetronomeApp',
     'plyFormElements',
     'LocalStorageModule',
-    'plyYoutube'
+    'plyYoutube',
 ]);
 //# sourceMappingURL=app.js.map
