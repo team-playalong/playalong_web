@@ -437,6 +437,12 @@ module.exports = function (grunt) {
           cwd: 'bower_components/playalong.services/dist/locales',
           dest: '<%= yeoman.dist %>/locales',
           src: ['*.json']
+        },
+        {
+          expand: true,
+          cwd: '<%= yeoman.app %>/guitar-chords',
+          dest: '<%= yeoman.dist %>/guitar-chords',
+          src: ['*.png']
         }]
       },
       styles: {

@@ -40,7 +40,7 @@
             $scope.chordContent = addChordImages($scope.chord.content);
         };
         $scope.setPopoverHtml = function (chord) {
-            return $sce.trustAsHtml("\n        <div>\n          <img src=\"images/Guitar%20chords/" + chord.trim() + ".png\" height=\"100\" width=\"85\" alt=\"No chord Available\" />\n        </div>\n      ");
+            return $sce.trustAsHtml("\n        <div>\n          <img src=\"guitar-chords/" + chord.trim() + ".png\" height=\"100\" width=\"85\" alt=\"No chord Available\" />\n        </div>\n      ");
         };
         function addChordImages(chordContent) {
             var regex = /(<span class="chord">)([^<]+)(<\/span>)/g;
