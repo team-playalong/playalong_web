@@ -1,5 +1,5 @@
 {
-  "ambientDependencies": {
+  "globalDevDependencies": {
     "angular": "github:DefinitelyTyped/DefinitelyTyped/angularjs/angular.d.ts#1c4a34873c9e70cce86edd0e61c559e43dfa5f75",
     "angular-local-storage": "registry:dt/angular-local-storage#0.1.5+20160317120654",
     "angular-translate": "github:DefinitelyTyped/DefinitelyTyped/angular-translate/angular-translate.d.ts#19850bf86c876e0c2544842114878ece4664941a",
