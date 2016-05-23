@@ -47,10 +47,11 @@
       $scope.chordContent = addChordImages($scope.chord.content);
     };  
 
-    $scope.setPopoverHtml = (chord) => {
+    $scope.setPopoverHtml = (chord: string) => {
+      chord = encodeURIComponent(chord.trim());
       return $sce.trustAsHtml(`
         <div>
-          <img src="guitar-chords/${chord.trim()}.png" height="100" width="85" alt="No chord Available" />
+          <img src="guitar-chords/${chord}.png" height="100" width="85" alt="No chord Available" />
         </div>
       `);   
     };
