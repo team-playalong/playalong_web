@@ -5,8 +5,9 @@
     ChordCtrl.$inject = [
         '$scope', '$rootScope', '$state', 'chords', '$stateParams',
         'toast', 'login', 'Common', '$timeout', 'plyTooltip', 'transposer', '$sce',
+        'EqualChordsMap',
     ];
-    function ChordCtrl($scope, $rootScope, $state, chords, $stateParams, toast, login, Common, $timeout, plyTooltip, transposer, $sce) {
+    function ChordCtrl($scope, $rootScope, $state, chords, $stateParams, toast, login, Common, $timeout, plyTooltip, transposer, $sce, EqualChordsMap) {
         $scope.login = login;
         $scope.initCtrl = function () {
             if (!!window.mixpanel) {
@@ -44,6 +45,10 @@
         };
         function addChordImages(chordContent) {
             var regex = /(<span class="chord">)([^<]+)(<\/span>)/g;
+            //Replace with equivalent chord image 
+            for (var chord in EqualChordsMap) {
+                chordContent = chordContent.replace(chord, EqualChordsMap[chord]);
+            }
             return chordContent.replace(regex, "<span class=\"chord\" popover-trigger=\"mouseenter\" uib-popover-html=\"setPopoverHtml('$2')\">$2</span>");
         }
         $scope.disableAutoscroll = function () {
