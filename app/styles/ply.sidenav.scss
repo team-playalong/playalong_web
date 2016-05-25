@@ -1,26 +1,27 @@
 @import '_ply.vars.scss';
 
 .ply-sidenav {
-	
+
 	.md-list-item-text {
-		width: 100%;		
+		width: 100%;
 		.md-primary {
+      padding-left: 40px;
 		}
 		i {
 			font-size: $ply-icon-lg;
 			margin-left: 10px;
-			color: $primary-text; 
+			color: $primary-text;
 		}
 		&.active {
 			background: $ply-pink;
 			opacity: 0.8;
 			.md-primary {
-				color: $ply-white; 
+				color: $ply-white;
 			}
 			i {
-				color: $ply-white; 
+				color: $ply-white;
 			}
 		}
-	}	
-	
+	}
+
 }
