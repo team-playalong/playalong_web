@@ -22,7 +22,7 @@ body {
 		min-width: 1px;
 		.ply-language-picker-option {
 			.md-text {
-				width: 65px; 
+				width: 65px;
 			}
 		}
 	}
@@ -33,15 +33,15 @@ body {
 	#plyContent {
 		background: $ply-grey-light;
 		.ply-main-container {
-			margin-top: 70px; 
+			margin-top: 70px;
 			&.sidebar-open {
 			}
-			
+
 			.ply-fab {
 				position: fixed;
 				bottom:15px;
 				.ply-fab-more {
-					padding: 15px; 
+					padding: 15px;
 				}
 				&.fab-left {
 					left:25px;
@@ -55,12 +55,12 @@ body {
 					&.ply-fab-icon-dark {
 						fill: #212121;
 					}
-				}	
+				}
 				.md-fab-action-item {
-					a { 
+					a {
 						display: flex;
 					}
-						
+
 				}
 			}
 		}
@@ -70,7 +70,7 @@ body {
 	  margin: 0;
 	  padding: 0;
 	  display: inline-block;
-	  
+
 	  li {
 	    padding: 1px;
 	    color: #ddd;
@@ -84,19 +84,19 @@ body {
 	  }
 	}
 
-	.footer { 
+	.footer {
 		background: $ply-grey-light;
 		.ply-alert-container {
 			float:right;
 			width: 30%;
 		}
-	}	
+	}
 }
 
 .ply-switch {
 	.md-bar {
 		background-color: $ply-divider;
-	} 
+	}
 }
 
 
@@ -108,9 +108,13 @@ md-toast {
 
 ply-spinner {
 	md-progress-circular {
-		z-index:1000;		
+		z-index:1000;
 		position: absolute;
 		top:50%;
-		left:50%;	
+		left:50%;
 	}
+}
+
+.eager-share-app {
+  top: 100px !important;
 }
