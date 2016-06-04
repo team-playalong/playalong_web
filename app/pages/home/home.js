@@ -32,7 +32,7 @@
         ];
         vm.searchConfig = {
             searchBy: vm.searchByOptions[0].value,
-            searchInput: ''
+            searchInput: '',
         };
         //Workaround due to translations
         setTimeout(function () {
@@ -66,8 +66,7 @@
             return deferred.promise;
         };
         vm.handleChordResults = function (results) {
-            if (!results || !results.length) { }
-            else {
+            if (results && results.length) {
                 vm.searchResults = results;
             }
         };
@@ -78,7 +77,12 @@
                 $rootScope.startSpin('stopSearchChordsSpinner');
             });
         };
-        vm.searchChords = function () {
+        vm.uppercaseFirstLetter = function (str) { return str.split(' ').map(function (s) { return s.charAt(0).toUpperCase() + s.slice(1); }).join(' '); };
+        vm.searchChords = function (numAttempts) {
+            if (numAttempts === void 0) { numAttempts = 1; }
+            if (numAttempts > 2) {
+                return;
+            }
             $rootScope.startSpin('startSearchChordsSpinner');
             vm.searchResults = [];
             chords.searchChordsBy(vm.searchConfig.searchBy, vm.searchConfig.searchInput)
@@ -87,9 +91,16 @@
                 vm.chordsFinallyHandler();
             })
                 .catch(function (error) {
-                vm.searchResults = [];
-                console.warn(error);
-                vm.chordsFinallyHandler();
+                //Try searching with an upper case for the first letter of each word
+                if (numAttempts < 2) {
+                    vm.searchConfig.searchInput = vm.uppercaseFirstLetter(vm.searchConfig.searchInput);
+                    vm.searchChords(++numAttempts);
+                }
+                else {
+                    vm.searchResults = [];
+                    console.warn(error);
+                    vm.chordsFinallyHandler();
+                }
             });
         };
         //For spinner event listening
