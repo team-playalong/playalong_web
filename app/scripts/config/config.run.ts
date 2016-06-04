@@ -50,8 +50,8 @@
     $sceProvider.enabled(false);
   });
 
-  app.config(['$tooltipProvider', function ($tooltipProvider) {
-    $tooltipProvider.options({
+  app.config(['$uibTooltipProvider', function($uibTooltipProvider) {
+    $uibTooltipProvider.options({
         appendToBody: true
     });
   }]);

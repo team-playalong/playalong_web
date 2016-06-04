@@ -28,8 +28,9 @@
                     if (data) {
                         vm.favorites = data;
                     }
+                    $rootScope.stopSpin();
                 })
-                    .finally($rootScope.stopSpin);
+                    .catch($rootScope.stopSpin);
             }
         };
         vm.login = login;

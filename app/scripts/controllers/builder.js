@@ -18,13 +18,15 @@
             $state.go('builder.edit', { id: chord.$id || chord.chordKey });
         };
         if ($stateParams && $stateParams.id) {
-            var result = chords.getChordById($stateParams.id);
-            if (result) {
-                //We now have a reference to the entire chord object
-                result.$bindTo($scope, "chord").then(function () {
-                    toast.showToastByTranslation('builder.alerts.START_EDIT');
-                });
-            }
+            chords.getChordById({ chordId: $stateParams.id, isFirebaseObject: true })
+                .then(function (result) {
+                if (result) {
+                    //We now have a reference to the entire chord object
+                    result.$bindTo($scope, "chord").then(function () {
+                        toast.showToastByTranslation('builder.alerts.START_EDIT');
+                    });
+                }
+            });
         }
         else {
             $scope.chord = {

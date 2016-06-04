@@ -22,7 +22,7 @@ describe('Controller: HomeCtrl', function () {
       $scope : scope,
       chords: chordsMockService
     });
-    
+
     //Ignores all html requests
     _$httpBackend_.whenGET(/views\/.*/).respond();
     _$httpBackend_.whenGET(/i18n/).respond();

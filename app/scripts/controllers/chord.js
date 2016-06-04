@@ -4,9 +4,10 @@
         .controller('ChordCtrl', ChordCtrl);
     ChordCtrl.$inject = [
         '$scope', '$rootScope', '$state', 'chords', '$stateParams',
-        'toast', 'login', 'Common', '$timeout', 'plyTooltip', 'transposer'
+        'toast', 'login', 'Common', '$timeout', 'plyTooltip', 'transposer', '$sce',
+        'EqualChordsMap',
     ];
-    function ChordCtrl($scope, $rootScope, $state, chords, $stateParams, toast, login, Common, $timeout, plyTooltip, transposer) {
+    function ChordCtrl($scope, $rootScope, $state, chords, $stateParams, toast, login, Common, $timeout, plyTooltip, transposer, $sce, EqualChordsMap) {
         $scope.login = login;
         $scope.initCtrl = function () {
             if (!!window.mixpanel) {
@@ -27,9 +28,8 @@
                 availableModes: ['md-fling', 'md-scale'],
                 selectedMode: 'md-fling',
                 availableDirections: ['up', 'down', 'left', 'right'],
-                selectedDirection: 'up'
+                selectedDirection: 'up',
             };
-            /*jshint unused:false*/
             //Disable autoscroll on redirect
             $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
                 if (fromState.name === 'chord') {
@@ -38,7 +38,20 @@
                     }, 0);
                 }
             });
+            $scope.chordContent = addChordImages($scope.chord.content);
         };
+        $scope.setPopoverHtml = function (chord) {
+            chord = encodeURIComponent(chord.trim());
+            return $sce.trustAsHtml("\n        <div>\n          <img src=\"guitar-chords/" + chord + ".png\" height=\"100\" width=\"85\" alt=\"No chord Available\" />\n        </div>\n      ");
+        };
+        function addChordImages(chordContent) {
+            var regex = /(<span class="chord">)([^<]+)(<\/span>)/g;
+            //Replace with equivalent chord image
+            for (var chord in EqualChordsMap) {
+                chordContent = chordContent.replace(chord, EqualChordsMap[chord]);
+            }
+            return chordContent.replace(regex, "<span class=\"chord\" popover-trigger=\"mouseenter\" uib-popover-html=\"setPopoverHtml('$2')\">$2</span>");
+        }
         $scope.disableAutoscroll = function () {
             $scope.autoscrollEnabled = false;
             $scope.autoscrollSpeed = 0;
@@ -57,18 +70,16 @@
         }
         else {
             if (!$scope.chord) {
-                var result = chords.getChordById($stateParams.chordKey);
-                if (result) {
-                    $rootScope.startSpin();
-                    //We now have a reference to the entire chord object
-                    result.$bindTo($scope, "chord")
-                        .then(function () {
+                $rootScope.startSpin();
+                chords.getChordById({ chordId: $stateParams.chordKey })
+                    .then(function (result) {
+                    if (result) {
+                        $scope.chord = result;
                         $scope.initCtrl();
-                    })
-                        .finally(function () {
                         $rootScope.stopSpin();
-                    });
-                }
+                    }
+                })
+                    .catch($rootScope.stopSpin);
             }
             else {
                 $scope.initCtrl();
