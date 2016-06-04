@@ -19,9 +19,9 @@
   ];
   function HomeCtrl($rootScope, chords,$translate,$q) {
     let vm = this;
-    
+
     if (!!window.mixpanel) {
-      window.mixpanel.track('ply_page_view_home');  
+      window.mixpanel.track('ply_page_view_home');
     }
     $rootScope.currPage = 'home.PAGE_TITLE';
     vm.searchByOptions = [
@@ -43,9 +43,9 @@
     setTimeout(function() {
       let elem = document.querySelector('md-select-value > span');
       if (!!elem) {
-        elem.textContent = 'Song Name';  
+        elem.textContent = 'Song Name';
       }
-      
+
     }, 200);
 
     vm.formatResultMessage = function() {
@@ -98,12 +98,15 @@
       $rootScope.startSpin('startSearchChordsSpinner');
       vm.searchResults = [];
       chords.searchChordsBy(vm.searchConfig.searchBy, vm.searchConfig.searchInput)
-      .then(vm.handleChordResults)
-      .catch(function(error) {
-        vm.searchResults = [];
-        console.warn(error);
-      })
-      .finally(vm.chordsFinallyHandler);
+        .then((data) => {
+          vm.handleChordResults(data);
+          vm.chordsFinallyHandler();
+        })
+        .catch(function(error) {
+          vm.searchResults = [];
+          console.warn(error);
+          vm.chordsFinallyHandler();
+        });
     };
 
     //For spinner event listening

@@ -46,7 +46,7 @@
         };
         function addChordImages(chordContent) {
             var regex = /(<span class="chord">)([^<]+)(<\/span>)/g;
-            //Replace with equivalent chord image 
+            //Replace with equivalent chord image
             for (var chord in EqualChordsMap) {
                 chordContent = chordContent.replace(chord, EqualChordsMap[chord]);
             }
@@ -70,18 +70,16 @@
         }
         else {
             if (!$scope.chord) {
-                var result = chords.getChordById($stateParams.chordKey);
-                if (result) {
-                    $rootScope.startSpin();
-                    //We now have a reference to the entire chord object
-                    result.$bindTo($scope, "chord")
-                        .then(function () {
+                $rootScope.startSpin();
+                chords.getChordById({ chordId: $stateParams.chordKey })
+                    .then(function (result) {
+                    if (result) {
+                        $scope.chord = result;
                         $scope.initCtrl();
-                    })
-                        .finally(function () {
                         $rootScope.stopSpin();
-                    });
-                }
+                    }
+                })
+                    .catch($rootScope.stopSpin);
             }
             else {
                 $scope.initCtrl();

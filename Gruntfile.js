@@ -9,7 +9,7 @@
 
 module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-protractor-runner');
-  
+
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
@@ -482,7 +482,7 @@ module.exports = function (grunt) {
 
     ts: {
       default: {
-        // specifying tsconfig as a boolean will use the 'tsconfig.json' in same folder as Gruntfile.js 
+        // specifying tsconfig as a boolean will use the 'tsconfig.json' in same folder as Gruntfile.js
         tsconfig: true
       }
     },
@@ -551,7 +551,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('default', [
-    'test',
+    // 'test',
     'build'
   ]);
 };

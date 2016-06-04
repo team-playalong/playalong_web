@@ -82,12 +82,15 @@
             $rootScope.startSpin('startSearchChordsSpinner');
             vm.searchResults = [];
             chords.searchChordsBy(vm.searchConfig.searchBy, vm.searchConfig.searchInput)
-                .then(vm.handleChordResults)
+                .then(function (data) {
+                vm.handleChordResults(data);
+                vm.chordsFinallyHandler();
+            })
                 .catch(function (error) {
                 vm.searchResults = [];
                 console.warn(error);
-            })
-                .finally(vm.chordsFinallyHandler);
+                vm.chordsFinallyHandler();
+            });
         };
         //For spinner event listening
         vm.triggerSearchChords = function () {

@@ -8,7 +8,7 @@
     "angular-material": "~0.10.0",
     "angular-ui-router": "~0.2.15",
     "fontawesome": "~4.3.0",
-    "playalong.services": "https://atardadi_:Popopo12@bitbucket.org/playalong/playalong_services.git",
+    "playalong.services": "https://bitbucket.org/playalong/playalong_services.git",
     "angular-animate": "~1.4.4",
     "textAngular": "~1.4.6",
     "Guitar-Tuner-Webapp": "https://github.com/oankarberg/Guitar-Tuner-Webapp.git",

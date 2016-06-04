@@ -2,33 +2,35 @@
   'use strict';
 
   BuilderCtrl.$inject = [
-    '$scope','chords', '$interval', '$timeout','$stateParams', 
+    '$scope','chords', '$interval', '$timeout','$stateParams',
     '$rootScope','toast','login','RegexStore','$state'
   ];
   function BuilderCtrl($scope,chords, $interval,$timeout,$stateParams,$rootScope,toast,login,RegexStore,$state) {
     if (!!window.mixpanel) {
-        window.mixpanel.track("ply_page_view_builder");  
+        window.mixpanel.track("ply_page_view_builder");
       }
     $scope.login = login;
     $rootScope.currPage = 'Chord Builder';
     $scope.chordRef = null; //Will reference the chord for Firebase process.binding
     $scope.flags = {
       isPreviewMode: false
-    };  
-
-    var handleChordSuccess = function(chord) {
-      $state.go('builder.edit',{id:chord.$id || chord.chordKey});
     };
 
-    if ($stateParams && $stateParams.id) //Meaning continue editing existing chord
-    {
-      var result = chords.getChordById($stateParams.id);
-      if (result) {
-        //We now have a reference to the entire chord object
-        result.$bindTo($scope, "chord").then(function() {
-          toast.showToastByTranslation('builder.alerts.START_EDIT');
-        });
-      }
+    var handleChordSuccess = function(chord) {
+      $state.go('builder.edit', {id: chord.$id || chord.chordKey});
+    };
+
+    if ($stateParams && $stateParams.id) { //Meaning continue editing existing chord
+      chords.getChordById({chordId: $stateParams.id, isFirebaseObject: true})
+      .then(result => {
+        if (result) {
+          //We now have a reference to the entire chord object
+          result.$bindTo($scope, "chord").then(function() {
+            toast.showToastByTranslation('builder.alerts.START_EDIT');
+          });
+        }
+      });
+
     }
     else {
       $scope.chord = {
@@ -47,7 +49,7 @@
             console.warn(error);
           });
       };
-    }  
+    }
 
 
     $scope.scanForChords = function(str){
@@ -71,7 +73,7 @@
       }
     };
     $scope.handleApproveChange = function() {
-      var toastText = $scope.chord && $scope.chord.approved ? 
+      var toastText = $scope.chord && $scope.chord.approved ?
                         'Chord approved' : 'Chord not approved';
       toast.showSimpleToast(toastText);
     };
@@ -83,5 +85,5 @@
 
   angular.module('playalongWebApp')
   .controller('BuilderCtrl',BuilderCtrl);
-  
+
 })();

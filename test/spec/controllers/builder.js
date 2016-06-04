@@ -23,11 +23,7 @@ describe('Controller: BuilderctrlCtrl', function () {
         return $q.when({});
       },
       getChordById: function() {
-        return {
-          $bindTo: function() {
-            return $q.when(mockData.getMockChord());
-          }
-        };
+        return $q.when({$bindTo: function() {return $q.when({})}});
       }
      };
     scope = $rootScope.$new();
@@ -38,7 +34,7 @@ describe('Controller: BuilderctrlCtrl', function () {
       toast: {
         showToastByTranslation: function() {},
         showSimpleToast: function() {},
-        
+
       }
     });
 
@@ -51,6 +47,6 @@ describe('Controller: BuilderctrlCtrl', function () {
   }));
 
   it('should initialize the scope', function () {
-    expect(scope).toBeDefined(); 
+    expect(scope).toBeDefined();
   });
 });

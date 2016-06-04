@@ -31,8 +31,9 @@
             chords.getTopChords(limitTo)
                 .then(function (data) {
                 vm.topChords = data;
+                $rootScope.stopSpin('stopTopChordsSpinner');
             })
-                .finally(function () {
+                .catch(function (error) {
                 $rootScope.stopSpin('stopTopChordsSpinner');
             });
         };

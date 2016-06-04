@@ -13,7 +13,7 @@
     $scope.login = login;
     $scope.initCtrl = function() {
       if (!!window.mixpanel) {
-        window.mixpanel.track("ply_page_view_chords");  
+        window.mixpanel.track("ply_page_view_chords");
       }
       $rootScope.currPage = $scope.chord.artist + ' - ' + $scope.chord.title;
       $rootScope.pageTitle = 'Playalong - ' + $scope.chord.artist + ' ' + $scope.chord.title;
@@ -45,7 +45,7 @@
 
 
       $scope.chordContent = addChordImages($scope.chord.content);
-    };  
+    };
 
     $scope.setPopoverHtml = (chord: string) => {
       chord = encodeURIComponent(chord.trim());
@@ -53,14 +53,14 @@
         <div>
           <img src="guitar-chords/${chord}.png" height="100" width="85" alt="No chord Available" />
         </div>
-      `);   
+      `);
     };
 
     function addChordImages(chordContent: string) {
-      
+
       const regex = /(<span class="chord">)([^<]+)(<\/span>)/g;
 
-      //Replace with equivalent chord image 
+      //Replace with equivalent chord image
       for (let chord in EqualChordsMap) {
         chordContent = chordContent.replace(chord, EqualChordsMap[chord]);
       }
@@ -88,20 +88,17 @@
       $state.go('home');
     }
     else {
-      if (!$scope.chord) //After refresh
-      {
-        var result = chords.getChordById($stateParams.chordKey);
-        if (result) {
-          $rootScope.startSpin();
-          //We now have a reference to the entire chord object
-          result.$bindTo($scope, "chord")
-          .then(function() {
+      if (!$scope.chord) { //After refresh
+        $rootScope.startSpin();
+        chords.getChordById({chordId: $stateParams.chordKey})
+        .then(result => {
+          if (result) {
+            $scope.chord = result;
             $scope.initCtrl();
-          })
-          .finally(function() {
             $rootScope.stopSpin();
-          });
-        }
+          }
+        })
+        .catch($rootScope.stopSpin);
       }
       else {
         $scope.initCtrl();
@@ -112,7 +109,7 @@
     $scope.transposition = 0;
     $scope.transposeChords = function(numTones) {
       var chords = angular.element(document.querySelectorAll('.ply-chord-container-content .chord'));
-      
+
       angular.forEach(chords, function(value){
         var oldText = angular.element(value).text();
         var newText = transposer.transpose(oldText, numTones);
@@ -122,5 +119,5 @@
       $scope.transposition += numTones;
     };
 
-  }  
+  }
 })();

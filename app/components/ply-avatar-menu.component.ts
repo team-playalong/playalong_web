@@ -1,6 +1,6 @@
 (function() {
 	'use strict';
-	
+
 	resetPassword.$inject = ['login', '$mdDialog'];
 	function resetPassword(login, $mdDialog) {
 		let ctrl = this;
@@ -15,7 +15,7 @@
 			.catch(error => {
 				ctrl.resetSuccess = false;
 				ctrl.resetError = true;
-			}); 
+			});
 		};
 	}
 
@@ -36,7 +36,7 @@
 			.catch(error => {
 				ctrl.changeSuccess = false;
 				ctrl.changeError = true;
-			}); 
+			});
 		};
 	}
 
@@ -49,7 +49,7 @@
 		ctrl.$onInit = () => {
 			ctrl.passwordText = 'password';
 		};
-		
+
 
 		ctrl.loginSocial = function(platform) {
 		  login.loginSocial(platform)
@@ -135,7 +135,7 @@
 			.then(function() {
 			}, function() {
 			});
-			
+
 		};
 
 		ctrl.openChangePasswordModal = (event) => {
@@ -194,7 +194,7 @@
 									<span translate=".CHANGE_ERROR" ng-if="ctrl.changeError"></span>
 			  	    	</div>
 			  	    </form>
-			  	      
+
 
 		  	    	</div>
 			  	  </md-dialog-content>
@@ -206,7 +206,7 @@
 			.then(function() {
 			}, function() {
 			});
-			
+
 		};
 
 		ctrl.setAvatarImage = function() {
@@ -214,10 +214,8 @@
 		    return paths.images.emptyAvatar;
 		  }
 		  else { //get the image from the auth object
-		    let auth = login.getAuth();
-		    if (auth && auth.provider) {
-		      return auth[auth.provider].profileImageURL;
-		    }
+		    let auth = login.getAuth() || {};
+        return auth.photoURL;
 		  }
 		};
 	}
