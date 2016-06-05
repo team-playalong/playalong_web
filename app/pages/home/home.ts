@@ -83,6 +83,7 @@
       }
     };
 
+
     vm.chordsFinallyHandler = function() {
       vm.formatResultMessage()
       .then(function(message) {
