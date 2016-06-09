@@ -10,14 +10,14 @@
     return {
       templateUrl: 'pages/home/home.template.html',
       controller: 'HomeCtrl',
-      controllerAs: 'home'
+      controllerAs: 'home',
     };
   }
 
   HomeCtrl.$inject = [
-    '$rootScope','chords', '$translate','$q'
+    '$rootScope', 'chords', '$translate', '$q',
   ];
-  function HomeCtrl($rootScope, chords,$translate,$q) {
+  function HomeCtrl($rootScope, chords, $translate, $q) {
     let vm = this;
 
     if (!!window.mixpanel) {
@@ -26,13 +26,13 @@
     $rootScope.currPage = 'home.PAGE_TITLE';
     vm.searchByOptions = [
       {
-        label: 'home.SONG_NAME',
-        value: 'title'
+        label: 'home.ARTIST',
+        value: 'artist',
       },
       {
-        label: 'home.ARTIST',
-        value: 'artist'
-      }
+        label: 'home.SONG_NAME',
+        value: 'title',
+      },
     ];
     vm.searchConfig = {
       searchBy: vm.searchByOptions[0].value,
@@ -49,32 +49,28 @@
     }, 200);
 
     vm.formatResultMessage = function() {
-      var deferred = $q.defer();
-      var toTranslate;
-      var manyResults;
-      if (!vm.searchResults || !vm.searchResults.length)
-      {
-        toTranslate = 'home.EMPTY_RESULT_MESSAGE';
-      }
-      else if (vm.searchResults && vm.searchResults.length === 1)
-      {
-        toTranslate = 'home.SINGLE_RESULT_MESSAGE';
-      }
-      else if (vm.searchResults && vm.searchResults.length > 1)
-      {
-        manyResults = true;
-        toTranslate = 'home.MANY_RESULT_MESSAGE';
-      }
-      $translate([toTranslate])
-      .then(function (translations) {
-        var res = translations[toTranslate];
-        if (manyResults && res.indexOf('{numResults}') !== -1) {
-          res = res.replace('{numResults}', vm.searchResults.length);
+      return new Promise((resolve, reject) => {
+        var toTranslate;
+        var manyResults;
+        if (!vm.searchResults || !vm.searchResults.length) {
+          toTranslate = 'home.EMPTY_RESULT_MESSAGE';
         }
-        deferred.resolve(res);
+        else if (vm.searchResults && vm.searchResults.length === 1) {
+          toTranslate = 'home.SINGLE_RESULT_MESSAGE';
+        }
+        else if (vm.searchResults && vm.searchResults.length > 1) {
+          manyResults = true;
+          toTranslate = 'home.MANY_RESULT_MESSAGE';
+        }
+        $translate([toTranslate])
+        .then(function (translations) {
+          var res = translations[toTranslate];
+          if (manyResults && res.indexOf('{numResults}') !== -1) {
+            res = res.replace('{numResults}', vm.searchResults.length);
+          }
+          resolve(res);
+        });
       });
-
-      return deferred.promise;
     };
 
     vm.handleChordResults = function(results) {
