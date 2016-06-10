@@ -2,14 +2,14 @@
   "name": "playalong-web",
   "version": "0.0.0",
   "dependencies": {
-    "angular": "^1.3.0",
+    "angular": "^1.5.0",
     "bootstrap-sass": "~3.3.5",
     "jquery": "~2.1.4",
     "angular-material": "~0.10.0",
     "angular-ui-router": "~0.2.15",
     "fontawesome": "~4.3.0",
     "playalong.services": "https://bitbucket.org/playalong/playalong_services.git",
-    "angular-animate": "~1.4.4",
+    "angular-animate": "~1.5.0",
     "textAngular": "~1.4.6",
     "Guitar-Tuner-Webapp": "https://github.com/oankarberg/Guitar-Tuner-Webapp.git",
     "angular-dragdrop": "~1.0.12",
@@ -26,12 +26,9 @@
   "appPath": "app",
   "moduleName": "playalongWebApp",
   "resolutions": {
-    "angular": "^1.3.0 || >1.4.0-beta.0",
-    "angular-bootstrap": "~0.13.3",
-    "flag-icon-css": "~0.8.5",
-    "angular-animate": "~1.4.4",
-    "angular-sanitize": "~1.4.8",
-    "angular-translate": "~2.11.0",
-    "messageformat": "^0.3.1"
+    "angular": "^1.5.0",
+    "angular-animate": "~1.5.0",
+    "angular-translate": "^2.9.2",
+    "angular-sanitize": "~1.4.8"
   }
 }
