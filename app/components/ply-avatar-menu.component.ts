@@ -209,13 +209,20 @@
 
 		};
 
-		ctrl.setAvatarImage = function() {
+    const DEFAULT_AVATAR_IMAGE = 'http://static1.squarespace.com/static/5446859fe4b00f6c90e96077/t/54ca8f77e4b06817122e0839/1422561145086/Horton.jpg';
+		ctrl.setAvatarImage = () => {
 		  if (!login.isLoggedIn()) {
-		    return paths.images.emptyAvatar;
+        return DEFAULT_AVATAR_IMAGE;
 		  }
 		  else { //get the image from the auth object
 		    let auth = login.getAuth() || {};
-        return auth.photoURL;
+        if (auth.photoURL) {
+          return auth.photoURL
+        }
+        else if (auth.providerData && auth.providerData[0]) {
+          return auth.providerData[0].photoURL;
+        }
+        return DEFAULT_AVATAR_IMAGE;
 		  }
 		};
 	}
