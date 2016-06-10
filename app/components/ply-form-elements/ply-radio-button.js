@@ -13,9 +13,6 @@
             plyRadioData: '=',
             plyModel: '=',
         },
-        controller: function () {
-            console.log('obj');
-        },
     });
 })();
 //# sourceMappingURL=ply-radio-button.js.map
