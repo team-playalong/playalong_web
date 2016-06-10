@@ -51,6 +51,11 @@
         $rootScope.stopSpin = function (eventName) {
             $scope.$broadcast(eventName || 'stopSpin');
         };
+        $rootScope.$on('plyUserLoggedIn', function (scope, data) {
+            if (window.ga && data && data.uid) {
+                window.ga('set', 'userId', data.uid); // Set the user ID using signed-in user_id.
+            }
+        });
         $scope.initCtrl();
     }
 })();
