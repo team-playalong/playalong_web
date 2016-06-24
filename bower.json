@@ -8,7 +8,7 @@
     "angular-material": "~0.10.0",
     "angular-ui-router": "~0.2.15",
     "fontawesome": "~4.3.0",
-    "playalong.services": "https://atardadi_:Popopo12@bitbucket.org/playalong/playalong_services.git",
+    "playalong.services": "https://github.com/team-playalong/playalong_services.git",
     "angular-bootstrap": "~0.13.3",
     "angular-animate": "~1.4.4",
     "textAngular": "~1.4.6",

@@ -29,14 +29,14 @@
   		if (vm.userModel && vm.userModel.userKey)
   		{
   			$rootScope.startSpin();
-  			user.getFavorites(vm.userModel.userKey)
-	  		.then(function(data) {
-	  			if (data)
-	  			{
-	  				vm.favorites = data;
-	  			}
-	  		})
-	  		.finally($rootScope.stopSpin);	
+        user.getFavorites(vm.userModel.userKey)
+          .then(function(data) {
+            if (data) {
+              vm.favorites = data;
+              $rootScope.stopSpin();
+            }
+          })
+          .catch(() => $rootScope.stopSpin());
   		}
   		
   	};

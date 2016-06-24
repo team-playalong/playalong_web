@@ -27,9 +27,10 @@
                     .then(function (data) {
                     if (data) {
                         vm.favorites = data;
+                        $rootScope.stopSpin();
                     }
                 })
-                    .finally($rootScope.stopSpin);
+                    .catch(function () { return $rootScope.stopSpin(); });
             }
         };
         vm.login = login;

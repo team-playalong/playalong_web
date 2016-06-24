@@ -59,10 +59,6 @@
       }
     };
 
-    $scope.isSuperUser = function() {
-      return login.getUser() && login.getUser().userType.indexOf('superuser') !== -1;
-    };
-
     if (!$stateParams.chordKey) {
       $state.go('home');
     }
@@ -74,12 +70,11 @@
           $rootScope.startSpin();
           //We now have a reference to the entire chord object
           result.$bindTo($scope, "chord")
-          .then(function() {
-            $scope.initCtrl();
-          })
-          .finally(function() {
-            $rootScope.stopSpin();
-          });
+            .then(function() {
+              $scope.initCtrl();
+              $rootScope.stopSpin();
+            })
+            .catch(() => $rootScope.stopSpin());
         }
       }
       else {

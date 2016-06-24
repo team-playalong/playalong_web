@@ -83,6 +83,7 @@
       else {
         vm.searchResults = results;
       }
+      vm.chordsFinallyHandler();
     };
 
     vm.chordsFinallyHandler = function() {
@@ -98,12 +99,12 @@
       $rootScope.startSpin('startSearchChordsSpinner');
       vm.searchResults = [];
       chords.searchChordsBy(vm.searchConfig.searchBy, vm.searchConfig.searchInput)
-      .then(vm.handleChordResults)
-      .catch(function(error) {
-        vm.searchResults = [];
-        console.warn(error);
-      })
-      .finally(vm.chordsFinallyHandler);
+        .then(vm.handleChordResults)
+        .catch(function(error) {
+          vm.searchResults = [];
+          console.warn(error);
+          vm.chordsFinallyHandler();
+        });
     };
 
     //For spinner event listening

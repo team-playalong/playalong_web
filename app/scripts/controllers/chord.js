@@ -49,9 +49,6 @@
                 $scope.disableAutoscroll();
             }
         };
-        $scope.isSuperUser = function () {
-            return login.getUser() && login.getUser().userType.indexOf('superuser') !== -1;
-        };
         if (!$stateParams.chordKey) {
             $state.go('home');
         }
@@ -64,10 +61,9 @@
                     result.$bindTo($scope, "chord")
                         .then(function () {
                         $scope.initCtrl();
-                    })
-                        .finally(function () {
                         $rootScope.stopSpin();
-                    });
+                    })
+                        .catch(function () { return $rootScope.stopSpin(); });
                 }
             }
             else {

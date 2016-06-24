@@ -37,12 +37,11 @@ TopchordsCtrl.$inject = ['chords','$rootScope','$translate'];
 		limitTo = limitTo || vm.defaultTopLimit;
 
 		chords.getTopChords(limitTo)
-		.then(function(data) {
-			vm.topChords = data;
-		})
-		.finally(function() {
-			$rootScope.stopSpin('stopTopChordsSpinner');
-		});
+			.then(function(data) {
+				vm.topChords = data;
+				$rootScope.stopSpin('stopTopChordsSpinner');
+			})
+			.catch(() => $rootScope.stopSpin('stopTopChordsSpinner'));
 	};
 
 	//Race condition with spinner directive

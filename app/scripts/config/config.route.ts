@@ -84,6 +84,14 @@ function RouteConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvid
       url: '/new',
       templateUrl: '../../views/builder.html',
       controller: 'BuilderCtrl'
+    })
+    .state('admin', {
+      url: '/admin',
+      template: '<admin></admin>',
+    })
+    .state('admin.weeklyChart', {
+      url: '/weeklyChart',
+      template: '<admin-weekly-chart></admin-weekly-chart>',
     });
 
   $urlRouterProvider.otherwise('/home');

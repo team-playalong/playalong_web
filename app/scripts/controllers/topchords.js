@@ -31,10 +31,9 @@
             chords.getTopChords(limitTo)
                 .then(function (data) {
                 vm.topChords = data;
-            })
-                .finally(function () {
                 $rootScope.stopSpin('stopTopChordsSpinner');
-            });
+            })
+                .catch(function () { return $rootScope.stopSpin('stopTopChordsSpinner'); });
         };
         //Race condition with spinner directive
         setTimeout(function () {
