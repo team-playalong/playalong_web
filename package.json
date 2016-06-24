@@ -3,7 +3,7 @@
   "private": true,
   "devDependencies": {
     "grunt": "^1.0.1",
-    "grunt-angular-templates": "^0.5.7",
+    "grunt-angular-templates": "^1.0.4",
     "grunt-autoprefixer": "^2.0.0",
     "grunt-cli": "^1.2.0",
     "grunt-concurrent": "^2.3.0",
