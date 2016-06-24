@@ -4,7 +4,7 @@
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-angular-templates": "^1.0.4",
-    "grunt-autoprefixer": "^2.0.0",
+    "grunt-autoprefixer": "^3.0.4",
     "grunt-cli": "^1.2.0",
     "grunt-concurrent": "^2.3.0",
     "grunt-contrib-clean": "^0.6.0",
