@@ -7,13 +7,13 @@
             template: '<md-progress-circular class="md-accent md-hue-1 ply-spinner" md-mode="{{modes[2]}}" md-diameter="60"></md-progress-circular>',
             restrict: 'EA',
             link: function postLink(scope, element, attrs) {
-                element.hide();
+                element.css('display', 'none');
                 scope.$on(attrs.triggerStartEvent, function () {
-                    element.show();
-                    setTimeout(function () { return element.hide(); }, DEFAULT_TIMEOUT);
+                    element.css('display', 'block');
+                    setTimeout(function () { return element.css('display', 'none'); }, DEFAULT_TIMEOUT);
                 });
                 scope.$on(attrs.triggerStopEvent, function () {
-                    element.hide();
+                    element.css('display', 'none');
                 });
                 var j = 0;
                 var counter = 0;

@@ -1,4 +1,3 @@
-/// <reference path="../../ply.d.ts" />
 (function() {
   'use strict';
 

@@ -13,16 +13,16 @@ angular.module('playalongWebApp')
     link: function postLink(scope, element/*, attrs*/) {
       if (!login.isLoggedIn())
       {
-        element.hide();
+        element.css('display', 'block');
       }
       scope.$on('plyUserLoggedIn', function(){
         element.show();
       });
       scope.$on('plyUserLoggedOut',function() {
-        element.hide();
+        element.css('display', 'none');
       });
-    } 
+    }
   };
 }]);
-  
+
 })();

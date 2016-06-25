@@ -2,7 +2,7 @@
     'use strict';
     angular.module('playalongWebApp')
         .component('admin', {
-        template: '<ui-view></ui-view>',
+        template: "\n        <ui-view></ui-view>\n      ",
         controller: function () {
         },
     });
