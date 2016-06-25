@@ -7,8 +7,11 @@ describe('Service: Common', function () {
 
   // instantiate service
   var Common;
-  beforeEach(inject(function (_Common_) {
+  var login;
+  var res;
+  beforeEach(inject(function (_Common_, _login_) {
     Common = _Common_;
+    login = _login_;
   }));
 
   it('should check if content is RTL', function () {

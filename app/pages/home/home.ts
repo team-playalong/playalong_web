@@ -77,6 +77,7 @@
       if (results && results.length) {
         vm.searchResults = results;
       }
+      vm.chordsFinallyHandler();
     };
 
 

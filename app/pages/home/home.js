@@ -69,6 +69,7 @@
             if (results && results.length) {
                 vm.searchResults = results;
             }
+            vm.chordsFinallyHandler();
         };
         vm.chordsFinallyHandler = function () {
             vm.formatResultMessage()

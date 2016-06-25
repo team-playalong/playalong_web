@@ -62,9 +62,6 @@
                 $scope.disableAutoscroll();
             }
         };
-        $scope.isSuperUser = function () {
-            return login.getUser() && login.getUser().userType.indexOf('superuser') !== -1;
-        };
         if (!$stateParams.chordKey) {
             $state.go('home');
         }
