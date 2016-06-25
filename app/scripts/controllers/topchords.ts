@@ -36,17 +36,19 @@ TopchordsCtrl.$inject = ['chords','$rootScope','$translate'];
 		$rootScope.startSpin('startTopChordsSpinner');
 		limitTo = limitTo || vm.defaultTopLimit;
 
-		chords.getTopChords(limitTo)
-			.then(function(data) {
-				vm.topChords = data;
-				$rootScope.stopSpin('stopTopChordsSpinner');
-			})
-			.catch(() => $rootScope.stopSpin('stopTopChordsSpinner'));
+    chords.getTopChords(limitTo)
+      .then(function(data) {
+        vm.topChords = data;
+        $rootScope.stopSpin('stopTopChordsSpinner');
+      })
+      .catch((error) => {
+        $rootScope.stopSpin('stopTopChordsSpinner');
+      });
 	};
 
 	//Race condition with spinner directive
 	setTimeout(function() {
 		vm.getTopChords();
 	},20);
-}	
+}
 })();

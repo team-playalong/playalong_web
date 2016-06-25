@@ -10,81 +10,76 @@
     return {
       templateUrl: 'pages/home/home.template.html',
       controller: 'HomeCtrl',
-      controllerAs: 'home'
+      controllerAs: 'home',
     };
   }
 
   HomeCtrl.$inject = [
-    '$rootScope','chords', '$translate','$q'
+    '$rootScope', 'chords', '$translate', '$q',
   ];
-  function HomeCtrl($rootScope, chords,$translate,$q) {
+  function HomeCtrl($rootScope, chords, $translate, $q) {
     let vm = this;
-    
+
     if (!!window.mixpanel) {
-      window.mixpanel.track('ply_page_view_home');  
+      window.mixpanel.track('ply_page_view_home');
     }
     $rootScope.currPage = 'home.PAGE_TITLE';
     vm.searchByOptions = [
       {
-        label: 'home.SONG_NAME',
-        value: 'title'
+        label: 'home.ARTIST',
+        value: 'artist',
       },
       {
-        label: 'home.ARTIST',
-        value: 'artist'
-      }
+        label: 'home.SONG_NAME',
+        value: 'title',
+      },
     ];
     vm.searchConfig = {
       searchBy: vm.searchByOptions[0].value,
-      searchInput: ''
+      searchInput: '',
     };
 
     //Workaround due to translations
     setTimeout(function() {
       let elem = document.querySelector('md-select-value > span');
       if (!!elem) {
-        elem.textContent = 'Song Name';  
+        elem.textContent = 'Song Name';
       }
-      
+
     }, 200);
 
     vm.formatResultMessage = function() {
-      var deferred = $q.defer();
-      var toTranslate;
-      var manyResults;
-      if (!vm.searchResults || !vm.searchResults.length)
-      {
-        toTranslate = 'home.EMPTY_RESULT_MESSAGE';
-      }
-      else if (vm.searchResults && vm.searchResults.length === 1)
-      {
-        toTranslate = 'home.SINGLE_RESULT_MESSAGE';
-      }
-      else if (vm.searchResults && vm.searchResults.length > 1)
-      {
-        manyResults = true;
-        toTranslate = 'home.MANY_RESULT_MESSAGE';
-      }
-      $translate([toTranslate])
-      .then(function (translations) {
-        var res = translations[toTranslate];
-        if (manyResults && res.indexOf('{numResults}') !== -1)
-        {
-          res = res.replace('{numResults}',vm.searchResults.length);
+      return new Promise((resolve, reject) => {
+        var toTranslate;
+        var manyResults;
+        if (!vm.searchResults || !vm.searchResults.length) {
+          toTranslate = 'home.EMPTY_RESULT_MESSAGE';
         }
-        deferred.resolve(res);
+        else if (vm.searchResults && vm.searchResults.length === 1) {
+          toTranslate = 'home.SINGLE_RESULT_MESSAGE';
+        }
+        else if (vm.searchResults && vm.searchResults.length > 1) {
+          manyResults = true;
+          toTranslate = 'home.MANY_RESULT_MESSAGE';
+        }
+        $translate([toTranslate])
+        .then(function (translations) {
+          var res = translations[toTranslate];
+          if (manyResults && res.indexOf('{numResults}') !== -1) {
+            res = res.replace('{numResults}', vm.searchResults.length);
+          }
+          resolve(res);
+        });
       });
-
-      return deferred.promise;
     };
 
     vm.handleChordResults = function(results) {
-      if (!results || !results.length) {}
-      else {
+      if (results && results.length) {
         vm.searchResults = results;
       }
       vm.chordsFinallyHandler();
     };
+
 
     vm.chordsFinallyHandler = function() {
       vm.formatResultMessage()
@@ -95,15 +90,31 @@
       });
     };
 
-    vm.searchChords = function() {
+
+    vm.uppercaseFirstLetter = str => str.split(' ').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
+
+    vm.searchChords = (numAttempts = 1) => {
+      if (numAttempts > 2) { return; }
       $rootScope.startSpin('startSearchChordsSpinner');
       vm.searchResults = [];
       chords.searchChordsBy(vm.searchConfig.searchBy, vm.searchConfig.searchInput)
-        .then(vm.handleChordResults)
-        .catch(function(error) {
-          vm.searchResults = [];
-          console.warn(error);
+        .then((data) => {
+          vm.handleChordResults(data);
           vm.chordsFinallyHandler();
+        })
+        .catch(function(error) {
+
+          //Try searching with an upper case for the first letter of each word
+          if (numAttempts < 2) {
+            vm.searchConfig.searchInput = vm.uppercaseFirstLetter(vm.searchConfig.searchInput);
+            vm.searchChords(++numAttempts);
+          }
+          else {
+            vm.searchResults = [];
+            console.warn(error);
+            vm.chordsFinallyHandler();
+          }
+
         });
     };
 

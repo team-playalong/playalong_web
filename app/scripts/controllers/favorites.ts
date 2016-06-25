@@ -4,7 +4,7 @@
 	angular.module('playalongWebApp')
   .directive('plyFavorites',PlyFavorites)
   .controller('FavoritesCtrl',FavoritesCtrl);
-	
+
 
   function PlyFavorites() {
     return {
@@ -21,7 +21,7 @@
 	function FavoritesCtrl(login,user,$rootScope,$scope) {
     var vm = this;
     if (!!window.mixpanel) {
-      window.mixpanel.track("ply_page_view_favorites");  
+      window.mixpanel.track("ply_page_view_favorites");
     }
 		$rootScope.currPage = 'favorites.PAGE_TITLE';
   	vm.init = function() {
@@ -29,16 +29,17 @@
   		if (vm.userModel && vm.userModel.userKey)
   		{
   			$rootScope.startSpin();
-        user.getFavorites(vm.userModel.userKey)
-          .then(function(data) {
-            if (data) {
-              vm.favorites = data;
-              $rootScope.stopSpin();
-            }
-          })
-          .catch(() => $rootScope.stopSpin());
+  			user.getFavorites(vm.userModel.userKey)
+	  		.then(function(data) {
+	  			if (data)
+	  			{
+	  				vm.favorites = data;
+	  			}
+          $rootScope.stopSpin();
+	  		})
+          .catch($rootScope.stopSpin)
   		}
-  		
+
   	};
     vm.login = login;
     if (login.isLoggedIn())

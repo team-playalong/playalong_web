@@ -1,6 +1,6 @@
 (function() {
 	'use strict';
-	
+
 	resetPassword.$inject = ['login', '$mdDialog'];
 	function resetPassword(login, $mdDialog) {
 		let ctrl = this;
@@ -15,7 +15,7 @@
 			.catch(error => {
 				ctrl.resetSuccess = false;
 				ctrl.resetError = true;
-			}); 
+			});
 		};
 	}
 
@@ -36,7 +36,7 @@
 			.catch(error => {
 				ctrl.changeSuccess = false;
 				ctrl.changeError = true;
-			}); 
+			});
 		};
 	}
 
@@ -49,7 +49,7 @@
 		ctrl.$onInit = () => {
 			ctrl.passwordText = 'password';
 		};
-		
+
 
 		ctrl.loginSocial = function(platform) {
 		  login.loginSocial(platform)
@@ -135,7 +135,7 @@
 			.then(function() {
 			}, function() {
 			});
-			
+
 		};
 
 		ctrl.openChangePasswordModal = (event) => {
@@ -194,7 +194,7 @@
 									<span translate=".CHANGE_ERROR" ng-if="ctrl.changeError"></span>
 			  	    	</div>
 			  	    </form>
-			  	      
+
 
 		  	    	</div>
 			  	  </md-dialog-content>
@@ -206,18 +206,23 @@
 			.then(function() {
 			}, function() {
 			});
-			
+
 		};
 
-		ctrl.setAvatarImage = function() {
+    const DEFAULT_AVATAR_IMAGE = 'http://static1.squarespace.com/static/5446859fe4b00f6c90e96077/t/54ca8f77e4b06817122e0839/1422561145086/Horton.jpg';
+		ctrl.setAvatarImage = () => {
 		  if (!login.isLoggedIn()) {
-		    return paths.images.emptyAvatar;
+        return DEFAULT_AVATAR_IMAGE;
 		  }
 		  else { //get the image from the auth object
-		    let auth = login.getAuth();
-		    if (auth && auth.provider) {
-		      return auth[auth.provider].profileImageURL;
-		    }
+		    let auth = login.getAuth() || {};
+        if (auth.photoURL) {
+          return auth.photoURL
+        }
+        else if (auth.providerData && auth.providerData[0]) {
+          return auth.providerData[0].photoURL;
+        }
+        return DEFAULT_AVATAR_IMAGE;
 		  }
 		};
 	}

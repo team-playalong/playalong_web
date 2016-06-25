@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "playalong-prod": "playalong-prod",
+    "default": "playalong-prod"
+  }
+}

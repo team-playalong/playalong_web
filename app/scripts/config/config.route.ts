@@ -9,19 +9,19 @@ app.config(RouteConfig);
 RouteConfig.$inject = ['$stateProvider','$urlRouterProvider'];
 function RouteConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvider) {
   $stateProvider
-    .state("home",{ 
+    .state("home",{
       url: "/home",
       template: '<ply-home></ply-home>',
       data: {
         title: 'Chord Search'
       }
     })
-    .state("chord", { 
+    .state("chord", {
       url: "/chord/:chordKey",
-      templateUrl: '../../views/chord.html',    
+      templateUrl: '../../views/chord.html',
       controller: 'ChordCtrl'
     })
-    .state('topChords',  { 
+    .state('topChords',  {
         url: '/topChords',
         templateUrl: '../../views/topChords.html',
         controller: 'TopchordsCtrl',
@@ -30,14 +30,14 @@ function RouteConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvid
           title: 'Top Chords'
         }
     })
-    .state('favorites',  { 
+    .state('favorites',  {
         url: '/favorites',
         template: '<ply-favorites></ply-favorites>',
         data: {
           title: 'Favorites'
         }
     })
-    .state('tuner',  { 
+    .state('tuner',  {
         url: '/tuner',
         templateUrl: 'pages/tuner/tuner.html',
         controller: 'TunerCtrl',
@@ -45,7 +45,7 @@ function RouteConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvid
           title: 'Tuner'
         }
     })
-    .state('metronome',  { 
+    .state('metronome',  {
         url: '/metronome',
         templateUrl: 'pages/metronome/metronome.html',
         controller: 'MetronomeCtrl',
@@ -53,7 +53,7 @@ function RouteConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvid
           title: 'Metronome'
         }
     })
-    .state('suggestions',  { 
+    .state('suggestions',  {
         url: '/suggestions',
         templateUrl: 'pages/suggestions/suggestions.html',
         controller: 'MetronomeCtrl',
@@ -61,29 +61,31 @@ function RouteConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvid
           title: 'Metronome'
         }
     })
-    
-    .state('builder', { 
-      url: '/builder',        
-      template: '<div ui-view></div>', 
-      abstract: true
+
+    .state('builder', {
+      url: '/builder',
+      template: '<div ui-view></div>',
+      abstract: true,
     })
-    .state('builder.edit', { 
+    .state('builder.edit', {
       url: '/edit/:id',
-      resolve: {
-        // controller will not be loaded until $waitForAuth resolves
-        // Auth refers to our $firebaseAuth wrapper in the example above
-        "currentAuth": ["Auth", function(Auth) {
-          // $waitForAuth returns a promise so the resolve waits for it to complete
-          return Auth.$waitForAuth();
-        }]
-      },
+      // resolve: {
+
+      //   // controller will not be loaded until $waitForAuth resolves
+      //   // Auth refers to our $firebaseAuth wrapper in the example above
+      //   currentAuth: ['Auth', Auth => {
+      //     debugger;
+      //     // $waitForAuth returns a promise so the resolve waits for it to complete
+      //     return Auth.$waitForAuth();
+      //   }],
+      // },
       templateUrl: '../../views/builder.html',
-      controller: 'BuilderCtrl'
+      controller: 'BuilderCtrl',
     })
-    .state('builder.new', { 
+    .state('builder.new', {
       url: '/new',
       templateUrl: '../../views/builder.html',
-      controller: 'BuilderCtrl'
+      controller: 'BuilderCtrl',
     })
     .state('admin', {
       url: '/admin',
@@ -96,5 +98,5 @@ function RouteConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvid
 
   $urlRouterProvider.otherwise('/home');
 }
-  
+
 })();

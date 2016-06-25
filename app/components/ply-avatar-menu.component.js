@@ -85,7 +85,7 @@
                 controller: changePassword,
                 bindToController: true,
                 controllerAs: 'ctrl',
-                template: "\n\t\t\t  \t<md-dialog aria-label=\"Change Password\"\n\t\t\t  \t\tflex=\"1\"\n\t\t\t  \t  ng-cloak translate-namespace=\"toolbar.login\">\n\t\t\t  \t  <md-toolbar>\n\t\t\t  \t    <div class=\"md-toolbar-tools\">\n\t\t\t  \t      <h2 translate=\".CHANGE_PASSWORD\"></h2>\n\t\t\t  \t      <span flex></span>\n\t\t\t  \t      <md-button class=\"md-icon-button\" ng-click=\"ctrl.$mdDialog.cancel()\">\n\t\t\t  \t        &times;\n\t\t\t  \t      </md-button>\n\t\t\t  \t    </div>\n\t\t\t  \t  </md-toolbar>\n\t\t\t  \t  <md-dialog-content>\n\t\t\t  \t    <div class=\"md-dialog-content\">\n\t\t\t  \t    <form name=\"changePassword\">\n\t\t\t  \t      <div layout=\"row\" layout-sm=\"column\">\n\t\t\t  \t      \t<div flex=\"2\">\n\t\t\t  \t      \t\t\t<ply-text-input\n\t\t\t  \t      \t\t\t\ttext-input-type=\"ctrl.emailType\"\n\t\t\t  \t      \t      text-input-label=\"'.EMAIL'\"\n\t\t\t  \t      \t      text-input-model=\"ctrl.email\">\n\t\t\t  \t      \t    </ply-text-input>\n\t\t\t  \t      \t</div>\n\t\t\t  \t      \t<div flex=\"2\">\n\t\t\t  \t      \t\t\t<ply-text-input\n\t\t\t  \t      \t\t\t\ttext-input-type=\"ctrl.passwordType\"\n\t\t\t  \t      \t      text-input-label=\"'.OLD_PASSWORD'\"\n\t\t\t  \t      \t      text-input-model=\"ctrl.oldPassword\">\n\t\t\t  \t      \t    </ply-text-input>\n\t\t\t  \t      \t</div>\n\t\t\t  \t      \t<div flex=\"2\">\n\t\t\t  \t      \t\t\t<ply-text-input\n\t\t\t  \t      \t\t\t\ttext-input-type=\"ctrl.passwordType\"\n\t\t\t  \t      \t      text-input-label=\"'.NEW_PASSWORD'\"\n\t\t\t  \t      \t      text-input-model=\"ctrl.newPassword\">\n\t\t\t  \t      \t    </ply-text-input>\n\t\t\t  \t      \t</div>\n  \t\t\t  \t    \t<div flex=\"1\">\n  \t  \t      \t\t\t<md-button class=\"md-raised md-hue-1\"\n  \t  \t      \t\t\t  aria-label=\"Change Password\"\n  \t  \t      \t\t\t  translate=\".CHANGE_PASSWORD\"\n  \t  \t      \t\t\t  ng-click=\"ctrl.changePassword(ctrl.email, ctrl.oldPassword, ctrl.newPassword)\">\n  \t  \t      \t\t\t</md-button>\n  \t\t  \t      \t</div>\n\t\t\t  \t    \t</div>\n\t\t\t  \t    \t<div layout=\"row\">\n\t\t\t\t\t\t\t\t\t<span translate=\".CHANGE_MESSAGE\" ng-if=\"ctrl.changeSuccess\"></span>\n\t\t\t\t\t\t\t\t\t<span translate=\".CHANGE_ERROR\" ng-if=\"ctrl.changeError\"></span>\n\t\t\t  \t    \t</div>\n\t\t\t  \t    </form>\n\t\t\t  \t      \n\n\t\t  \t    \t</div>\n\t\t\t  \t  </md-dialog-content>\n\t\t\t  \t</md-dialog>\n\t\t\t  ",
+                template: "\n\t\t\t  \t<md-dialog aria-label=\"Change Password\"\n\t\t\t  \t\tflex=\"1\"\n\t\t\t  \t  ng-cloak translate-namespace=\"toolbar.login\">\n\t\t\t  \t  <md-toolbar>\n\t\t\t  \t    <div class=\"md-toolbar-tools\">\n\t\t\t  \t      <h2 translate=\".CHANGE_PASSWORD\"></h2>\n\t\t\t  \t      <span flex></span>\n\t\t\t  \t      <md-button class=\"md-icon-button\" ng-click=\"ctrl.$mdDialog.cancel()\">\n\t\t\t  \t        &times;\n\t\t\t  \t      </md-button>\n\t\t\t  \t    </div>\n\t\t\t  \t  </md-toolbar>\n\t\t\t  \t  <md-dialog-content>\n\t\t\t  \t    <div class=\"md-dialog-content\">\n\t\t\t  \t    <form name=\"changePassword\">\n\t\t\t  \t      <div layout=\"row\" layout-sm=\"column\">\n\t\t\t  \t      \t<div flex=\"2\">\n\t\t\t  \t      \t\t\t<ply-text-input\n\t\t\t  \t      \t\t\t\ttext-input-type=\"ctrl.emailType\"\n\t\t\t  \t      \t      text-input-label=\"'.EMAIL'\"\n\t\t\t  \t      \t      text-input-model=\"ctrl.email\">\n\t\t\t  \t      \t    </ply-text-input>\n\t\t\t  \t      \t</div>\n\t\t\t  \t      \t<div flex=\"2\">\n\t\t\t  \t      \t\t\t<ply-text-input\n\t\t\t  \t      \t\t\t\ttext-input-type=\"ctrl.passwordType\"\n\t\t\t  \t      \t      text-input-label=\"'.OLD_PASSWORD'\"\n\t\t\t  \t      \t      text-input-model=\"ctrl.oldPassword\">\n\t\t\t  \t      \t    </ply-text-input>\n\t\t\t  \t      \t</div>\n\t\t\t  \t      \t<div flex=\"2\">\n\t\t\t  \t      \t\t\t<ply-text-input\n\t\t\t  \t      \t\t\t\ttext-input-type=\"ctrl.passwordType\"\n\t\t\t  \t      \t      text-input-label=\"'.NEW_PASSWORD'\"\n\t\t\t  \t      \t      text-input-model=\"ctrl.newPassword\">\n\t\t\t  \t      \t    </ply-text-input>\n\t\t\t  \t      \t</div>\n  \t\t\t  \t    \t<div flex=\"1\">\n  \t  \t      \t\t\t<md-button class=\"md-raised md-hue-1\"\n  \t  \t      \t\t\t  aria-label=\"Change Password\"\n  \t  \t      \t\t\t  translate=\".CHANGE_PASSWORD\"\n  \t  \t      \t\t\t  ng-click=\"ctrl.changePassword(ctrl.email, ctrl.oldPassword, ctrl.newPassword)\">\n  \t  \t      \t\t\t</md-button>\n  \t\t  \t      \t</div>\n\t\t\t  \t    \t</div>\n\t\t\t  \t    \t<div layout=\"row\">\n\t\t\t\t\t\t\t\t\t<span translate=\".CHANGE_MESSAGE\" ng-if=\"ctrl.changeSuccess\"></span>\n\t\t\t\t\t\t\t\t\t<span translate=\".CHANGE_ERROR\" ng-if=\"ctrl.changeError\"></span>\n\t\t\t  \t    \t</div>\n\t\t\t  \t    </form>\n\n\n\t\t  \t    \t</div>\n\t\t\t  \t  </md-dialog-content>\n\t\t\t  \t</md-dialog>\n\t\t\t  ",
                 parent: angular.element(document.body),
                 clickOutsideToClose: true,
             })
@@ -93,15 +93,20 @@
             }, function () {
             });
         };
+        var DEFAULT_AVATAR_IMAGE = 'http://static1.squarespace.com/static/5446859fe4b00f6c90e96077/t/54ca8f77e4b06817122e0839/1422561145086/Horton.jpg';
         ctrl.setAvatarImage = function () {
             if (!login.isLoggedIn()) {
-                return paths.images.emptyAvatar;
+                return DEFAULT_AVATAR_IMAGE;
             }
             else {
-                var auth = login.getAuth();
-                if (auth && auth.provider) {
-                    return auth[auth.provider].profileImageURL;
+                var auth = login.getAuth() || {};
+                if (auth.photoURL) {
+                    return auth.photoURL;
                 }
+                else if (auth.providerData && auth.providerData[0]) {
+                    return auth.providerData[0].photoURL;
+                }
+                return DEFAULT_AVATAR_IMAGE;
             }
         };
     }
