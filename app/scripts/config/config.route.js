@@ -60,25 +60,26 @@
             .state('builder', {
             url: '/builder',
             template: '<div ui-view></div>',
-            abstract: true
+            abstract: true,
         })
             .state('builder.edit', {
             url: '/edit/:id',
-            resolve: {
-                // controller will not be loaded until $waitForAuth resolves
-                // Auth refers to our $firebaseAuth wrapper in the example above
-                "currentAuth": ["Auth", function (Auth) {
-                        // $waitForAuth returns a promise so the resolve waits for it to complete
-                        return Auth.$waitForAuth();
-                    }]
-            },
+            // resolve: {
+            //   // controller will not be loaded until $waitForAuth resolves
+            //   // Auth refers to our $firebaseAuth wrapper in the example above
+            //   currentAuth: ['Auth', Auth => {
+            //     debugger;
+            //     // $waitForAuth returns a promise so the resolve waits for it to complete
+            //     return Auth.$waitForAuth();
+            //   }],
+            // },
             templateUrl: '../../views/builder.html',
-            controller: 'BuilderCtrl'
+            controller: 'BuilderCtrl',
         })
             .state('builder.new', {
             url: '/new',
             templateUrl: '../../views/builder.html',
-            controller: 'BuilderCtrl'
+            controller: 'BuilderCtrl',
         })
             .state('admin', {
             url: '/admin',

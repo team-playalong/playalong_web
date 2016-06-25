@@ -33,7 +33,9 @@
                 vm.topChords = data;
                 $rootScope.stopSpin('stopTopChordsSpinner');
             })
-                .catch(function () { return $rootScope.stopSpin('stopTopChordsSpinner'); });
+                .catch(function (error) {
+                $rootScope.stopSpin('stopTopChordsSpinner');
+            });
         };
         //Race condition with spinner directive
         setTimeout(function () {

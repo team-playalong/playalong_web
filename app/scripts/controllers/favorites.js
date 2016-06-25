@@ -27,10 +27,10 @@
                     .then(function (data) {
                     if (data) {
                         vm.favorites = data;
-                        $rootScope.stopSpin();
                     }
+                    $rootScope.stopSpin();
                 })
-                    .catch(function () { return $rootScope.stopSpin(); });
+                    .catch($rootScope.stopSpin);
             }
         };
         vm.login = login;

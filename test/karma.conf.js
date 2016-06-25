@@ -25,8 +25,8 @@ module.exports = function(config) {
       'app/env.js',
 
       // bower:js
-      'bower_components/jquery/dist/jquery.js',
       'bower_components/angular/angular.js',
+      'bower_components/jquery/dist/jquery.js',
       'bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
       'bower_components/angular-animate/angular-animate.js',
       'bower_components/angular-aria/angular-aria.js',
@@ -43,6 +43,7 @@ module.exports = function(config) {
       'bower_components/firebase/firebase.js',
       'bower_components/angularfire/dist/angularfire.js',
       'bower_components/playalong.services/dist/scripts/scripts.js',
+      'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       'bower_components/rangy/rangy-core.js',
       'bower_components/rangy/rangy-classapplier.js',
       'bower_components/rangy/rangy-highlighter.js',
@@ -52,13 +53,18 @@ module.exports = function(config) {
       'bower_components/textAngular/dist/textAngular.js',
       'bower_components/textAngular/dist/textAngular-sanitize.js',
       'bower_components/textAngular/dist/textAngularSetup.js',
+      'bower_components/json3/lib/json3.js',
+      'bower_components/es5-shim/es5-shim.js',
+      'bower_components/angular-resource/angular-resource.js',
+      'bower_components/angular-cookies/angular-cookies.js',
+      'bower_components/angular-touch/angular-touch.js',
+      'bower_components/angular-route/angular-route.js',
       'bower_components/jquery-ui/jquery-ui.js',
       'bower_components/angular-dragdrop/src/angular-dragdrop.js',
       'bower_components/raphael/raphael.js',
       'bower_components/justgage-bower/justgage.js',
       'bower_components/angular-gage/dist/angular-gage.js',
       'bower_components/angular-material-icons/angular-material-icons.min.js',
-      'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       
