@@ -27,8 +27,5 @@
       plyRadioData: '=',
       plyModel: '=',
     },
-    controller: () => {
-      console.log('obj');
-    },
   });
 })();

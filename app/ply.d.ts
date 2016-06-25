@@ -2,4 +2,5 @@
 
 interface Window {
 	mixpanel: any;
+  ga: any;
 }
