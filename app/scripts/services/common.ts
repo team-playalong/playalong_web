@@ -10,8 +10,8 @@
    */
   angular.module('playalongWebApp')
     .factory('Common', Common);
-    
-    Common.$inject = ['RegexStore', 'login']; 
+
+    Common.$inject = ['RegexStore', 'login'];
 
     function Common(RegexStore, login) {
       function isRtlContent(content) {
@@ -21,10 +21,17 @@
         return !!matching && matching.length >= 3;
       }
 
+      function removeDuplicates(collection) {
+        return collection.filter((elem, pos, arr) => {
+            return arr.indexOf(elem) === pos;
+          });
+      }
+
       // Public API here
       return {
         isRtlContent,
+        removeDuplicates,
       };
     }
-  
+
 })();

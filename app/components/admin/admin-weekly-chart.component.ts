@@ -14,6 +14,7 @@
         <admin-weekly-chord-results
           songs="$ctrl.weeklyChart.songs"
           available-ranks="$ctrl.availableRanks"
+          save-chart="$ctrl.saveChart"
           rank-change-handler="$ctrl.updateRank">
         </admin-weekly-chord-results>
       </div>
@@ -26,7 +27,7 @@
 
         ],
       };
-      this.availableRanks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      this.availableRanks = ['1', '2'];
       this.updateRank = ({chordKey, rank}) => {
         for (let currSong of this.weeklyChart.songs) {
           if (currSong.chordKey === chordKey) {
@@ -41,6 +42,36 @@
           rank,
           chordKey,
         });
+      };
+
+      this.filterRanks = oldRanks => {
+
+        const takenRanks = this.weeklyChart.songs.map(song => song.rank);
+        return this.availableRanks.filter(rank => {
+          return !takenRanks.includes(rank);
+        });
+      };
+
+      this.saveChart = () => {
+
+        // {
+        //   "charts": {
+        //     "1": {
+        //       "dateCreated": 12123123,
+        //       "weekNumber": 20,
+        //       "year": 2016,
+        //       "songs": {
+        //         "123": {
+        //           "artist": "Asaf Avidan",
+        //           "title": "Gold Shadow",
+        //           "rank": 1,
+        //           "chordKey": 123123,
+        //           "changeFromLast": -1
+        //         }
+        //       }
+        //     }
+        //   }
+        // }
       };
     },
   };
@@ -101,15 +132,17 @@
           chord="result">
         </chord-result>
       </md-list>
-      <md-button flex class="md-raised md-accent" type="submit" ng-click="$ctrl.searchChords()"
-        aria-label="Go"
-        translate=".SEARCH_BOTTON">
+      <md-button ng-if="$ctrl.songs.length" flex
+        class="md-raised md-accent pull-right"
+        type="submit" ng-click="$ctrl.saveChart()">
+        Save
       </md-button>
     `,
     bindings: {
       availableRanks: '<',
       songs: '<',
       rankChangeHandler: '<',
+      saveChart: '<',
     },
   };
 

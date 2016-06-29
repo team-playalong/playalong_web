@@ -18,7 +18,7 @@
               placeholder="..."
               ng-model="$ctrl.chord.rank"
               ng-change="">
-              <md-option ng-repeat="rank in $ctrl.availableRanks" value="{{rank}}">
+              <md-option ng-repeat="rank in $ctrl.availableRanks | orderBy: 'rank'"  value="{{rank}}">
                 {{rank}}
               </md-option>
             </md-select>

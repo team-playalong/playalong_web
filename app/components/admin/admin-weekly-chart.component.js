@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     var adminWeeklyChart = {
-        template: "\n      <div  class=\"md-padding\" id=\"adminWeeklyChart\"\n          translate-namespace=\"admin.weeklyChart\">\n        <admin-weekly-search-area\n          rank-change-handler=\"$ctrl.rankChangeHandler\"\n          available-ranks=\"$ctrl.availableRanks\"\n          weekly-chart=\"$ctrl.weeklyChart\"></admin-weekly-search-area>\n        <admin-weekly-chord-results\n          songs=\"$ctrl.weeklyChart.songs\"\n          available-ranks=\"$ctrl.availableRanks\"\n          rank-change-handler=\"$ctrl.updateRank\">\n        </admin-weekly-chord-results>\n      </div>\n    ",
+        template: "\n      <div  class=\"md-padding\" id=\"adminWeeklyChart\"\n          translate-namespace=\"admin.weeklyChart\">\n        <admin-weekly-search-area\n          rank-change-handler=\"$ctrl.rankChangeHandler\"\n          available-ranks=\"$ctrl.availableRanks\"\n          weekly-chart=\"$ctrl.weeklyChart\"></admin-weekly-search-area>\n        <admin-weekly-chord-results\n          songs=\"$ctrl.weeklyChart.songs\"\n          available-ranks=\"$ctrl.availableRanks\"\n          save-chart=\"$ctrl.saveChart\"\n          rank-change-handler=\"$ctrl.updateRank\">\n        </admin-weekly-chord-results>\n      </div>\n    ",
         controller: function adminWeeklyChartCtrl() {
             var _this = this;
             this.weeklyChart = {
@@ -9,7 +9,7 @@
                 weekNumber: 20,
                 songs: [],
             };
-            this.availableRanks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+            this.availableRanks = ['1', '2'];
             this.updateRank = function (_a) {
                 var chordKey = _a.chordKey, rank = _a.rank;
                 for (var _i = 0, _b = _this.weeklyChart.songs; _i < _b.length; _i++) {
@@ -27,6 +27,32 @@
                     rank: rank,
                     chordKey: chordKey,
                 });
+            };
+            this.filterRanks = function (oldRanks) {
+                var takenRanks = _this.weeklyChart.songs.map(function (song) { return song.rank; });
+                return _this.availableRanks.filter(function (rank) {
+                    return !takenRanks.includes(rank);
+                });
+            };
+            this.saveChart = function () {
+                // {
+                //   "charts": {
+                //     "1": {
+                //       "dateCreated": 12123123,
+                //       "weekNumber": 20,
+                //       "year": 2016,
+                //       "songs": {
+                //         "123": {
+                //           "artist": "Asaf Avidan",
+                //           "title": "Gold Shadow",
+                //           "rank": 1,
+                //           "chordKey": 123123,
+                //           "changeFromLast": -1
+                //         }
+                //       }
+                //     }
+                //   }
+                // }
             };
         },
     };
@@ -73,11 +99,12 @@
         };
     }
     var adminWeeklyChordResults = {
-        template: "\n      <md-list ng-repeat=\"result in $ctrl.songs | orderBy: 'rank'\">\n        <chord-result\n          available-ranks=\"$ctrl.availableRanks\"\n          rank-change-handler=\"$ctrl.rankChangeHandler\"\n          chord=\"result\">\n        </chord-result>\n      </md-list>\n      <md-button flex class=\"md-raised md-accent\" type=\"submit\" ng-click=\"$ctrl.searchChords()\"\n        aria-label=\"Go\"\n        translate=\".SEARCH_BOTTON\">\n      </md-button>\n    ",
+        template: "\n      <md-list ng-repeat=\"result in $ctrl.songs | orderBy: 'rank'\">\n        <chord-result\n          available-ranks=\"$ctrl.availableRanks\"\n          rank-change-handler=\"$ctrl.rankChangeHandler\"\n          chord=\"result\">\n        </chord-result>\n      </md-list>\n      <md-button ng-if=\"$ctrl.songs.length\" flex\n        class=\"md-raised md-accent pull-right\"\n        type=\"submit\" ng-click=\"$ctrl.saveChart()\">\n        Save\n      </md-button>\n    ",
         bindings: {
             availableRanks: '<',
             songs: '<',
             rankChangeHandler: '<',
+            saveChart: '<',
         },
     };
     angular.module('playalongWebApp')

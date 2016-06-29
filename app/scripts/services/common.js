@@ -19,9 +19,15 @@
             var matching = content.match(RegexStore.get('hebrew'));
             return !!matching && matching.length >= 3;
         }
+        function removeDuplicates(collection) {
+            return collection.filter(function (elem, pos, arr) {
+                return arr.indexOf(elem) === pos;
+            });
+        }
         // Public API here
         return {
             isRtlContent: isRtlContent,
+            removeDuplicates: removeDuplicates,
         };
     }
 })();
