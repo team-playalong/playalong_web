@@ -1,9 +1,6 @@
 <pre>
   {{$ctrl.weeklyChart}}
 </pre>
-<pre>
-  {{$ctrl.searchConfig}}
-</pre>
 <section>
   <md-card layout-align="center">
     <md-card-content>
@@ -58,8 +55,8 @@
         </div>
         <md-list ng-repeat="result in $ctrl.searchResults track by $index">
           <chord-result
-            is-show-rank="$ctrl.isShowRank"
             available-ranks="$ctrl.availableRanks"
+            rank-change-handler="$ctrl.handleRankChanged"
             chord="result">
           </chord-result>
         </md-list>

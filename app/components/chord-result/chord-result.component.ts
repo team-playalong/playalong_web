@@ -11,32 +11,40 @@
 				  <p ng-bind="$ctrl.chord.title"></p>
 				  <p translate="home.HIT_COUNT" translate-values="{hitCount: $ctrl.chord.hitCount}"></p>
 				  <star-rating class="non-clickable" ng-if="$ctrl.chord.rating" ng-model="$ctrl.chord.rating" readonly="true"></star-rating>
-          <md-input-container ng-if="$ctrl.isShowRank>
+          <md-input-container ng-if="$ctrl.isShowRank()">
             Rank
-            <md-select class="ply-search-form-select" placeholder="..." ng-model="$ctrl.chord.rank">
+            <md-select
+              class="ply-search-form-select"
+              placeholder="..."
+              ng-model="$ctrl.chord.rank"
+              ng-change="">
               <md-option ng-repeat="rank in $ctrl.availableRanks" value="{{rank}}">
                 {{rank}}
               </md-option>
             </md-select>
           </md-input-container>
+          <md-button ng-disabled="!$ctrl.chord.rank" class="md-raised" type="submit" ng-click="$ctrl.rankChangeHandler($ctrl.chord)"
+            aria-label="Go"
+            translate=".SEARCH_BOTTON"></md-button>
 				</div>
 				<md-divider ></md-divider>
 			</md-list-item>
 	  `,
 	  bindings: {
 	  	chord: '=',
-      isShowRank: '<',
       availableRanks: '<',
+      rankChangeHandler: '<',
 	  },
 	  controller: ChordResult,
 	});
 
 	ChordResult.$inject = ['$rootScope'];
 	function ChordResult($rootScope) {
-		let vm = this;
 
-		vm.redirect = chord => {
-      if (!this.isShowRank) {
+    this.isShowRank = () => this.availableRanks && this.availableRanks.length;
+
+		this.redirect = chord => {
+      if (!this.isShowRank()) {
         $rootScope.goToChordPage(chord);
       }
 
