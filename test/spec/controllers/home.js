@@ -33,8 +33,6 @@ describe('Controller: HomeCtrl', function () {
   	expect(scope).toBeDefined();
     expect(HomeCtrl.searchByOptions).toBeDefined();
   	expect(HomeCtrl.searchByOptions.length).toBe(2);
-
-  	expect(HomeCtrl.searchConfig.searchBy).toBe('title');
   });
 
   it('should search chords by given input', function() {

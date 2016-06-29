@@ -19,61 +19,7 @@
         </admin-weekly-chord-results>
       </div>
     `,
-    controller: function adminWeeklyChartCtrl() {
-      this.weeklyChart = {
-        year: 2016,
-        weekNumber: 20,
-        songs: [
-
-        ],
-      };
-      this.availableRanks = ['1', '2'];
-      this.updateRank = ({chordKey, rank}) => {
-        for (let currSong of this.weeklyChart.songs) {
-          if (currSong.chordKey === chordKey) {
-            currSong.rank = rank;
-          }
-        }
-      };
-      this.rankChangeHandler = ({rank, artist, title, chordKey}) => {
-        this.weeklyChart.songs.push({
-          artist,
-          title,
-          rank,
-          chordKey,
-        });
-      };
-
-      this.filterRanks = oldRanks => {
-
-        const takenRanks = this.weeklyChart.songs.map(song => song.rank);
-        return this.availableRanks.filter(rank => {
-          return !takenRanks.includes(rank);
-        });
-      };
-
-      this.saveChart = () => {
-
-        // {
-        //   "charts": {
-        //     "1": {
-        //       "dateCreated": 12123123,
-        //       "weekNumber": 20,
-        //       "year": 2016,
-        //       "songs": {
-        //         "123": {
-        //           "artist": "Asaf Avidan",
-        //           "title": "Gold Shadow",
-        //           "rank": 1,
-        //           "chordKey": 123123,
-        //           "changeFromLast": -1
-        //         }
-        //       }
-        //     }
-        //   }
-        // }
-      };
-    },
+    controller: 'adminWeeklyChartCtrl',
   };
 
 
@@ -146,9 +92,57 @@
     },
   };
 
+  adminWeeklyChartCtrl.$inject = ['toast', 'WeeklyChart'];
+  function adminWeeklyChartCtrl(toast, WeeklyChart) {
+    let vm = this;
+    this.weeklyChart = {
+      year: 2016,
+      weekNumber: 20,
+      songs: [
+
+      ],
+    };
+    this.availableRanks = [1, 2, 3, 4, 5];
+    this.updateRank = ({chordKey, rank}) => {
+      for (let currSong of this.weeklyChart.songs) {
+        if (currSong.chordKey === chordKey) {
+          currSong.rank = rank;
+        }
+      }
+    };
+    this.rankChangeHandler = ({rank, artist, title, chordKey}) => {
+      this.weeklyChart.songs.push({
+        artist,
+        title,
+        rank,
+        chordKey,
+      });
+    };
+
+    this.filterRanks = oldRanks => {
+
+      const takenRanks = this.weeklyChart.songs.map(song => song.rank);
+      return this.availableRanks.filter(rank => {
+        console.log(rank);
+        return !takenRanks.includes(rank);
+      });
+    };
+
+    this.saveChart = function() {
+      const wc = angular.copy(vm.weeklyChart);
+
+      if (wc.$$hashKey) {
+        delete wc.$$hashKey;
+      }
+      WeeklyChart.createWeeklyChart(wc)
+      .then(result => toast.showSimpleToast('Weekly Chart Added Successfully!'));
+    };
+  }
+
   angular.module('playalongWebApp')
 		.component('adminWeeklyChart', adminWeeklyChart)
     .component('adminWeeklySearchArea', adminWeeklySearchArea)
+    .controller('adminWeeklyChartCtrl', adminWeeklyChartCtrl)
     .component('adminWeeklyChordResults', adminWeeklyChordResults);
 
 

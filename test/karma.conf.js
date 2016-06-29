@@ -16,11 +16,14 @@ module.exports = function(config) {
     // testing framework to use (jasmine/mocha/qunit/...)
     // as well as any additional frameworks (requirejs/chai/sinon/...)
     frameworks: [
-      "jasmine"
+      'jasmine',
     ],
 
     // list of files / patterns to load in the browser
     files: [
+
+      'node_modules/babel-polyfill/dist/polyfill.js',
+
       //Conf
       'app/env.js',
 
@@ -67,7 +70,7 @@ module.exports = function(config) {
       'bower_components/angular-material-icons/angular-material-icons.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
-      
+
       //Tuner
       'app/pages/tuner/AudioContextMonkeyPatch.js',
       'app/pages/tuner/dsp.js',
