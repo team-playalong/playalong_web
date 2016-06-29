@@ -1,0 +1,41 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 5
+  },
+  "globals": {
+    "app": true,
+    "angular": false,
+    "describe": true,
+    "beforeEach": true
+  },
+  "extends": "airbnb",
+  "rules": {
+  	"indent": "off",
+    "no-var": "off",
+    "strict": "off",
+    "padded-blocks": "off",
+    "no-param-reassign": "off",
+    "consistent-return": "off",
+    "func-names": "off",
+    "object-shorthand": "off",
+    "space-before-function": "off",
+    "prefer-arrow-callback": "off",
+    "prefer-template": "off",
+    "no-else-return": "off",
+    "no-use-before-define": "off",
+    "space-before-function-paren": "off",
+    "no-mixed-spaces-and-tabs": "off",
+    "brace-style": "off",
+    "max-len": "off",
+    "no-trailing-spaces": "off",
+    "spaced-comment": "off", 
+  	"jsx-a11y/img-uses-alt": "off",
+    "jsx-a11y/label-uses-for": "off",
+    "jsx-a11y/mouse-events-map-to-key-events": "off",
+    "jsx-a11y/no-hash-href": "off",
+    "jsx-a11y/redundant-alt": "off",
+    "jsx-a11y/valid-aria-role": "off",
+    "wrap-iife": "off",
+    "eol-last": "off"
+  }
+}

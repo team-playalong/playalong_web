@@ -10,14 +10,14 @@
       link: function postLink(scope, element, attrs) {
 
 
-       element.hide();
+       element.css('display', 'none');
        scope.$on(attrs.triggerStartEvent, () => {
-         element.show();
-         setTimeout(() => element.hide(), DEFAULT_TIMEOUT);
+         element.css('display', 'block');
+         setTimeout(() => element.css('display', 'none'), DEFAULT_TIMEOUT);
        });
 
        scope.$on(attrs.triggerStopEvent, () => {
-         element.hide();
+         element.css('display', 'none');
        });
 
        let j = 0;

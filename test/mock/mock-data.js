@@ -8,7 +8,7 @@ var mockData = ( function() {
 			content: '<div>hello</div>'
 		};
 	}
-	
+
 	function getMockChordResults() {
 		return [getMockChord()];
 	}
@@ -45,11 +45,22 @@ var mockData = ( function() {
 		}
 	};
 
+  function getMockWeeklyChart() {
+    return {
+      songs: [
+        {
+          rank: '1',
+        }
+      ]
+    };
+  }
+
 	return {
 		getMockChord: getMockChord,
 		getMockChordResults: getMockChordResults,
 		getMockGoogleUser: getMockGoogleUser,
 		getMockFacebookUser: getMockFacebookUser,
-		getMockFavorites:getMockFavorites
+		getMockFavorites: getMockFavorites,
+    getMockWeeklyChart: getMockWeeklyChart,
 	};
 })();

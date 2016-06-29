@@ -1,0 +1,66 @@
+<pre>
+  {{$ctrl.weeklyChart}}
+</pre>
+<section>
+  <md-card layout-align="center">
+    <md-card-content>
+      <h1 class="md-title" translate=".SEARCH_TITLE"></h1>
+      <form name="adminWeeklyChartForm" class="ply-search-form" novalidate>
+        <div layout="row" layout-wrap>
+          <div flex="50">
+            <md-input-container>
+              Year
+              <md-select class="ply-search-form-select" placeholder="..." ng-model="$ctrl.weeklyChart.year">
+                <md-option ng-repeat="year in $ctrl.allYears" value="{{year}}">
+                  {{year}}
+                </md-option>
+              </md-select>
+            </md-input-container>
+          </div>
+          <div flex="50">
+            <md-input-container>
+              Week Number
+              <md-select class="ply-search-form-select" placeholder="..." ng-model="$ctrl.weeklyChart.weekNumber">
+                <md-option ng-repeat="weekNumber in $ctrl.allWeekNumbers" value="{{weekNumber}}">
+                  {{weekNumber}}
+                </md-option>
+              </md-select>
+            </md-input-container>
+          </div>
+        </div>
+        <div layout="row" layout-wrap>
+          <div flex="30">
+          <md-input-container>
+              <ply-radio-button-group
+                ply-radio-data="$ctrl.searchByOptions"
+                ply-model="$ctrl.searchConfig.searchBy">
+
+              </ply-radio-button-group>
+            </md-input-container>
+          </div>
+          <div flex="50">
+            <md-input-container>
+              <input md-maxlength="50"
+              placeholder="Search Here" required name="searchInput" ng-model="$ctrl.searchConfig.searchInput" auto-direction />
+              <div ng-messages="chordSearchForm.searchInput.$error">
+                <div ng-if="chordSearchForm.searchInput.$dirty && chordSearchForm.searchInput.$invalid && chordSearchForm.searchInput.$error" ng-message="required">{{'globals.errors.REQUIRED' | translate}}</div>
+              </div>
+            </md-input-container>
+          </div>
+          <div flex="20">
+            <md-button flex class="md-raised md-accent" type="submit" ng-click="$ctrl.searchChords()"
+            aria-label="Go"
+            translate=".SEARCH_BOTTON"></md-button>
+          </div>
+        </div>
+        <md-list ng-repeat="result in $ctrl.searchResults track by $index">
+          <chord-result
+            available-ranks="$ctrl.availableRanks"
+            rank-change-handler="$ctrl.handleRankChanged"
+            chord="result">
+          </chord-result>
+        </md-list>
+      </form>
+    </md-card-content>
+  </md-card>
+</section>
