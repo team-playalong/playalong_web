@@ -1,6 +1,6 @@
-<section  id="topChords" 
+<section  id="topChords"
       translate-namespace="topChords">
-  <md-card layout-align="center" class="ply-search-results" >  
+  <md-card layout-align="center" class="ply-search-results" >
     <md-card-content>
 
       <h1 class="md-title"  translate=".TITLE"></h1>
@@ -8,15 +8,15 @@
       <div class="ply-search-results-wrapper">
         <ply-spinner trigger-start-event="startTopChordsSpinner" trigger-stop-event="stopTopChordsSpinner"></ply-spinner>
 
-        <md-list 
-          ng-if="top.topChords && top.topChords.length" 
-          ng-repeat="chord in top.topChords | orderBy: '-hitCount' track by $index"
+        <md-list
+          ng-if="top.topChords && top.topChords.length"
+          ng-repeat="chord in top.topChords | orderBy: '-creationDate' track by $index"
         >
           <chord-result
             chord="chord">
-          </chord-result> 
+          </chord-result>
       </div>
-        
+
     </md-card-content>
   </md-card>
 </section>
