@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('playalongWebApp')
-  .controller('PlyfavoritebtnCtrl',PlyfavoritebtnCtrl);
+  .controller('PlyfavoritebtnCtrl', PlyfavoritebtnCtrl);
 
   PlyfavoritebtnCtrl.$inject = ['$scope','user','login','toast'];
   function PlyfavoritebtnCtrl($scope,user,login,toast) {
@@ -11,15 +11,19 @@
     };
 
     $scope.toggleFavorites = function() {
-      
+
       if (!login.isLoggedIn()) {
         resetValues();
         return;
       }
       var params = {
         isAddFlag: !$scope.isFavorite,
-        chordObj: $scope.chord,
-        userKey: login.getUser().userKey
+        chordObj: {
+          chordKey: $scope.chord.chordKey,
+          artist: $scope.chord.artist,
+          title: $scope.chord.title,
+        },
+        userKey: login.getUser().userKey,
       };
       user.addRemoveFavorites(params)
       .then(function() {
@@ -30,7 +34,7 @@
           message = 'favorites.ADDED_MESSAGE';
         }
         else {
-          message = 'favorites.REMOVED_MESSAGE';  
+          message = 'favorites.REMOVED_MESSAGE';
         }
         toast.showToastByTranslation(message);
       });
@@ -54,14 +58,14 @@
           $scope.chord = newValue;
           checkIsFavorite();
         }
-      }); 
+      });
       }
       else {
         if ($scope.isFavorite === undefined )
         {
-          checkIsFavorite();  
+          checkIsFavorite();
         }
-        
+
       }
     };
 

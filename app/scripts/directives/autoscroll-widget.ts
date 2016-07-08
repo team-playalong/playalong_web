@@ -17,7 +17,7 @@
           speed: '=',
           min: '@?',
           max: '@?',
-          enabled: '@?'
+          enabled: '@?',
         },
         //TODO - move functions to controller
         link: function postLink(scope, element, attrs) {

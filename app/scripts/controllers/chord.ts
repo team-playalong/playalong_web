@@ -19,6 +19,7 @@
       $rootScope.pageTitle = 'Playalong - ' + $scope.chord.artist + ' ' + $scope.chord.title;
       $scope.chordRating = $scope.chord.rating || 1;
       $scope.disableAutoscroll();
+      $scope.toggleAutoscroll();
       $scope.chord.chordKey = $scope.chord.chordKey || angular.copy($stateParams.chordKey) ;
       chords.increaseChordHitCount($scope.chord.$id || $scope.chord.chordKey);
       $scope.plyTooltip = plyTooltip;

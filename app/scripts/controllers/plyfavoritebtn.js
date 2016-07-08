@@ -14,8 +14,12 @@
             }
             var params = {
                 isAddFlag: !$scope.isFavorite,
-                chordObj: $scope.chord,
-                userKey: login.getUser().userKey
+                chordObj: {
+                    chordKey: $scope.chord.chordKey,
+                    artist: $scope.chord.artist,
+                    title: $scope.chord.title,
+                },
+                userKey: login.getUser().userKey,
             };
             user.addRemoveFavorites(params)
                 .then(function () {
