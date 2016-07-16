@@ -26,10 +26,4 @@ var app = angular.module('playalongWebApp', [
     'LocalStorageModule',
     'plyYoutube',
 ]);
-/*** POLYFILLS ***/
-Promise.prototype.finally = function (onResolveOrReject) {
-    return this.catch(function (reason) {
-        return reason;
-    }).then(onResolveOrReject);
-};
 //# sourceMappingURL=app.js.map

@@ -33,8 +33,11 @@
 			$rootScope.startSpin();
 			$rootScope.currPage = 'weeklyChart.PAGE_TITLE';
 			WeeklyChart.getLatestChart()
-			.then(result => $ctrl.weeklyChartData = $ctrl.formatData(result))
-			.finally($rootScope.stopSpin());
+			.then(result => {
+				$ctrl.weeklyChartData = $ctrl.formatData(result);
+				$rootScope.stopSpin();
+			})
+			.catch(error => $rootScope.stopSpin());
 		};
 	}   
 	angular.module('playalongWebApp')

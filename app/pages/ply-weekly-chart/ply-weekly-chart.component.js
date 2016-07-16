@@ -18,8 +18,11 @@
             $rootScope.startSpin();
             $rootScope.currPage = 'weeklyChart.PAGE_TITLE';
             WeeklyChart.getLatestChart()
-                .then(function (result) { return $ctrl.weeklyChartData = $ctrl.formatData(result); })
-                .finally($rootScope.stopSpin());
+                .then(function (result) {
+                $ctrl.weeklyChartData = $ctrl.formatData(result);
+                $rootScope.stopSpin();
+            })
+                .catch(function (error) { return $rootScope.stopSpin(); });
         };
     }
     angular.module('playalongWebApp')
