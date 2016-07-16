@@ -13,7 +13,7 @@
     $scope.login = login;
     $scope.initCtrl = function() {
       if (!!window.mixpanel) {
-        window.mixpanel.track("ply_page_view_chords");
+        window.mixpanel.track('ply_page_view_chords');
       }
       $rootScope.currPage = $scope.chord.artist + ' - ' + $scope.chord.title;
       $rootScope.pageTitle = 'Playalong - ' + $scope.chord.artist + ' ' + $scope.chord.title;
@@ -57,7 +57,7 @@
       `);
     };
 
-    function addChordImages(chordContent: string) {
+    function addChordImages(chordContent = '') {
 
       const regex = /(<span class="chord">)([^<]+)(<\/span>)/g;
 
@@ -85,7 +85,7 @@
       $state.go('home');
     }
     else {
-      if (!$scope.chord) { //After refresh
+      if (!$scope.chord || !$scope.chord.content) { //After refresh
         $rootScope.startSpin();
         chords.getChordById({chordId: $stateParams.chordKey})
         .then(result => {

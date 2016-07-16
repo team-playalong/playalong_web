@@ -1,13 +1,14 @@
 (function() {
 	'use strict';
 	describe('ply-weekly-chart.component.spec', function() {
+		var res;
+
 		describe('weeklyChartCtrl', function () {
 
 		  // load the controller's module
 		  beforeEach(module('playalongWebApp'));
 
 		  var ctrl;
-		  var res
 		  // Initialize the controller and a mock scope
 		  beforeEach(inject(function ($controller) {
 		    ctrl = $controller('weeklyChartCtrl', {
@@ -24,8 +25,25 @@
 		  	res = ctrl.buildSubheaderMessage({year: 2016, weekNumber: 20});
 	  		expect(res).toContain(2016);
 		  });
+
+
+		  it('should format raw weekly chart data before presenting it', function() {
+		  	var mock = {
+		  		songs: {
+		  			1: {
+
+		  			},
+		  			2: {
+
+		  			},
+		  		}
+		  	};
+		  	res = ctrl.formatData(mock);
+		  	expect(res.songs.length).toBe(2);
+		  });	
 		});
-			
+		
+				
 	})
 		
 })();

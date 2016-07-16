@@ -10,52 +10,65 @@
 			return `
 				{{'weeklyChart.YEAR' | translate}}:
 				<b>${weeklyChartData.year}</b>
+				<br />
 				{{'weeklyChart.WEEK_NUMBER' | translate}}:
 				<b>${weeklyChartData.weekNumber}</b>
 			`;
 			 
 		};
 
+		$ctrl.formatData = rawData => {
+			const songsArr = [];
+
+			for (let songKey in rawData.songs) {
+				songsArr.push(rawData.songs[songKey]);
+			}
+
+			rawData.songs = songsArr;
+
+			return rawData;
+		};
+
 		$ctrl.$onInit = () => {
 			$rootScope.startSpin();
 			$rootScope.currPage = 'weeklyChart.PAGE_TITLE';
 			WeeklyChart.getLatestChart()
-			.then(result => $ctrl.weeklyChartData = result)
+			.then(result => $ctrl.weeklyChartData = $ctrl.formatData(result))
 			.finally($rootScope.stopSpin());
 		};
-	}
-
+	}   
 	angular.module('playalongWebApp')
 		.controller('weeklyChartCtrl', weeklyChartCtrl)
 		.component('plyWeeklyChart', {
 			template: `
-				<div  class="md-padding" id="home"
+				<div  class="md-padding weekly-chart"
 				      translate-namespace="weeklyChart">
 				    <md-card layout-align="center" ng-if="$ctrl.weeklyChartData" class="ply-search-results">
 				      <md-card-content>
-				        <h1
-				          class="md-title"
-				          layout-align="left"
-				          translate=".TITLE">
-				        </h1>
-				        <h5>
+				      	<h2 translate=".TITLE"></h2>
+				        <h4>
 				          <span compile="::$ctrl.buildSubheaderMessage($ctrl.weeklyChartData)"></span>
-				        </h5>
+				        </h4>
 
-				        <md-list ng-repeat="result in home.searchResults track by $index">
-				          <chord-result
-				            chord="result">
-				          </chord-result>
+				        <md-list ng-repeat="song in $ctrl.weeklyChartData.songs | orderBy:'rank'">
+									<div layout="row" layout-wrap>
+									  <span flex-sm="25" flex-gt-sm="10">
+									  	
+									  	<h4 class="weekly-chart-song-rank" layout-align="center center" ng-bind="song.rank"></h4>
+									  </span>
+									  <chord-result
+									  	flex-gt-sm="60"
+									    chord="song">
+									  </chord-result>
+									</div>
+				          
 				        </md-list>
 				      </md-card-content>
 				    </md-card>
 				  </section>
 				</div>
 
-				<pre>
-					{{$ctrl.weeklyChartData | json}}
-				</pre>
-				
+								
 			`,
 			controller: 'weeklyChartCtrl',
 		});

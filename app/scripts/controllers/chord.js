@@ -11,7 +11,7 @@
         $scope.login = login;
         $scope.initCtrl = function () {
             if (!!window.mixpanel) {
-                window.mixpanel.track("ply_page_view_chords");
+                window.mixpanel.track('ply_page_view_chords');
             }
             $rootScope.currPage = $scope.chord.artist + ' - ' + $scope.chord.title;
             $rootScope.pageTitle = 'Playalong - ' + $scope.chord.artist + ' ' + $scope.chord.title;
@@ -46,6 +46,7 @@
             return $sce.trustAsHtml("\n        <div>\n          <img src=\"guitar-chords/" + chord + ".png\" height=\"100\" width=\"85\" alt=\"No chord Available\" />\n        </div>\n      ");
         };
         function addChordImages(chordContent) {
+            if (chordContent === void 0) { chordContent = ''; }
             var regex = /(<span class="chord">)([^<]+)(<\/span>)/g;
             //Replace with equivalent chord image
             for (var chord in EqualChordsMap) {
@@ -67,7 +68,7 @@
             $state.go('home');
         }
         else {
-            if (!$scope.chord) {
+            if (!$scope.chord || !$scope.chord.content) {
                 $rootScope.startSpin();
                 chords.getChordById({ chordId: $stateParams.chordKey })
                     .then(function (result) {
