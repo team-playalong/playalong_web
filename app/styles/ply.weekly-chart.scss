@@ -2,13 +2,14 @@
 
 .weekly-chart {
 	.weekly-chart-song-rank {
-		height: 80px;
-    width: 90%;
+	 height: 60px;
+    width: 60px;
     border-radius: 50%;
     background: $ply-pink;
     text-align: center;
-    padding-top: 25px;	
+    padding-top: 15px;	
     font-size: 2em;
+    color: $ply-white;
 	}
 	
 }

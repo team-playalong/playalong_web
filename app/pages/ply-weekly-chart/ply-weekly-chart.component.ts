@@ -54,13 +54,13 @@
 				        </h4>
 
 				        <md-list ng-repeat="song in $ctrl.weeklyChartData.songs | orderBy:'rank'">
-									<div layout="row" layout-wrap>
-									  <span flex-sm="25" flex-gt-sm="10">
+									<div layout="row" layout-wrap layout-align="start center">
+									  <span flex-sm="30" flex-gt-sm="10" layout-align="end center">
 									  	
-									  	<h4 class="weekly-chart-song-rank" layout-align="center center" ng-bind="song.rank"></h4>
+									  	<h4 class="weekly-chart-song-rank" ng-bind="song.rank"></h4>
 									  </span>
 									  <chord-result
-									  	flex-gt-sm="60"
+									  	flex
 									    chord="song">
 									  </chord-result>
 									</div>
