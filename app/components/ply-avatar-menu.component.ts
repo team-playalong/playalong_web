@@ -217,7 +217,7 @@
 		  else { //get the image from the auth object
 		    let auth = login.getAuth() || {};
         if (auth.photoURL) {
-          return auth.photoURL
+          return auth.photoURL;
         }
         else if (auth.providerData && auth.providerData[0]) {
           return auth.providerData[0].photoURL;

@@ -15,6 +15,11 @@
                 icon: 'search',
             },
             {
+                text: 'sidebar.menu.WEEKLY_CHART',
+                ref: 'weeklyChart',
+                icon: 'bar-chart',
+            },
+            {
                 text: 'sidebar.menu.CHORD_BUILDER',
                 ref: 'builder.new',
                 icon: 'pencil',
@@ -52,7 +57,7 @@
             });
         };
         vm.showMenuItem = function (item) {
-            if (!item.isAdmin) {
+            if (!item || !item.isAdmin) {
                 return true;
             }
             else {
@@ -64,4 +69,4 @@
         .controller('SidebarCtrl', SidebarCtrl)
         .component('plySidebar', plySidebar);
 })();
-//# sourceMappingURL=sidebar.js.map
+//# sourceMappingURL=ply-sidebar.component.js.map

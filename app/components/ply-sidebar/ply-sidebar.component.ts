@@ -41,6 +41,11 @@
         icon: 'search',
       },
       {
+        text: 'sidebar.menu.WEEKLY_CHART',
+        ref: 'weeklyChart',
+        icon: 'bar-chart',
+      },
+      {
         text: 'sidebar.menu.CHORD_BUILDER',
         ref: 'builder.new',
         icon: 'pencil',
@@ -79,7 +84,7 @@
         });
     };
     vm.showMenuItem = item => {
-      if (!item.isAdmin) {
+      if (!item || !item.isAdmin) {
         return true;
       }
       else {

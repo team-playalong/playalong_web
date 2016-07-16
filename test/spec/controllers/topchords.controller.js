@@ -18,7 +18,10 @@ describe('Controller: TopchordsCtrl', function () {
     chordsSrv = {
       getTopChords: function() {
         return $q.when(mockData.getMockChordResults());
-      }
+      },
+      getNewestChords: function() {
+        return $q.when(mockData.getMockChordResults());
+      },
     };
     TopchordsCtrl = $controller('TopchordsCtrl', {
       chords: chordsSrv,

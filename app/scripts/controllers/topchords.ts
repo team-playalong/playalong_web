@@ -2,10 +2,10 @@
 	'use strict';
 
 angular.module('playalongWebApp')
-.controller('TopchordsCtrl',TopchordsCtrl);
+.controller('TopchordsCtrl', TopchordsCtrl);
 
-TopchordsCtrl.$inject = ['chords','$rootScope','$translate'];
-	function TopchordsCtrl(chords, $rootScope,$translate) {
+TopchordsCtrl.$inject = ['chords', '$rootScope', '$translate'];
+	function TopchordsCtrl(chords, $rootScope, $translate) {
 		var vm = this;
 	$translate(['topChords.PAGE_TITLE',
 							'home.PAGE_TITLE',
