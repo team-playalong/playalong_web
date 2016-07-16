@@ -1,4 +1,4 @@
-/// <reference path="../ply.d.ts" />
+
 'use strict';
 
 /**
@@ -12,7 +12,7 @@
 
 /*jshint -W079 */
 /*jshint unused:false*/
-var app = angular.module('playalongWebApp', [
+let app = angular.module('playalongWebApp', [
   'ngMaterial', 
   'ngMdIcons', 
   'ui.router',
@@ -29,3 +29,12 @@ var app = angular.module('playalongWebApp', [
   'LocalStorageModule',
   'plyYoutube',
 ]);
+
+
+
+/*** POLYFILLS ***/
+Promise.prototype.finally = function(onResolveOrReject) {
+  return this.catch(function(reason){
+    return reason;
+  }).then(onResolveOrReject);
+};  

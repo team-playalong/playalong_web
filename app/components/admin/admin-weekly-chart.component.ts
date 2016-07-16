@@ -130,7 +130,7 @@
 
     this.saveChart = function() {
       const wc = angular.copy(vm.weeklyChart);
-
+      wc.dateCreated = Date.now();
       if (wc.$$hashKey) {
         delete wc.$$hashKey;
       }

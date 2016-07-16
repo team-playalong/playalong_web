@@ -92,6 +92,7 @@
         };
         this.saveChart = function () {
             var wc = angular.copy(vm.weeklyChart);
+            wc.dateCreated = Date.now();
             if (wc.$$hashKey) {
                 delete wc.$$hashKey;
             }

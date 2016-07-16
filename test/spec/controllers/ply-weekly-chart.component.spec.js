@@ -19,8 +19,13 @@
 		  it('should be initialized', function() {
 		  	expect(ctrl).toBeDefined();
 		  });
+
+		  it('should build subheader message', function() {
+		  	res = ctrl.buildSubheaderMessage({year: 2016, weekNumber: 20});
+	  		expect(res).toContain(2016);
+		  });
 		});
-	
+			
 	})
 		
 })();
