@@ -1,4 +1,4 @@
-@import '_ply.vars.scss';
+@import 'ply.vars';
 
 .ply-autoscroll-widget {
   .ply-autoscroll-widget-minimize {
@@ -13,6 +13,7 @@
     width: 40%;
     right: 10px;
     top: 60px;
+    z-index: 2;
   }
   &.minified {
     width: 50px;
