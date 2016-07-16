@@ -4,7 +4,7 @@
         .controller('MainCtrl', MainCtrl);
     MainCtrl.$inject = [
         '$scope', '$timeout', '$mdSidenav', '$mdUtil',
-        'paths', '$state', 'login', '$rootScope'
+        'paths', '$state', 'login', '$rootScope',
     ];
     function MainCtrl($scope, $timeout, $mdSidenav, $mdUtil, paths, $state, login, $rootScope) {
         $scope.initCtrl = function () {
@@ -13,26 +13,26 @@
             }
             $rootScope.paths = paths;
             $scope.user = login.getUser();
-            $scope.toggleSidebar = buildToggler('left');
+            $scope.toggleSidebar = $scope.buildToggler('left');
             $scope.allAlerts = [];
             $scope.mainCtrlConfig = {
-                alertTimeout: 3000
+                alertTimeout: 3000,
             };
         };
         /**
          * Build handler to open/close a SideNav; when animation finishes
          * report completion in console
          */
-        function buildToggler(navId) {
+        $scope.buildToggler = function (navId) {
             var debounceFn = $mdUtil.debounce(function () {
                 $mdSidenav(navId)
                     .toggle()
                     .then(function () {
-                    $(".ply-main-container").toggleClass("sidebar-open");
+                    $('.ply-main-container').toggleClass('sidebar-open');
                 });
             }, 0);
             return debounceFn;
-        }
+        };
         $scope.closeAlert = function (index) {
             $scope.allAlerts.splice(index, 1);
         };

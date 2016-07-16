@@ -21,5 +21,8 @@ describe('Controller: MainCtrl', function () {
     expect(scope.paths).toBeDefined();
   });
 
+  it('should open the sidenav', function() {
+    scope.buildToggler();
+  });
 
 });

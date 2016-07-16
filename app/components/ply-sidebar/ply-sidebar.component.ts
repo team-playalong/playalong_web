@@ -9,7 +9,7 @@
       <md-sidenav 
         class=" md-whiteframe-z2 ply-sidenav" 
         md-component-id="left"
-        ng-class="{'md-sidenav-right': app.dir === 'rtl', 'md-sidenav-left': app.dir !== 'rtl' }">
+        ng-class="{'md-sidenav-right': $root.app.dir === 'rtl', 'md-sidenav-left': $root.app.dir !== 'rtl' }">
         <md-toolbar class="md-theme-indigo" md-scroll-shrink="true">
           <h1 class="md-toolbar-tools" translate="toolbar.APP_NAME" ></h1>
         </md-toolbar>
@@ -65,11 +65,11 @@
         ref: 'metronome',
         icon: 'caret-up',
       },
-      {
-        text: 'Suggestions',
-        ref: 'suggestions',
-        icon: 'lightbulb-o',
-      },
+      // {
+      //   text: 'Suggestions',
+      //   ref: 'suggestions',
+      //   icon: 'lightbulb-o',
+      // },
       {
         text: 'Weekly Chart Admin',
         ref: 'admin.weeklyChart',
