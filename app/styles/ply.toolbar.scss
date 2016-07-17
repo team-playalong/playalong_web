@@ -2,7 +2,7 @@
 
 .ply-avatar-menu {
 	.login-email-container {
-		height: 150px;	
+		height: 150px;
 	}
 	.ply-login-btn {
 		margin-top: 20px;
@@ -17,9 +17,14 @@
 	position: fixed;
 	top:0;
 	z-index: 10;
+  .ply-topnav-back {
+    margin-right: 10px;
+    vertical-align: inherit;
+  }
+
 	.ply-topnav-login {
 		.ply-topnav-login-title {
-			font-size: $LABEL-FONT-SIZE; 
+			font-size: $LABEL-FONT-SIZE;
 		}
 		.ply-topnav-login-btn {
 			padding:0;
@@ -41,7 +46,7 @@
 	.ply-logo {
 		height: $PLY-LOGO-SIZE;
 		width: $PLY-LOGO-SIZE;
-		margin-right: 10px; 
+		margin-right: 10px;
 	}
 }
 //End Toolbar

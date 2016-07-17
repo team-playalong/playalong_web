@@ -9,45 +9,20 @@
       <span class="clickable" ui-sref="home">
         <img ng-src="{{paths.images.logo}}" class="ply-logo" alt="Playalong" />
       </span>
+      <ng-md-icon hide-sm class="ply-topnav-back clickable" layout-align="center center" onclick="history.back()" icon="{{$root.app.dir === 'rtl' ? 'arrow_forward' : 'arrow_back'}}" size="30"></ng-md-icon>
       <span hide-sm class="ply-ellipsis">
         <span translate=".APP_NAME"></span>
         <span>| {{currPage | translate}}</span>
       </span>
     </div>
-    
+
     <div  flex="35" class="ply-topnav-login"
           ng-controller="LoginCtrl"
           translate-namespace=".login"
           layout="row"
           layout-align="end center">
       <ply-avatar-menu></ply-avatar-menu>
-      <!-- <div ng-if="!login.isLoggedIn()">
-        <span hide-sm class="ply-topnav-login-title" translate=".MESSAGE"></span>
-        <md-button class="md-icon-button ply-topnav-login-btn"
-                    aria-label="Google"
-                    ng-click="loginSocial('google')">
-          <md-tooltip md-direction="down">Google</md-tooltip>
-          <ng-md-icon icon="google-plus" class="ply-topnav-login-btn-icon" size="20"></ng-md-icon>
-        </md-button>
-        <md-button  class="md-icon-button ply-topnav-login-btn"
-                    aria-label="Facebook"
-                    ng-click="loginSocial('facebook')">
-          <md-tooltip md-direction="down" >Facebook</md-tooltip>
-            <ng-md-icon class="ply-topnav-login-btn-icon" icon="facebook" size="20"></ng-md-icon>
-        </md-button>
-      </div> -->
-      <div ng-if="login.isLoggedIn()">
-        <!-- <img ng-src="{{::setAvatarImage()}}" class="md-avatar ply-topnav-login-avatar" hide show-gt-sm alt="No Image" />
-        <span hide-sm class="ply-topnav-login-title">
-          <span translate=".HI"></span>
-          <span>{{login.getFirstName()}} | </span>
-        </span> -->
-        <!-- <md-button  class="ply-btn-ghost" ng-click="login.logout()"
-                    translate=".LOGOUT"
-                    aria-label="Logout">
-        </md-button> -->
-      </div>
-      
+
     </div>
     <ply-language-picker flex="5"></ply-language-picker>
   </div>
