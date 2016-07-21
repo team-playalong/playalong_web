@@ -21,9 +21,9 @@
 		  	expect(ctrl).toBeDefined();
 		  });
 
-		  fit('should build subheader message', function() {
-		  	res = ctrl.buildSubheaderMessage({year: 2016, weekNumber: 20});
-	  		expect(res).toContain(2016);
+		  it('should build subheader message', function() {
+		  	res = ctrl.buildSubheaderMessage({dateCreated: 'Today'});
+	  		expect(res).toContain('Today');
 		  });
 
 
