@@ -8,13 +8,10 @@
 
 		$ctrl.buildSubheaderMessage = weeklyChartData => {
 			return `
-				{{'weeklyChart.YEAR' | translate}}:
-				<b>${weeklyChartData.year}</b>
-				<br />
-				{{'weeklyChart.WEEK_NUMBER' | translate}}:
-				<b>${weeklyChartData.weekNumber}</b>
+        {{'weeklyChart.CREATED' | translate}}:
+				<b>{{ ${weeklyChartData.dateCreated} | date}}</b>
 			`;
-			 
+
 		};
 
 		$ctrl.formatData = rawData => {
@@ -39,7 +36,7 @@
 			})
 			.catch(error => $rootScope.stopSpin());
 		};
-	}   
+	}
 	angular.module('playalongWebApp')
 		.controller('weeklyChartCtrl', weeklyChartCtrl)
 		.component('plyWeeklyChart', {
@@ -56,7 +53,7 @@
 				        <md-list ng-repeat="song in $ctrl.weeklyChartData.songs | orderBy:'rank'">
 									<div layout="row" layout-wrap layout-align="start center">
 									  <span flex-sm="30" flex-gt-sm="10" layout-align="end center">
-									  	
+
 									  	<h4 class="weekly-chart-song-rank" ng-bind="song.rank"></h4>
 									  </span>
 									  <chord-result
@@ -64,14 +61,14 @@
 									    chord="song">
 									  </chord-result>
 									</div>
-				          
+
 				        </md-list>
 				      </md-card-content>
 				    </md-card>
 				  </section>
 				</div>
 
-								
+
 			`,
 			controller: 'weeklyChartCtrl',
 		});

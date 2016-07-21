@@ -49,7 +49,7 @@
                             element.css('display', 'none');
                         }
                     });
-                }
+                },
             };
         }]);
 })();

@@ -21,7 +21,7 @@
 		  	expect(ctrl).toBeDefined();
 		  });
 
-		  it('should build subheader message', function() {
+		  fit('should build subheader message', function() {
 		  	res = ctrl.buildSubheaderMessage({year: 2016, weekNumber: 20});
 	  		expect(res).toContain(2016);
 		  });
@@ -40,10 +40,10 @@
 		  	};
 		  	res = ctrl.formatData(mock);
 		  	expect(res.songs.length).toBe(2);
-		  });	
+		  });
 		});
-		
-				
+
+
 	})
-		
+
 })();
