@@ -61,7 +61,7 @@ module.exports = function (grunt) {
         tasks: ['compass:server', 'autoprefixer:server']
       },
       gruntfile: {
-        files: ['Gruntfile.js']
+        files: ['Gruntfile.js', 'test/karma.conf.js']
       },
       livereload: {
         options: {
@@ -474,7 +474,8 @@ module.exports = function (grunt) {
     karma: {
       unit: {
         configFile: 'test/karma.conf.js',
-        singleRun: true
+        singleRun: true,
+        logLevel: 'INFO',
       },
       dev: {
         configFile: 'test/karma.conf.js',
