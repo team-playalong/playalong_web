@@ -61,7 +61,7 @@
 									    chord="song">
 									  </chord-result>
 									</div>
-
+                  <md-divider></md-divider>
 				        </md-list>
 				      </md-card-content>
 				    </md-card>
