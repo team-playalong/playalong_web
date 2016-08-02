@@ -1,6 +1,6 @@
 'use strict';
 
-fdescribe('Component Tuner', function () {
+describe('Component Tuner', function () {
 
   // load the controller's module
   beforeEach(module('playalongWebApp'));
@@ -22,6 +22,6 @@ fdescribe('Component Tuner', function () {
   }));
 
   it('should initialize all components', function() {
-    expect(ctrl).toBeDefined(); 
+    expect(ctrl).toBeDefined();
   });
 });
