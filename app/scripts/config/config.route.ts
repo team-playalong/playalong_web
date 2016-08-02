@@ -45,8 +45,7 @@ function RouteConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvid
     })
     .state('tuner',  {
         url: '/tuner',
-        templateUrl: 'pages/tuner/tuner.html',
-        controller: 'TunerCtrl',
+        template: '<ply-tuner></ply-tuner>',
         data: {
           title: 'Tuner',
         },

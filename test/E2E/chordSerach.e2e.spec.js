@@ -1,17 +1,16 @@
 'use strict';
 
-var ChordSearchPage = function() {
-  this.searchInput = element(by.model('searchConfig.searchInput'));
-  this.searchButton = element(by.id('plySearchButton'));
+function ChordSearchPage() {
+  // this.searchInput = browser.findElement(by.name('searchInput'));
+  // this.searchButton = browser.findElement(by.id('plySearchButton'));
 
   this.get = function() {
-    browser.get('http://localhost:9000');
-    browser.driver.sleep(3000);
+    browser.get('https://www.playalong.io/');
   };
 
   this.doSearch = function(searchInput) {
-    this.searchInput.sendKeys(searchInput);
-    this.searchButton.click();  
+    browser.findElement(by.name('searchInput')).sendKeys(searchInput);
+    browser.findElement(by.id('plySearchButton')).click();  
     browser.driver.sleep(3000);
   };
 };
@@ -23,8 +22,10 @@ describe('chord search', function() {
   beforeEach(chordSearchPage.get);
 
 	it('should show the results for the given chord search', function() {    
-    chordSearchPage.doSearch('Gold');
-    var searchResults = element.all(by.repeater('result in searchResults'));
-	  expect(searchResults.count()).toEqual(2);
-	});
+    // chordSearchPage.doSearch('Gold');
+    // var searchResults = element.all(by.repeater('result in home.searchResults'));
+    // expect(searchResults.count()).toEqual(2);
+
+    expect(browser.getTitle()).toEqual('Playaln');
+	});  
 });
