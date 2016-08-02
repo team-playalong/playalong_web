@@ -7,9 +7,9 @@ Check us out [Here](//playalong.io)
 
 1. Clone the repository
 ```
-    2. npm install && bower install 
+2. npm install && bower install 
 ```
 ```
-    3. grunt serve 
+3. grunt serve 
 ```
 
