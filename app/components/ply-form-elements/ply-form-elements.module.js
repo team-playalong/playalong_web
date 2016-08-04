@@ -1,3 +1,4 @@
-angular.module('plyFormElements',[
-	'ngMaterial'
+angular.module('plyFormElements', [
+    'ngMaterial'
 ]);
+//# sourceMappingURL=ply-form-elements.module.js.map
