@@ -31,14 +31,17 @@
       //Scroll to the top of the page
       $window.scrollTo(0,0);
 
-      if (toState.data && toState.data.title)
-      {
+      if (toState.data && toState.data.title) {
         $rootScope.pageTitle = 'Playalong - ' + toState.data.title;
       }
-      else
-      {
+      else {
         $rootScope.pageTitle = 'Playalong - Amazing Chords';
       }
+
+      if (window.ga) {
+        window.ga('set', 'page', toState.name);
+      }
+
     });
   }]);
 

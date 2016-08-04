@@ -33,6 +33,9 @@
                 else {
                     $rootScope.pageTitle = 'Playalong - Amazing Chords';
                 }
+                if (window.ga) {
+                    window.ga('set', 'page', toState.name);
+                }
             });
         }]);
     //Allow unafe html binding
