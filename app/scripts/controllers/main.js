@@ -53,7 +53,7 @@
         };
         $rootScope.$on('plyUserLoggedIn', function (scope, data) {
             if (window.ga && data && data.uid) {
-                window.ga('set', 'userId', data.uid); // Set the user ID using signed-in user_id.
+                window.ga('set', 'userId', "data.uid_" + data.firstName + "_" + data.lastName); // Set the user ID using signed-in user_id.
             }
         });
         $scope.initCtrl();
