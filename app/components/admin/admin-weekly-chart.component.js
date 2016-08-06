@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     var adminWeeklyChart = {
-        template: "\n      <div  class=\"md-padding\" id=\"adminWeeklyChart\"\n          translate-namespace=\"admin.weeklyChart\">\n        <admin-weekly-search-area\n          rank-change-handler=\"$ctrl.rankChangeHandler\"\n          available-ranks=\"$ctrl.availableRanks\"\n          weekly-chart=\"$ctrl.weeklyChart\"></admin-weekly-search-area>\n        <admin-weekly-chord-results\n          songs=\"$ctrl.weeklyChart.songs\"\n          available-ranks=\"$ctrl.availableRanks\"\n          save-chart=\"$ctrl.saveChart\"\n          rank-change-handler=\"$ctrl.updateRank\">\n        </admin-weekly-chord-results>\n      </div>\n    ",
+        template: "\n      <div  class=\"md-padding\" id=\"adminWeeklyChart\"\n          translate-namespace=\"admin.weeklyChart\">\n        <pre>{{$ctrl.lastWeekChart | json}}</pre>\n        <admin-weekly-search-area\n          rank-change-handler=\"$ctrl.rankChangeHandler\"\n          available-ranks=\"$ctrl.availableRanks\"\n          weekly-chart=\"$ctrl.weeklyChart\"></admin-weekly-search-area>\n        <admin-weekly-chord-results\n          songs=\"$ctrl.weeklyChart.songs\"\n          available-ranks=\"$ctrl.availableRanks\"\n          save-chart=\"$ctrl.saveChart\"\n          rank-change-handler=\"$ctrl.updateRank\">\n        </admin-weekly-chord-results>\n      </div>\n    ",
         controller: 'adminWeeklyChartCtrl',
     };
     var adminWeeklySearchArea = {
@@ -83,15 +83,31 @@
                 chordKey: chordKey,
             });
         };
+        WeeklyChart.getLatestChart()
+            .then(function (result) { return _this.lastWeekChart = result; });
         this.filterRanks = function (oldRanks) {
             var takenRanks = _this.weeklyChart.songs.map(function (song) { return song.rank; });
             return _this.availableRanks.filter(function (rank) {
-                console.log(rank);
                 return !takenRanks.includes(rank);
             });
         };
+        this.addPositionDifference = function (weeklyChart, oldWeeklyChart) {
+            var oldSong;
+            for (var _i = 0, weeklyChart_1 = weeklyChart; _i < weeklyChart_1.length; _i++) {
+                var currSong = weeklyChart_1[_i];
+                oldSong = oldWeeklyChart[currSong.chordKey];
+                if (!oldSong) {
+                    currSong.positionDifference = null;
+                }
+                else {
+                    currSong.positionDifference = oldSong.rank - currSong.rank;
+                }
+            }
+            return weeklyChart;
+        };
         this.saveChart = function () {
             var wc = angular.copy(vm.weeklyChart);
+            wc.songs = _this.addPositionDifference(wc.songs, _this.lastWeekChart.songs);
             wc.dateCreated = Date.now();
             if (wc.$$hashKey) {
                 delete wc.$$hashKey;

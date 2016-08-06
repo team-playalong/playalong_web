@@ -7,6 +7,7 @@
     template: `
       <div  class="md-padding" id="adminWeeklyChart"
           translate-namespace="admin.weeklyChart">
+        <pre>{{$ctrl.lastWeekChart | json}}</pre>
         <admin-weekly-search-area
           rank-change-handler="$ctrl.rankChangeHandler"
           available-ranks="$ctrl.availableRanks"
@@ -119,17 +120,38 @@
       });
     };
 
+    WeeklyChart.getLatestChart()
+    .then(result => this.lastWeekChart = result);
+
+
     this.filterRanks = oldRanks => {
 
       const takenRanks = this.weeklyChart.songs.map(song => song.rank);
       return this.availableRanks.filter(rank => {
-        console.log(rank);
+
         return !takenRanks.includes(rank);
       });
     };
 
-    this.saveChart = function() {
-      const wc = angular.copy(vm.weeklyChart);
+    this.addPositionDifference = (weeklyChart, oldWeeklyChart) => {
+      let oldSong;
+      for (let currSong of weeklyChart) {
+        oldSong = oldWeeklyChart[currSong.chordKey];
+        if (!oldSong) {
+          currSong.positionDifference = null;
+        }
+        else {
+          currSong.positionDifference = oldSong.rank - currSong.rank;
+        }
+      }
+      return weeklyChart;
+    };
+
+    this.saveChart = () => {
+      let wc = angular.copy(vm.weeklyChart);
+
+      wc.songs = this.addPositionDifference(wc.songs, this.lastWeekChart.songs);
+
       wc.dateCreated = Date.now();
       if (wc.$$hashKey) {
         delete wc.$$hashKey;

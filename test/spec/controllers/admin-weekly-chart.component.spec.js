@@ -25,5 +25,17 @@ describe('admin-weekly-chart.component', function () {
     expect(res.length).toBe(0);
   });
 
+  fit('should add the difference of positions', function() {
+    var curr = [{
+      rank: 2,
+      chordKey: 1,
+    }];
 
+    var last = [{
+      chordKey: 1,
+      rank: 3
+    }];
+    res = ctrl.addPositionDifference(curr, last);
+    expect(res[0].positionDifference).toBe(-1);
+  });
 });

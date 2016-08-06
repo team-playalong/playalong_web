@@ -1,13 +1,13 @@
 (function() {
   'use strict';
-  
+
   const plySidebar: ng.IComponentOptions = {
     controller: 'SidebarCtrl',
     controllerAs: 'vm',
     template: `
       <header>
-      <md-sidenav 
-        class=" md-whiteframe-z2 ply-sidenav" 
+      <md-sidenav
+        class=" md-whiteframe-z2 ply-sidenav"
         md-component-id="left"
         ng-class="{'md-sidenav-right': $root.app.dir === 'rtl', 'md-sidenav-left': $root.app.dir !== 'rtl' }">
         <md-toolbar class="md-theme-indigo" md-scroll-shrink="true">
@@ -30,7 +30,7 @@
     </header>
     `,
   };
-  
+
   SidebarCtrl.$inject = ['$mdSidenav', 'login'];
   function SidebarCtrl($mdSidenav, login) {
     let vm = this;
@@ -60,16 +60,16 @@
         ref: 'tuner',
         icon: 'music',
       },
-      {
-        text: 'sidebar.menu.METRONOME',
-        ref: 'metronome',
-        icon: 'caret-up',
-      },
       // {
-      //   text: 'Suggestions',
-      //   ref: 'suggestions',
-      //   icon: 'lightbulb-o',
+      //   text: 'sidebar.menu.METRONOME',
+      //   ref: 'metronome',
+      //   icon: 'caret-up',
       // },
+      {
+        text: 'Suggestions',
+        ref: 'suggestions',
+        icon: 'lightbulb-o',
+      },
       {
         text: 'Weekly Chart Admin',
         ref: 'admin.weeklyChart',
