@@ -7,3 +7,8 @@
 /.tscache
 /typings
 *.map
+app/**/*.js
+!app/env.js
+!app/components/metronome/buzz.min.js
+!app/pages/tuner/AudioContextMonkeyPatch.js
+!app/pages/tuner/dsp.js
