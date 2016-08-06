@@ -7,6 +7,7 @@
         'paths', '$state', 'login', '$rootScope',
     ];
     function MainCtrl($scope, $timeout, $mdSidenav, $mdUtil, paths, $state, login, $rootScope) {
+        $scope.Math = Math;
         $scope.initCtrl = function () {
             if (!!window.mixpanel) {
                 window.mixpanel.track('ply_page_load');
