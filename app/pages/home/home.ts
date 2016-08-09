@@ -1,10 +1,6 @@
 (function() {
   'use strict';
 
-  angular.module('playalongWebApp')
-  .controller('HomeCtrl', HomeCtrl)
-  .directive('plyHome', PlyHome);
-
   function PlyHome() {
     return {
       templateUrl: 'pages/home/home.template.html',
@@ -13,122 +9,135 @@
     };
   }
 
-  HomeCtrl.$inject = [
-    '$rootScope', 'chords', '$translate', '$q',
-  ];
-  function HomeCtrl($rootScope, chords, $translate, $q) {
-    let vm = this;
+  class HomeCtrl {
+    public searchByOptions;
+    public searchConfig;
+    public searchResults;
+    public resultMessage;
 
-    if (!!window.mixpanel) {
-      window.mixpanel.track('ply_page_view_home');
-    }
-    $rootScope.currPage = 'home.PAGE_TITLE';
-    vm.searchByOptions = [
-      {
-        label: 'home.ARTIST',
-        value: 'artist',
-      },
-      {
-        label: 'home.SONG_NAME',
-        value: 'title',
-      },
-    ];
-    vm.searchConfig = {
-      searchBy: vm.searchByOptions[0].value,
-      searchInput: '',
-    };
+    constructor(public $rootScope,public chords,public $translate,public $q) {}
 
-    //Workaround due to translations
-    setTimeout(function() {
-      let elem = document.querySelector('md-select-value > span');
-      if (!!elem) {
-        elem.textContent = 'Song Name';
+    $onInit() {
+      if (!!window.mixpanel) {
+        window.mixpanel.track('ply_page_view_home');
       }
 
-    }, 200);
+      this.$rootScope.currPage = 'home.PAGE_TITLE';
+      this.searchByOptions = [
+        {
+          label: 'home.ARTIST',
+          value: 'artist',
+        },
+        {
+          label: 'home.SONG_NAME',
+          value: 'title',
+        },
+      ];
+      this.searchConfig = {
+        searchBy: this.searchByOptions[0].value,
+        searchInput: '',
+      };
 
-    vm.formatResultMessage = function() {
+      //Workaround due to translations
+      setTimeout(() => {
+        let elem = document.querySelector('md-select-value > span');
+        if (!!elem) {
+          elem.textContent = 'Song Name';
+        }
+
+      }, 200);
+
+      this.$rootScope.$on('$stateChangeSuccess',
+      /*jshint unused:false */
+      (event, toState, toParams, fromState, fromParams) => {
+        if (toState.title) {
+          this.$rootScope.currPage = toState.title;
+        }
+      });
+    }
+
+
+    formatResultMessage = () => {
       return new Promise((resolve, reject) => {
         var toTranslate;
         var manyResults;
-        if (!vm.searchResults || !vm.searchResults.length) {
+        if (!this.searchResults || !this.searchResults.length) {
           toTranslate = 'home.EMPTY_RESULT_MESSAGE';
         }
-        else if (vm.searchResults && vm.searchResults.length === 1) {
+        else if (this.searchResults && this.searchResults.length === 1) {
           toTranslate = 'home.SINGLE_RESULT_MESSAGE';
         }
-        else if (vm.searchResults && vm.searchResults.length > 1) {
+        else if (this.searchResults && this.searchResults.length > 1) {
           manyResults = true;
           toTranslate = 'home.MANY_RESULT_MESSAGE';
         }
-        $translate([toTranslate])
-        .then(function (translations) {
+        this.$translate([toTranslate])
+        .then(translations => {
           var res = translations[toTranslate];
           if (manyResults && res.indexOf('{numResults}') !== -1) {
-            res = res.replace('{numResults}', vm.searchResults.length);
+            res = res.replace('{numResults}', this.searchResults.length);
           }
           resolve(res);
         });
       });
     };
 
-    vm.handleChordResults = function(results) {
+    handleChordResults = results => {
       if (results && results.length) {
-        vm.searchResults = results;
+        this.searchResults = results;
       }
-      vm.chordsFinallyHandler();
+      this.chordsFinallyHandler();
     };
 
 
-    vm.chordsFinallyHandler = function() {
-      vm.formatResultMessage()
-      .then(function(message) {
-        vm.resultMessage = message;
+    chordsFinallyHandler = () => {
+      this.formatResultMessage()
+      .then(message => {
+        this.resultMessage = message;
 
-        $rootScope.startSpin('stopSearchChordsSpinner');
+        this.$rootScope.startSpin('stopSearchChordsSpinner');
       });
     };
 
 
-    vm.uppercaseFirstLetter = str => str.split(' ').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
+    uppercaseFirstLetter = str => str.split(' ').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
 
-    vm.searchChords = (numAttempts = 1) => {
+    searchChords = (numAttempts = 1) => {
       if (numAttempts > 2) { return; }
-      $rootScope.startSpin('startSearchChordsSpinner');
-      vm.searchResults = [];
-      chords.searchChordsBy(vm.searchConfig.searchBy, vm.searchConfig.searchInput)
+      this.$rootScope.startSpin('startSearchChordsSpinner');
+      this.searchResults = [];
+      this.chords.searchChordsBy(this.searchConfig.searchBy, this.searchConfig.searchInput)
         .then((data) => {
-          vm.handleChordResults(data);
-          vm.chordsFinallyHandler();
+          this.handleChordResults(data);
+          this.chordsFinallyHandler();
         })
-        .catch(function(error) {
-
+        .catch(error => {
           //Try searching with an upper case for the first letter of each word
           if (numAttempts < 2) {
-            vm.searchConfig.searchInput = vm.uppercaseFirstLetter(vm.searchConfig.searchInput);
-            vm.searchChords(++numAttempts);
+            this.searchConfig.searchInput = this.uppercaseFirstLetter(this.searchConfig.searchInput);
+            this.searchChords(++numAttempts);
           }
           else {
-            vm.searchResults = [];
+            this.searchResults = [];
             console.warn(error);
-            vm.chordsFinallyHandler();
+            this.chordsFinallyHandler();
           }
 
         });
     };
 
     //For spinner event listening
-    vm.triggerSearchChords = function() {
-      vm.searchChords();
+    triggerSearchChords = () => {
+      this.searchChords();
     };
 
-    $rootScope.$on('$stateChangeSuccess',
-    /*jshint unused:false */
-    function(event, toState, toParams, fromState, fromParams){
-      if (toState.title) {
-        $rootScope.currPage = toState.title;
-      }
-    });
     /*jshint unused:true*/
   }
+  HomeCtrl.$inject = [
+    '$rootScope', 'chords', '$translate', '$q',
+  ];
+
+  angular.module('playalongWebApp')
+  .controller('HomeCtrl', HomeCtrl)
+  .directive('plyHome', PlyHome);
 })();

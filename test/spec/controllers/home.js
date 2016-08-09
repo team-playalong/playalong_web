@@ -27,6 +27,7 @@ describe('Controller: HomeCtrl', function () {
     _$httpBackend_.whenGET(/views\/.*/).respond();
     _$httpBackend_.whenGET(/i18n/).respond();
     $rootScope.$apply();
+    HomeCtrl.$onInit();
   }));
 
   it('should initialize all components', function() {
