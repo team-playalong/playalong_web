@@ -1,22 +1,23 @@
 (function () {
     'use strict';
     BuilderCtrl.$inject = [
-        '$scope', 'chords', '$interval', '$timeout', '$stateParams',
-        '$rootScope', 'toast', 'login', 'RegexStore', '$state'
+        '$scope', 'chords', '$timeout', '$stateParams',
+        '$rootScope', 'toast', 'login', 'RegexStore', '$state', 'PlyNotifier',
     ];
-    function BuilderCtrl($scope, chords, $interval, $timeout, $stateParams, $rootScope, toast, login, RegexStore, $state) {
+    function BuilderCtrl($scope, chords, $timeout, $stateParams, $rootScope, toast, login, RegexStore, $state, PlyNotifier) {
         if (!!window.mixpanel) {
-            window.mixpanel.track("ply_page_view_builder");
+            window.mixpanel.track('ply_page_view_builder');
         }
         $scope.login = login;
         $rootScope.currPage = 'Chord Builder';
         $scope.chordRef = null; //Will reference the chord for Firebase process.binding
         $scope.flags = {
-            isPreviewMode: false
+            isPreviewMode: false,
         };
-        var handleChordSuccess = function (chord) {
+        function handleChordSuccess(chord) {
+            PlyNotifier.notifyChordAdded({ chordId: chord.$id });
             $state.go('builder.edit', { id: chord.$id || chord.chordKey });
-        };
+        }
         if ($stateParams && $stateParams.id) {
             chords.getChordById({ chordId: $stateParams.id, isFirebaseObject: true })
                 .then(function (result) {

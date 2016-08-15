@@ -15,7 +15,7 @@
     public searchResults;
     public resultMessage;
 
-    constructor(public $rootScope,public chords,public $translate,public $q) {}
+    constructor(public $rootScope, public chords, public $translate, public $q) {}
 
     $onInit() {
       if (!!window.mixpanel) {
