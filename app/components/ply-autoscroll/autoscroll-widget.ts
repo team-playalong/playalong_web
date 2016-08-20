@@ -12,9 +12,9 @@
     .directive('autoscrollWidget', [function () {
       return {
         template: `
-          <div  class="well ply-autoscroll-widget no-padding" 
-                jqyoui-draggable="{animate:true}" 
-                data-drag="true" 
+          <div  class="well ply-autoscroll-widget no-padding"
+                jqyoui-draggable="{animate:true}"
+                data-drag="true"
                 ng-class="{minified: isMinified}"
                 translate-namespace="autoScroll">
               <div class="ply-autoscroll-widget-minimize">
@@ -29,13 +29,17 @@
                 </md-button>
                 <justgage level-colors="{{levelColors}}" class="ply-autoscroll-widget-gauge" title="{{'autoscroll.TITLE' | translate}}" value="{{speed}}"
                           min="{{min}}" max="{{max}}" flex-gt-sm="50" flex-sm="100">
-                </justgage>    
+                </justgage>
                 <md-button class="md-icon-button"  aria-label="Add" flex-gt-sm="15" flex-sm="100">
                 <md-tooltip md-direction="top" >{{'autoscroll.QUICKER_MESSAGE' | translate}}</md-tooltip>
                   <ng-md-icon icon="add" ng-click="changeSpeed(1)" size="30"></ng-md-icon>
                 </md-button>
+                <md-button class="md-icon-button"  aria-label="Add" flex-gt-sm="15" flex-sm="100">
+                <md-tooltip md-direction="top" >{{'autoscroll.STOP_MESSAGE' | translate}}</md-tooltip>
+                  <ng-md-icon icon="cancel" ng-click="changeSpeed(-100)" size="30"></ng-md-icon>
+                </md-button>
               </div>
-              
+
           </div>
         `,
         restrict: 'E',
