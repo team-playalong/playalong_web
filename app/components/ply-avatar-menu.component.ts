@@ -40,8 +40,8 @@
 		};
 	}
 
-	ctrl.$inject = ['$mdDialog', 'login', 'paths', 'toast', '$translate'];
-	function ctrl($mdDialog, login, paths, toast, $translate) {
+	ctrl.$inject = ['$mdDialog', 'login', 'paths', 'toast', '$translate', 'PlyNotifier'];
+	function ctrl($mdDialog, login, paths, toast, $translate, PlyNotifier) {
 		let ctrl = this;
 		ctrl.login = login;
 		ctrl.paths = paths;
@@ -53,7 +53,13 @@
 
 		ctrl.loginSocial = function(platform) {
 		  login.loginSocial(platform)
-		  .then(function(){
+		  .then(user => {
+        if (user.user && user.user.providerData && user.user.providerData.length) {
+          const userData = user.user.providerData[0];
+          PlyNotifier.notifyLogin(userData);
+        }
+
+
 		  });
 		};
 
