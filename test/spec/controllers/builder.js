@@ -46,7 +46,7 @@ describe('Controller: BuilderctrlCtrl', function () {
     $rootScope.$apply();
   }));
 
-  it('should initialize the scope', function () {
+  fit('should initialize the scope', function () {
     expect(scope).toBeDefined();
   });
 });

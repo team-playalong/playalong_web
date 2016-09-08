@@ -2,6 +2,7 @@
   "name": "playalongweb",
   "private": true,
   "devDependencies": {
+    "angular-mocks": "^1.5.8",
     "babel-polyfill": "^6.9.1",
     "eslint": "^3.0.0",
     "grunt": "^1.0.1",
@@ -49,6 +50,8 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "angular-youtube-embed": "^1.1.1"
+    "angular-youtube-embed": "^1.1.1",
+    "firebase": "^3.3.1",
+    "playalong-services": "0.0.1"
   }
 }

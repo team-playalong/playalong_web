@@ -1,5 +1,4 @@
 'use strict';
-
 describe('Controller: ChordCtrl', function () {
 
   // load the controller's module
@@ -11,7 +10,7 @@ describe('Controller: ChordCtrl', function () {
 
 // Initialize the controller and a mock scope
 beforeEach(inject(function ($controller, $rootScope,_$httpBackend_,_$q_) {
-  $q = _$q_;  
+  $q = _$q_;
 	$rootScope.chord = window.mockData.getMockChord();
   	scope = $rootScope.$new();
     scope.chord = mockData.getMockChord();
@@ -38,13 +37,14 @@ beforeEach(inject(function ($controller, $rootScope,_$httpBackend_,_$q_) {
     $rootScope.$apply();
 }));
 
-  it('should initialize all components', function() {
+  fit('should initialize all components', function() {
   	expect(scope).toBeDefined();
+  	console.log(scope)
   	expect(scope.currPage).toBe('Test Artist - Test Title');
   	expect(scope.chordRating).toBe(1);
 
   	expect(scope.chordFab).toBeDefined();
   	expect(scope.chordFab.selectedMode).toBe('md-fling');
   });
-  
+
 });
