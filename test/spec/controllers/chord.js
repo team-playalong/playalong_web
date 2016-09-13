@@ -37,9 +37,8 @@ beforeEach(inject(function ($controller, $rootScope,_$httpBackend_,_$q_) {
     $rootScope.$apply();
 }));
 
-  fit('should initialize all components', function() {
+  it('should initialize all components', function() {
   	expect(scope).toBeDefined();
-  	console.log(scope)
   	expect(scope.currPage).toBe('Test Artist - Test Title');
   	expect(scope.chordRating).toBe(1);
 

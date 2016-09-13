@@ -2,7 +2,6 @@
   "name": "playalongweb",
   "private": true,
   "devDependencies": {
-    "angular-mocks": "^1.5.8",
     "babel-polyfill": "^6.9.1",
     "eslint": "^3.0.0",
     "grunt": "^1.0.1",
@@ -50,8 +49,28 @@
     "test": "grunt test"
   },
   "dependencies": {
+    "Guitar-Tuner-Webapp": "https://github.com/oankarberg/Guitar-Tuner-Webapp.git",
+    "angular": "^1.5.8",
+    "angular-animate": "^1.4.12",
+    "angular-aria": "^1.5.8",
+    "angular-cookies": "^1.5.8",
+    "angular-dragdrop": "~1.0.12",
+    "angular-gage": "~0.1.0",
+    "angular-material": "~0.10.0",
+    "angular-material-icons": "^0.7.0",
+    "angular-mocks": "^1.5.8",
+    "angular-resource": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "angular-touch": "^1.5.8",
+    "angular-ui-router": "~0.2.15",
     "angular-youtube-embed": "^1.1.1",
+    "es5-shim": "^4.5.9",
     "firebase": "^3.3.1",
-    "playalong-services": "0.0.1"
+    "jquery": "~2.1.4",
+    "json3": "^3.3.2",
+    "justgage": "^1.2.2",
+    "playalong-services": "0.0.1",
+    "rangy": "^1.3.0",
+    "textangular": "~1.4.6"
   }
 }

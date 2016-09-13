@@ -1,5 +1,4 @@
 'use strict';
-
 describe('Controller: BuilderctrlCtrl', function () {
 
   // load the controller's module
@@ -46,7 +45,7 @@ describe('Controller: BuilderctrlCtrl', function () {
     $rootScope.$apply();
   }));
 
-  fit('should initialize the scope', function () {
+  it('should initialize the scope', function () {
     expect(scope).toBeDefined();
   });
 });
