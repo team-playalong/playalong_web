@@ -8,8 +8,6 @@ before_script:
   - 'npm install -g grunt-cli typescript typings firebase-tools'
   - 'bower install'
   - 'typings install'
-	- 'gem install sass'
-	- 'gem install compass'
 	- 'npm install && bower install'
 script:
   - 'grunt --verbose'
