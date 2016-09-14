@@ -40,7 +40,7 @@ module.exports = function(config) {
       'node_modules/angular-translate-loader-url/angular-translate-loader-url.js',
       'bower_components/messageformat/messageformat.js',
       'node_modules/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.js',
-      'node_modules/firebase/firebase.js',
+      'bower_components/firebase/firebase.js',
       'node_modules/angularfire/dist/angularfire.js',
       'node_modules/playalong-services/dist/scripts/scripts.js',
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
