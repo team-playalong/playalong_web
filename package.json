@@ -71,6 +71,6 @@
     "justgage": "^1.2.2",
     "playalong-services": "0.0.1",
     "rangy": "^1.3.0",
-    "textangular": "~1.4.6"
+    "textangular": "^1.5.9"
   }
 }
