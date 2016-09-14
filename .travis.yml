@@ -12,3 +12,5 @@ script:
 - grunt --verbose
 - firebase use playalong-prod
 - firebase deploy --token "$FIREBASE_TOKEN"
+env:
+- PORT=3000
