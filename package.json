@@ -40,7 +40,7 @@
     "serve": "^1.4.0",
     "static": "^2.0.0",
     "time-grunt": "^1.0.0",
-    "vinyl-fs": "2.4.3"
+    "vinyl-fs": "2.4.4"
   },
   "engines": {
     "node": ">=0.10.0"
