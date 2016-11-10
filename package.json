@@ -62,7 +62,7 @@
     "angular-resource": "^1.5.8",
     "angular-route": "^1.5.8",
     "angular-touch": "^1.5.8",
-    "angular-ui-router": "~0.3.1",
+    "angular-ui-router": "~0.3.2",
     "angular-youtube-embed": "^1.1.1",
     "es5-shim": "^4.5.9",
     "jquery": "~2.1.4",
