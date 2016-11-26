@@ -1,37 +1,27 @@
-(function() {
-  'use strict';
+	/**
+	 * @ngdoc service
+	 * @name playalongWebApp.Common
+	 * @description
+	 * # Common
+	 * Factory in the playalongWebApp.
+	 */
 
-  /**
-   * @ngdoc service
-   * @name playalongWebApp.Common
-   * @description
-   * # Common
-   * Factory in the playalongWebApp.
-   */
-  angular.module('playalongWebApp')
-    .factory('Common', Common);
+	class Common {
+		constructor(private RegexStore) {}
 
-    Common.$inject = ['RegexStore', 'login'];
+		public isRtlContent(content) {
+			//enough to find 3 non-english characters and we're good :)
+			if (!content) { return false; }
+			const matching = content.match(this.RegexStore.get('hebrew'));
+			return !!matching && matching.length >= 3;
+		}
 
-    function Common(RegexStore, login) {
-      function isRtlContent(content) {
-        //enough to find 3 non-english characters and we're good :)
-        if (!content) { return false; }
-        const matching = content.match(RegexStore.get('hebrew'));
-        return !!matching && matching.length >= 3;
-      }
-
-      function removeDuplicates(collection) {
-        return collection.filter((elem, pos, arr) => {
-            return arr.indexOf(elem) === pos;
-          });
-      }
-
-      // Public API here
-      return {
-        isRtlContent,
-        removeDuplicates,
-      };
-    }
-
-})();
+		public removeDuplicates(collection) {
+			return collection.filter((elem, pos, arr) => {
+				return arr.indexOf(elem) === pos;
+			});
+		}
+	}
+	Common.$inject = ['RegexStore'];
+	angular.module('playalongWebApp')
+		.service('Common', Common);

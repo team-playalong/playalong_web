@@ -1,27 +1,20 @@
-(function() {
-  'use strict';
+class PlyDate {
+	constructor(private $mdToast, private $translate)  {}
 
-  angular.module('playalongWebApp')
-  .service('PlyDate', PlyDate);
+	public getAllWeekNumbers() {
+		let allWeekNumbers = [];
+		for (let i = 1; i < 55; ++i) {
+			allWeekNumbers.push(i);
+		}
 
-  PlyDate.$inject = [];
-  function PlyDate($mdToast, $translate) {
+		return allWeekNumbers;
+	}
 
-    function getAllWeekNumbers() {
-      let allWeekNumbers = [];
-      for (let i = 1; i < 55; ++i) {
-        allWeekNumbers.push(i);
-      }
+	public getAllYears() {
+		return [2016, 2017];
+	}
+}
+PlyDate.$inject = ['$mdToast', '$translate']
 
-      return allWeekNumbers;
-    }
-
-    function getAllYears() {
-      return [2016, 2017];
-    }
-    return {
-      getAllWeekNumbers,
-      getAllYears,
-    };
-  }
-})();
+angular.module('playalongWebApp')
+	.service('PlyDate', PlyDate);

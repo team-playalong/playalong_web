@@ -46,7 +46,8 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test",
+    "start": "typings install"
   },
   "dependencies": {
     "Guitar-Tuner-Webapp": "https://github.com/oankarberg/Guitar-Tuner-Webapp.git",
