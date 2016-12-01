@@ -3,7 +3,7 @@
  * @name playalongWebApp.toast
  * @description
  * # toast
- * Service in the playalongWebApp.
+ * API for making toast (popup) messages
  */
 var toast = (function () {
     function toast($mdToast, $translate) {

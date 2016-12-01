@@ -3,7 +3,7 @@
  * @name playalongWebApp.toast
  * @description
  * # toast
- * Service in the playalongWebApp.
+ * API for making toast (popup) messages
  */
 
 class toast {
