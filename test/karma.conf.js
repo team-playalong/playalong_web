@@ -86,6 +86,7 @@ module.exports = function(config) {
       'app/components/**/*.js',
       'app/pages/**/*.js',
 
+      //Test
       "test/globals.js",
       "test/mock/**/*.js",
       "test/spec/**/*.js",
@@ -116,7 +117,8 @@ module.exports = function(config) {
     plugins: [
       "karma-phantomjs-launcher",
       "karma-chrome-launcher",
-      "karma-jasmine"
+      "karma-jasmine",
+        'karma-coverage',
     ],
 
     // Continuous Integration mode
@@ -128,6 +130,27 @@ module.exports = function(config) {
     // level of logging
     // possible values: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
     logLevel: config.LOG_INFO,
+    reporters: [
+      'progress',
+      'coverage',
+    ],
+    coverageReporter: {
+      type: 'json',
+      dir: 'test/coverage'
+    },
+    preprocessors: {
+      // source files, that you wanna generate coverage for
+      // do not include tests or libraries
+      // (these files will be instrumented by Istanbul)
+      'app/scripts/app.js': ['coverage'],
+      'app/scripts/config/config.constants.js': ['coverage'],
+      'app/scripts/config/config.route.js': ['coverage'],
+      'app/scripts/controllers/*.js': ['coverage'],
+      'app/scripts/services/*.js': ['coverage'],
+      'app/scripts/directives/*.js': ['coverage'],
+      'app/components/**/*.js': ['coverage'],
+      'app/pages/**/*.js': ['coverage'],
+    },
 
     // Uncomment the following lines if you are using grunt's server to run the tests
     // proxies: {
