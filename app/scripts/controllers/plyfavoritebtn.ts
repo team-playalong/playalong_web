@@ -4,9 +4,9 @@
   angular.module('playalongWebApp')
   .controller('PlyfavoritebtnCtrl', PlyfavoritebtnCtrl);
 
-  PlyfavoritebtnCtrl.$inject = ['$scope','user','login','toast'];
-  function PlyfavoritebtnCtrl($scope,user,login,toast) {
-    var resetValues = function() {
+  PlyfavoritebtnCtrl.$inject = ['$scope', 'user', 'login', 'Toast'];
+  function PlyfavoritebtnCtrl($scope, user, login, toast) {
+    function resetValues() {
       $scope.favorites = undefined;
     };
 
@@ -16,7 +16,7 @@
         resetValues();
         return;
       }
-      var params = {
+      let params = {
         isAddFlag: !$scope.isFavorite,
         chordObj: {
           chordKey: $scope.chord.chordKey,
@@ -27,10 +27,9 @@
       };
       user.addRemoveFavorites(params)
       .then(function() {
-        var message;
+        let message;
         $scope.isFavorite = !$scope.isFavorite;
-        if ($scope.isFavorite)
-        {
+        if ($scope.isFavorite) {
           message = 'favorites.ADDED_MESSAGE';
         }
         else {
@@ -41,19 +40,16 @@
 
     };
 
-    var checkIsFavorite = function() {
-      user.isChordFavorite(login.getUser().userKey,$scope.chord.$id || $scope.chord.chordKey)
-      .then(function(isFavorite)
-      {
+    function checkIsFavorite() {
+      user.isChordFavorite(login.getUser().userKey, $scope.chord.$id || $scope.chord.chordKey)
+      .then(function(isFavorite) {
         $scope.isFavorite = !!isFavorite;
       });
     };
-    var checkForChord = function() {
-      if (!$scope.chord)
-      {
+    function checkForChord() {
+      if (!$scope.chord) {
         $scope.$watch('chord', function(newValue) {
-        if (!!newValue)
-        {
+        if (!!newValue) {
           newValue.chordKey = newValue.chordKey || newValue.$id;
           $scope.chord = newValue;
           checkIsFavorite();
@@ -61,23 +57,20 @@
       });
       }
       else {
-        if ($scope.isFavorite === undefined )
-        {
+        if ($scope.isFavorite === undefined ) {
           checkIsFavorite();
         }
-
       }
     };
 
-    if (!login.isLoggedIn())
-    {
+    if (!login.isLoggedIn()) {
       $scope.$on('plyUserLoggedIn', checkForChord);
     }
     else {
       checkForChord();
     }
 
-    $scope.$on('plyUserLoggedOut',resetValues);
+    $scope.$on('plyUserLoggedOut', resetValues);
     resetValues();
   }
 })();

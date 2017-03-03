@@ -59,8 +59,8 @@
 
     formatResultMessage = () => {
       return new Promise((resolve, reject) => {
-        var toTranslate;
-        var manyResults;
+        let toTranslate;
+        let manyResults;
         if (!this.searchResults || !this.searchResults.length) {
           toTranslate = 'home.EMPTY_RESULT_MESSAGE';
         }
@@ -73,22 +73,21 @@
         }
         this.$translate([toTranslate])
         .then(translations => {
-          var res = translations[toTranslate];
+          let res = translations[toTranslate];
           if (manyResults && res.indexOf('{numResults}') !== -1) {
             res = res.replace('{numResults}', this.searchResults.length);
           }
           resolve(res);
         });
       });
-    };
+    }
 
     handleChordResults = results => {
       if (results && results.length) {
         this.searchResults = results;
       }
       this.chordsFinallyHandler();
-    };
-
+    }
 
     chordsFinallyHandler = () => {
       this.formatResultMessage()
@@ -97,8 +96,7 @@
 
         this.$rootScope.startSpin('stopSearchChordsSpinner');
       });
-    };
-
+    }
 
     uppercaseFirstLetter = str => str.split(' ').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
 
@@ -124,12 +122,12 @@
           }
 
         });
-    };
+    }
 
     //For spinner event listening
     triggerSearchChords = () => {
       this.searchChords();
-    };
+    }
 
     /*jshint unused:true*/
   }

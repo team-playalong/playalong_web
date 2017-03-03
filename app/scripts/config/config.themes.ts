@@ -3,7 +3,7 @@
 app.config(function($mdThemingProvider) {
   $mdThemingProvider.definePalette('playalongPrimary', {
       '50': '03A9F4',
-      
+
       //TODO - complete the others
       '100': '03A9F4',
       '200': '03A9F4',
@@ -22,12 +22,12 @@ app.config(function($mdThemingProvider) {
                                           // on this palette should be dark or light
       'contrastDarkColors': ['50', '100', //hues which contrast should be 'dark' by default
        '200', '300', '400', 'A100'],
-      'contrastLightColors': undefined    // could also specify this if default was 'dark'
+      'contrastLightColors': undefined,    // could also specify this if default was 'dark'
     });
 
   	$mdThemingProvider.definePalette('playalongAccent', {
   	    '50': '#FF4081',
-  	    
+
   	    //TODO - complete the others
   	    '100': '#FF4081',
   	    '200': '#FF4081',
@@ -46,12 +46,12 @@ app.config(function($mdThemingProvider) {
   	                                        // on this palette should be dark or light
   	    'contrastDarkColors': ['50', '100', //hues which contrast should be 'dark' by default
   	     '200', '300', '400', 'A100'],
-  	    'contrastLightColors': undefined    // could also specify this if default was 'dark'
+  	    'contrastLightColors': undefined,    // could also specify this if default was 'dark'
   	  });
 
 	$mdThemingProvider.definePalette('playalongBackground', {
 	    '50': '#FFFFFF',
-	    
+
 	    //TODO - complete the others
 	    '100': '#FFFFFF',
 	    '200': '#FFFFFF',
@@ -70,7 +70,7 @@ app.config(function($mdThemingProvider) {
 	                                        // on this palette should be dark or light
 	    'contrastDarkColors': ['50', '100', //hues which contrast should be 'dark' by default
 	     '200', '300', '400', 'A100'],
-	    'contrastLightColors': undefined    // could also specify this if default was 'dark'
+	    'contrastLightColors': undefined,    // could also specify this if default was 'dark'
 	  });
 
     $mdThemingProvider.theme('default')

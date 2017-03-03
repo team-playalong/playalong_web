@@ -93,7 +93,7 @@
     },
   };
 
-  adminWeeklyChartCtrl.$inject = ['toast', 'WeeklyChart'];
+  adminWeeklyChartCtrl.$inject = ['Toast', 'WeeklyChart'];
   function adminWeeklyChartCtrl(toast, WeeklyChart) {
     let vm = this;
     this.weeklyChart = {

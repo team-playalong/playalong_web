@@ -1,9 +1,7 @@
 {
   "name": "playalongweb",
   "private": true,
-  "pre-commit": [
-    "test"
-  ],
+  "pre-commit": ["tslint","test"],
   "devDependencies": {
     "babel-polyfill": "^6.9.1",
     "eslint": "^3.0.0",
@@ -60,7 +58,8 @@
   },
   "scripts": {
     "test": "grunt test",
-    "start": "typings install"
+    "start": "typings install",
+    "tslint": "tslint './app/**/*.ts'"
   },
   "dependencies": {
     "Guitar-Tuner-Webapp": "https://github.com/oankarberg/Guitar-Tuner-Webapp.git",

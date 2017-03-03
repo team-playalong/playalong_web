@@ -43,24 +43,24 @@
           </md-card-content>
         </md-card>
       </div>
-      `
+      `,
     };
   }
 
 
 	FavoritesCtrl.$inject = [
-		'login','user','$rootScope','$scope', 'toast',
+		'login', 'user', '$rootScope', '$scope', 'Toast',
 	];
-	function FavoritesCtrl(login,user,$rootScope,$scope, toast) {
-    var vm = this;
+	function FavoritesCtrl(login, user, $rootScope, $scope, toast) {
+    let vm = this;
     if (!!window.mixpanel) {
-      window.mixpanel.track("ply_page_view_favorites");
+      window.mixpanel.track('ply_page_view_favorites');
     }
 
     vm.removeFavorite = ($event, favorite) => {
       $event.preventDefault();
       $event.stopPropagation();
-      var params = {
+      let params = {
         isAddFlag: false,
         chordObj: {
           chordKey: favorite.chordKey,
@@ -84,8 +84,7 @@
   			$rootScope.startSpin();
   			user.getFavorites(vm.userModel.userKey)
 	  		.then(function(data) {
-	  			if (data)
-	  			{
+	  			if (data) {
 	  				vm.favorites = data;
 	  			}
           $rootScope.stopSpin();
@@ -95,8 +94,7 @@
 
   	};
     vm.login = login;
-    if (login.isLoggedIn())
-    {
+    if (login.isLoggedIn()) {
     	vm.init();
     }
     else {

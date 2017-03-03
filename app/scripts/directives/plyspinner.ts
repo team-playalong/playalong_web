@@ -31,8 +31,12 @@
         * Turn off or on the 5 themed loaders
         */
        scope.toggleActivation = function() {
-           if ( !scope.activated ) {scope.modes = [ ];}
-           if (  scope.activated ) {j = counter = 0;}
+           if ( !scope.activated ) {
+             scope.modes = [ ];
+           }
+           if (scope.activated) {
+             j = counter = 0;
+           }
        };
        // Iterate every 100ms, non-stop
        $interval(function() {
@@ -46,10 +50,12 @@
          if ( (j < 5) && !scope.modes[j] && scope.activated ) {
            scope.modes[j] = 'indeterminate';
          }
-         if ( counter++ % 4 === 0 ) {j++;}
+         if ( counter++ % 4 === 0 ) {
+           j++;
+         }
        }, 100, 0, true);
-      }
-      };
+     },
+    };
    }
 
 

@@ -36,44 +36,42 @@
   angular.module('playalongWebApp')
   .controller('AutoscrollCtrl', AutoscrollCtrl);
 
-  AutoscrollCtrl.$inject = ['$interval','$window','$state'];
-  function AutoscrollCtrl($interval,$window,$state) {
+  AutoscrollCtrl.$inject = ['$interval', '$window', '$state'];
+  function AutoscrollCtrl($interval, $window, $state) {
     let vm = this;
 
-    var newInterval;
+    let newInterval;
     vm.config = {
       bottomSpeed: 1,
       topSpeed: 2,
       baseInterval: 80,
       maxSpeed: 5,
-      minSpeed: 0
+      minSpeed: 0,
     };
     //Fallback and make sure its between min-max
-    vm.speed = Math.min(vm.speed || vm.config.minSpeed,vm.config.maxSpeed);
+    vm.speed = Math.min(vm.speed || vm.config.minSpeed, vm.config.maxSpeed);
     vm.stateName = $state.current.name;
     vm.normalizeSpeed = function() {
-      var base = vm.config.bottomSpeed;
-      var offset = (vm.speed - base)/(vm.config.maxSpeed - vm.config.minSpeed);
+      let base = vm.config.bottomSpeed;
+      let offset = (vm.speed - base) / (vm.config.maxSpeed - vm.config.minSpeed);
       return base + offset;
     };
 
 
     vm.updateInterval = function() {
-      var normalizedSpeed = vm.normalizeSpeed();
-      if (vm.plyInterval)
-      {
+      let normalizedSpeed = vm.normalizeSpeed();
+      if (vm.plyInterval) {
         $interval.cancel(vm.plyInterval);
       }
-      newInterval = vm.config.baseInterval * (1/normalizedSpeed);
+      newInterval = vm.config.baseInterval * (1 / normalizedSpeed);
       vm.plyInterval = $interval(function() {
-        if (vm.speed > 0 && $state.current.name === vm.stateName)
-        {
-          $window.scrollBy(0,1);
+        if (vm.speed > 0 && $state.current.name === vm.stateName) {
+          $window.scrollBy(0, 1);
         }
         else {
           $interval.cancel(vm.plyInterval);
         }
-      },newInterval,0/*infinite*/, false /*no apply*/);
+      }, newInterval, 0/*infinite*/, false /*no apply*/);
     };
   }
 })();

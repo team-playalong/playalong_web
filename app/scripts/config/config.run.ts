@@ -6,7 +6,7 @@
         taOptions.toolbar = [
           ['bold', 'italics', 'underline', 'redo', 'undo'],
           ['justifyLeft', 'justifyCenter', 'justifyRight'],
-          ['html']
+          ['html'],
         ];
         return taOptions;
     }]);
@@ -18,7 +18,7 @@
   });
 
 
-  app.run(['$rootScope', '$state' , '$window', function($rootScope, $state,$window) {
+  app.run(['$rootScope', '$state' , '$window', function($rootScope, $state, $window) {
     $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
       // We can catch the error thrown when the $requireAuth promise is rejected
       // and redirect the user back to the home page
@@ -29,7 +29,7 @@
   /*jshint unused:false*/
     $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams, error) {
       //Scroll to the top of the page
-      $window.scrollTo(0,0);
+      $window.scrollTo(0, 0);
 
       if (toState.data && toState.data.title) {
         $rootScope.pageTitle = 'Playalong - ' + toState.data.title;
@@ -55,7 +55,7 @@
 
   app.config(['$uibTooltipProvider', function($uibTooltipProvider) {
     $uibTooltipProvider.options({
-        appendToBody: true
+        appendToBody: true,
     });
   }]);
 
@@ -69,8 +69,8 @@
       // to active whenever 'contacts.list' or one of its decendents is active.
       $rootScope.$state = $state;
       $rootScope.$stateParams = $stateParams;
-      }
-    ]
+    },
+  ],
   );
 
 

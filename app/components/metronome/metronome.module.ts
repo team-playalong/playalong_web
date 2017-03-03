@@ -1,5 +1,5 @@
-var TickSnd = new buzz.sound('http://victorblog.com/metronome/snd/tick', {
-    formats: ['mp3', 'ogg', 'wav']
+let TickSnd = new buzz.sound('http://victorblog.com/metronome/snd/tick', {
+  formats: ['mp3', 'ogg', 'wav'],
 });
 TickSnd.load();
 
@@ -10,7 +10,7 @@ TickSnd.load();
 /**
  * MetronomeApp module.
  */
-var MetronomeApp = angular.module('MetronomeApp', [], function() {});
+let MetronomeApp = angular.module('MetronomeApp', [], function() {});
 
 /**
  * metronome directive helps with responsive design,
@@ -18,12 +18,12 @@ var MetronomeApp = angular.module('MetronomeApp', [], function() {});
  */
 MetronomeApp.directive('metronome', function($window) {
     return function(scope, elem) {
-        var $jqWindow = $($window);
-        var metronomeAspectRatio = 0.56;
-        var fillPercentOfWindow = 0.98;
+        let $jqWindow = $($window);
+        let metronomeAspectRatio = 0.56;
+        let fillPercentOfWindow = 0.98;
         $jqWindow.resize(function() {
             // Window wider
-            var windowAR = $jqWindow.width() / $jqWindow.height();
+            let windowAR = $jqWindow.width() / $jqWindow.height();
             if (windowAR > metronomeAspectRatio) {
                 elem.height($jqWindow.height() * fillPercentOfWindow);
                 elem.width(metronomeAspectRatio * elem.height());
@@ -42,21 +42,21 @@ MetronomeApp.directive('metronome', function($window) {
  */
 MetronomeApp.directive('bobDragRegion', function() {
     return function(scope, elem, attrs) {
-        var bobElem = elem.find('[bob]');
+        let bobElem = elem.find('[bob]');
         if (!bobElem.length) {
-            throw "bobDragRegion couldn't find bob element.";
+            throw 'bobDragRegion couldn\'t find bob element.';
         }
 
-        var minSliderValue = scope.minBpm;
-        var maxSliderValue = scope.maxBpm;
+        let minSliderValue = scope.minBpm;
+        let maxSliderValue = scope.maxBpm;
 
         // Translation functions required since jQuery
         // slider's orientation is inverted with respect to
         // this old fashioned metronome
-        var bpmToSliderValue = function(bpm) {
-            return maxSliderValue - bpm + minSliderValue;
+        const bpmToSliderValue = function(bpm) {
+          return maxSliderValue - bpm + minSliderValue;
         };
-        var sliderValueToBpm = function(value) {
+        const sliderValueToBpm = function(value) {
             return maxSliderValue - value + minSliderValue;
         };
 
@@ -67,14 +67,14 @@ MetronomeApp.directive('bobDragRegion', function() {
             orientation: 'vertical',
             value: bpmToSliderValue(scope.bpm),
             change: function(e, ui) {
-                var change = function() {
+                 function change() {
                     scope.bpm = sliderValueToBpm(ui.value);
                 };
 
                 // Sometimes AngularJS is already in a digest when
                 // jQuery UI slider change is called, such as the
                 // "change" on init
-                scope.$$phase == '$digest' ? change() : scope.$apply(change);
+                scope.$$phase === '$digest' ? change() : scope.$apply(change);
             },
             start: function(e, ui) {
                 // During dragging, don't use CSS transition
@@ -96,10 +96,10 @@ MetronomeApp.directive('bobDragRegion', function() {
             slide: function() {
                 // Keep scope up to date with bob as it is dragged
                 scope.$apply(function() {
-                    var sliderValue = elem.slider('option', 'value');
+                    const sliderValue = elem.slider('option', 'value');
                     scope.bpm = sliderValueToBpm(sliderValue);
                 });
-            }
+            },
         });
 
         // Keep bob up to date with scope
@@ -116,7 +116,7 @@ MetronomeApp.directive('bobDragRegion', function() {
  */
 MetronomeApp.directive('bpmError', function($window) {
     return function(scope, elem) {
-        var $jqWindow = $($window);
+        let $jqWindow = $($window);
         $jqWindow.resize(function() {
             elem.css('font-size', elem.height() + 'px');
         });
@@ -129,8 +129,8 @@ MetronomeApp.directive('bpmError', function($window) {
     };
 });
 
-var MetronomeCtrl = function($scope, $timeout) {
-    var self = this;
+function MetronomeCtrl($scope, $timeout) {
+    let self = this;
     self.$scope = $scope;
     self.$timeout = $timeout;
     self.timeoutPromises = [];
@@ -143,7 +143,7 @@ var MetronomeCtrl = function($scope, $timeout) {
         'toggleMetronome',
         'getWandSwingTransitionDuration',
         'bpmInRange',
-        'getInputErrorText'
+        'getInputErrorText',
         ], function(funcName) {
         $scope[funcName] = $.proxy(self[funcName], self);
     });
@@ -156,12 +156,11 @@ var MetronomeCtrl = function($scope, $timeout) {
       if (!self.bpmInRange()) {
           self.stop();
 
-          var validator = $scope.bpm < $scope.minBpm ? 'min' : 'max';
+          let validator = $scope.bpm < $scope.minBpm ? 'min' : 'max';
           $scope.metronomeForm.bpm.$setValidity(validator, false);
       }
       else {
-        if (!!$scope.metronomeForm)
-        {
+        if (!!$scope.metronomeForm) {
           $scope.metronomeForm.bpm.$setValidity('min', true);
           $scope.metronomeForm.bpm.$setValidity('max', true);
         }
@@ -176,7 +175,7 @@ MetronomeCtrl.prototype.toggleMetronome = function() {
 };
 
 MetronomeCtrl.prototype.stop = function() {
-    var self = this;
+    const self = this;
     self.$scope.started = false;
     self.$scope.swingLeft = false;
     self.$scope.swingRight = false;
@@ -190,26 +189,26 @@ MetronomeCtrl.prototype.stop = function() {
 };
 
 MetronomeCtrl.prototype.start = function() {
-    var self = this;
+    const self = this;
 
     if (self.bpmInRange()) {
-        self.$scope.started = true;
-        self.$scope.swingLeft = true;
-        self.$scope.swingRight = false;
-        self.$scope.swingToCenter = false;
-        self.$scope.firstBeat = true;
+      self.$scope.started = true;
+      self.$scope.swingLeft = true;
+      self.$scope.swingRight = false;
+      self.$scope.swingToCenter = false;
+      self.$scope.firstBeat = true;
 
-        // The first beat does not have a sound; it is the wand
-        // moving from center position to an edge
-        self.timeoutPromises.push(self.$timeout(function() {
-            self.$scope.firstBeat = false;
-            self.$scope.started && self.beat();
-        }, self.getBeatMs()));
-    }
+      // The first beat does not have a sound; it is the wand
+      // moving from center position to an edge
+      self.timeoutPromises.push(self.$timeout(function() {
+          self.$scope.firstBeat = false;
+          self.$scope.started && self.beat();
+      }, self.getBeatMs()));
+  }
 };
 
 MetronomeCtrl.prototype.beat = function() {
-    var self = this;
+    const self = this;
 
     self.$scope.swingLeft = !self.$scope.swingLeft;
     self.$scope.swingRight = !self.$scope.swingRight;
@@ -245,7 +244,7 @@ MetronomeCtrl.prototype.bpmInRange = function() {
 };
 
 MetronomeCtrl.prototype.getInputErrorText = function() {
-    var errorText;
+    let errorText;
     if (this.$scope.bpm < this.$scope.minBpm) {
         errorText = 'Minimum is ' + this.$scope.minBpm + '.';
     } else if (this.$scope.bpm > this.$scope.maxBpm) {
@@ -256,4 +255,4 @@ MetronomeCtrl.prototype.getInputErrorText = function() {
     return errorText;
 };
 
-MetronomeApp.controller('MetronomeCtrl',MetronomeCtrl);
+MetronomeApp.controller('MetronomeCtrl', MetronomeCtrl);

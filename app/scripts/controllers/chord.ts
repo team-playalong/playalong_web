@@ -6,7 +6,7 @@
 
   ChordCtrl.$inject = [
     '$scope', '$rootScope', '$state', 'chords', '$stateParams',
-    'toast', 'login' , 'Common', '$timeout', 'plyTooltip', 'transposer', '$sce',
+    'Toast', 'login' , 'Common', '$timeout', 'PlyTooltip', 'transposer', '$sce',
     'EqualChordsMap',
   ];
   function ChordCtrl($scope, $rootScope, $state, chords, $stateParams, toast, login, Common, $timeout, plyTooltip, transposer, $sce: ng.ISCEService, EqualChordsMap) {
@@ -105,11 +105,11 @@
 
     $scope.transposition = 0;
     $scope.transposeChords = function(numTones) {
-      var chords = angular.element(document.querySelectorAll('.ply-chord-container-content .chord'));
+      const chords = angular.element(document.querySelectorAll('.ply-chord-container-content .chord'));
 
       angular.forEach(chords, function(value){
-        var oldText = angular.element(value).text();
-        var newText = transposer.transpose(oldText, numTones);
+        const oldText = angular.element(value).text();
+        const newText = transposer.transpose(oldText, numTones);
         angular.element(value).text(newText);
       });
 

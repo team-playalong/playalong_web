@@ -24,16 +24,15 @@
           min: '@',
           max: '@',
           unit: '@',
-          value: '@'
+          value: '@',
         },
         link: function (scope, element, attr) {
           // Set default text size value
           scope.textSize = scope.value;
           // Update text size value based on ngModel
           scope.$watch('textSize', function (size) {
-            var elem;
-            if (attr.elementClass)
-            {
+            let elem;
+            if (attr.elementClass) {
               elem = angular.element(document.querySelector('.' + attr.elementClass));
             }
             else {
@@ -43,7 +42,7 @@
               elem.css('fontSize', size + scope.unit);
             }
           });
-        }
+        },
       };
     }]);
 

@@ -6,22 +6,22 @@ angular.module('playalongWebApp')
 .controller('LanguageModalDialogController', LanguageModalDialogController);
 
 LanguageModalDialogController.$inject = [
-  '$mdDialog','$translate','$rootScope', 'PlyStorage'
+  '$mdDialog', '$translate', '$rootScope', 'PlyStorage',
 ];
-function LanguageModalDialogController($mdDialog,$translate,$rootScope, PlyStorage) {
+function LanguageModalDialogController($mdDialog, $translate, $rootScope, PlyStorage) {
   let vm = this;
 
   vm.languages = [
     {
       locale: 'he',
       label: 'עברית',
-      'flag': 'il'
+      'flag': 'il',
     },
     {
       locale: 'en',
       label: 'English',
-      'flag': 'us'
-    }
+      'flag': 'us',
+    },
   ];
 
   vm.changeLanguage = function(locale) {
@@ -30,7 +30,7 @@ function LanguageModalDialogController($mdDialog,$translate,$rootScope, PlyStora
       PlyStorage.set('locale', locale);
       $rootScope.app = {
         dir: locale === 'he' ? 'rtl' : 'ltr',
-        locale
+        locale,
       };
     }
     vm.cancel();
@@ -50,13 +50,13 @@ function LanguageModalDialogController($mdDialog,$translate,$rootScope, PlyStora
 
 
 PlylanguagepickerCtrl.$inject = [
-  '$scope','$mdDialog','$mdMedia','$rootScope'
+  '$scope', '$mdDialog', '$mdMedia', '$rootScope',
 ];
-function PlylanguagepickerCtrl($scope,$mdDialog,$mdMedia,$rootScope) {
+function PlylanguagepickerCtrl($scope, $mdDialog, $mdMedia, $rootScope) {
   let vm = this;
 
   vm.getFlagClass = function() {
-    var res = 'il';
+    let res = 'il';
     if ($rootScope.app && $rootScope.app.locale === 'en') {
       res = 'us';
     }
@@ -74,7 +74,7 @@ function PlylanguagepickerCtrl($scope,$mdDialog,$mdMedia,$rootScope) {
       parent: angular.element(document.body),
       targetEvent: ev,
       clickOutsideToClose: true,
-      fullscreen: $mdMedia('sm') && vm.customFullscreen
+      fullscreen: $mdMedia('sm') && vm.customFullscreen,
     })
     .then(function() {
     }, function() {
@@ -87,5 +87,5 @@ function PlylanguagepickerCtrl($scope,$mdDialog,$mdMedia,$rootScope) {
     });
     };
 }
-  
+
 })();

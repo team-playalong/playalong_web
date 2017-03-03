@@ -30,7 +30,7 @@ class PlyNotifier {
 		})
 		.then(data => console.info('email sent'))
 		.catch(err => console.warn(err));
-	};
+	}
 
 	notifyLogin = ({displayName, uid, email }) => {
 		return this.$http({
@@ -40,7 +40,7 @@ class PlyNotifier {
 		})
 		.then(data => console.info('email sent'))
 		.catch(err => console.warn(err));
-	};
+	}
 }
 PlyNotifier.$inject = ['$http'];
 

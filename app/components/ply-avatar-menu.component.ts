@@ -40,7 +40,7 @@
 		};
 	}
 
-	ctrl.$inject = ['$mdDialog', 'login', 'paths', 'toast', '$translate', 'PlyNotifier'];
+	ctrl.$inject = ['$mdDialog', 'login', 'paths', 'Toast', '$translate', 'PlyNotifier'];
 	function ctrl($mdDialog, login, paths, toast, $translate, PlyNotifier) {
 		let ctrl = this;
 		ctrl.login = login;
@@ -85,7 +85,7 @@
 							.title('Error')
 							.content('Invalid email or password')
 							.ariaLabel('Invalid Email')
-							.ok('OK')
+							.ok('OK'),
 				    );
 					});
 		};

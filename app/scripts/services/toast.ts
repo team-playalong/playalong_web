@@ -6,11 +6,11 @@
  * API for making toast (popup) messages
  */
 
-class toast {
+class Toast {
 
 	private conf = {
 		delay: 4000, //ms
-		position: 'bottom left'
+		position: 'bottom left',
 	};
 
 	constructor(private $mdToast, private $translate) {}
@@ -20,7 +20,7 @@ class toast {
 			this.$mdToast.simple()
 				.content(content)
 				.position(this.conf.position)
-				.hideDelay(delayMs)
+				.hideDelay(delayMs),
 		);
 	}
 
@@ -34,6 +34,6 @@ class toast {
 	}
 }
 
-toast.$inject = ['$mdToast', '$translate'];
+Toast.$inject = ['$mdToast', '$translate'];
 angular.module('playalongWebApp')
-	.service('toast', toast);
+	.service('Toast', Toast);
