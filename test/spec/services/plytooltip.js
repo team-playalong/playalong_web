@@ -7,8 +7,8 @@ describe('Service: plyTooltip', function () {
 
   // instantiate service
   var plyTooltip;
-  beforeEach(inject(function (_plyTooltip_) {
-    plyTooltip = _plyTooltip_;
+  beforeEach(inject(function (_PlyTooltip_) {
+    plyTooltip = _PlyTooltip_;
   }));
 
   it('should do something', function () {

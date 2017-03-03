@@ -5,7 +5,6 @@
 	function weeklyChartCtrl(WeeklyChart, $rootScope) {
 		const $ctrl = this;
 
-
 		$ctrl.buildSubheaderMessage = weeklyChartData => {
 			return `
         {{'weeklyChart.CREATED' | translate}}:
@@ -17,7 +16,7 @@
 		$ctrl.formatData = rawData => {
 			const songsArr = [];
 
-			for (let songKey in rawData.songs) {
+			for (const songKey in rawData.songs) {
 				songsArr.push(rawData.songs[songKey]);
 			}
 

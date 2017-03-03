@@ -49,7 +49,7 @@
           max: '@?',
           enabled: '@?',
         },
-        //TODO - move functions to controller
+        // TODO - move functions to controller
         link: function postLink(scope, element, attrs) {
           scope.enabled = scope.enabled || false;
           scope.min = scope.min || 0;

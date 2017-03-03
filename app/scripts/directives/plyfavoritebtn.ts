@@ -2,7 +2,7 @@
   'use strict';
 
 angular.module('playalongWebApp')
-.directive('plyFavoriteBtn',['login', function (login) {
+.directive('plyFavoriteBtn', ['login', function (login) {
   return {
     template: `
       <md-button class="md-mini ply-icon-favorites"
@@ -21,20 +21,19 @@ angular.module('playalongWebApp')
     controller: 'PlyfavoritebtnCtrl',
     restrict: 'E',
     scope: {
-      chord: '='
+      chord: '=',
     },
-    link: function postLink(scope, element/*, attrs*/) {
-      if (!login.isLoggedIn())
-      {
+    link: function postLink(scope, element) {
+      if (!login.isLoggedIn()) {
         element.css('display', 'none');
       }
       scope.$on('plyUserLoggedIn', function(){
         element.css('display', 'block');
       });
-      scope.$on('plyUserLoggedOut',function() {
+      scope.$on('plyUserLoggedOut', function() {
         element.css('display', 'none');
       });
-    }
+    },
   };
 }]);
 

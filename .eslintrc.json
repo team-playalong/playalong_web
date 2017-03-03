@@ -1,4 +1,5 @@
 {
+  "root": true,
   "parserOptions": {
     "ecmaVersion": 5
   },
@@ -28,7 +29,7 @@
     "brace-style": "off",
     "max-len": "off",
     "no-trailing-spaces": "off",
-    "spaced-comment": "off", 
+    "spaced-comment": "off",
   	"jsx-a11y/img-uses-alt": "off",
     "jsx-a11y/label-uses-for": "off",
     "jsx-a11y/mouse-events-map-to-key-events": "off",
