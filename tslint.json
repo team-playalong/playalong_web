@@ -64,14 +64,11 @@
         "singleline": "never"
       }
     ],
-    "prefer-const": false,
     "ter-prefer-arrow-callback": false,
     "max-line-length": false,
     "no-var-self": false,
     "function-name": false,
     "align": false,
-    "object-literal-key-quotes": false,
-    "object-curly-spacing": false,
     "handle-callback-err": false
   }
 }

@@ -90,7 +90,7 @@
 
   adminWeeklyChartCtrl.$inject = ['Toast', 'WeeklyChart'];
   function adminWeeklyChartCtrl(toast, WeeklyChart) {
-    let vm = this;
+    const vm = this;
     this.weeklyChart = {
       year: 2016,
       weekNumber: 20,
@@ -127,7 +127,7 @@
 
     this.addPositionDifference = (weeklyChart, oldWeeklyChart) => {
       let oldSong;
-      for (let currSong of weeklyChart) {
+      for (const currSong of weeklyChart) {
         oldSong = oldWeeklyChart[currSong.chordKey];
         if (!oldSong) {
           currSong.positionDifference = null;
@@ -140,7 +140,7 @@
     };
 
     this.saveChart = () => {
-      let wc = angular.copy(vm.weeklyChart);
+      const wc = angular.copy(vm.weeklyChart);
 
       wc.songs = this.addPositionDifference(wc.songs, this.lastWeekChart.songs);
 

@@ -16,7 +16,7 @@
         resetValues();
         return;
       }
-      let params = {
+      const params = {
         isAddFlag: !$scope.isFavorite,
         chordObj: {
           chordKey: $scope.chord.chordKey,

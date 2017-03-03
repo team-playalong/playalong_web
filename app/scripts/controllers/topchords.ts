@@ -6,7 +6,7 @@ angular.module('playalongWebApp')
 
 topchordsCtrl.$inject = ['chords', '$rootScope', '$translate'];
 	function topchordsCtrl(chords, $rootScope, $translate) {
-		let vm = this;
+		const vm = this;
 	$translate(['topChords.PAGE_TITLE',
 							'home.PAGE_TITLE',
 							'topChords.SINGLE_HIT',
@@ -44,7 +44,7 @@ topchordsCtrl.$inject = ['chords', '$rootScope', '$translate'];
 
   function formateChords(rawData) {
     const timestamp = getDefaultTimestamp();
-    for (let chord of rawData) {
+    for (const chord of rawData) {
       if (!chord.creationDate) {
         chord.creationDate = timestamp;
       }

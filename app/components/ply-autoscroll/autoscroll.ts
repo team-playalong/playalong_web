@@ -36,7 +36,7 @@
 
   AutoscrollCtrl.$inject = ['$interval', '$window', '$state'];
   function AutoscrollCtrl($interval, $window, $state) {
-    let vm = this;
+    const vm = this;
 
     let newInterval;
     vm.config = {
@@ -50,13 +50,13 @@
     vm.speed = Math.min(vm.speed || vm.config.minSpeed, vm.config.maxSpeed);
     vm.stateName = $state.current.name;
     vm.normalizeSpeed = function() {
-      let base = vm.config.bottomSpeed;
-      let offset = (vm.speed - base) / (vm.config.maxSpeed - vm.config.minSpeed);
+      const base = vm.config.bottomSpeed;
+      const offset = (vm.speed - base) / (vm.config.maxSpeed - vm.config.minSpeed);
       return base + offset;
     };
 
     vm.updateInterval = function() {
-      let normalizedSpeed = vm.normalizeSpeed();
+      const normalizedSpeed = vm.normalizeSpeed();
       if (vm.plyInterval) {
         $interval.cancel(vm.plyInterval);
       }

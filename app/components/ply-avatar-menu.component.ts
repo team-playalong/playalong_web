@@ -3,7 +3,7 @@
 
 	resetPassword.$inject = ['login', '$mdDialog'];
 	function resetPassword(login, $mdDialog) {
-		let ctrl = this;
+		const ctrl = this;
 		ctrl.$mdDialog = $mdDialog;
 
 		ctrl.resetPassword = (email: string) => {
@@ -21,7 +21,7 @@
 
 	changePassword.$inject = ['login', '$mdDialog'];
 	function changePassword(login, $mdDialog) {
-		let ctrl = this;
+		const ctrl = this;
 		ctrl.$mdDialog = $mdDialog;
 
 		ctrl.passwordType = 'password';
@@ -42,7 +42,7 @@
 
 	ctrl.$inject = ['$mdDialog', 'login', 'paths', 'Toast', '$translate', 'PlyNotifier'];
 	function ctrl($mdDialog, login, paths, toast, $translate, PlyNotifier) {
-		let ctrl = this;
+		const ctrl = this;
 		ctrl.login = login;
 		ctrl.paths = paths;
 
@@ -62,7 +62,7 @@
 		};
 
 		ctrl.setMenuStyles = () => {
-			let result = {
+			const result = {
 				minHeight: '400px',
 			};
 
@@ -209,7 +209,7 @@
         return DEFAULT_AVATAR_IMAGE;
 		  }
 		  else { // get the image from the auth object
-		    let auth = login.getAuth() || {};
+		    const auth = login.getAuth() || {};
         if (auth.photoURL) {
           return auth.photoURL;
         }

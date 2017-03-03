@@ -9,7 +9,7 @@ LanguageModalDialogController.$inject = [
   '$mdDialog', '$translate', '$rootScope', 'PlyStorage',
 ];
 function LanguageModalDialogController($mdDialog, $translate, $rootScope, PlyStorage) {
-  let vm = this;
+  const vm = this;
 
   vm.languages = [
     {
@@ -50,7 +50,7 @@ PlylanguagepickerCtrl.$inject = [
   '$scope', '$mdDialog', '$mdMedia', '$rootScope',
 ];
 function PlylanguagepickerCtrl($scope, $mdDialog, $mdMedia, $rootScope) {
-  let vm = this;
+  const vm = this;
 
   vm.getFlagClass = function() {
     let res = 'il';

@@ -61,7 +61,7 @@
       const regex = /(<span class="chord">)([^<]+)(<\/span>)/g;
 
       // Replace with equivalent chord image
-      for (let chord in EqualChordsMap) {
+      for (const chord in EqualChordsMap) {
         chordContent = chordContent.replace(chord, EqualChordsMap[chord]);
       }
 

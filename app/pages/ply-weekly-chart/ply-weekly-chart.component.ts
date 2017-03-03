@@ -16,7 +16,7 @@
 		$ctrl.formatData = rawData => {
 			const songsArr = [];
 
-			for (let songKey in rawData.songs) {
+			for (const songKey in rawData.songs) {
 				songsArr.push(rawData.songs[songKey]);
 			}
 

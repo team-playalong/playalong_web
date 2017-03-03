@@ -23,8 +23,8 @@ angular.module('playalongWebApp')
         scope.stapleStyle = [];
         scope.stapleWrapStyle = '';
 
-        let wrapElementWidth: any = element[0].firstChild;
-        let indexStapleWidth = 25;
+        const wrapElementWidth: any = element[0].firstChild;
+        const indexStapleWidth = 25;
         let stpl = 0;
         let sum = 0;
         let stapleWidth;
@@ -81,8 +81,8 @@ angular.module('playalongWebApp')
     function RoundToDecimal(num, decimal) {
       let zeros = '' + 1.0.toFixed(decimal);
       zeros = zeros.substr(2);
-      let mul_div = parseInt('1' + zeros, 10);
-      let increment = parseFloat('.' + zeros + '01');
+      const mul_div = parseInt('1' + zeros, 10);
+      const increment = parseFloat('.' + zeros + '01');
       if (((num * (mul_div * 10)) % 10) >= 5) {
         num += increment;
       }

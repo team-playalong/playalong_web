@@ -40,7 +40,7 @@
 
       // Workaround due to translations
       setTimeout(() => {
-        let elem = document.querySelector('md-select-value > span');
+        const elem = document.querySelector('md-select-value > span');
         if (!!elem) {
           elem.textContent = 'Song Name';
         }

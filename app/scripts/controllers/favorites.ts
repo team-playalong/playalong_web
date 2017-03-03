@@ -50,7 +50,7 @@
 		'login', 'user', '$rootScope', '$scope', 'Toast',
 	];
 	function FavoritesCtrl(login, user, $rootScope, $scope, toast) {
-    let vm = this;
+    const vm = this;
     if (!!window.mixpanel) {
       window.mixpanel.track('ply_page_view_favorites');
     }
@@ -58,7 +58,7 @@
     vm.removeFavorite = ($event, favorite) => {
       $event.preventDefault();
       $event.stopPropagation();
-      let params = {
+      const params = {
         isAddFlag: false,
         chordObj: {
           chordKey: favorite.chordKey,

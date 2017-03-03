@@ -18,12 +18,12 @@ let MetronomeApp = angular.module('MetronomeApp', []);
  */
 MetronomeApp.directive('metronome', function($window) {
     return function(scope, elem) {
-        let $jqWindow = $($window);
-        let metronomeAspectRatio = 0.56;
-        let fillPercentOfWindow = 0.98;
+        const $jqWindow = $($window);
+        const metronomeAspectRatio = 0.56;
+        const fillPercentOfWindow = 0.98;
         $jqWindow.resize(function() {
             // Window wider
-            let windowAR = $jqWindow.width() / $jqWindow.height();
+            const windowAR = $jqWindow.width() / $jqWindow.height();
             if (windowAR > metronomeAspectRatio) {
                 elem.height($jqWindow.height() * fillPercentOfWindow);
                 elem.width(metronomeAspectRatio * elem.height());
@@ -43,13 +43,13 @@ MetronomeApp.directive('metronome', function($window) {
  */
 MetronomeApp.directive('bobDragRegion', function() {
     return function(scope, elem, attrs) {
-        let bobElem = elem.find('[bob]');
+        const bobElem = elem.find('[bob]');
         if (!bobElem.length) {
             throw 'bobDragRegion couldn\'t find bob element.';
         }
 
-        let minSliderValue = scope.minBpm;
-        let maxSliderValue = scope.maxBpm;
+        const minSliderValue = scope.minBpm;
+        const maxSliderValue = scope.maxBpm;
 
         // Translation functions required since jQuery
         // slider's orientation is inverted with respect to
@@ -117,7 +117,7 @@ MetronomeApp.directive('bobDragRegion', function() {
  */
 MetronomeApp.directive('bpmError', function($window) {
     return function(scope, elem) {
-        let $jqWindow = $($window);
+        const $jqWindow = $($window);
         $jqWindow.resize(function() {
             elem.css('font-size', elem.height() + 'px');
         });
@@ -131,7 +131,7 @@ MetronomeApp.directive('bpmError', function($window) {
 });
 
 function MetronomeCtrl($scope, $timeout) {
-    let self = this;
+    const self = this;
     self.$scope = $scope;
     self.$timeout = $timeout;
     self.timeoutPromises = [];
@@ -157,7 +157,7 @@ function MetronomeCtrl($scope, $timeout) {
       if (!self.bpmInRange()) {
           self.stop();
 
-          let validator = $scope.bpm < $scope.minBpm ? 'min' : 'max';
+          const validator = $scope.bpm < $scope.minBpm ? 'min' : 'max';
           $scope.metronomeForm.bpm.$setValidity(validator, false);
       }
       else {

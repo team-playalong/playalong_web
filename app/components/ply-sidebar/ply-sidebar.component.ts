@@ -33,7 +33,7 @@
 
   SidebarCtrl.$inject = ['$mdSidenav', 'login'];
   function SidebarCtrl($mdSidenav, login) {
-    let vm = this;
+    const vm = this;
     vm.menuItems = [
       {
         text: 'sidebar.menu.SEARCH',
