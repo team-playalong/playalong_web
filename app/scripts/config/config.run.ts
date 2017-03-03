@@ -17,7 +17,6 @@
       .setPrefix('ply');
   });
 
-
   app.run(['$rootScope', '$state' , '$window', function($rootScope, $state, $window) {
     $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
       // We can catch the error thrown when the $requireAuth promise is rejected
@@ -28,7 +27,7 @@
     });
   /*jshint unused:false*/
     $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams, error) {
-      //Scroll to the top of the page
+      // Scroll to the top of the page
       $window.scrollTo(0, 0);
 
       if (toState.data && toState.data.title) {
@@ -45,8 +44,8 @@
     });
   }]);
 
-  //Allow unafe html binding
-  //TODO - refactor into whitelist
+  // Allow unafe html binding
+  // TODO - refactor into whitelist
   app.config(function($sceProvider) {
     // Completely disable SCE.  For demonstration purposes only!
     // Do not use in new projects.
@@ -60,8 +59,8 @@
   }]);
 
   app.run(
-    [          '$rootScope', '$state', '$stateParams',
-      function ($rootScope,   $state,   $stateParams) {
+    ['$rootScope', '$state', '$stateParams',
+      function ($rootScope, $state, $stateParams) {
 
       // It's very handy to add references to $state and $stateParams to the $rootScope
       // so that you can access them from any scope within your applications.For example,
@@ -72,6 +71,5 @@
     },
   ],
   );
-
 
 })();

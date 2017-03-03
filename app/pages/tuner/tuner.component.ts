@@ -59,9 +59,7 @@
   .controller('TunerCtrl', TunerCtrl)
   .component('plyTuner', plyTuner);
 
-
   TunerCtrl.$inject = ['login', '$scope', '$timeout', '$state', '$rootScope'];
-
 
   function TunerCtrl(login, $scope, $timeout, $state, $rootScope) {
     let $ctrl = this;
@@ -75,14 +73,10 @@
     $ctrl.noteFreq = 0;
     $ctrl.timer = 'Pausad';
 
-
     $ctrl.$onInit = () => {
       if (!!window.mixpanel) {
         window.mixpanel.track('ply_page_view_tuner');
       }
-
-      $scope.$watch('noteFreq', function(){  });
-
 
       $rootScope.$on('$stateChangeStart',
         function(event, toState, toParams, fromState, fromParams){
@@ -106,7 +100,6 @@
       }
     }
 
-
      function play() {
        const div = document.getElementById('playPause');
        div.className = 'pause';
@@ -114,7 +107,6 @@
        startClock();
        $ctrl.playing = true;
      }
-
 
      function pause() {
        const div = document.getElementById('playPause');
@@ -124,7 +116,6 @@
        $ctrl.timer = 'Pausad';
        clearInterval(timerInterval);
      }
-
 
      $ctrl.playPause = function () {
 
@@ -161,22 +152,22 @@
        }
        const minutes = Math.floor(timeoutLengthSeconds / 60);
        const seconds = Math.floor(timeoutLengthSeconds % 60);
-      //Kallar onTimeout för att $ctrl.timer ska uppdateras i DOM
+       let mytimeout = $timeout($scope.onTimeout, 100);
       $scope.onTimeout = function(){
         if ($state.current.name === 'tuner') {
           mytimeout = $timeout($scope.onTimeout, 100);
           $ctrl.timer = formatNumberLength(minutes, 2) + ':' + formatNumberLength(seconds, 2);
         }
       };
-      let mytimeout = $timeout($scope.onTimeout, 100);
     }
 
     function updateTuner(noteIndex, noteError, noteFrequency) {
       if ($state.current.name !== 'tuner') { return; }
 
-      //TODO: Assert params
-      if (!(noteIndex && noteError) || !(noteIndex > 0 && noteIndex < 12) || !(noteError > -50 && noteError < 50))
+      // TODO: Assert params
+      if (!(noteIndex && noteError) || !(noteIndex > 0 && noteIndex < 12) || !(noteError > -50 && noteError < 50)) {
         return;
+      }
 
       const sharpHtml = '<sup class="sharp">#</sup>';
       const notes = ['C', 'C' + sharpHtml, 'D', 'D' + sharpHtml, 'E', 'F', 'F' + sharpHtml, 'G', 'G' + sharpHtml, 'A', 'A' + sharpHtml, 'B'];
@@ -186,12 +177,11 @@
 
       const degrees = noteError * 2.0 * dialDegrees;
     //  needle.style.webkitTransform = 'rotate('+degrees+'deg)';
-      //needle.style.MozTransform = 'rotate('+degrees+'deg)';
+      // needle.style.MozTransform = 'rotate('+degrees+'deg)';
 
-      //Gånger faktor 5 istället..
+      // Gånger faktor 5 istället..
       needle.style['-webkit-transform'] = 'translate(" + 5*degrees + "px, 0px)';
       needle.style['-moz-transform'] = 'translate(-' + 5 * degrees + 'px, 0px)';
-
 
       for (let i = 0; i < 8; i++) {
 
@@ -206,37 +196,37 @@
       let noteView = document.getElementById('noteView');
       noteView.innerHTML = notes[noteIndex];
 
-      //Stämd!!
+      // Stämd!!
       if (Math.abs(noteError) < 0.05) {
         let tick = document.getElementById('tick_0');
         tick.className = 'tick_0Highlighted';
 
-        //Sätt bokstaven till grön
+        // Sätt bokstaven till grön
         document.getElementById('noteView').className = 'noteCleanHighlighted';
 
         document.getElementById('tuneArrowLeft').className = 'tuneArrowLeft_ok';
         document.getElementById('tuneArrowRight').className = 'tuneArrowRight_ok';
       }
 
-      //Inte stämd, beräkna fel!
       else {
         let tick = document.getElementById('tick_0');
         tick.className = 'tick_0_normal';
 
-        //Sätt bokstaven till röd
         document.getElementById('noteView').className = 'noteWrongHighlighted';
 
-        //Får inte vara för stort fel, skit i att highlighta då
         if ((Math.abs(5 * degrees) / 30) < 7.5) {
           let tickToHighlight = document.getElementById('tick_' + Math.round((5 * degrees) / 30));
           tickToHighlight.className = 'tickHighlighted';
         }
 
-        //På vänstra sidan
-        if (degrees < 0)
+        if (degrees < 0) {
           document.getElementById('tuneArrowLeft').className = 'tuneArrowLeft_wrong';
-        else
+        }
+
+        else {
           document.getElementById('tuneArrowRight').className = 'tuneArrowRight_wrong';
+        }
+
       }
 
     }
@@ -245,30 +235,38 @@
     if (typeof AudioContext !== 'undefined') {
       audioContext = new AudioContext();
     }
-    let inputStreamNode = null,
-    gainNode = null;
+    let inputStreamNode = null;
+    let gainNode = null;
 
     function getMaxPeak(inputVector, numFreq?) {
       numFreq = typeof numFreq !== 'undefined' ? numFreq : 2000;
 
       const vec1 = inputVector;
-      const vec2 = [], vec3 = [], vec4 = [], vec5 = [];
-
+      const vec2 = [];
+      const vec3 = [];
+      const vec4 = [];
+      const vec5 = [];
 
       for (let i = 0; i < numFreq; i++) {
-        if (i % 2 === 0)
+        if (i % 2 === 0) {
           vec2.push(inputVector[i]);
-        if (i % 3 === 0)
+        }
+
+        if (i % 3 === 0) {
           vec3.push(inputVector[i]);
-        if (i % 4 === 0)
+        }
+        if (i % 4 === 0) {
           vec4.push(inputVector[i]);
-        if (i % 5 === 0)
+        }
+
+        if (i % 5 === 0) {
           vec5.push(inputVector[i]);
+        }
       }
 
       const zeroArray = [];
       let length = 0;
-        //Temp solution. want to add exact zeros
+        // Temp solution. want to add exact zeros
         while (length < 2000) {
           zeroArray.push(0);
           length++;
@@ -279,9 +277,9 @@
         vec5.concat(zeroArray);
 
         const sumVec = [];
-        for (let i = 0; i < numFreq; i++)
-          sumVec[i] = vec1[i] + vec2[i] +  vec3[i] + vec4[i] + vec5[i];
-
+        for (let i = 0; i < numFreq; i++) {
+          sumVec[i] = vec1[i] + vec2[i] + vec3[i] + vec4[i] + vec5[i];
+        }
 
         let peakMax = 0;
         let peakMaxInd = 0;
@@ -301,7 +299,7 @@
         return {peakInd: peakMaxInd, peakAmp: peakMax};
         }
 
-    //MAIN
+    // MAIN
     let scriptProcessorNode;
     let audioWindowSize = 65536;
     let audioWindow = new Float32Array(audioWindowSize);
@@ -324,11 +322,11 @@
     }
 
     function getNoteInfo(frequency) {
-      let note = (Math.round(57 + log2( frequency / 440.0 ) * 12 )) % 12;
-      let note2 = Math.round(57 + log2( frequency / 440.0 ) * 12 );
+      let note = (Math.round(57 + log2(frequency / 440.0) * 12)) % 12;
+      let note2 = Math.round(57 + log2(frequency / 440.0) * 12);
 
-      let noteFull = Math.round(log2( frequency / 440.0 ) * 12); //runda ner till semiton
-      let noteFreq = Math.pow(2, noteFull / 12.0) * 440.0; //ta fram notfreq från rundad semiton - nära grundfreq
+      let noteFull = Math.round(log2(frequency / 440.0) * 12); // runda ner till semiton
+      let noteFreq = Math.pow(2, noteFull / 12.0) * 440.0; // ta fram notfreq från rundad semiton - nära grundfreq
 
       let errorMin = frequency - noteFreq;
 
@@ -353,28 +351,27 @@
       document.getElementById('playPause').style.display = 'block';
 
         let bufferSize = 2048; // Måste va power of 2,
-        gainNode = audioContext.createGain(); //Skapar GainNode objekt som kan kontrollera volymen
+        gainNode = audioContext.createGain(); // Skapar GainNode objekt som kan kontrollera volymen
         gainNode.gain.value = 1000.0;
 
-        inputStreamNode = audioContext.createMediaStreamSource(stream); //Skapar ett MediaStreamAudioSourceNode objekt som strömmar in ljud från mikrofonen.
-        inputStreamNode.connect(gainNode); //Kopplar ihop med ljudkontrollen
+        inputStreamNode = audioContext.createMediaStreamSource(stream); // Skapar ett MediaStreamAudioSourceNode objekt som strömmar in ljud från mikrofonen.
+        inputStreamNode.connect(gainNode); // Kopplar ihop med ljudkontrollen
 
-        scriptProcessorNode = audioContext.createScriptProcessor(bufferSize, 1, 1); //För ljudanalys, en inkanal och en utkanal
+        scriptProcessorNode = audioContext.createScriptProcessor(bufferSize, 1, 1); // För ljudanalys, en inkanal och en utkanal
 
-        sampleRate = audioContext.sampleRate; //Hämta sample per sekund från audio input, används för alla objekt/noder
+        sampleRate = audioContext.sampleRate; // Hämta sample per sekund från audio input, används för alla objekt/noder
 
         if (typeof FFT !== 'undefined') {
-          fft = new FFT(audioWindowSize, sampleRate); //Skapar fouriertransform. Hitta en balans mellan windowsize och samplerate (65536 standard?)
+          fft = new FFT(audioWindowSize, sampleRate); // Skapar fouriertransform. Hitta en balans mellan windowsize och samplerate (65536 standard?)
         }
 
-
-        gainNode.connect (scriptProcessorNode); //koppla ihop volym och ljudobjekt
+        gainNode.connect (scriptProcessorNode); // koppla ihop volym och ljudobjekt
 
         // zeroPadding/zeroGain öka  vektorn för att få bättre upplösning i frekvensen. nogrannare. Effektivare
         let zeroGain = audioContext.createGain();
         zeroGain.gain.value = 0.0;
-        scriptProcessorNode.connect( zeroGain );
-        zeroGain.connect( audioContext.destination );
+        scriptProcessorNode.connect(zeroGain);
+        zeroGain.connect(audioContext.destination);
 
         play();
       }
@@ -384,20 +381,20 @@
       }
 
       function startAudio() {
-        //onaudioprocess är en eventhandler.
+        // onaudioprocess är en eventhandler.
         scriptProcessorNode.onaudioprocess = function(e){
-          let timeVector = e.inputBuffer.getChannelData(0); //Hämta vektorn med audioData
+          let timeVector = e.inputBuffer.getChannelData(0); // Hämta vektorn med audioData
           audioWindow.set(audioWindow.subarray(timeVector.length)); // fixa med hamming
           audioWindow.set(timeVector, audioWindowSize - timeVector.length); // fixa med hamming
           applyHamming(audioWindow, audioWindowProcessed); // lägg hamming
-          fft.forward(audioWindowProcessed);  //gör fast fourier transform
+          fft.forward(audioWindowProcessed);  // gör fast fourier transform
 
-          $scope.spectrum = fft.spectrum;    //ta frekvensspektrumet
+          $scope.spectrum = fft.spectrum;    // ta frekvensspektrumet
           // console.log('spectrumlol');
-          let peakInfo = getMaxPeak($scope.spectrum);  //hämta frekvens där vi har högst amplitud
-          if (peakInfo.peakAmp > 0.5) {    //använd bara peakar över 0.5 för bättre nogrannhet
-            let frequency = peakInfo.peakInd * sampleRate / audioWindowSize;   //omvandla till frekvens
-            let noteInfo = getNoteInfo(frequency);      //Hämta info från noter
+          let peakInfo = getMaxPeak($scope.spectrum);  // hämta frekvens där vi har högst amplitud
+          if (peakInfo.peakAmp > 0.5) {    // använd bara peakar över 0.5 för bättre nogrannhet
+            let frequency = peakInfo.peakInd * sampleRate / audioWindowSize;   // omvandla till frekvens
+            let noteInfo = getNoteInfo(frequency);      // Hämta info från noter
             updateTuner(noteInfo.noteIndex, noteInfo.noteError, noteInfo.noteFreq);
           }
         };
@@ -406,7 +403,7 @@
           function browserNotSupported() {
             alert('Sorry. Your browser is not supported. Please use latest versions of either Chrome or Firefox.');
           }
-    //allow audio from user
+    // allow audio from user
     function initAudio() {
       // console.log('initAudio')
       if (!navigator.getUserMedia) {

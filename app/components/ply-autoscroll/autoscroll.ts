@@ -20,7 +20,7 @@
         },
         controller: 'AutoscrollCtrl',
         controllerAs: 'vm',
-        link: function (scope, element, attrs, $ctrl) {
+        link(scope, element, attrs, $ctrl) {
           scope.$watch(function() {
             return $ctrl.speed;
           }, function() {
@@ -30,8 +30,6 @@
       };
     }
    /*jshint unused:true*/
-
-
 
   angular.module('playalongWebApp')
   .controller('AutoscrollCtrl', AutoscrollCtrl);
@@ -48,7 +46,7 @@
       maxSpeed: 5,
       minSpeed: 0,
     };
-    //Fallback and make sure its between min-max
+    // Fallback and make sure its between min-max
     vm.speed = Math.min(vm.speed || vm.config.minSpeed, vm.config.maxSpeed);
     vm.stateName = $state.current.name;
     vm.normalizeSpeed = function() {
@@ -56,7 +54,6 @@
       let offset = (vm.speed - base) / (vm.config.maxSpeed - vm.config.minSpeed);
       return base + offset;
     };
-
 
     vm.updateInterval = function() {
       let normalizedSpeed = vm.normalizeSpeed();
@@ -71,7 +68,7 @@
         else {
           $interval.cancel(vm.plyInterval);
         }
-      }, newInterval, 0/*infinite*/, false /*no apply*/);
+      }, newInterval, 0/*infinite*/, false/*no apply*/); // tslint:disable-line
     };
   }
 })();

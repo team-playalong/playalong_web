@@ -57,7 +57,7 @@
       });
       }
       else {
-        if ($scope.isFavorite === undefined ) {
+        if ($scope.isFavorite === undefined) {
           checkIsFavorite();
         }
       }

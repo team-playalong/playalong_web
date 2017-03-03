@@ -5,7 +5,6 @@
   .directive('plyFavorites', PlyFavorites)
   .controller('FavoritesCtrl', FavoritesCtrl);
 
-
   function PlyFavorites() {
     return {
       controller: FavoritesCtrl,
@@ -46,7 +45,6 @@
       `,
     };
   }
-
 
 	FavoritesCtrl.$inject = [
 		'login', 'user', '$rootScope', '$scope', 'Toast',

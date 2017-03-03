@@ -15,12 +15,12 @@ function LanguageModalDialogController($mdDialog, $translate, $rootScope, PlySto
     {
       locale: 'he',
       label: 'עברית',
-      'flag': 'il',
+      flag: 'il',
     },
     {
       locale: 'en',
       label: 'English',
-      'flag': 'us',
+      flag: 'us',
     },
   ];
 
@@ -35,8 +35,6 @@ function LanguageModalDialogController($mdDialog, $translate, $rootScope, PlySto
     }
     vm.cancel();
   };
-
-
   vm.hide = function() {
     $mdDialog.hide();
   };
@@ -47,7 +45,6 @@ function LanguageModalDialogController($mdDialog, $translate, $rootScope, PlySto
     $mdDialog.hide(answer);
   };
 }
-
 
 PlylanguagepickerCtrl.$inject = [
   '$scope', '$mdDialog', '$mdMedia', '$rootScope',
@@ -64,7 +61,6 @@ function PlylanguagepickerCtrl($scope, $mdDialog, $mdMedia, $rootScope) {
     return res;
   };
 
-
   vm.showLanguageModal = function(ev) {
     $mdDialog.show({
       controller: 'LanguageModalDialogController',
@@ -75,9 +71,6 @@ function PlylanguagepickerCtrl($scope, $mdDialog, $mdMedia, $rootScope) {
       targetEvent: ev,
       clickOutsideToClose: true,
       fullscreen: $mdMedia('sm') && vm.customFullscreen,
-    })
-    .then(function() {
-    }, function() {
     });
 
     $scope.$watch(function() {

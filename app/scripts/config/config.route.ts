@@ -4,7 +4,6 @@
 
 app.config(RouteConfig);
 
-
 RouteConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 function RouteConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvider) {
   $stateProvider
@@ -20,7 +19,7 @@ function RouteConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvid
       templateUrl: '../../views/chord.html',
       controller: 'ChordCtrl',
     })
-    .state('topChords',  {
+    .state('topChords', {
         url: '/topChords',
         templateUrl: '../../views/topChords.html',
         controller: 'TopchordsCtrl',
@@ -29,28 +28,28 @@ function RouteConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvid
           title: 'Top Chords',
         },
     })
-    .state('weeklyChart',  {
+    .state('weeklyChart', {
         url: '/weekly-chart',
         template: '<ply-weekly-chart></ply-weekly-chart>',
         data: {
           title: 'Weekly Chart',
         },
     })
-    .state('favorites',  {
+    .state('favorites', {
         url: '/favorites',
         template: '<ply-favorites></ply-favorites>',
         data: {
           title: 'Favorites',
         },
     })
-    .state('tuner',  {
+    .state('tuner', {
         url: '/tuner',
         template: '<ply-tuner></ply-tuner>',
         data: {
           title: 'Tuner',
         },
     })
-    .state('metronome',  {
+    .state('metronome', {
         url: '/metronome',
         templateUrl: 'pages/metronome/metronome.html',
         controller: 'MetronomeCtrl',
@@ -58,7 +57,7 @@ function RouteConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvid
           title: 'Metronome',
         },
     })
-    .state('suggestions',  {
+    .state('suggestions', {
         url: '/suggestions',
         templateUrl: 'pages/suggestions/suggestions.html',
         controller: 'MetronomeCtrl',

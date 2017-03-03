@@ -38,7 +38,7 @@
         searchInput: '',
       };
 
-      //Workaround due to translations
+      // Workaround due to translations
       setTimeout(() => {
         let elem = document.querySelector('md-select-value > span');
         if (!!elem) {
@@ -55,7 +55,6 @@
         }
       });
     }
-
 
     formatResultMessage = () => {
       return new Promise((resolve, reject) => {
@@ -110,7 +109,7 @@
           this.chordsFinallyHandler();
         })
         .catch(error => {
-          //Try searching with an upper case for the first letter of each word
+          // Try searching with an upper case for the first letter of each word
           if (numAttempts < 2) {
             this.searchConfig.searchInput = this.uppercaseFirstLetter(this.searchConfig.searchInput);
             this.searchChords(++numAttempts);
@@ -124,7 +123,7 @@
         });
     }
 
-    //For spinner event listening
+    // For spinner event listening
     triggerSearchChords = () => {
       this.searchChords();
     }

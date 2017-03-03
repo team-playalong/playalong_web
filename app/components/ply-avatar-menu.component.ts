@@ -50,7 +50,6 @@
 			ctrl.passwordText = 'password';
 		};
 
-
 		ctrl.loginSocial = function(platform) {
 		  login.loginSocial(platform)
 		  .then(user => {
@@ -58,7 +57,6 @@
           const userData = user.user.providerData[0];
           PlyNotifier.notifyLogin(userData);
         }
-
 
 		  });
 		};
@@ -75,7 +73,6 @@
 			return result;
 		};
 
-
 		ctrl.loginEmail = (email: string, password: string) => {
 			login.loginEmail(email, password)
 				.catch(error => {
@@ -89,7 +86,6 @@
 				    );
 					});
 		};
-
 
 		ctrl.openResetPasswordModal = (event) => {
 			$mdDialog.show({
@@ -137,11 +133,7 @@
 			  `,
 			  parent: angular.element(document.body),
 			  clickOutsideToClose: true,
-			})
-			.then(function() {
-			}, function() {
 			});
-
 		};
 
 		ctrl.openChangePasswordModal = (event) => {
@@ -208,11 +200,7 @@
 			  `,
 			  parent: angular.element(document.body),
 			  clickOutsideToClose: true,
-			})
-			.then(function() {
-			}, function() {
 			});
-
 		};
 
     const DEFAULT_AVATAR_IMAGE = 'http://static1.squarespace.com/static/5446859fe4b00f6c90e96077/t/54ca8f77e4b06817122e0839/1422561145086/Horton.jpg';
@@ -220,7 +208,7 @@
 		  if (!login.isLoggedIn()) {
         return DEFAULT_AVATAR_IMAGE;
 		  }
-		  else { //get the image from the auth object
+		  else { // get the image from the auth object
 		    let auth = login.getAuth() || {};
         if (auth.photoURL) {
           return auth.photoURL;

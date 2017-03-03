@@ -1,8 +1,6 @@
 (function() {
 	'use strict';
 
-
-
   const adminWeeklyChart: ng.IComponentOptions = {
     template: `
       <div  class="md-padding" id="adminWeeklyChart"
@@ -23,7 +21,6 @@
     controller: 'adminWeeklyChartCtrl',
   };
 
-
   const adminWeeklySearchArea = {
     templateUrl: 'components/admin/admin-weekly-search-area.html',
     bindings: {
@@ -33,7 +30,6 @@
     },
     controller: adminWeeklySearchAreaCtrl,
   };
-
 
   adminWeeklySearchAreaCtrl.$inject = ['chords', 'PlyDate'];
   function adminWeeklySearchAreaCtrl(chords, PlyDate) {
@@ -69,7 +65,6 @@
     };
   }
 
-
   const adminWeeklyChordResults: ng.IComponentOptions = {
     template: `
       <md-list ng-repeat="result in $ctrl.songs | orderBy: 'rank'">
@@ -104,14 +99,14 @@
       ],
     };
     this.availableRanks = [1, 2, 3, 4, 5];
-    this.updateRank = ({chordKey, rank}) => {
-      for (let currSong of this.weeklyChart.songs) {
+    this.updateRank = ({ chordKey, rank }) => {
+      for (const currSong of this.weeklyChart.songs) {
         if (currSong.chordKey === chordKey) {
           currSong.rank = rank;
         }
       }
     };
-    this.rankChangeHandler = ({rank, artist, title, chordKey}) => {
+    this.rankChangeHandler = ({ rank, artist, title, chordKey }) => {
       this.weeklyChart.songs.push({
         artist,
         title,
@@ -122,13 +117,10 @@
 
     WeeklyChart.getLatestChart()
     .then(result => this.lastWeekChart = result);
-
-
     this.filterRanks = oldRanks => {
 
       const takenRanks = this.weeklyChart.songs.map(song => song.rank);
       return this.availableRanks.filter(rank => {
-
         return !takenRanks.includes(rank);
       });
     };
@@ -166,7 +158,4 @@
     .component('adminWeeklySearchArea', adminWeeklySearchArea)
     .controller('adminWeeklyChartCtrl', adminWeeklyChartCtrl)
     .component('adminWeeklyChordResults', adminWeeklyChordResults);
-
-
-
 })();

@@ -2,10 +2,10 @@
 	'use strict';
 
 angular.module('playalongWebApp')
-.controller('TopchordsCtrl', TopchordsCtrl);
+.controller('TopchordsCtrl', topchordsCtrl);
 
-TopchordsCtrl.$inject = ['chords', '$rootScope', '$translate'];
-	function TopchordsCtrl(chords, $rootScope, $translate) {
+topchordsCtrl.$inject = ['chords', '$rootScope', '$translate'];
+	function topchordsCtrl(chords, $rootScope, $translate) {
 		let vm = this;
 	$translate(['topChords.PAGE_TITLE',
 							'home.PAGE_TITLE',
@@ -63,14 +63,13 @@ TopchordsCtrl.$inject = ['chords', '$rootScope', '$translate'];
         vm.topChords = formateChords(data);
         $rootScope.stopSpin('stopTopChordsSpinner');
       })
-      .catch((error) => {
+      .catch(error => {
         $rootScope.stopSpin('stopTopChordsSpinner');
+				console.error(error);
       });
 	};
 
-	//Race condition with spinner directive
-	setTimeout(function() {
-		vm.getTopChords();
-	}, 20);
+	// Race condition with spinner directive
+	setTimeout(function() {	vm.getTopChords(); }, 20);
 }
 })();

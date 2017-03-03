@@ -78,10 +78,7 @@
       },
     ];
     vm.close = function () {
-      $mdSidenav('left').close()
-        .then(function () {
-
-        });
+      $mdSidenav('left').close();
     };
     vm.showMenuItem = item => {
       if (!item || !item.isAdmin) {
@@ -92,7 +89,6 @@
       }
     };
   }
-
 
   angular.module('playalongWebApp')
   .controller('SidebarCtrl', SidebarCtrl)

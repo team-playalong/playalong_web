@@ -23,7 +23,7 @@ angular.module('playalongWebApp')
     scope: {
       chord: '=',
     },
-    link: function postLink(scope, element/*, attrs*/) {
+    link: function postLink(scope, element) {
       if (!login.isLoggedIn()) {
         element.css('display', 'none');
       }

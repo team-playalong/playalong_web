@@ -7,10 +7,9 @@ class PlyNotifier {
 		'Access-Control-Allow-Origin' : '*',
 		'Access-Control-Allow-Methods' : 'POST, GET, OPTIONS, PUT',
 		'Content-Type': 'application/json',
-		'Accept': 'application/json',
+		Accept: 'application/json',
 	};
 	private urlPrefix;
-
 
 	constructor(public $http) {
 		if (window.PLY_CONFIG.env === 'dev') {
@@ -32,7 +31,7 @@ class PlyNotifier {
 		.catch(err => console.warn(err));
 	}
 
-	notifyLogin = ({displayName, uid, email }) => {
+	notifyLogin = ({ displayName, uid, email }) => {
 		return this.$http({
 			headers: this.headers,
 			method: 'GET',

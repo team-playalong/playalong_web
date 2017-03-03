@@ -9,7 +9,7 @@
 class Toast {
 
 	private conf = {
-		delay: 4000, //ms
+		delay: 4000, // ms
 		position: 'bottom left',
 	};
 

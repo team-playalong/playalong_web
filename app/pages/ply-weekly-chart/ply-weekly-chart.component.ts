@@ -5,7 +5,6 @@
 	function weeklyChartCtrl(WeeklyChart, $rootScope) {
 		const $ctrl = this;
 
-
 		$ctrl.buildSubheaderMessage = weeklyChartData => {
 			return `
         {{'weeklyChart.CREATED' | translate}}:

@@ -11,21 +11,21 @@
       }
     $scope.login = login;
     $rootScope.currPage = 'Chord Builder';
-    $scope.chordRef = null; //Will reference the chord for Firebase process.binding
+    $scope.chordRef = null; // Will reference the chord for Firebase process.binding
     $scope.flags = {
       isPreviewMode: false,
     };
 
     function handleChordSuccess(chord) {
-      PlyNotifier.notifyChordAdded({chordId: chord.$id});
-      $state.go('builder.edit', {id: chord.$id || chord.chordKey});
+      PlyNotifier.notifyChordAdded({ chordId: chord.$id });
+      $state.go('builder.edit', { id: chord.$id || chord.chordKey });
     }
 
-    if ($stateParams && $stateParams.id) { //Meaning continue editing existing chord
-      chords.getChordById({chordId: $stateParams.id, isFirebaseObject: true})
+    if ($stateParams && $stateParams.id) { // Meaning continue editing existing chord
+      chords.getChordById({ chordId: $stateParams.id, isFirebaseObject: true })
       .then(result => {
         if (result) {
-          //We now have a reference to the entire chord object
+          // We now have a reference to the entire chord object
           result.$bindTo($scope, 'chord').then(function() {
             toast.showToastByTranslation('builder.alerts.START_EDIT');
           });
@@ -50,7 +50,6 @@
           });
       };
     }
-
 
     $scope.scanForChords = function(str){
       if (!str) { return; }

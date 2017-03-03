@@ -1,8 +1,8 @@
 class PlyDate {
-	constructor(private $mdToast, private $translate)  {}
+	constructor(private $mdToast, private $translate) {}
 
 	public getAllWeekNumbers() {
-		let allWeekNumbers = [];
+		const allWeekNumbers = [];
 		for (let i = 1; i < 55; ++i) {
 			allWeekNumbers.push(i);
 		}

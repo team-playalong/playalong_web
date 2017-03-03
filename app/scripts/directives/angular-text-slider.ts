@@ -11,7 +11,7 @@
   /**
    * textSizeSlider Module
    * Contains: directive
-   **/
+   */
   angular.module('textSizeSlider', [])
     // textSizeSlider Directive
     .directive('textSizeSlider', ['$document', function ($document) {
@@ -26,7 +26,7 @@
           unit: '@',
           value: '@',
         },
-        link: function (scope, element, attr) {
+        link(scope, element, attr) {
           // Set default text size value
           scope.textSize = scope.value;
           // Update text size value based on ngModel

@@ -10,7 +10,7 @@ TickSnd.load();
 /**
  * MetronomeApp module.
  */
-let MetronomeApp = angular.module('MetronomeApp', [], function() {});
+let MetronomeApp = angular.module('MetronomeApp', []);
 
 /**
  * metronome directive helps with responsive design,
@@ -28,7 +28,8 @@ MetronomeApp.directive('metronome', function($window) {
                 elem.height($jqWindow.height() * fillPercentOfWindow);
                 elem.width(metronomeAspectRatio * elem.height());
                 // Window taller
-            } else {
+            }
+            else {
                 elem.width($jqWindow.width() * fillPercentOfWindow);
                 elem.height(elem.width() / metronomeAspectRatio);
             }
@@ -66,7 +67,7 @@ MetronomeApp.directive('bobDragRegion', function() {
             max: maxSliderValue,
             orientation: 'vertical',
             value: bpmToSliderValue(scope.bpm),
-            change: function(e, ui) {
+            change(e, ui) {
                  function change() {
                     scope.bpm = sliderValueToBpm(ui.value);
                 };
@@ -76,7 +77,7 @@ MetronomeApp.directive('bobDragRegion', function() {
                 // "change" on init
                 scope.$$phase === '$digest' ? change() : scope.$apply(change);
             },
-            start: function(e, ui) {
+            start(e, ui) {
                 // During dragging, don't use CSS transition
                 // (conflicts with plugin), use plugin's animation.
                 // We want the bob to move smoothly independent of
@@ -89,11 +90,11 @@ MetronomeApp.directive('bobDragRegion', function() {
                 bobElem.css('-o-transition', 'none');
                 elem.slider('option', 'animate', 500);
             },
-            stop: function(e, ui) {
+            stop(e, ui) {
                 bobElem[0].style.webkitTransition = null;
                 elem.slider('option', 'animate', false);
             },
-            slide: function() {
+            slide() {
                 // Keep scope up to date with bob as it is dragged
                 scope.$apply(function() {
                     const sliderValue = elem.slider('option', 'value');
@@ -247,9 +248,11 @@ MetronomeCtrl.prototype.getInputErrorText = function() {
     let errorText;
     if (this.$scope.bpm < this.$scope.minBpm) {
         errorText = 'Minimum is ' + this.$scope.minBpm + '.';
-    } else if (this.$scope.bpm > this.$scope.maxBpm) {
+    }
+    else if (this.$scope.bpm > this.$scope.maxBpm) {
         errorText = 'Maximum is ' + this.$scope.maxBpm + '.';
-    } else {
+    }
+    else {
         errorText = '';
     }
     return errorText;

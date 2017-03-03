@@ -34,7 +34,7 @@
         availableDirections: ['up', 'down', 'left', 'right'],
         selectedDirection: 'up',
       };
-      //Disable autoscroll on redirect
+      // Disable autoscroll on redirect
       $rootScope.$on('$stateChangeStart',
       function(event, toState, toParams, fromState, fromParams){
         if (fromState.name === 'chord') {
@@ -43,7 +43,6 @@
           }, 0);
         }
       });
-
 
       $scope.chordContent = addChordImages($scope.chord.content);
     };
@@ -61,7 +60,7 @@
 
       const regex = /(<span class="chord">)([^<]+)(<\/span>)/g;
 
-      //Replace with equivalent chord image
+      // Replace with equivalent chord image
       for (let chord in EqualChordsMap) {
         chordContent = chordContent.replace(chord, EqualChordsMap[chord]);
       }
@@ -85,9 +84,9 @@
       $state.go('home');
     }
     else {
-      if (!$scope.chord || !$scope.chord.content) { //After refresh
+      if (!$scope.chord || !$scope.chord.content) { // After refresh
         $rootScope.startSpin();
-        chords.getChordById({chordId: $stateParams.chordKey})
+        chords.getChordById({ chordId: $stateParams.chordKey })
         .then(result => {
           if (result) {
             $scope.chord = result;

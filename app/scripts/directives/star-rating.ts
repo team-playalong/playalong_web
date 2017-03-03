@@ -8,11 +8,11 @@ function(toast, chords, $translate) {
     scope : {
       ratingValue : '=ngModel',
       chord: '=',
-      max : '=?', //optional: default is 5
+      max : '=?', // optional: default is 5
       onRatingSelected : '&?',
       readonly: '=?',
     },
-    link : function(scope) {
+    link(scope) {
       if (scope.max === undefined) { scope.max = 5; }
       function updateStars() {
         scope.stars = [];
@@ -26,19 +26,19 @@ function(toast, chords, $translate) {
         if (scope.readonly === undefined || scope.readonly === false) {
           scope.ratingValue = index + 1;
 
-          //Rate chord in the db
+          // Rate chord in the db
           chords.rateChord(scope.chord.$id || scope.chord.chordKey, scope.ratingValue)
-            .then(function() {
-              scope.hasRated = true;
-              $translate(['chord.RATING_SUCCESS'])
-              .then(function (translations) {
-                toast.showSimpleToast(translations['chord.RATING_SUCCESS'] || 'Thanks For Rating');
-              });
-
+          .then(() => {
+            scope.hasRated = true;
+            $translate(['chord.RATING_SUCCESS'])
+            .then(translations => {
+              toast.showSimpleToast(translations['chord.RATING_SUCCESS'] || 'Thanks For Rating');
             });
-          }
+
+          });
+        }
       };
-      scope.$watch('ratingValue', function(oldVal, newVal) {
+      scope.$watch('ratingValue', (oldVal, newVal) => {
         if (newVal) { updateStars(); }
       });
     },
