@@ -1,3 +1,7 @@
+/*
+  eslint no-var-keyword: "off"
+*/
+
 'use strict';
 
 /**
@@ -12,14 +16,14 @@ angular.module('playalongWebApp')
       templateUrl: 'components/spectrum/spectrum.html',
       restrict: 'EA',
       scope: {
-        spectrumData:'=spectrumData'
+        spectrumData: '=spectrumData',
       },
-      link: function postLink(scope: any, element, attrs) {
+      link: function postLink(scope: any, element, attrs: any) {
         //styles
         scope.stapleStyle = [];
         scope.stapleWrapStyle = "";
 
-        var wrapElementWidth = element[0].firstChild;
+        var wrapElementWidth: any = element[0].firstChild;
         var indexStapleWidth = 25;
         var stpl = 0;
         var sum = 0;
@@ -79,15 +83,6 @@ angular.module('playalongWebApp')
         scope.$watchCollection('spectrumData', function() {
             scope.updateStaple();
         });
-
-        // angular.element($window).bind('resize', function(){
-        //   console.log('resizing', $window.innerWidth);
-        //   // if(wrapElementWidth.clientWidth > $window.innerWidth)
-        //   // {
-
-        //   // }
-        // });
-
 
 
     function RoundToDecimal(number,decimal) {
