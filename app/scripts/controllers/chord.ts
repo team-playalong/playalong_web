@@ -47,25 +47,25 @@
       $scope.chordContent = addChordImages($scope.chord.content);
     };
 
-    $scope.setPopoverHtml = (chord: string) => {
-      chord = encodeURIComponent(chord.trim());
+    $scope.setPopoverHtml = (chord = '') => {
+      const chordFormatted = encodeURIComponent(chord.trim());
       return $sce.trustAsHtml(`
         <div>
-          <img src="guitar-chords/${chord}.png" height="100" width="85" alt="No chord Available" />
+          <img src="guitar-chords/${chordFormatted}.png" height="100" width="85" alt="No chord Available" />
         </div>
       `);
     };
 
     function addChordImages(chordContent = '') {
-
+      let newChordContent = chordContent;
       const regex = /(<span class="chord">)([^<]+)(<\/span>)/g;
 
       // Replace with equivalent chord image
       for (const chord in EqualChordsMap) {
-        chordContent = chordContent.replace(chord, EqualChordsMap[chord]);
+        newChordContent = newChordContent.replace(chord, EqualChordsMap[chord]);
       }
 
-      return chordContent.replace(regex, `<span class="chord" popover-trigger="mouseenter" uib-popover-html="setPopoverHtml('$2')">$2</span>`);
+      return newChordContent.replace(regex, `<span class="chord" popover-trigger="mouseenter" uib-popover-html="setPopoverHtml('$2')">$2</span>`);
     }
 
     $scope.disableAutoscroll = function() {

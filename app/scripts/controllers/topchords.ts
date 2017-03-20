@@ -54,9 +54,8 @@ topchordsCtrl.$inject = ['chords', '$rootScope', '$translate'];
   }
 
 	vm.defaultTopLimit = 50;
-	vm.getTopChords = function(limitTo) {
+	vm.getTopChords = function(limitTo = vm.defaultTopLimit) {
 		$rootScope.startSpin('startTopChordsSpinner');
-		limitTo = limitTo || vm.defaultTopLimit;
 
     chords.getNewestChords(limitTo)
       .then(data => {

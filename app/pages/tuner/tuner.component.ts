@@ -239,7 +239,7 @@
     let gainNode = null;
 
     function getMaxPeak(inputVector, numFreq?) {
-      numFreq = typeof numFreq !== 'undefined' ? numFreq : 2000;
+      const newNumFreq = typeof numFreq !== 'undefined' ? numFreq : 2000;
 
       const vec1 = inputVector;
       const vec2 = [];
@@ -247,7 +247,7 @@
       const vec4 = [];
       const vec5 = [];
 
-      for (let i = 0; i < numFreq; i++) {
+      for (let i = 0; i < newNumFreq; i++) {
         if (i % 2 === 0) {
           vec2.push(inputVector[i]);
         }
