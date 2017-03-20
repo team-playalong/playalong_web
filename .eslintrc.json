@@ -12,6 +12,7 @@
   "extends": "airbnb",
   "rules": {
   	"indent": "off",
+    "no-tabs": "off",
     "no-var": "off",
     "strict": "off",
     "padded-blocks": "off",

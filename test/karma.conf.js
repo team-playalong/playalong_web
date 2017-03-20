@@ -87,10 +87,10 @@ module.exports = function(config) {
       'app/pages/**/*.js',
 
       //Test
-      "test/globals.js",
-      "test/mock/**/*.js",
-      "test/spec/**/*.js",
-      "!test/spec/E2E/**/*.js"
+      'test/globals.js',
+      'test/mock/**/*.js',
+      'test/spec/**/*.js',
+      '!test/spec/E2E/**/*.js',
     ],
 
     // list of files / patterns to exclude
@@ -109,16 +109,17 @@ module.exports = function(config) {
     // - PhantomJS
     // - IE (only Windows)
     browsers: [
-      "PhantomJS"
+      'PhantomJS',
       // 'Chrome'
     ],
 
     // Which plugins to enable
     plugins: [
-      "karma-phantomjs-launcher",
-      "karma-chrome-launcher",
-      "karma-jasmine",
-        'karma-coverage',
+      'karma-phantomjs-launcher',
+      'karma-chrome-launcher',
+      'karma-jasmine',
+      'karma-coverage',
+      'karma-babel-preprocessor',
     ],
 
     // Continuous Integration mode
@@ -136,7 +137,7 @@ module.exports = function(config) {
     ],
     coverageReporter: {
       type: 'json',
-      dir: 'test/coverage'
+      dir: 'test/coverage',
     },
     preprocessors: {
       // source files, that you wanna generate coverage for
@@ -150,8 +151,15 @@ module.exports = function(config) {
       'app/scripts/directives/*.js': ['coverage'],
       'app/components/**/*.js': ['coverage'],
       'app/pages/**/*.js': ['coverage'],
+      'test/**/*.js': ['babel'],
     },
 
+    babelPreprocessor: {
+      options: {
+        presets: ['es2015'],
+        sourceMap: 'inline',
+      },
+    },
     // Uncomment the following lines if you are using grunt's server to run the tests
     // proxies: {
     //   '/': 'http://localhost:9000/'
