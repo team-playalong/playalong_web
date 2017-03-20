@@ -54,7 +54,7 @@
     "time-grunt": "^1.0.0",
     "tslint": "^4.5.1",
     "typescript": "^2.2.1",
-    "vinyl-fs": "2.4.3"
+    "vinyl-fs": "2.4.4"
   },
   "engines": {
     "node": ">=0.10.0"
