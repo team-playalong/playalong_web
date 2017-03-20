@@ -16,8 +16,8 @@ class PlyTooltip {
 	};
 
 	public setTooltip(elem) {
-		elem = angular.element(elem);
-		elem.attr('uib-tooltip', 'Test');
+		const newElem = angular.element(elem);
+		newElem.attr('uib-tooltip', 'Test');
 	};
 }
 

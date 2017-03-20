@@ -69,8 +69,7 @@
             }
           };
 
-          scope.changeSpeed = function(amount) {
-            amount = amount || 0;
+          scope.changeSpeed = function(amount = 0) {
             scope.speed += amount;
 
             scope.speed = Math.max(scope.min, scope.speed);

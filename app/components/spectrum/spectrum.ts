@@ -83,10 +83,11 @@ angular.module('playalongWebApp')
       zeros = zeros.substr(2);
       const mul_div = parseInt('1' + zeros, 10);
       const increment = parseFloat('.' + zeros + '01');
+      let newNum = num;
       if (((num * (mul_div * 10)) % 10) >= 5) {
-        num += increment;
+        newNum += increment;
       }
-      return Math.round((num * mul_div) - 0.5) / mul_div;
+      return Math.round((newNum * mul_div) - 0.5) / mul_div;
     }
   },
  };
