@@ -8,14 +8,12 @@ describe('Controller: BuilderctrlCtrl', function () {
     scope,
     chordsMockService,
     $stateParams,
-    toast,
     $q;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope,_$q_,_$stateParams_,_$httpBackend_, _toast_) {
+  beforeEach(inject(function ($controller, $rootScope,_$q_,_$stateParams_,_$httpBackend_) {
     $q = _$q_;
     $stateParams = _$stateParams_;
-    toast = _toast_;
     $stateParams.id = 1;
     chordsMockService = {
       addChord: function() {
@@ -30,7 +28,7 @@ describe('Controller: BuilderctrlCtrl', function () {
       $scope: scope,
       chords: chordsMockService,
       $stateParams: $stateParams,
-      toast: {
+      Toast: {
         showToastByTranslation: function() {},
         showSimpleToast: function() {},
 

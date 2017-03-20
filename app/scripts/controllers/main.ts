@@ -4,7 +4,6 @@
   angular.module('playalongWebApp')
   .controller('MainCtrl', MainCtrl);
 
-
   MainCtrl.$inject = [
     '$scope', '$timeout', '$mdSidenav', '$mdUtil',
     'paths', '$state', 'login', '$rootScope',
@@ -30,7 +29,7 @@
      * report completion in console
      */
     $scope.buildToggler = navId => {
-      const debounceFn =  $mdUtil.debounce(function(){
+      const debounceFn = $mdUtil.debounce(function(){
         $mdSidenav(navId)
           .toggle()
           .then(function () {
@@ -67,7 +66,6 @@
         window.ga('set', 'userId', `data.uid_${data.firstName}_${data.lastName}`); // Set the user ID using signed-in user_id.
       }
     });
-
 
     $scope.initCtrl();
   }

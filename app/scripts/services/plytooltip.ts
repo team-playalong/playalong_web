@@ -7,21 +7,20 @@
  * # plyTooltip
  * Service in the playalongWebApp.
  */
+class PlyTooltip {
+	constructor(private $translate) {}
+
+	public getHorizontalDirection() {
+		const direction = this.$translate.use() === 'he' ? 'right' : 'left';
+		return direction;
+	};
+
+	public setTooltip(elem) {
+		elem = angular.element(elem);
+		elem.attr('uib-tooltip', 'Test');
+	};
+}
+
+PlyTooltip.$inject = ['$translate'];
 angular.module('playalongWebApp')
-  .service('plyTooltip',['$translate',
-   function ($translate) {
-  	var getHorizontalDirection = function() {
-  		var direction = $translate.use() === 'he' ? 'right' : 'left';
-  		return direction;
-  	};
-
-  	var setTooltip = function(elem) {
-  		elem = angular.element(elem);
-  		elem.attr('uib-tooltip','Test');
-  	};
-
-    return {
-    	getHorizontalDirection: getHorizontalDirection,
-  		setTooltip: setTooltip
-    };
-  }]);
+	.service('PlyTooltip', PlyTooltip);

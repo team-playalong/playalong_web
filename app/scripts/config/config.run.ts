@@ -6,7 +6,7 @@
         taOptions.toolbar = [
           ['bold', 'italics', 'underline', 'redo', 'undo'],
           ['justifyLeft', 'justifyCenter', 'justifyRight'],
-          ['html']
+          ['html'],
         ];
         return taOptions;
     }]);
@@ -17,8 +17,7 @@
       .setPrefix('ply');
   });
 
-
-  app.run(['$rootScope', '$state' , '$window', function($rootScope, $state,$window) {
+  app.run(['$rootScope', '$state' , '$window', function($rootScope, $state, $window) {
     $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
       // We can catch the error thrown when the $requireAuth promise is rejected
       // and redirect the user back to the home page
@@ -28,8 +27,8 @@
     });
   /*jshint unused:false*/
     $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams, error) {
-      //Scroll to the top of the page
-      $window.scrollTo(0,0);
+      // Scroll to the top of the page
+      $window.scrollTo(0, 0);
 
       if (toState.data && toState.data.title) {
         $rootScope.pageTitle = 'Playalong - ' + toState.data.title;
@@ -45,8 +44,8 @@
     });
   }]);
 
-  //Allow unafe html binding
-  //TODO - refactor into whitelist
+  // Allow unafe html binding
+  // TODO - refactor into whitelist
   app.config(function($sceProvider) {
     // Completely disable SCE.  For demonstration purposes only!
     // Do not use in new projects.
@@ -55,13 +54,13 @@
 
   app.config(['$uibTooltipProvider', function($uibTooltipProvider) {
     $uibTooltipProvider.options({
-        appendToBody: true
+        appendToBody: true,
     });
   }]);
 
   app.run(
-    [          '$rootScope', '$state', '$stateParams',
-      function ($rootScope,   $state,   $stateParams) {
+    ['$rootScope', '$state', '$stateParams',
+      function ($rootScope, $state, $stateParams) {
 
       // It's very handy to add references to $state and $stateParams to the $rootScope
       // so that you can access them from any scope within your applications.For example,
@@ -69,9 +68,8 @@
       // to active whenever 'contacts.list' or one of its decendents is active.
       $rootScope.$state = $state;
       $rootScope.$stateParams = $stateParams;
-      }
-    ]
+    },
+  ],
   );
-
 
 })();

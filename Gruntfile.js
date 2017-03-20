@@ -11,6 +11,7 @@ var serveStatic = require('serve-static');
 
 module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-protractor-runner');
+  grunt.loadNpmTasks('grunt-istanbul-coverage');
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
@@ -146,6 +147,20 @@ module.exports = function (grunt) {
         }]
       },
       server: '.tmp'
+    },
+    coverage: {
+      default: {
+        options: {
+          thresholds: {
+            'statements': 20,
+            'branches': 8,
+            'lines': 20,
+            'functions': 18
+          },
+          dir: 'coverage',
+          root: 'test'
+        }
+      }
     },
 
     // Add vendor prefixed styles
@@ -535,7 +550,8 @@ module.exports = function (grunt) {
     //'concurrent:test',
     'autoprefixer',
     'connect:test',
-    'karma:unit'
+    'karma:unit',
+    'coverage',
     // 'protractor:all'
   ]);
 
