@@ -2,11 +2,11 @@
 	'use strict';
 
 angular.module('playalongWebApp')
-.controller('TopchordsCtrl', TopchordsCtrl);
+.controller('TopchordsCtrl', topchordsCtrl);
 
-TopchordsCtrl.$inject = ['chords', '$rootScope', '$translate'];
-	function TopchordsCtrl(chords, $rootScope, $translate) {
-		var vm = this;
+topchordsCtrl.$inject = ['chords', '$rootScope', '$translate'];
+	function topchordsCtrl(chords, $rootScope, $translate) {
+		const vm = this;
 	$translate(['topChords.PAGE_TITLE',
 							'home.PAGE_TITLE',
 							'topChords.SINGLE_HIT',
@@ -18,12 +18,11 @@ TopchordsCtrl.$inject = ['chords', '$rootScope', '$translate'];
 			if (!hitCount) {
 				return null;
 			}
-			else if (hitCount === 1)
-			{
+			else if (hitCount === 1) {
 				return translations['topChords.SINGLE_HIT'];
 			}
 			else {
-				var tmp = translations['topChords.MANY_HITS'];
+				const tmp = translations['topChords.MANY_HITS'];
 				return tmp.replace('{hitCount}', hitCount);
 			}
 		};
@@ -45,7 +44,7 @@ TopchordsCtrl.$inject = ['chords', '$rootScope', '$translate'];
 
   function formateChords(rawData) {
     const timestamp = getDefaultTimestamp();
-    for (let chord of rawData) {
+    for (const chord of rawData) {
       if (!chord.creationDate) {
         chord.creationDate = timestamp;
       }
@@ -64,14 +63,13 @@ TopchordsCtrl.$inject = ['chords', '$rootScope', '$translate'];
         vm.topChords = formateChords(data);
         $rootScope.stopSpin('stopTopChordsSpinner');
       })
-      .catch((error) => {
+      .catch(error => {
         $rootScope.stopSpin('stopTopChordsSpinner');
+				console.error(error);
       });
 	};
 
-	//Race condition with spinner directive
-	setTimeout(function() {
-		vm.getTopChords();
-	},20);
+	// Race condition with spinner directive
+	setTimeout(function() {	vm.getTopChords(); }, 20);
 }
 })();

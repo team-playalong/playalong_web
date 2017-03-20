@@ -6,9 +6,6 @@
 			template: `
         <ui-view></ui-view>
       `,
-			controller: () => {
-
-			},
 		});
 
 })();

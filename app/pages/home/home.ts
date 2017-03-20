@@ -38,9 +38,9 @@
         searchInput: '',
       };
 
-      //Workaround due to translations
+      // Workaround due to translations
       setTimeout(() => {
-        let elem = document.querySelector('md-select-value > span');
+        const elem = document.querySelector('md-select-value > span');
         if (!!elem) {
           elem.textContent = 'Song Name';
         }
@@ -56,11 +56,10 @@
       });
     }
 
-
     formatResultMessage = () => {
       return new Promise((resolve, reject) => {
-        var toTranslate;
-        var manyResults;
+        let toTranslate;
+        let manyResults;
         if (!this.searchResults || !this.searchResults.length) {
           toTranslate = 'home.EMPTY_RESULT_MESSAGE';
         }
@@ -73,22 +72,21 @@
         }
         this.$translate([toTranslate])
         .then(translations => {
-          var res = translations[toTranslate];
+          let res = translations[toTranslate];
           if (manyResults && res.indexOf('{numResults}') !== -1) {
             res = res.replace('{numResults}', this.searchResults.length);
           }
           resolve(res);
         });
       });
-    };
+    }
 
     handleChordResults = results => {
       if (results && results.length) {
         this.searchResults = results;
       }
       this.chordsFinallyHandler();
-    };
-
+    }
 
     chordsFinallyHandler = () => {
       this.formatResultMessage()
@@ -97,8 +95,7 @@
 
         this.$rootScope.startSpin('stopSearchChordsSpinner');
       });
-    };
-
+    }
 
     uppercaseFirstLetter = str => str.split(' ').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
 
@@ -112,7 +109,7 @@
           this.chordsFinallyHandler();
         })
         .catch(error => {
-          //Try searching with an upper case for the first letter of each word
+          // Try searching with an upper case for the first letter of each word
           if (numAttempts < 2) {
             this.searchConfig.searchInput = this.uppercaseFirstLetter(this.searchConfig.searchInput);
             this.searchChords(++numAttempts);
@@ -124,12 +121,12 @@
           }
 
         });
-    };
+    }
 
-    //For spinner event listening
+    // For spinner event listening
     triggerSearchChords = () => {
       this.searchChords();
-    };
+    }
 
     /*jshint unused:true*/
   }

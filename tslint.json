@@ -1,56 +1,74 @@
 {
-    "rules": {
-        "class-name": true,
-        "no-duplicate-variable": true,
-        "no-eval": true,
-        "no-internal-module": true,
-        "no-trailing-whitespace": false,
-        "no-var-keyword": true,
-        "one-line": [
-            true,
-            "check-open-brace",
-            "check-whitespace"
-        ],
-        "quotemark": [
-            true,
-            "single"
-        ],
-        "semicolon": [
-            true,
-            "always"
-        ],
-        "triple-equals": [
-            true,
-            "allow-null-check"
-        ],
-        "typedef-whitespace": [
-            true,
-            {
-                "call-signature": "nospace",
-                "index-signature": "nospace",
-                "parameter": "nospace",
-                "property-declaration": "nospace",
-                "variable-declaration": "nospace"
-            }
-        ],
-        "variable-name": [
-            true,
-            "ban-keywords"
-        ],
-        "whitespace": [
-            true,
-            "check-branch",
-            "check-decl",
-            "check-operator",
-            "check-separator",
-            "check-type"
-        ],
-        "trailing-comma": [
-            true, {
-                "multiline": "always", 
-                "singleline": "never"
-            }
-        ]
-
-    }
+  "extends": ["tslint-config-standard", "tslint-config-airbnb"],
+  "rules": {
+    "class-name": true,
+    "no-extra-boolean-cast": false,
+    "no-duplicate-variable": true,
+    "no-eval": true,
+    "no-increment-decrement": false,
+    "no-internal-module": true,
+    "no-trailing-whitespace": false,
+    "no-var-keyword": true,
+    "brace-style": [
+      true,
+      "stroustrup",
+      {
+        "allowSingleLine": true
+      }
+    ],
+    "one-line": [
+      true,
+      "check-open-brace",
+      "check-whitespace"
+    ],
+    "quotemark": [
+      true,
+      "single"
+    ],
+    "semicolon": [
+      true,
+      "always"
+    ],
+    "triple-equals": [
+      true,
+      "allow-null-check"
+    ],
+    "space-before-function-paren": false,
+    "ter-indent": false,
+    "ter-arrow-parens": false,
+    "typedef-whitespace": [
+      true,
+      {
+        "call-signature": "nospace",
+        "index-signature": "nospace",
+        "parameter": "nospace",
+        "property-declaration": "nospace",
+        "variable-declaration": "nospace"
+      }
+    ],
+    "variable-name": [
+      true,
+      "ban-keywords"
+    ],
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-separator",
+      "check-type"
+    ],
+    "trailing-comma": [
+      true, {
+        "multiline": "always",
+        "singleline": "never"
+      }
+    ],
+    "ter-prefer-arrow-callback": false,
+    "max-line-length": false,
+    "no-var-self": false,
+    "function-name": false,
+    "align": false,
+    "handle-callback-err": false
+  }
 }

@@ -3,7 +3,7 @@
 
 	resetPassword.$inject = ['login', '$mdDialog'];
 	function resetPassword(login, $mdDialog) {
-		let ctrl = this;
+		const ctrl = this;
 		ctrl.$mdDialog = $mdDialog;
 
 		ctrl.resetPassword = (email: string) => {
@@ -21,7 +21,7 @@
 
 	changePassword.$inject = ['login', '$mdDialog'];
 	function changePassword(login, $mdDialog) {
-		let ctrl = this;
+		const ctrl = this;
 		ctrl.$mdDialog = $mdDialog;
 
 		ctrl.passwordType = 'password';
@@ -40,16 +40,15 @@
 		};
 	}
 
-	ctrl.$inject = ['$mdDialog', 'login', 'paths', 'toast', '$translate', 'PlyNotifier'];
+	ctrl.$inject = ['$mdDialog', 'login', 'paths', 'Toast', '$translate', 'PlyNotifier'];
 	function ctrl($mdDialog, login, paths, toast, $translate, PlyNotifier) {
-		let ctrl = this;
+		const ctrl = this;
 		ctrl.login = login;
 		ctrl.paths = paths;
 
 		ctrl.$onInit = () => {
 			ctrl.passwordText = 'password';
 		};
-
 
 		ctrl.loginSocial = function(platform) {
 		  login.loginSocial(platform)
@@ -59,12 +58,11 @@
           PlyNotifier.notifyLogin(userData);
         }
 
-
 		  });
 		};
 
 		ctrl.setMenuStyles = () => {
-			let result = {
+			const result = {
 				minHeight: '400px',
 			};
 
@@ -75,7 +73,6 @@
 			return result;
 		};
 
-
 		ctrl.loginEmail = (email: string, password: string) => {
 			login.loginEmail(email, password)
 				.catch(error => {
@@ -85,11 +82,10 @@
 							.title('Error')
 							.content('Invalid email or password')
 							.ariaLabel('Invalid Email')
-							.ok('OK')
+							.ok('OK'),
 				    );
 					});
 		};
-
 
 		ctrl.openResetPasswordModal = (event) => {
 			$mdDialog.show({
@@ -137,11 +133,7 @@
 			  `,
 			  parent: angular.element(document.body),
 			  clickOutsideToClose: true,
-			})
-			.then(function() {
-			}, function() {
 			});
-
 		};
 
 		ctrl.openChangePasswordModal = (event) => {
@@ -208,11 +200,7 @@
 			  `,
 			  parent: angular.element(document.body),
 			  clickOutsideToClose: true,
-			})
-			.then(function() {
-			}, function() {
 			});
-
 		};
 
     const DEFAULT_AVATAR_IMAGE = 'http://static1.squarespace.com/static/5446859fe4b00f6c90e96077/t/54ca8f77e4b06817122e0839/1422561145086/Horton.jpg';
@@ -220,8 +208,8 @@
 		  if (!login.isLoggedIn()) {
         return DEFAULT_AVATAR_IMAGE;
 		  }
-		  else { //get the image from the auth object
-		    let auth = login.getAuth() || {};
+		  else { // get the image from the auth object
+		    const auth = login.getAuth() || {};
         if (auth.photoURL) {
           return auth.photoURL;
         }

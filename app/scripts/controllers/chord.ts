@@ -6,7 +6,7 @@
 
   ChordCtrl.$inject = [
     '$scope', '$rootScope', '$state', 'chords', '$stateParams',
-    'toast', 'login' , 'Common', '$timeout', 'plyTooltip', 'transposer', '$sce',
+    'Toast', 'login' , 'Common', '$timeout', 'PlyTooltip', 'transposer', '$sce',
     'EqualChordsMap',
   ];
   function ChordCtrl($scope, $rootScope, $state, chords, $stateParams, toast, login, Common, $timeout, plyTooltip, transposer, $sce: ng.ISCEService, EqualChordsMap) {
@@ -34,7 +34,7 @@
         availableDirections: ['up', 'down', 'left', 'right'],
         selectedDirection: 'up',
       };
-      //Disable autoscroll on redirect
+      // Disable autoscroll on redirect
       $rootScope.$on('$stateChangeStart',
       function(event, toState, toParams, fromState, fromParams){
         if (fromState.name === 'chord') {
@@ -43,7 +43,6 @@
           }, 0);
         }
       });
-
 
       $scope.chordContent = addChordImages($scope.chord.content);
     };
@@ -61,8 +60,8 @@
 
       const regex = /(<span class="chord">)([^<]+)(<\/span>)/g;
 
-      //Replace with equivalent chord image
-      for (let chord in EqualChordsMap) {
+      // Replace with equivalent chord image
+      for (const chord in EqualChordsMap) {
         chordContent = chordContent.replace(chord, EqualChordsMap[chord]);
       }
 
@@ -85,9 +84,9 @@
       $state.go('home');
     }
     else {
-      if (!$scope.chord || !$scope.chord.content) { //After refresh
+      if (!$scope.chord || !$scope.chord.content) { // After refresh
         $rootScope.startSpin();
-        chords.getChordById({chordId: $stateParams.chordKey})
+        chords.getChordById({ chordId: $stateParams.chordKey })
         .then(result => {
           if (result) {
             $scope.chord = result;
@@ -105,11 +104,11 @@
 
     $scope.transposition = 0;
     $scope.transposeChords = function(numTones) {
-      var chords = angular.element(document.querySelectorAll('.ply-chord-container-content .chord'));
+      const chords = angular.element(document.querySelectorAll('.ply-chord-container-content .chord'));
 
       angular.forEach(chords, function(value){
-        var oldText = angular.element(value).text();
-        var newText = transposer.transpose(oldText, numTones);
+        const oldText = angular.element(value).text();
+        const newText = transposer.transpose(oldText, numTones);
         angular.element(value).text(newText);
       });
 

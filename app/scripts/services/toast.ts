@@ -1,44 +1,39 @@
-(function() {
-  'use strict';
+/**
+ * @ngdoc service
+ * @name playalongWebApp.toast
+ * @description
+ * # toast
+ * API for making toast (popup) messages
+ */
 
-  /**
-   * @ngdoc service
-   * @name playalongWebApp.toast
-   * @description
-   * # toast
-   * Service in the playalongWebApp.
-   */
-  angular.module('playalongWebApp')
-  .service('toast', toast);
+class Toast {
 
-  toast.$inject = ['$mdToast', '$translate'];
-  function toast($mdToast, $translate) {
-    const conf = {
-      delay: 4000, //ms
-      position: 'bottom left'
-    };
+	private conf = {
+		delay: 4000, // ms
+		position: 'bottom left',
+	};
 
-    function showSimpleToast(content, delayMs: number = conf.delay) {
-      $mdToast.show(
-        $mdToast.simple()
-          .content(content)
-          .position(conf.position)
-          .hideDelay(delayMs)
-      );
-    }
-    
-    function showToastByTranslation(transKey) {
-      $translate([transKey])
-      .then(function (translations) {
-        if (translations[transKey]) {
-          showSimpleToast(translations[transKey]);  
-        }
-      });
-    }
+	constructor(private $mdToast, private $translate) {}
 
-    return {
-      showSimpleToast,
-      showToastByTranslation,
-    };
-  }  
-})();
+	public showSimpleToast(content, delayMs: number = this.conf.delay) {
+		this.$mdToast.show(
+			this.$mdToast.simple()
+				.content(content)
+				.position(this.conf.position)
+				.hideDelay(delayMs),
+		);
+	}
+
+	public showToastByTranslation(transKey) {
+		this.$translate([transKey])
+		.then(translations => {
+			if (translations[transKey]) {
+				this.showSimpleToast(translations[transKey]);
+			}
+		});
+	}
+}
+
+Toast.$inject = ['$mdToast', '$translate'];
+angular.module('playalongWebApp')
+	.service('Toast', Toast);
