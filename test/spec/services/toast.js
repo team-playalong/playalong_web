@@ -9,8 +9,8 @@ describe('Service: toast', function () {
   var toast,
       $translate;
 
-  beforeEach(inject(function (_toast_) {
-    toast = _toast_;
+  beforeEach(inject(function (_Toast_) {
+    toast = _Toast_;
     $translate = function() {
         $translate.spy.apply(this, arguments);
     };

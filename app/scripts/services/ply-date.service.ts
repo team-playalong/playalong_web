@@ -1,8 +1,8 @@
 class PlyDate {
-	constructor(private $mdToast, private $translate)  {}
+	constructor(private $mdToast, private $translate) {}
 
 	public getAllWeekNumbers() {
-		let allWeekNumbers = [];
+		const allWeekNumbers = [];
 		for (let i = 1; i < 55; ++i) {
 			allWeekNumbers.push(i);
 		}
@@ -14,7 +14,7 @@ class PlyDate {
 		return [2016, 2017];
 	}
 }
-PlyDate.$inject = ['$mdToast', '$translate']
+PlyDate.$inject = ['$mdToast', '$translate'];
 
 angular.module('playalongWebApp')
 	.service('PlyDate', PlyDate);

@@ -1,3 +1,3 @@
-angular.module('plyFormElements',[
-	'ngMaterial'
+angular.module('plyFormElements', [
+	'ngMaterial',
 ]);
