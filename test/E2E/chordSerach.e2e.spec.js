@@ -10,10 +10,10 @@ function ChordSearchPage() {
 
   this.doSearch = function(searchInput) {
     browser.findElement(by.name('searchInput')).sendKeys(searchInput);
-    browser.findElement(by.id('plySearchButton')).click();  
+    browser.findElement(by.id('plySearchButton')).click();
     browser.driver.sleep(3000);
   };
-};
+}
 
 
 describe('chord search', function() {
@@ -21,11 +21,11 @@ describe('chord search', function() {
 
   beforeEach(chordSearchPage.get);
 
-	it('should show the results for the given chord search', function() {    
+	it('should show the results for the given chord search', function() {
     // chordSearchPage.doSearch('Gold');
     // var searchResults = element.all(by.repeater('result in home.searchResults'));
     // expect(searchResults.count()).toEqual(2);
 
     expect(browser.getTitle()).toEqual('Playaln');
-	});  
+	});
 });

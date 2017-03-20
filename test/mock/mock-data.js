@@ -1,11 +1,11 @@
 /* exported mockData */
-var mockData = ( function() {
+var mockData = (function() {
 	function getMockChord() {
 		return {
 			artist: 'Test Artist',
 			title: 'Test Title',
 			chordKey: 1,
-			content: '<div>hello</div>'
+			content: '<div>hello</div>',
 		};
 	}
 
@@ -17,9 +17,9 @@ var mockData = ( function() {
 		return {
 			provider: 'facebook',
 			facebook: {
-				profileImageURL: 'myGoogleImagePath.png'
+				profileImageURL: 'myGoogleImagePath.png',
 			},
-			userKey: 1
+			userKey: 1,
 		};
 	}
 
@@ -27,22 +27,22 @@ var mockData = ( function() {
 		return {
 			provider: 'facebook',
 			facebook: {
-				profileImageURL: 'myImagePath.png'
-			}
+				profileImageURL: 'myImagePath.png',
+			},
 		};
 	}
 
 	var getMockFavorites = function() {
 		return {
 			1: {
-				artist:'Dadi',
-				title: 'test'
+				artist: 'Dadi',
+				title: 'test',
 			},
 			2: {
-				artist:'Dadi2',
-				title: 'test2'
-			}
-		}
+				artist: 'Dadi2',
+				title: 'test2',
+			},
+		};
 	};
 
   function getMockWeeklyChart() {
@@ -50,8 +50,8 @@ var mockData = ( function() {
       songs: [
         {
           rank: '1',
-        }
-      ]
+        },
+      ],
     };
   }
 

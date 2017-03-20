@@ -1,17 +1,15 @@
-'use strict';
-describe('Controller: BuilderctrlCtrl', function () {
+describe('Controller: BuilderctrlCtrl', () => {
 
   // load the controller's module
   beforeEach(module('playalongWebApp'));
 
-  var BuilderctrlCtrl,
-    scope,
-    chordsMockService,
-    $stateParams,
-    $q;
+  let scope;
+  let chordsMockService;
+  let $stateParams;
+  let $q;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope,_$q_,_$stateParams_,_$httpBackend_) {
+  beforeEach(inject(function ($controller, $rootScope, _$q_, _$stateParams_, _$httpBackend_) {
     $q = _$q_;
     $stateParams = _$stateParams_;
     $stateParams.id = 1;
@@ -19,12 +17,10 @@ describe('Controller: BuilderctrlCtrl', function () {
       addChord: function() {
         return $q.when({});
       },
-      getChordById: function() {
-        return $q.when({$bindTo: function() {return $q.when({})}});
-      }
+      getChordById: () => $q.when({ $bindTo: function() { return $q.when({}); } }),
      };
     scope = $rootScope.$new();
-    BuilderctrlCtrl = $controller('BuilderCtrl', {
+    $controller('BuilderCtrl', {
       $scope: scope,
       chords: chordsMockService,
       $stateParams: $stateParams,
@@ -32,14 +28,14 @@ describe('Controller: BuilderctrlCtrl', function () {
         showToastByTranslation: function() {},
         showSimpleToast: function() {},
 
-      }
+      },
     });
 
     //Ignores all html requests
     _$httpBackend_.whenGET(/views\/.*/).respond();
     _$httpBackend_.whenGET(/i18n/).respond();
     scope.addAlert = function() {};
-    spyOn(scope,'addAlert');
+    spyOn(scope, 'addAlert');
     $rootScope.$apply();
   }));
 
