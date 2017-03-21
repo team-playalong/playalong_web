@@ -33,7 +33,7 @@ const mockData = (function() {
 		};
 	}
 
-	 function getMockFavorites() {
+	function getMockFavorites() {
 		return {
 			1: {
 				artist: 'Dadi',
@@ -46,15 +46,15 @@ const mockData = (function() {
 		};
 	}
 
-  function getMockWeeklyChart() {
-    return {
-      songs: [
-        {
-          rank: '1',
-        },
-      ],
-    };
-  }
+	function getMockWeeklyChart() {
+		return {
+			songs: [
+				{
+					rank: '1',
+				},
+			],
+		};
+	}
 
 	return {
 		getMockChord: getMockChord,
@@ -62,6 +62,6 @@ const mockData = (function() {
 		getMockGoogleUser: getMockGoogleUser,
 		getMockFacebookUser: getMockFacebookUser,
 		getMockFavorites: getMockFavorites,
-    getMockWeeklyChart: getMockWeeklyChart,
+		getMockWeeklyChart: getMockWeeklyChart,
 	};
 })();
