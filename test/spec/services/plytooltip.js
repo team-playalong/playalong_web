@@ -6,7 +6,7 @@ describe('Service: plyTooltip', function () {
   beforeEach(module('playalongWebApp'));
 
   // instantiate service
-  var plyTooltip;
+  let plyTooltip;
   beforeEach(inject(function (_PlyTooltip_) {
     plyTooltip = _PlyTooltip_;
   }));

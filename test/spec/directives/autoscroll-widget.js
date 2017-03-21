@@ -1,16 +1,14 @@
 'use strict';
- /*jshint unused:false*/
 
 describe('Directive: autoscrollWidget', function () {
 
   // load the directive's module
   beforeEach(module('playalongWebApp'));
 
-  var element,
-    scope,
-		$compile;
+  let scope;
+  let $compile;
 
-  beforeEach(inject(function ($rootScope,_$compile_,_$httpBackend_) {
+  beforeEach(inject(function ($rootScope, _$compile_, _$httpBackend_) {
     scope = $rootScope.$new();
     $compile = _$compile_;
 
@@ -21,10 +19,9 @@ describe('Directive: autoscrollWidget', function () {
   }));
 
   it('should initialize an autoscroll widget html to the page', function() {
-  	var html = '<autoscroll-widget speed="autoscrollSpeed" enabled="{{autoscrollEnabled}}"></autoscroll-widget>';
-  	var compiled = $compile(html)(scope);
-  	scope.$apply();
-    print(compiled);
-  	expect(compiled).toBeDefined();
-	});  
+    var html = '<autoscroll-widget speed="autoscrollSpeed" enabled="{{autoscrollEnabled}}"></autoscroll-widget>';
+    var compiled = $compile(html)(scope);
+    scope.$apply();
+    expect(compiled).toBeDefined();
+  });
 });

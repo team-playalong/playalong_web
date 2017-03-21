@@ -18,7 +18,7 @@ describe('Controller: BuilderctrlCtrl', () => {
         return $q.when({});
       },
       getChordById: () => $q.when({ $bindTo: function() { return $q.when({}); } }),
-     };
+    };
     scope = $rootScope.$new();
     $controller('BuilderCtrl', {
       $scope: scope,

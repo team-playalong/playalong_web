@@ -6,13 +6,13 @@ describe('Service: toast', function () {
   beforeEach(module('playalongWebApp'));
 
   // instantiate service
-  var toast,
-      $translate;
+  let toast;
+  let $translate;
 
   beforeEach(inject(function (_Toast_) {
     toast = _Toast_;
-    $translate = function() {
-        $translate.spy.apply(this, arguments);
+    $translate = function(args) {
+      $translate.spy.apply(this, ...args);
     };
     $translate.spy = function() {};
     spyOn($translate, 'spy').and.returnValue('Dadi');

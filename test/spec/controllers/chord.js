@@ -1,20 +1,20 @@
 'use strict';
+
 describe('Controller: ChordCtrl', function () {
 
   // load the controller's module
   beforeEach(module('playalongWebApp'));
 
-  var 	ChordCtrl,
-		    scope,
-        $q;
+  let scope;
+  let $q;
 
 // Initialize the controller and a mock scope
-beforeEach(inject(function ($controller, $rootScope,_$httpBackend_,_$q_) {
+beforeEach(inject(function ($controller, $rootScope, _$httpBackend_, _$q_) {
   $q = _$q_;
-	$rootScope.chord = window.mockData.getMockChord();
+	$rootScope.chord = mockData.getMockChord();
   	scope = $rootScope.$new();
     scope.chord = mockData.getMockChord();
-    ChordCtrl = $controller('ChordCtrl', {
+    $controller('ChordCtrl', {
       $scope: scope,
       chords: {
         rateChord: function() {
@@ -22,18 +22,18 @@ beforeEach(inject(function ($controller, $rootScope,_$httpBackend_,_$q_) {
         },
         increaseChordHitCount: function() {
           return $q.when({});
-        }
+        },
       },
       $stateParams: {
-        chordKey: 1
-      }
+        chordKey: 1,
+      },
     });
 
     //Ignores all html requests
     _$httpBackend_.whenGET(/views\/.*/).respond();
     _$httpBackend_.whenGET(/i18n/).respond();
     scope.addAlert = function() {};
-    spyOn(scope,'addAlert');
+    spyOn(scope, 'addAlert');
     $rootScope.$apply();
 }));
 

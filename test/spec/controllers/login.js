@@ -5,16 +5,15 @@ describe('Controller: LoginCtrl', function () {
   // load the controller's module
   beforeEach(module('playalongWebApp'));
 
-  var LoginCtrl,
-      $rootScope,
-      scope;
+  let $rootScope;
+  let scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, _$rootScope_,$q,_$httpBackend_) {
+  beforeEach(inject(function ($controller, _$rootScope_, $q, _$httpBackend_) {
     $rootScope = _$rootScope_;
     scope = $rootScope.$new();
 
-    LoginCtrl = $controller('LoginCtrl', {
+    $controller('LoginCtrl', {
       $scope: scope,
       login: {
         loginSocial: function() {
@@ -31,8 +30,8 @@ describe('Controller: LoginCtrl', function () {
           else {
             return mockData.getMockFacebookUser();
           }
-        }
-      }
+        },
+      },
     });
     //Ignores all html requests
     _$httpBackend_.whenGET(/views\/.*/).respond();

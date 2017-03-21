@@ -3,6 +3,7 @@
   "private": true,
   "pre-commit": [
     "tslint",
+    "eslint",
     "test"
   ],
   "scripts": {
@@ -10,7 +11,8 @@
     "start": "typings install",
     "tslint": "tslint './app/**/*.ts' --fix",
     "serve": "grunt serve",
-    "watch": "grunt watch"
+    "watch": "grunt watch",
+    "eslint": "eslint --fix test"
   },
   "devDependencies": {
     "babel-polyfill": "^6.9.1",
@@ -19,6 +21,7 @@
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-jasmine": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-protractor": "^1.34.2",
     "eslint-plugin-react": "^6.10.2",
     "grunt": "^1.0.1",
     "grunt-angular-templates": "^1.0.4",

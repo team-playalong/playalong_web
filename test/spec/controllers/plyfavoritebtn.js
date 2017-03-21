@@ -5,14 +5,14 @@ describe('Controller: PlyfavoritebtnCtrl', function () {
   // load the controller's module
   beforeEach(module('playalongWebApp'));
 
-  var PlyfavoritebtnCtrl,
-      scope;
+  let PlyfavoritebtnCtrl;
+  let scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller,$rootScope) {
+  beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
     PlyfavoritebtnCtrl = $controller('PlyfavoritebtnCtrl', {
-      $scope: scope
+      $scope: scope,
     });
   }));
 

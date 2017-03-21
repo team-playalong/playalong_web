@@ -5,8 +5,8 @@ describe('admin-weekly-chart.component', function () {
   // load the controller's module
   beforeEach(module('playalongWebApp'));
 
-  var ctrl;
-  var res;
+  let ctrl;
+  let res;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller) {
@@ -33,7 +33,7 @@ describe('admin-weekly-chart.component', function () {
 
     var last = {
       1: {
-        rank: 3
+        rank: 3,
       },
     };
     res = ctrl.addPositionDifference(curr, last);
