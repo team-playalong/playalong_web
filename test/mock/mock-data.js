@@ -1,5 +1,6 @@
-/* exported mockData */
-var mockData = (function() {
+/* eslint no-unused-vars: "off" */
+
+const mockData = (function() {
 	function getMockChord() {
 		return {
 			artist: 'Test Artist',
@@ -32,7 +33,7 @@ var mockData = (function() {
 		};
 	}
 
-	var getMockFavorites = function() {
+	 function getMockFavorites() {
 		return {
 			1: {
 				artist: 'Dadi',
@@ -43,7 +44,7 @@ var mockData = (function() {
 				title: 'test2',
 			},
 		};
-	};
+	}
 
   function getMockWeeklyChart() {
     return {

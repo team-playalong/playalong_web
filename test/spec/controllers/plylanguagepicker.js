@@ -5,8 +5,8 @@ describe('Controller: PlylanguagepickerCtrl', function () {
   // load the controller's module
   beforeEach(module('playalongWebApp'));
 
-  var PlylanguagepickerCtrl, 
-scope;
+  let PlylanguagepickerCtrl;
+  let scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
@@ -15,12 +15,9 @@ scope;
       $scope: scope,
     });
   }));
-  it('should initialize all components', function() {
-    //expect(scope.languages).toBeDefined(); 
-  });
 
   it('should open the language modal', function() {
-    PlylanguagepickerCtrl.showLanguageModal();      
+    PlylanguagepickerCtrl.showLanguageModal();
   });
 
   it('should get the right flag class', function() {

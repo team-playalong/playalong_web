@@ -6,12 +6,10 @@ describe('Service: Common', function () {
   beforeEach(module('playalongWebApp'));
 
   // instantiate service
-  var Common;
-  var login;
-  var res;
-  beforeEach(inject(function (_Common_, _login_) {
+  let Common;
+
+  beforeEach(inject(function (_Common_) {
     Common = _Common_;
-    login = _login_;
   }));
 
   it('should check if content is RTL', function () {

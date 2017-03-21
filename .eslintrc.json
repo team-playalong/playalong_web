@@ -8,13 +8,15 @@
     "angular": false,
     "mockData": true,
     "inject": false,
-    "beforeEach": true
+    "dump": false
   },
   "env": {
-    "jasmine": true
+    "jasmine": true,
+    "protractor": true
   },
   "plugins": [
-    "jasmine"
+    "jasmine",
+    "protractor"
   ],
   "extends": "airbnb",
   "rules": {

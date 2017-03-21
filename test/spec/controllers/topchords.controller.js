@@ -5,10 +5,9 @@ describe('Controller: TopchordsCtrl', function () {
   // load the controller's module
   beforeEach(module('playalongWebApp'));
 
-  var TopchordsCtrl,
-      chordsSrv,
-      scope;
-
+  let TopchordsCtrl;
+  let chordsSrv;
+  let scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope, $q, _$httpBackend_) {

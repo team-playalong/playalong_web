@@ -5,7 +5,7 @@ describe('Directive: autoscroll', function () {
   // load the directive's module
   beforeEach(module('playalongWebApp'));
 
-  var element;
+  let element;
   let scope;
 
   beforeEach(inject(function ($rootScope) {
