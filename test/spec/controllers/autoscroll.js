@@ -5,7 +5,7 @@ describe('Controller: AutoscrollCtrl', function () {
   // load the controller's module
   beforeEach(module('playalongWebApp'));
 
-  var AutoscrollCtrl;
+  let AutoscrollCtrl;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller) {
@@ -16,13 +16,13 @@ describe('Controller: AutoscrollCtrl', function () {
   it('should initialize all components', function() {
     expect(AutoscrollCtrl).toBeDefined();
     expect(AutoscrollCtrl.config).toBeDefined();
-    expect(AutoscrollCtrl.speed).toBeDefined();    
+    expect(AutoscrollCtrl.speed).toBeDefined();
     expect(AutoscrollCtrl.speed).toBe(0);
 
   });
 
   it('should update interval parameters', function () {
-    spyOn(AutoscrollCtrl,'normalizeSpeed');
+    spyOn(AutoscrollCtrl, 'normalizeSpeed');
     AutoscrollCtrl.updateInterval();
     expect(AutoscrollCtrl.normalizeSpeed).toHaveBeenCalled();
   });

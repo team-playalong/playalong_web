@@ -5,13 +5,14 @@ describe('Controller: PlylanguagepickerCtrl', function () {
   // load the controller's module
   beforeEach(module('playalongWebApp'));
 
-  var PlylanguagepickerCtrl, scope;
+  var PlylanguagepickerCtrl, 
+scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
     PlylanguagepickerCtrl = $controller('PlylanguagepickerCtrl', {
-      $scope: scope
+      $scope: scope,
     });
   }));
   it('should initialize all components', function() {

@@ -6,9 +6,16 @@
   "globals": {
     "app": true,
     "angular": false,
-    "describe": true,
+    "mockData": true,
+    "inject": false,
     "beforeEach": true
   },
+  "env": {
+    "jasmine": true
+  },
+  "plugins": [
+    "jasmine"
+  ],
   "extends": "airbnb",
   "rules": {
   	"indent": "off",

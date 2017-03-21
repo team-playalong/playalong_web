@@ -6,13 +6,13 @@ describe('Component Tuner', function () {
   beforeEach(module('playalongWebApp'));
 
   var ctrl,
-		  scope
+		  scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope,$q,_$httpBackend_) {
+  beforeEach(inject(function ($controller, $rootScope, $q, _$httpBackend_) {
     scope = $rootScope.$new();
     ctrl = $controller('TunerCtrl', {
-      $scope : scope,
+      $scope: scope,
     });
 
     //Ignores all html requests

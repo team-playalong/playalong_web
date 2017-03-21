@@ -50,9 +50,9 @@ BiquadFilterNode.type and OscillatorNode.type.
 
   function fixSetTarget(param) {
     if (!param) // if NYI, just return
-      return;
+      { return; }
     if (!param.setTargetAtTime)
-      param.setTargetAtTime = param.setTargetValueAtTime; 
+      { param.setTargetAtTime = param.setTargetValueAtTime; } 
   }
 
   if (window.hasOwnProperty('webkitAudioContext') && 
@@ -60,11 +60,11 @@ BiquadFilterNode.type and OscillatorNode.type.
     window.AudioContext = webkitAudioContext;
 
     if (!AudioContext.prototype.hasOwnProperty('createGain'))
-      AudioContext.prototype.createGain = AudioContext.prototype.createGainNode;
+      { AudioContext.prototype.createGain = AudioContext.prototype.createGainNode; }
     if (!AudioContext.prototype.hasOwnProperty('createDelay'))
-      AudioContext.prototype.createDelay = AudioContext.prototype.createDelayNode;
+      { AudioContext.prototype.createDelay = AudioContext.prototype.createDelayNode; }
     if (!AudioContext.prototype.hasOwnProperty('createScriptProcessor'))
-      AudioContext.prototype.createScriptProcessor = AudioContext.prototype.createJavaScriptNode;
+      { AudioContext.prototype.createScriptProcessor = AudioContext.prototype.createJavaScriptNode; }
 
     AudioContext.prototype.internal_createGain = AudioContext.prototype.createGain;
     AudioContext.prototype.createGain = function() { 
@@ -84,15 +84,15 @@ BiquadFilterNode.type and OscillatorNode.type.
     AudioContext.prototype.createBufferSource = function() { 
       var node = this.internal_createBufferSource();
       if (!node.start) {
-        node.start = function ( when, offset, duration ) {
-          if ( offset || duration )
-            this.noteGrainOn( when, offset, duration );
+        node.start = function (when, offset, duration) {
+          if (offset || duration)
+            { this.noteGrainOn(when, offset, duration); }
           else
-            this.noteOn( when );
-        }
+            { this.noteOn(when); }
+        };
       }
       if (!node.stop)
-        node.stop = node.noteOff;
+        { node.stop = node.noteOff; }
       fixSetTarget(node.playbackRate);
       return node;
     };
@@ -119,14 +119,14 @@ BiquadFilterNode.type and OscillatorNode.type.
       return node;
     };
 
-    if (AudioContext.prototype.hasOwnProperty( 'createOscillator' )) {
+    if (AudioContext.prototype.hasOwnProperty('createOscillator')) {
       AudioContext.prototype.internal_createOscillator = AudioContext.prototype.createOscillator;
       AudioContext.prototype.createOscillator = function() { 
         var node = this.internal_createOscillator();
         if (!node.start)
-          node.start = node.noteOn; 
+          { node.start = node.noteOn; } 
         if (!node.stop)
-          node.stop = node.noteOff;
+          { node.stop = node.noteOff; }
         fixSetTarget(node.frequency);
         fixSetTarget(node.detune);
         return node;

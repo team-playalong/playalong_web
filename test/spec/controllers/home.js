@@ -1,26 +1,28 @@
 'use strict';
-describe('Controller: HomeCtrl', function () {
+
+describe('Controller: HomeCtrl', () => {
 
   // load the controller's module
   beforeEach(module('playalongWebApp'));
 
-  var HomeCtrl,
-		  scope,
-		  chordsMockService;
+  let HomeCtrl;
+  let scope;
+  let chordsMockService;
+
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope,$q,_$httpBackend_) {
+  beforeEach(inject(function ($controller, $rootScope, $q, _$httpBackend_) {
     $rootScope.startSpin = function() {};
 
-  	chordsMockService = {
-  		searchChordsBy: function() {
-  			return $q.when(mockData.getMockChordResults());
-  		}
-	   };
+    chordsMockService = {
+      searchChordsBy: function() {
+        return $q.when(mockData.getMockChordResults());
+      },
+    };
     scope = $rootScope.$new();
     HomeCtrl = $controller('HomeCtrl', {
-      $scope : scope,
-      chords: chordsMockService
+      $scope: scope,
+      chords: chordsMockService,
     });
 
     //Ignores all html requests
@@ -31,15 +33,15 @@ describe('Controller: HomeCtrl', function () {
   }));
 
   it('should initialize all components', function() {
-  	expect(scope).toBeDefined();
+    expect(scope).toBeDefined();
     expect(HomeCtrl.searchByOptions).toBeDefined();
-  	expect(HomeCtrl.searchByOptions.length).toBe(2);
+    expect(HomeCtrl.searchByOptions.length).toBe(2);
   });
 
   it('should search chords by given input', function() {
-  	HomeCtrl.searchChords();
-		HomeCtrl.handleChordResults(mockData.getMockChordResults());
-		expect(HomeCtrl.searchResults.length).toBe(1);
-		expect(HomeCtrl.searchResults[0].artist).toBe('Test Artist');
+    HomeCtrl.searchChords();
+    HomeCtrl.handleChordResults(mockData.getMockChordResults());
+    expect(HomeCtrl.searchResults.length).toBe(1);
+    expect(HomeCtrl.searchResults[0].artist).toBe('Test Artist');
   });
 });

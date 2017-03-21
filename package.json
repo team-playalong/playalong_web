@@ -10,7 +10,8 @@
     "start": "typings install",
     "tslint": "tslint './app/**/*.ts' --fix",
     "serve": "grunt serve",
-    "watch": "grunt watch"
+    "watch": "grunt watch",
+    "eslint": "eslint --fix app test"
   },
   "devDependencies": {
     "babel-polyfill": "^6.9.1",
