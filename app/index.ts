@@ -5,7 +5,6 @@ import 'angularfire';
 import 'angular-translate';
 import 'textangular';
 import 'textAngular/dist/textAngular-sanitize';
-// import 'angular-sanitize';
 import 'angular-translate-interpolation-messageformat';
 import 'angular-translate-loader-static-files';
 import 'angular-material-icons';
@@ -15,8 +14,13 @@ import 'angular-bootstrap';
 import './components/ply-sidebar/ply-sidebar.component';
 import './pages/home/home';
 import './components/ply-form-elements/ply-form-elements.module';
+import './pages/chord';
 
 // CSS
+import 'angular-material/angular-material.css';
+import 'angular-material-icons/angular-material-icons.css';
+import 'font-awesome/css/font-awesome.css';
+
 import '../assets/styles/main.scss';
 
 // Config
@@ -34,6 +38,9 @@ import loginCtrl from './scripts/controllers/login';
 import ChordResult from './components/chord-result/chord-result.component';
 import plyAvatarMenu from './components/avatar-menu/ply-avatar-menu.component';
 
+// Directives
+import plyspinner from './components/ply-spinner/plyspinner';
+
 // Services
 import PlyFirebase from './services/PlyFirebase.service';
 import customerIoHelper from './services/customeriohelper';
@@ -43,7 +50,8 @@ import Toast from './services/toast';
 import PlyNotifier from './services/ply-notifier.service';
 import RegexStore from './services/regexstore';
 import PlyStorage from './services/plyStorage.service';
-
+import Common from './services/common';
+import PlyTooltip from './services/plytooltip';
 
 angular.module('playalongWebApp', [
   'ngMaterial',
@@ -53,6 +61,7 @@ angular.module('playalongWebApp', [
   'textAngular',
   'PlySidebar',
   'PlyHome',
+  'PlyChord',
   'plyFormElements',
   'ngMdIcons',
   'ui.bootstrap',
@@ -68,6 +77,7 @@ angular.module('playalongWebApp', [
 ])
 .component('chordResult', ChordResult)
 .component('plyAvatarMenu', plyAvatarMenu)
+.directive('plyspinner', plyspinner)
 .controller('MainCtrl', main)
 .controller('LoginCtrl', loginCtrl)
 .service('PlyFirebase', PlyFirebase)
@@ -77,7 +87,9 @@ angular.module('playalongWebApp', [
 .service('login', loginSrv)
 .service('customerIoHelper', customerIoHelper)
 .service('chords', chords)
+.service('Common', Common)
 .service('PlyNotifier', PlyNotifier)
+.service('PlyTooltip', PlyTooltip)
 .constant('paths', paths)
 .constant('Facebook', Facebook)
 .constant('config', config)

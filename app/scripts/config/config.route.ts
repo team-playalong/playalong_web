@@ -12,7 +12,7 @@ function RouteConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvid
     })
     .state('chord', {
       url: '/chord/:chordKey',
-      templateUrl: `${viewsPefix}/chord.html`,
+      template: '<ply-chord></ply-chord>',
       controller: 'ChordCtrl',
     })
     .state('topChords', {

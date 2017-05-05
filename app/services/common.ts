@@ -24,5 +24,5 @@ class Common {
 }
 
 Common.$inject = ['RegexStore'];
-angular.module('playalongWebApp')
-	.service('Common', Common);
+
+export default Common;

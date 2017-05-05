@@ -22,5 +22,5 @@ class PlyTooltip {
 }
 
 PlyTooltip.$inject = ['$translate'];
-angular.module('playalongWebApp')
-	.service('PlyTooltip', PlyTooltip);
+
+export default PlyTooltip;
