@@ -1,3 +1,4 @@
+import PLY_CONFIG from '../env';
 
 const devPrefix = 'http://localhost:3000';
 const prodPrefix = 'https://playalong-notifier.herokuapp.com';
@@ -12,7 +13,7 @@ class PlyNotifier {
 	private urlPrefix;
 
 	constructor(public $http) {
-		if (window.PLY_CONFIG.env === 'dev') {
+		if (PLY_CONFIG.env === 'dev') {
 			this.urlPrefix = devPrefix;
 		}
 		else {
@@ -43,5 +44,4 @@ class PlyNotifier {
 }
 PlyNotifier.$inject = ['$http'];
 
-angular.module('playalongWebApp')
-.service('PlyNotifier', PlyNotifier);
+export default PlyNotifier;

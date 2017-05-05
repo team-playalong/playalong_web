@@ -35,5 +35,5 @@ class Toast {
 }
 
 Toast.$inject = ['$mdToast', '$translate'];
-angular.module('playalongWebApp')
-	.service('Toast', Toast);
+
+export default Toast;

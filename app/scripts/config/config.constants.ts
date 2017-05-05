@@ -2,7 +2,7 @@
 
 export const paths = {
 	images: {
-		logo: 'app/images/plyIcon.png',
+		logo: 'assets/images/plyIcon.png',
 		emptyAvatar: './images/avatar.png',
 		flags: './images/flags.png',
 	},

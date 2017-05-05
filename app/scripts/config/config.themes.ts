@@ -1,6 +1,4 @@
-// Based on this - https://material.angularjs.org/latest/#/Theming/03_configuring_a_theme
-'use strict';
-angular.module('playalongWebApp').config(function($mdThemingProvider) {
+function configThemes($mdThemingProvider) {
   $mdThemingProvider.definePalette('playalongPrimary', {
       50: '03A9F4',
 
@@ -77,4 +75,6 @@ angular.module('playalongWebApp').config(function($mdThemingProvider) {
       .primaryPalette('playalongPrimary')
       .accentPalette('playalongAccent')
       .backgroundPalette('playalongBackground');
-});
+}
+
+export default configThemes;

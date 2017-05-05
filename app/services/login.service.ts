@@ -191,6 +191,6 @@
     resetPassword,
     // changePassword,
   };
-  }
+}
 
 export default login;

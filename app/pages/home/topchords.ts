@@ -1,11 +1,5 @@
-(function() {
-	'use strict';
-
-angular.module('playalongWebApp')
-.controller('TopchordsCtrl', topchordsCtrl);
-
 topchordsCtrl.$inject = ['chords', '$rootScope', '$translate'];
-	function topchordsCtrl(chords, $rootScope, $translate) {
+function topchordsCtrl(chords, $rootScope, $translate) {
 		const vm = this;
 	$translate(['topChords.PAGE_TITLE',
 							'home.PAGE_TITLE',
@@ -71,4 +65,5 @@ topchordsCtrl.$inject = ['chords', '$rootScope', '$translate'];
 	// Race condition with spinner directive
 	setTimeout(function() {	vm.getTopChords(); }, 20);
 }
-})();
+
+export default topchordsCtrl;

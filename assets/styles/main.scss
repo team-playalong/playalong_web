@@ -1,13 +1,11 @@
-@import "../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap";
-@import "ply.common";
-
+@import 'ply.common';
 
 //Pages
-@import "ply.builder";
-@import "ply.chord";
-@import "ply.topChords";
-@import "../pages/tuner/tuner";
-@import "ply.weekly-chart";
+@import 'ply.builder';
+@import 'ply.chord';
+@import 'ply.topChords';
+@import './app/pages/tuner/tuner';
+@import 'ply.weekly-chart';
 
 //Partials
 @import 'ply.toolbar';
@@ -16,4 +14,4 @@
 //Components
 @import 'ply.autoscroll-widget';
 @import 'ply.text-size-slider';
-@import "../components/metronome/metronome";
+@import './app/components/metronome/metronome';
