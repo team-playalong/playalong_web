@@ -1,5 +1,6 @@
-import 'firebase';
 import PLY_CONFIG from '../env';
+import { apps } from 'firebase/app';
+import { initializeApp, auth, database } from 'firebase';
 
 PlyFirebase.$inject = ['$firebaseObject'];
 function PlyFirebase($firebaseObject) {
@@ -23,12 +24,12 @@ function PlyFirebase($firebaseObject) {
     };
   }
 
-  if (!firebase.apps || !firebase.apps.length) {
-    firebase.initializeApp(config);
+  if (!apps || !apps.length) {
+    initializeApp(config);
   }
 
-  const getRef = (path: string) => firebase.database().ref(path);
-  const auth = firebase.auth();
+  const getRef = (path: string) => database().ref(path);
+  const authentication = auth();
 
   function selecteByAggregate(relPath: string, fieldName = '', operator = '') {
     fieldName = fieldName.trim();
@@ -141,13 +142,13 @@ function PlyFirebase($firebaseObject) {
   };
 
   function signOut() {
-    return auth.signOut();
+    return authentication.signOut();
   }
 
   return {
-    auth,
-    googleProvider: new firebase.auth.GoogleAuthProvider(),
-    facebookProvider: new firebase.auth.FacebookAuthProvider(),
+    authentication,
+    googleProvider: new auth.GoogleAuthProvider(),
+    facebookProvider: new auth.FacebookAuthProvider(),
     getRef,
     insert,
     selectSimpleQuery,

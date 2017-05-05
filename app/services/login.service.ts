@@ -10,7 +10,7 @@
       }
     }
 
-    PlyFirebase.auth.onAuthStateChanged(function(authData) {
+    PlyFirebase.authentication.onAuthStateChanged(function(authData) {
       if (authData === null) {
         userModel = null;
         authModel = null;
@@ -84,7 +84,7 @@
 
     function loginEmail(email: string, password: string) {
       return new Promise((resolve, reject) => {
-        PlyFirebase.auth.signInWithEmailAndPassword(email, password)
+        PlyFirebase.authentication.signInWithEmailAndPassword(email, password)
           .then((userData) => resolve(userData))
           .catch(error => reject(error));
       });
@@ -107,7 +107,7 @@
         }
         provider.addScope('email');
 
-        PlyFirebase.auth.signInWithPopup(provider)
+        PlyFirebase.authentication.signInWithPopup(provider)
         .then(authData => {
             // User successfully logged in
           userModel = authData.user;
@@ -141,7 +141,7 @@
 
   function createUser(email: string, password: string) {
     return new Promise((resolve, reject) => {
-      PlyFirebase.auth.createUserWithEmailAndPassword(email, password)
+      PlyFirebase.authentication.createUserWithEmailAndPassword(email, password)
         .then(userData => resolve(userData))
         .catch(error => reject(error));
       });
@@ -150,7 +150,7 @@
   function resetPassword(email: string) {
     return new Promise((resolve, reject) => {
 
-      PlyFirebase.auth.sendPasswordResetEmail(email)
+      PlyFirebase.authentication.sendPasswordResetEmail(email)
         .then(() => {
           console.log(`Reset password sent to ${email}`);
           resolve();

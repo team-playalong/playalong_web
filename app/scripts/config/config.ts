@@ -1,4 +1,4 @@
-import PLY_CONFIG from '../env';
+import PLY_CONFIG from '../../env';
 
 const config = {
   env: PLY_CONFIG.env,

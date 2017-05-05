@@ -1,8 +1,4 @@
-(function() {
-
-'use strict';
-
-angular.module('playalongWebApp').config(RouteConfig);
+const viewsPefix = 'app/views';
 
 RouteConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 function RouteConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvider) {
@@ -16,7 +12,7 @@ function RouteConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvid
     })
     .state('chord', {
       url: '/chord/:chordKey',
-      templateUrl: '../../views/chord.html',
+      templateUrl: `${viewsPefix}/chord.html`,
       controller: 'ChordCtrl',
     })
     .state('topChords', {
@@ -93,4 +89,4 @@ function RouteConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvid
   $urlRouterProvider.otherwise('/home');
 }
 
-})();
+export default RouteConfig;
