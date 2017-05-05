@@ -1,11 +1,16 @@
 import 'angular';
 import 'angular-material';
 import 'angular-ui-router';
+import 'angularfire';
 
 import main from './scripts/controllers/main';
-import login from './scripts/controllers/login';
+import loginCtrl from './scripts/controllers/login';
+
+import PlyFirebase from './services/PlyFirebase.service';
+import loginSrv from './services/login.service';
 
 import { Facebook, paths } from './scripts/config/config.constants';
+import config from './scripts/config/config';
 
 /**
  * @ngdoc overview
@@ -21,8 +26,9 @@ import { Facebook, paths } from './scripts/config/config.constants';
 angular.module('playalongWebApp', [
   'ngMaterial',
   'ui.router',
+  'firebase',
   // 'ngMdIcons',
-  // 'playalong.services',
+
   // 'ngAnimate',
   // 'ui.bootstrap',
   // 'textAngular',
@@ -36,9 +42,12 @@ angular.module('playalongWebApp', [
   // 'plyYoutube',
 ])
 .controller('MainCtrl', main)
-.controller('LoginCtrl', login)
+.controller('LoginCtrl', loginCtrl)
+.service('PlyFirebase', PlyFirebase)
+.service('login', loginSrv)
 .constant('paths', paths)
 .constant('Facebook', Facebook)
+.constant('config', config)
 .run(['paths', 'Facebook', '$rootScope',
 	function (paths, Facebook, $rootScope) {
 	$rootScope.paths = paths;

@@ -4,6 +4,7 @@ interface Window {
 	mixpanel: any;
   ga: any;
   PLY_CONFIG: any;
+	_cio: any;
 }
 
 interface Navigator {

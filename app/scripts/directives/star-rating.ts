@@ -1,6 +1,7 @@
 'use strict';
 
-app.directive('starRating', ['Toast', 'chords', '$translate',
+angular.module('playalongWebApp')
+.directive('starRating', ['Toast', 'chords', '$translate',
 function(toast, chords, $translate) {
   return {
     restrict : 'EA',
