@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-  app.config(['$provide', function ($provide) {
+  angular.module('playalongWebApp').config(['$provide', function ($provide) {
     // this demonstrates how to register a new tool and add it to the default toolbar
     $provide.decorator('taOptions', ['taRegisterTool', '$delegate', function(taRegisterTool, taOptions) { // $delegate is the taOptions we are decorating
         taOptions.toolbar = [
@@ -12,12 +12,12 @@
     }]);
   }]);
 
-  app.config(function (localStorageServiceProvider) {
+  angular.module('playalongWebApp').config(function (localStorageServiceProvider) {
     localStorageServiceProvider
       .setPrefix('ply');
   });
 
-  app.run(['$rootScope', '$state' , '$window', function($rootScope, $state, $window) {
+  angular.module('playalongWebApp').run(['$rootScope', '$state' , '$window', function($rootScope, $state, $window) {
     $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
       // We can catch the error thrown when the $requireAuth promise is rejected
       // and redirect the user back to the home page
@@ -46,19 +46,19 @@
 
   // Allow unafe html binding
   // TODO - refactor into whitelist
-  app.config(function($sceProvider) {
+  angular.module('playalongWebApp').config(function($sceProvider) {
     // Completely disable SCE.  For demonstration purposes only!
     // Do not use in new projects.
     $sceProvider.enabled(false);
   });
 
-  app.config(['$uibTooltipProvider', function($uibTooltipProvider) {
+  angular.module('playalongWebApp').config(['$uibTooltipProvider', function($uibTooltipProvider) {
     $uibTooltipProvider.options({
         appendToBody: true,
     });
   }]);
 
-  app.run(
+  angular.module('playalongWebApp').run(
     ['$rootScope', '$state', '$stateParams',
       function ($rootScope, $state, $stateParams) {
 

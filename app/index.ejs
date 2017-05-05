@@ -14,24 +14,24 @@
     <meta property="og:image" content="https://www.playalong.io/images/plyIcon.png" />
 
     <meta charset="utf-8">
-    <title ng-bind="pageTitle">Playalong</title>
+    <title ng-bind="pageTitle"><%= htmlWebpackPlugin.options.title %></title>
     <meta name="description" ng-bind="pageTitle" content="Playalong is an awesome chord editing and playing app">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable = no">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
     <!--build:css(.) styles/vendor.css -->
-    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+    <!-- <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
     <link rel="stylesheet" href="node_modules/angular-material/angular-material.css" />
     <link rel="stylesheet" href="node_modules/textangular/dist/textangular.css" />
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="node_modules/angular-material-icons/angular-material-icons.css" />
+    <link rel="stylesheet" href="node_modules/angular-material-icons/angular-material-icons.css" /> -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/flag-icon-css/css/flag-icon.min.css" />
+    <!-- <link rel="stylesheet" href="bower_components/flag-icon-css/css/flag-icon.min.css" /> -->
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
+    <!-- <link rel="stylesheet" href="styles/main.css"> -->
     <!-- endbuild -->
 
     <!-- Google Analytics -->
@@ -111,12 +111,11 @@
       <alert class="ply-alert-container" ng-repeat="alert in allAlerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
     </footer>
   </div>
-    <script src="env.js"></script>
-    <script src="pages/tuner/dsp.js"></script>
+    <!-- <script src="env.js"></script>
+    <script src="pages/tuner/dsp.js"></script> -->
 
     <!-- build:js(.) scripts/vendor.js -->
-
-    <script src="node_modules/angular/angular.js"></script>
+    <!-- <script src="node_modules/angular/angular.js"></script>
     <script src="node_modules/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
     <script src="node_modules/angular-animate/angular-animate.js"></script>
@@ -155,16 +154,16 @@
     <script src="node_modules/justgage/raphael-2.1.4.min.js"></script>
     <script src="node_modules/justgage/justgage.js"></script>
     <script src="node_modules/angular-gage/dist/angular-gage.js"></script>
-    <script src="node_modules/angular-material-icons/angular-material-icons.min.js"></script>
+    <script src="node_modules/angular-material-icons/angular-material-icons.min.js"></script> -->
     <!-- endbuild -->
 
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <!-- ply-components -->
-    <script src="components/ply-youtube/ply-youtube.module.js"></script>
+    <!-- <script src="components/ply-youtube/ply-youtube.module.js"></script> -->
 
     <!-- ply-form-elements -->
-    <script src="components/ply-form-elements/ply-form-elements.module.js"></script>
+    <!-- <script src="components/ply-form-elements/ply-form-elements.module.js"></script>
     <script src="components/ply-form-elements/ply-text-input.js"></script>
     <script src="components/ply-form-elements/ply-radio-button.js"></script>
     <script src="scripts/app.js"></script>
@@ -203,11 +202,8 @@
     <script src="components/ply-avatar-menu.component.js"></script>
     <script src="components/admin/admin.component.js"></script>
     <script src="components/admin/admin-weekly-chart.component.js"></script>
-    <script src="pages/ply-weekly-chart/ply-weekly-chart.component.js"></script>
+    <script src="pages/ply-weekly-chart/ply-weekly-chart.component.js"></script> -->
     <!-- endbuild -->
-
-
-
 
     <!-- Customer IO -->
     <script type="text/javascript">

@@ -2,7 +2,7 @@
 
 'use strict';
 
-app.config(RouteConfig);
+angular.module('playalongWebApp').config(RouteConfig);
 
 RouteConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 function RouteConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvider) {
