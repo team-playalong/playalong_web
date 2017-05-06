@@ -9,7 +9,12 @@ webpackConfig.devtool = 'cheap-module-source-map';
 webpackConfig.plugins.push(new webpack.optimize.CommonsChunkPlugin({ names: ['vendor', 'manifest'] }));
 
 // Move templates to dist folder
-webpackConfig.plugins.push(new CopyWebpackPlugin([{ from: '**/*.html' }]));
+// TODO - check how to make this part of the bundle
+webpackConfig.plugins.push(new CopyWebpackPlugin([
+  { from: '**/*.html' },
+  { from: '**/*.png' },
+  { from: '**/*.svg' },
+]));
 
 webpackConfig.plugins.push(new CleanWebpackPlugin(['dist']));
 
