@@ -219,7 +219,7 @@ function ctrl($mdDialog, login, paths, toast, $translate, PlyNotifier) {
 	};
 }
 const plyAvatarMenu = {
-	templateUrl: './app/components/avatar-menu/ply-avatar-menu.component.html',
+	templateUrl: './app/components/ply-toolbar/avatar-menu/ply-avatar-menu.component.html',
 	controller: ctrl,
 	controllerAs: 'ctrl',
 };

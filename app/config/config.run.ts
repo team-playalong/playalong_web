@@ -58,18 +58,19 @@ export function translateConfig($translateProvider, config) {
   //   });
   // }]);
   //
-  // // Allow unafe html binding
-  // // TODO - refactor into whitelist
-  // angular.module('playalongWebApp').config(function($sceProvider) {
-  //   // Completely disable SCE.  For demonstration purposes only!
-  //   // Do not use in new projects.
-  //   $sceProvider.enabled(false);
-  // });
-  //
-  // angular.module('playalongWebApp').config(['$uibTooltipProvider', function($uibTooltipProvider) {
-  //   $uibTooltipProvider.options({
-  //       appendToBody: true,
-  //   });
+
+  // Allow unafe html binding
+  // TODO - refactor into whitelist
+  sceConfig.$inject = ['$sceProvider', '$uibTooltipProvider']
+  export function sceConfig($sceProvider, $uibTooltipProvider) {
+    // Completely disable SCE.  For demonstration purposes only!
+    // Do not use in new projects.
+    $sceProvider.enabled(false);
+
+    $uibTooltipProvider.options({
+        appendToBody: true,
+    });
+  }  
   // }]);
   //
   // angular.module('playalongWebApp').run(

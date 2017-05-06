@@ -1,11 +1,21 @@
-'use strict';
 
-angular.module('playalongWebApp')
-.directive('starRating', ['Toast', 'chords', '$translate',
-function(toast, chords, $translate) {
+starRating.$inject = ['Toast', 'chords', '$translate'];
+function starRating(toast, chords, $translate) {
   return {
     restrict : 'EA',
-    templateUrl : 'views/templates/star-rating.html',
+    template : `
+      <ul class='rating' ng-class='{readonly: readonly}'>
+      <li ng-repeat='star in stars' ng-class='star'
+      		ng-click='toggle($index)'>
+      	<i class='fa fa-star'></i>
+      </li>
+      </ul>
+      <p class='help-block'
+      	 ng-if='chord.countRating && !hasRated'>
+      	 <span>{{::chord.countRating}}</span>
+      	 <span translate=".COUNT_RATING_MESSAGE"></span>
+      </p>
+    `,
     scope : {
       ratingValue : '=ngModel',
       chord: '=',
@@ -44,4 +54,6 @@ function(toast, chords, $translate) {
       });
     },
   };
-}]);
+}
+
+export default starRating;

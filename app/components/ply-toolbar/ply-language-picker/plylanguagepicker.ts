@@ -1,14 +1,7 @@
-(function() {
-'use strict';
-
-angular.module('playalongWebApp')
-.controller('PlylanguagepickerCtrl', PlylanguagepickerCtrl)
-.controller('LanguageModalDialogController', LanguageModalDialogController);
-
 LanguageModalDialogController.$inject = [
   '$mdDialog', '$translate', '$rootScope', 'PlyStorage',
 ];
-function LanguageModalDialogController($mdDialog, $translate, $rootScope, PlyStorage) {
+export function LanguageModalDialogController($mdDialog, $translate, $rootScope, PlyStorage) {
   const vm = this;
 
   vm.languages = [
@@ -49,7 +42,7 @@ function LanguageModalDialogController($mdDialog, $translate, $rootScope, PlySto
 PlylanguagepickerCtrl.$inject = [
   '$scope', '$mdDialog', '$mdMedia', '$rootScope',
 ];
-function PlylanguagepickerCtrl($scope, $mdDialog, $mdMedia, $rootScope) {
+export function PlylanguagepickerCtrl($scope, $mdDialog, $mdMedia, $rootScope) {
   const vm = this;
 
   vm.getFlagClass = function() {
@@ -66,7 +59,7 @@ function PlylanguagepickerCtrl($scope, $mdDialog, $mdMedia, $rootScope) {
       controller: 'LanguageModalDialogController',
       controllerAs: 'vm',
       bindToController: true,
-      templateUrl: 'views/templates/language-picker-modal.html',
+      templateUrl: 'app/components/ply-toolbar/ply-language-picker/language-picker-modal.html',
       parent: angular.element(document.body),
       targetEvent: ev,
       clickOutsideToClose: true,
@@ -80,5 +73,3 @@ function PlylanguagepickerCtrl($scope, $mdDialog, $mdMedia, $rootScope) {
     });
     };
 }
-
-})();

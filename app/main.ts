@@ -1,4 +1,4 @@
-import './../config/config.constants';
+import './config/config.constants';
 
 function MainCtrl($scope, $timeout, $mdSidenav, $mdUtil, paths, $state, login, $rootScope) {
   $scope.Math = Math;

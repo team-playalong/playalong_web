@@ -1,8 +1,6 @@
-(function() {
-'use strict';
+import 'flag-icon-css/css/flag-icon.min.css';
 
-angular.module('playalongWebApp')
-.directive('plyLanguagePicker', function () {
+function plyLanguagePickerDirective() {
   return {
     template: `
 	    <md-button class="md-mini ply-flex"
@@ -17,5 +15,6 @@ angular.module('playalongWebApp')
     controllerAs: 'vm',
     bindToController: true,
   };
-});
-})();
+}
+
+export default plyLanguagePickerDirective;

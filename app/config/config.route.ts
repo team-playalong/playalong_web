@@ -69,12 +69,12 @@ function RouteConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvid
     })
     .state('builder.edit', {
       url: '/edit/:id',
-      templateUrl: `${viewsPefix}/builder.html`,
+      templateUrl: `app/pages/builder/builder.html`,
       controller: 'BuilderCtrl',
     })
     .state('builder.new', {
       url: '/new',
-      templateUrl: `${viewsPefix}/builder.html`,
+      templateUrl: `app/pages/builder/builder.html`,
       controller: 'BuilderCtrl',
     })
     .state('admin', {

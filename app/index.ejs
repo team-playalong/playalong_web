@@ -83,7 +83,7 @@
         ng-class="{'hebrew-sans': app.dir === 'rtl'}">
     <ply-spinner id="plyMainSpinner" trigger-start-event="startSpin" trigger-stop-event="stopSpin"></ply-spinner>
     <ply-sidebar></ply-sidebar>
-    <nav ng-include="'app/views/templates/toolbar.html'"></nav>
+    <ply-toolbar></ply-toolbar>
       <md-content id="plyContent" flex>
         <main ui-view class="ply-main-container container"></main>
       </md-content>
@@ -108,7 +108,6 @@
     <script src="node_modules/angular-translate-loader-url/angular-translate-loader-url.js"></script>
     <script src="bower_components/messageformat/messageformat.js"></script>
     <script src="node_modules/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.js"></script>
-    <script src="node_modules/angular-local-storage/dist/angular-local-storage.js"></script>
     <script src="bower_components/firebase/firebase.js"></script>
     <script src="node_modules/angularfire/dist/angularfire.js"></script>
     <script src="node_modules/playalong-services/dist/scripts/scripts.js"></script>

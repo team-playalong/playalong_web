@@ -1,8 +1,5 @@
-(function() {
-  'use strict';
-
-angular.module('playalongWebApp')
-.directive('plyFavoriteBtn', ['login', function (login) {
+plyFavoriteBtn.$inject = ['login'];
+function plyFavoriteBtn(login) {
   return {
     template: `
       <md-button class="md-mini ply-icon-favorites"
@@ -35,6 +32,6 @@ angular.module('playalongWebApp')
       });
     },
   };
-}]);
+}
 
-})();
+export default plyFavoriteBtn;
