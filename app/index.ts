@@ -102,4 +102,3 @@ angular.module('playalongWebApp', [
 	$rootScope.paths = paths;
 	$rootScope.Facebook = Facebook;
 }]);
-;

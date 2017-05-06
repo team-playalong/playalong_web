@@ -1,3 +1,4 @@
+configThemes.$inject = ['$mdThemingProvider']; 
 function configThemes($mdThemingProvider) {
   $mdThemingProvider.definePalette('playalongPrimary', {
       50: '03A9F4',

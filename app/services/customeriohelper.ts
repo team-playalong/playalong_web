@@ -29,4 +29,4 @@ function customerIoHelper() {
   };
 }
 
-export default customerIoHelper
+export default customerIoHelper;

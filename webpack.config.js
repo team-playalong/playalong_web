@@ -103,6 +103,12 @@ module.exports = {
         loader: 'ejs-loader',
       },
 
+      // JS
+      {
+        test: /\.js$/,
+        use: [{ loader: 'ng-annotate-loader' }],
+        exclude: /(node_modules)/,
+      },
       // IMAGES
       {
         test: /\.(jpe*g|png|gif)$/,

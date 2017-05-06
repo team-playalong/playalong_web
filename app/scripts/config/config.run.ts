@@ -15,13 +15,13 @@ export function wysiwygConfig($provide) {
 
 translateConfig.$inject = ['$translateProvider', 'config'];
 export function translateConfig($translateProvider, config) {
-  let lang = PLY_CONFIG.defaultLocale || 'en';
+  const lang = PLY_CONFIG.defaultLocale || 'en';
   $translateProvider
     .addInterpolation('$translateMessageFormatInterpolation')
     .useSanitizeValueStrategy('sanitize')
     .useStaticFilesLoader({
       prefix: config.paths.firebaseProd + 'i18n/',
-      suffix: '.json'
+      suffix: '.json',
     })
     .preferredLanguage(lang);
 }

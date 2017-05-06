@@ -9,9 +9,9 @@
 *.map
 */.DS_Store
 /test/coverage
+/dist
 .DS_Store
 app/**/*.js
-!app/env.js
 !app/components/metronome/buzz.min.js
 !app/pages/tuner/AudioContextMonkeyPatch.js
 !app/pages/tuner/dsp.js

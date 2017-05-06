@@ -222,6 +222,6 @@ const plyAvatarMenu = {
 	templateUrl: './app/components/avatar-menu/ply-avatar-menu.component.html',
 	controller: ctrl,
 	controllerAs: 'ctrl',
-}
+};
 
 export default plyAvatarMenu;

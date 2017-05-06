@@ -1,4 +1,4 @@
-import { chordComponent, ChordCtrl} from './chord';
+import { chordComponent, ChordCtrl } from './chord';
 import { EqualChordsMap, transposer, ChordTranposeMap } from './transposer';
 
 angular.module('PlyChord', [])
