@@ -15,11 +15,16 @@ import './components/ply-sidebar/ply-sidebar.component';
 import './pages/home/home';
 import './components/ply-form-elements/ply-form-elements.module';
 import './pages/chord';
+import './pages/ply-weekly-chart';
+import './pages/builder';
+import './pages/favorites';
 
 // CSS
 import 'angular-material/angular-material.css';
 import 'angular-material-icons/angular-material-icons.css';
 import 'font-awesome/css/font-awesome.css';
+import 'textangular/dist/textangular.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 import '../assets/styles/main.scss';
 
@@ -62,6 +67,10 @@ angular.module('playalongWebApp', [
   'PlySidebar',
   'PlyHome',
   'PlyChord',
+  'PlyBuilder',
+  'PlyWeeklyChart',
+  'PlyFavorites',
+
   'plyFormElements',
   'ngMdIcons',
   'ui.bootstrap',
