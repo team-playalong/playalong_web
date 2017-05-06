@@ -21,6 +21,16 @@ class Common {
 			return arr.indexOf(elem) === pos;
 		});
 	}
+
+	public objectToArray(obj = {}) {
+		const res = [];
+
+		for (const curr in obj) {
+		  res.push(obj[curr]);
+		}
+
+		return res;
+	}
 }
 
 Common.$inject = ['RegexStore'];

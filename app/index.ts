@@ -11,6 +11,7 @@ import 'angular-material-icons';
 import 'angular-bootstrap';
 
 // Modules
+import './services/ply-utils';
 import './components/ply-sidebar/ply-sidebar.component';
 import './pages/home/home';
 import './components/ply-form-elements/ply-form-elements.module';
@@ -18,6 +19,8 @@ import './pages/chord';
 import './pages/ply-weekly-chart';
 import './pages/builder';
 import './pages/favorites';
+import './pages/tuner';
+import './pages/admin';
 
 // CSS
 import 'angular-material/angular-material.css';
@@ -25,15 +28,16 @@ import 'angular-material-icons/angular-material-icons.css';
 import 'font-awesome/css/font-awesome.css';
 import 'textangular/dist/textangular.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'flag-icon-css/css/flag-icon.min.css';
 
 import '../assets/styles/main.scss';
 
 // Config
-import RouteConfig from './scripts/config/config.route';
-import configThemes from './scripts/config/config.themes';
-import { wysiwygConfig, translateConfig } from './scripts/config/config.run';
-import { Facebook, paths } from './scripts/config/config.constants';
-import config from './scripts/config/config';
+import RouteConfig from './config/config.route';
+import configThemes from './config/config.themes';
+import { wysiwygConfig, translateConfig } from './config/config.run';
+import { Facebook, paths } from './config/config.constants';
+import config from './config/config';
 
 // Controllers
 import main from './scripts/controllers/main';
@@ -51,12 +55,11 @@ import PlyFirebase from './services/PlyFirebase.service';
 import customerIoHelper from './services/customeriohelper';
 import loginSrv from './services/login.service';
 import chords from './services/chords.service';
-import Toast from './services/toast';
 import PlyNotifier from './services/ply-notifier.service';
-import RegexStore from './services/regexstore';
-import PlyStorage from './services/plyStorage.service';
-import Common from './services/common';
-import PlyTooltip from './services/plytooltip';
+
+
+
+import user from './services/user.service';
 
 angular.module('playalongWebApp', [
   'ngMaterial',
@@ -64,12 +67,15 @@ angular.module('playalongWebApp', [
   'firebase',
   'pascalprecht.translate',
   'textAngular',
+  'PlyUtils',
   'PlySidebar',
   'PlyHome',
   'PlyChord',
   'PlyBuilder',
   'PlyWeeklyChart',
   'PlyFavorites',
+  'PlyTuner',
+  'PlyAdmin',
 
   'plyFormElements',
   'ngMdIcons',
@@ -90,15 +96,12 @@ angular.module('playalongWebApp', [
 .controller('MainCtrl', main)
 .controller('LoginCtrl', loginCtrl)
 .service('PlyFirebase', PlyFirebase)
-.service('PlyStorage', PlyStorage)
-.service('RegexStore', RegexStore)
-.service('Toast', Toast)
+.service('user', user)
 .service('login', loginSrv)
 .service('customerIoHelper', customerIoHelper)
 .service('chords', chords)
-.service('Common', Common)
+
 .service('PlyNotifier', PlyNotifier)
-.service('PlyTooltip', PlyTooltip)
 .constant('paths', paths)
 .constant('Facebook', Facebook)
 .constant('config', config)

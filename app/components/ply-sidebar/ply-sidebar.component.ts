@@ -52,11 +52,13 @@ function SidebarCtrl($mdSidenav, login) {
       ref: 'favorites',
       icon: 'heart',
     },
-    {
-      text: 'sidebar.menu.TUNER',
-      ref: 'tuner',
-      icon: 'music',
-    },
+
+    // TODO - stabilize it 
+    // {
+    //   text: 'sidebar.menu.TUNER',
+    //   ref: 'tuner',
+    //   icon: 'music',
+    // },
     // {
     //   text: 'sidebar.menu.METRONOME',
     //   ref: 'metronome',

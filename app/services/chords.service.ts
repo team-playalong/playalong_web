@@ -1,5 +1,6 @@
-chords.$inject = ['config', '$q', 'PlyFirebase', '$firebaseObject'];
-function chords(config, $q: ng.IQService, PlyFirebase, $firebaseObject) {
+
+chords.$inject = ['config', '$q', 'PlyFirebase', '$firebaseObject', 'Common'];
+function chords(config, $q: ng.IQService, PlyFirebase, $firebaseObject, Common) {
   const chordsRef = PlyFirebase.getRef('chords');
   // var chordsData = $firebaseArray(ref);
 
@@ -68,7 +69,7 @@ function chords(config, $q: ng.IQService, PlyFirebase, $firebaseObject) {
         if (!rawData) {
           reject(`No results for query ${searchText} searching by ${searchBy}`);
         }
-        const result = rawData.filter(curr => !!curr.approved);
+        const result = Common.objectToArray(rawData).filter(curr => !!curr.approved);
         resolve(result);
       });
     });

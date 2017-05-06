@@ -1,4 +1,4 @@
-import PLY_CONFIG from '../../env';
+import PLY_CONFIG from '../env';
 
 wysiwygConfig.$inject = ['$provide'];
 export function wysiwygConfig($provide) {

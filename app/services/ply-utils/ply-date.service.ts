@@ -1,4 +1,5 @@
 class PlyDate {
+	static $inject = ['$mdToast', '$translate'];
 	constructor(private $mdToast, private $translate) {}
 
 	public getAllWeekNumbers() {
@@ -14,7 +15,5 @@ class PlyDate {
 		return [2016, 2017];
 	}
 }
-PlyDate.$inject = ['$mdToast', '$translate'];
 
-angular.module('playalongWebApp')
-	.service('PlyDate', PlyDate);
+export default PlyDate;
