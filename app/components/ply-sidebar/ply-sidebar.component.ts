@@ -53,7 +53,7 @@ function SidebarCtrl($mdSidenav, login) {
       icon: 'heart',
     },
 
-    // TODO - stabilize it 
+    // TODO - stabilize it
     // {
     //   text: 'sidebar.menu.TUNER',
     //   ref: 'tuner',
@@ -64,11 +64,11 @@ function SidebarCtrl($mdSidenav, login) {
     //   ref: 'metronome',
     //   icon: 'caret-up',
     // },
-    {
-      text: 'Suggestions',
-      ref: 'suggestions',
-      icon: 'lightbulb-o',
-    },
+    // {
+    //   text: 'Suggestions',
+    //   ref: 'suggestions',
+    //   icon: 'lightbulb-o',
+    // },
     {
       text: 'Weekly Chart Admin',
       ref: 'admin.weeklyChart',
