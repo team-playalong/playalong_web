@@ -5,7 +5,6 @@ import PlyfavoritebtnCtrl from './plyfavoritebtn.conrtoller';
 import '../../components/ply-autoscroll';
 
 angular.module('PlyChord', [
-
   // TODO - stabilize it
   // 'PlyAutoscroll',
 ])

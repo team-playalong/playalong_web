@@ -1,3 +1,4 @@
+// Third Parties
 import 'angular';
 import 'angular-material';
 import 'angular-ui-router';
@@ -37,7 +38,7 @@ import '../assets/styles/main.scss';
 // Config
 import RouteConfig from './config/config.route';
 import configThemes from './config/config.themes';
-import { wysiwygConfig, translateConfig, sceConfig } from './config/config.run';
+import { wysiwygConfig, translateConfig, sceConfig, runConfig } from './config/config.run';
 import { Facebook, paths } from './config/config.constants';
 import config from './config/config';
 
@@ -85,7 +86,6 @@ angular.module('playalongWebApp', [
   'ngAnimate',
   'LocalStorageModule',
   'textSizeSlider',
-  // 'ngDragDrop',
   // 'MetronomeApp',
 ])
 .component('chordResult', ChordResult)
@@ -99,7 +99,6 @@ angular.module('playalongWebApp', [
 .service('login', loginSrv)
 .service('customerIoHelper', customerIoHelper)
 .service('chords', chords)
-
 .service('PlyNotifier', PlyNotifier)
 .constant('paths', paths)
 .constant('Facebook', Facebook)
@@ -109,8 +108,4 @@ angular.module('playalongWebApp', [
 .config(wysiwygConfig)
 .config(translateConfig)
 .config(sceConfig)
-.run(['paths', 'Facebook', '$rootScope',
-	function (paths, Facebook, $rootScope) {
-	$rootScope.paths = paths;
-	$rootScope.Facebook = Facebook;
-}]);
+.run(runConfig);
