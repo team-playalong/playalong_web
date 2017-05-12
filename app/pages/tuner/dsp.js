@@ -2320,3 +2320,5 @@ Reverb.prototype.process = function (interleavedSamples) {
 
   return outputSamples;
 };
+
+window.FFT = FFT;

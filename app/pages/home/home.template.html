@@ -27,7 +27,7 @@
                 </div>
               </md-input-container>
             </div>
-            <div flex hide show-gt-sm>
+            <div flex hide-sm>
               <md-button class="md-raised md-accent" type="submit" ng-click="home.searchChords()"
               aria-label="Go"
               id="plySearchButton"
@@ -50,7 +50,7 @@
   </section>
 
   <!-- search results -->
-  <section  ng-include="'views/topChords.html'"
+  <section  ng-include="'./app/views/topChords.html'"
         ng-if="!home.searchResults"
         ng-controller="TopchordsCtrl as top"></section>
   <section>

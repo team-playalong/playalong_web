@@ -1,7 +1,8 @@
 {
   "compileOnSave": true,
   "compilerOptions": {
-    "module": "system",
+    "module": "es2015",
+    "allowJs":true,
     "target": "es5",
     "sourceMap": true,
     "emitDecoratorMetadata": true,

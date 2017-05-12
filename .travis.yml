@@ -1,16 +1,12 @@
 sudo: false
 language: node_js
-node_js: 5.2
+node_js: 7.1.0
 before_script:
-- npm install -g grunt-cli typescript typings firebase-tools
+- npm install
 - bower install
 - typings install
-- gem install sass
-- gem install compass
-- npm install && bower install
 script:
-- grunt --verbose
-- firebase use playalong-prod
-- firebase deploy --token "$FIREBASE_TOKEN"
+- npm run build
+- npm run deploy
 env:
 - PORT=3000
