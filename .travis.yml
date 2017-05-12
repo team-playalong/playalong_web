@@ -3,10 +3,13 @@ language: node_js
 node_js: 7.1.0
 before_script:
 - npm install
-- bower install
 - typings install
 script:
 - npm run build
-- npm run deploy --token \"$FIREBASE_TOKEN\"
+deploy:
+  provider: firebase
+  token:
+    secure: "1/ek8_98cIzBsacDuVqmndzXx6UVTSBjsahNxYjpboLx8MEudVrK5jSpoR30zcRFq6"
+  project: "default"
 env:
 - PORT=3000
