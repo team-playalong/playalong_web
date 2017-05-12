@@ -51,6 +51,7 @@
     "ts-loader": "^2.0.3",
     "tslint": "^4.5.1",
     "typescript": "^2.2.1",
+    "typings": "^2.1.1",
     "url-loader": "^0.5.8",
     "vinyl-fs": "2.4.4",
     "webpack": "^2.5.0",
