@@ -7,6 +7,6 @@ before_script:
 - typings install
 script:
 - npm run build
-- npm run deploy
+- npm run deploy --token \"$FIREBASE_TOKEN\"
 env:
 - PORT=3000
