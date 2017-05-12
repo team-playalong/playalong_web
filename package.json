@@ -9,7 +9,10 @@
     "watch": "grunt watch",
     "eslint": "eslint --fix test",
     "deploy": "firebase use default && firebase deploy",
-    "build": "webpack -p --progress --config webpack.config.build.js"
+    "build": "webpack -p --progress --config webpack.config.build.js",
+    "preci": "npm i && bower i && typings install",
+    "ci": "npm run build && npm run deploy",
+    "clean": "rm -rf bower_components && rm -rf node_modules && npm cache clean"
   },
   "devDependencies": {
     "babel-polyfill": "^6.9.1",
