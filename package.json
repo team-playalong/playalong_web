@@ -9,8 +9,8 @@
     "watch": "grunt watch",
     "eslint": "eslint --fix test",
     "deploy": "firebase use default && firebase deploy",
+    "prebuild": "npm i && typings install",
     "build": "webpack -p --progress --config webpack.config.build.js",
-    "preci": "npm i && bower i && typings install",
     "ci": "npm run build && npm run deploy",
     "clean": "rm -rf bower_components && rm -rf node_modules && npm cache clean"
   },
