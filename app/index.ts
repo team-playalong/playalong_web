@@ -5,7 +5,7 @@ import 'angular-ui-router';
 import 'angularfire';
 import 'angular-translate';
 import 'textangular';
-import 'textAngular/dist/textAngular-sanitize';
+import 'textangular/dist/textAngular-sanitize';
 import 'angular-translate-interpolation-messageformat';
 import 'angular-translate-loader-static-files';
 import 'angular-material-icons';
