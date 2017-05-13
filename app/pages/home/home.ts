@@ -1,4 +1,5 @@
 import topchordsCtrl from './topchords';
+import ChordSearchModel from './chord-search.model';
 
 function PlyHome() {
   return {
@@ -13,29 +14,15 @@ class HomeCtrl {
   public searchConfig;
   public searchResults;
   public resultMessage;
+  public plyOnChange;
 
-  constructor(public $rootScope, public chords, public $translate, public $q) {}
+  constructor(public $rootScope, public chords, public $translate, public $q, public ChordSearchModel: ChordSearchModel) {}
 
   $onInit() {
     if (!!window.mixpanel) {
       window.mixpanel.track('ply_page_view_home');
     }
-
     this.$rootScope.currPage = 'home.PAGE_TITLE';
-    this.searchByOptions = [
-      {
-        label: 'home.ARTIST',
-        value: 'artist',
-      },
-      {
-        label: 'home.SONG_NAME',
-        value: 'title',
-      },
-    ];
-    this.searchConfig = {
-      searchBy: this.searchByOptions[0].value,
-      searchInput: '',
-    };
 
     // Workaround due to translations
     setTimeout(() => {
@@ -102,7 +89,7 @@ class HomeCtrl {
     if (numAttempts > 2) { return; }
     this.$rootScope.startSpin('startSearchChordsSpinner');
     this.searchResults = [];
-    this.chords.searchChordsBy(this.searchConfig.searchBy, this.searchConfig.searchInput)
+    this.chords.searchChordsBy(this.ChordSearchModel.searchConfig.searchBy, this.ChordSearchModel.searchConfig.searchInput)
       .then((data) => {
         this.handleChordResults(data);
         this.chordsFinallyHandler();
@@ -110,7 +97,7 @@ class HomeCtrl {
       .catch(error => {
         // Try searching with an upper case for the first letter of each word
         if (numAttempts < 2) {
-          this.searchConfig.searchInput = this.uppercaseFirstLetter(this.searchConfig.searchInput);
+          this.ChordSearchModel.onSearchInputChanged(this.uppercaseFirstLetter(this.ChordSearchModel.searchConfig.searchInput));
           this.searchChords(numAttempts + 1);
         }
         else {
@@ -130,10 +117,11 @@ class HomeCtrl {
   /*jshint unused:true*/
 }
 HomeCtrl.$inject = [
-  '$rootScope', 'chords', '$translate', '$q',
+  '$rootScope', 'chords', '$translate', '$q', 'ChordSearchModel',
 ];
 
 angular.module('PlyHome', [])
 .controller('HomeCtrl', HomeCtrl)
 .controller('TopchordsCtrl', topchordsCtrl)
+.service('ChordSearchModel', ChordSearchModel)
 .directive('plyHome', PlyHome);
