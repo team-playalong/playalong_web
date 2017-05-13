@@ -30,7 +30,7 @@ import './pages/admin';
 import 'angular-material/angular-material.css';
 import 'angular-material-icons/angular-material-icons.css';
 import 'font-awesome/css/font-awesome.css';
-import 'textangular/dist/textangular.css';
+import 'textangular/dist/textAngular.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import '../assets/styles/main.scss';
