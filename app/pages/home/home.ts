@@ -1,4 +1,4 @@
-import topchordsCtrl from './topChords';
+import topchordsCtrl from './topchords';
 
 function PlyHome() {
   return {

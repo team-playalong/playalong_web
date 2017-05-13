@@ -1,4 +1,5 @@
 topchordsCtrl.$inject = ['chords', '$rootScope', '$translate'];
+
 function topchordsCtrl(chords, $rootScope, $translate) {
 		const vm = this;
 	$translate(['topChords.PAGE_TITLE',
