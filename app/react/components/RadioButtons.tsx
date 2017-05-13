@@ -1,9 +1,9 @@
-import React, { PropTypes } from 'react-dom';
+import * as React from 'react';
 import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 const RadioButtons = props => {
   let currId;
-
   const handleChange = (e, val) => {
     props.onRadioChange(val);
   };
@@ -11,29 +11,33 @@ const RadioButtons = props => {
   const allRadioButtons = props.inputs.map(input => {
     currId = input.value + Date.now();
     return (
-      <RadioButton
-        value={input.value}
-        label={input.label}
-        key={currId}
-      />
+        <RadioButton
+          value={input.value}
+          label={input.label}
+          key={currId}
+        />
     );
   });
 
   return (
-    <div>
-      {!!props.legend && <label>{props.legend}</label>}
-      <RadioButtonGroup onChange={handleChange}>
-        {allRadioButtons}
-      </RadioButtonGroup>
-    </div>
+    <MuiThemeProvider>
+      <div>
+        {!!props.legend && <label>{props.legend}</label>}
+        <RadioButtonGroup
+          onChange={handleChange}
+          name={props.name}>
+          {allRadioButtons}
+        </RadioButtonGroup>
+      </div>
+    </MuiThemeProvider>
   );
 };
 
-RadioButtons.propTypes = {
-  inputs: PropTypes.arrayOf(PropTypes.object).isRequired,
-  legend: PropTypes.string,
-  name: PropTypes.string,
-  onRadioChange: PropTypes.func.isRequired, // eslint-disable-line
-};
+// RadioButtons.propTypes = {
+//   inputs: PropTypes.arrayOf(PropTypes.object).isRequired,
+//   legend: PropTypes.string,
+//   name: PropTypes.string,
+//   onRadioChange: PropTypes.func.isRequired, // eslint-disable-line
+// };
 
 export default RadioButtons;

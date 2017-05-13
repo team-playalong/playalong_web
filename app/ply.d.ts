@@ -8,6 +8,7 @@ interface Window {
 	_cio: any;
 	FFT: any;
 	AudioContext: any;
+__REDUX_DEVTOOLS_EXTENSION_COMPOSE__: any;
 }
 
 interface Navigator {
