@@ -63,7 +63,8 @@
     })(window,document,'script','dataLayer','GTM-KRKGTZ');</script>
     <!-- End Google Tag Manager -->
 
-    <script>(function(d, s, id) {
+    <script>
+      (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
       js = d.createElement(s); js.id = id;
@@ -80,6 +81,7 @@
 
   <div  ng-controller="MainCtrl"
         layout="column" class="ply-app"
+        id="plyApp"
         ng-class="{'hebrew-sans': app.dir === 'rtl'}">
     <ply-spinner id="plyMainSpinner" trigger-start-event="startSpin" trigger-stop-event="stopSpin"></ply-spinner>
     <ply-sidebar></ply-sidebar>
@@ -91,93 +93,6 @@
       <alert class="ply-alert-container" ng-repeat="alert in allAlerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
     </footer>
   </div>
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- <script src="node_modules/angular/angular.js"></script>
-    <script src="node_modules/jquery/dist/jquery.js"></script>
-    <script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
-    <script src="node_modules/angular-animate/angular-animate.js"></script>
-    <script src="node_modules/angular-aria/angular-aria.js"></script>
-    <script src="node_modules/angular-material/angular-material.js"></script>
-    <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="node_modules/angular-translate/dist/angular-translate.js"></script>
-    <script src="node_modules/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
-    <script src="node_modules/angular-sanitize/angular-sanitize.js"></script>
-    <script src="node_modules/angular-translate-loader-url/angular-translate-loader-url.js"></script>
-    <script src="bower_components/messageformat/messageformat.js"></script>
-    <script src="node_modules/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.js"></script>
-    <script src="bower_components/firebase/firebase.js"></script>
-    <script src="node_modules/angularfire/dist/angularfire.js"></script>
-    <script src="node_modules/playalong-services/dist/scripts/scripts.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="node_modules/rangy/lib/rangy-core.js"></script>
-    <script src="node_modules/rangy/lib/rangy-classapplier.js"></script>
-    <script src="node_modules/rangy/lib/rangy-highlighter.js"></script>
-    <script src="node_modules/rangy/lib/rangy-selectionsaverestore.js"></script>
-    <script src="node_modules/rangy/lib/rangy-serializer.js"></script>
-    <script src="node_modules/rangy/lib/rangy-textrange.js"></script>
-    <script src="node_modules/textangular/dist/textAngular.js"></script>
-    <script src="node_modules/textangular/dist/textAngular-sanitize.js"></script>
-    <script src="node_modules/textangular/dist/textAngularSetup.js"></script>
-    <script src="node_modules/json3/lib/json3.js"></script>
-    <script src="node_modules/es5-shim/es5-shim.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="node_modules/angular-resource/angular-resource.js"></script>
-    <script src="node_modules/angular-cookies/angular-cookies.js"></script>
-    <script src="node_modules/angular-touch/angular-touch.js"></script>
-    <script src="node_modules/angular-route/angular-route.js"></script>
-    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
-    <script src="node_modules/angular-gage/dist/angular-gage.js"></script>
-    <script src="node_modules/angular-material-icons/angular-material-icons.min.js"></script> -->
-    <!-- endbuild -->
-
-
-    <!-- build:js({.tmp,app}) scripts/scripts.js -->
-    <!-- ply-components -->
-    <!-- <script src="components/ply-youtube/ply-youtube.module.js"></script> -->
-
-    <!-- ply-form-elements -->
-    <!-- <script src="components/ply-form-elements/ply-form-elements.module.js"></script>
-    <script src="components/ply-form-elements/ply-text-input.js"></script>
-    <script src="components/ply-form-elements/ply-radio-button.js"></script>
-    <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/main.js"></script>
-    <script src="components/ply-sidebar/ply-sidebar.component.js"></script>
-    <script src="pages/home/home.js"></script>
-    <script src="scripts/controllers/chord.js"></script>
-    <script src="scripts/controllers/builder.js"></script>
-    <script src="scripts/config/config.route.js"></script>
-    <script src="scripts/config/config.constants.js"></script>
-    <script src="scripts/config/config.themes.js"></script>
-    <script src="scripts/config/config.run.js"></script>
-    <script src="scripts/directives/star-rating.js"></script>
-    <script src="scripts/controllers/topchords.js"></script>
-    <script src="scripts/controllers/login.js"></script>
-    <script src="scripts/services/toast.js"></script>
-    <script src="scripts/services/ply-date.service.js"></script>
-    <script src="scripts/services/ply-notifier.service.js"></script>
-    <script src="scripts/directives/plyspinner.js"></script>
-    <script src="scripts/services/common.js"></script>
-    <script src="components/ply-autoscroll/autoscroll.js"></script>
-    <script src="components/ply-autoscroll/autoscroll-widget.js"></script>
-    <script src="scripts/directives/compile.js"></script>
-    <script src="scripts/directives/angular-text-slider.js"></script>
-    <script src="scripts/services/plytooltip.js"></script>
-    <script src="scripts/directives/plylanguagepicker.js"></script>
-    <script src="scripts/controllers/plylanguagepicker.js"></script>
-    <script src="scripts/controllers/favorites.js"></script>
-    <script src="scripts/directives/plyfavoritebtn.js"></script>
-    <script src="scripts/controllers/plyfavoritebtn.js"></script>
-    <script src="pages/tuner/tuner.component.js"></script>
-    <script src="pages/tuner/AudioContextMonkeyPatch.js"></script>
-    <script src="components/metronome/buzz.min.js"></script>
-    <script src="components/metronome/metronome.module.js"></script>
-    <script src="components/chord-result/chord-result.component.js"></script>
-    <script src="components/ply-avatar-menu.component.js"></script>
-    <script src="components/admin/admin.component.js"></script>
-    <script src="components/admin/admin-weekly-chart.component.js"></script>
-    <script src="pages/ply-weekly-chart/ply-weekly-chart.component.js"></script> -->
-    <!-- endbuild -->
-
     <!-- Customer IO -->
     <script type="text/javascript">
       var _cio = _cio || [];
