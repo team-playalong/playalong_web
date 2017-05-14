@@ -32,7 +32,6 @@ module.exports = {
     new webpack.DefinePlugin({
       IS_DEV: IS_DEV,
     }),
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.ProvidePlugin({
       // jQuery
       $: 'jquery',

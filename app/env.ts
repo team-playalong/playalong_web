@@ -3,5 +3,4 @@ const PLY_CONFIG = {
 	defaultLocale: 'en',
 };
 
-console.log(PLY_CONFIG);
 export default PLY_CONFIG;
