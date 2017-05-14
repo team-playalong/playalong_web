@@ -7,7 +7,9 @@
       </md-button>
 
       <span class="clickable" ui-sref="home">
-        <img ng-src="{{paths.images.logo}}" class="ply-logo" alt="Playalong" />
+        <ply-logo></ply-logo>
+        <!-- <img ng-src="{{paths.images.logo}}" class="ply-logo" alt="Playalong" /> -->
+
       </span>
       <ng-md-icon hide-sm class="ply-topnav-back clickable" layout-align="center center" onclick="history.back()" icon="{{$root.app.dir === 'rtl' ? 'arrow_forward' : 'arrow_back'}}" size="30"></ng-md-icon>
       <span hide-sm class="ply-ellipsis">

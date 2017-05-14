@@ -4,6 +4,8 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var dirApp = path.join(__dirname, 'app');
 var dirAssets = path.join(__dirname, 'assets');
+var dirReact = path.join(__dirname, 'app/react');
+
 
 // Is the current build a development build
 var IS_DEV = (process.env.NODE_ENV === 'dev');
@@ -21,6 +23,7 @@ module.exports = {
       'node_modules',
       dirAssets,
       dirApp,
+      dirReact,
     ],
     // Add `.ts` and `.tsx` as a resolvable extension.
     extensions: ['.ts', '.tsx', '.js'],
@@ -111,7 +114,7 @@ module.exports = {
       },
       // IMAGES
       {
-        test: /\.(jpe*g|png|gif)$/,
+        test: /\.(jpe*g|png|gif|ico)$/,
         loader: 'file-loader',
         options: {
           name: '[path][name].[ext]',
