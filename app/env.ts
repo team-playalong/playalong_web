@@ -1,6 +1,7 @@
 const PLY_CONFIG = {
-	env: 'dev', // dev | prod
+	env: window.PLY_ENV,
 	defaultLocale: 'en',
 };
 
+console.log(PLY_CONFIG);
 export default PLY_CONFIG;

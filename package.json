@@ -55,7 +55,8 @@
     "url-loader": "^0.5.8",
     "vinyl-fs": "2.4.4",
     "webpack": "^2.5.0",
-    "webpack-dev-server": "^2.4.5"
+    "webpack-dev-server": "^2.4.5",
+    "webpack-hot-middleware": "^2.18.0"
   },
   "dependencies": {
     "Guitar-Tuner-Webapp": "https://github.com/oankarberg/Guitar-Tuner-Webapp.git",
