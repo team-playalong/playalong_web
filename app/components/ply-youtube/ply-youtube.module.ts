@@ -1,7 +1,6 @@
-angular.module('plyYoutube', [
-	'playalong.services',
-])
-.directive('plyYoutube', ['RegexStore', function (RegexStore) {
+plyYoutube.$inject = ['RegexStore'];
+
+function plyYoutube(RegexStore) {
 	return {
 		restrict: 'E',
 		scope: {
@@ -19,4 +18,6 @@ angular.module('plyYoutube', [
       }
 		},
 	};
-}]);
+}
+
+export default plyYoutube;

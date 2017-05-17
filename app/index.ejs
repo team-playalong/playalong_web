@@ -1,0 +1,202 @@
+<!doctype html>
+
+<html ng-app="playalongWebApp" ng-cloak dir="{{app.dir}}">
+  <head>
+    <!-- Facebook Metatags -->
+    <meta property="og:title" content="Playalong - Amazing Chords" />
+    <meta property="og:site_name" content="Playalong"/>
+    <meta property="og:url" content="https://www.playalong.io" />
+    <meta property="og:description" content="Playalong is an awesome chord editing and playing app" />
+    <meta property="fb:app_id" content="541650972649460" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="he_HE" />
+    <meta property="og:image" content="https://www.playalong.io/images/plyIcon.png" />
+
+    <meta charset="utf-8">
+    <title ng-bind="pageTitle"><%= htmlWebpackPlugin.options.title %></title>
+    <meta name="description" ng-bind="pageTitle" content="Playalong is an awesome chord editing and playing app">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable = no">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-66639324-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+    <!-- Facebook Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','//connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '1475826812725401');
+    fbq('track', "PageView");</script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1475826812725401&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+    <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+    for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+    mixpanel.init("6675a9dcba297bd681275790e47d8d5f");</script><!-- end Mixpanel -->
+	  <!-- FOMO -->
+	  <script type="text/javascript" src="https://www.usefomo.com/api/v1/aYD-SVLO8MiwjAPXyPIZIw/load.js"></script>
+
+  </head>
+  <body>
+
+    <!-- Google Tag Manager -->
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KRKGTZ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KRKGTZ');</script>
+    <!-- End Google Tag Manager -->
+
+    <script>
+      (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=541650972649460";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <!-- End - Facebook init -->
+
+    <!-- Twitter -->
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+    </script>
+    <!-- End-Twitter -->
+
+
+  <div  ng-controller="MainCtrl"
+        layout="column" class="ply-app"
+        id="plyApp"
+        ng-class="{'hebrew-sans': app.dir === 'rtl'}">
+    <ply-spinner id="plyMainSpinner" trigger-start-event="startSpin" trigger-stop-event="stopSpin"></ply-spinner>
+    <ply-sidebar></ply-sidebar>
+    <ply-toolbar></ply-toolbar>
+      <md-content id="plyContent" flex>
+        <main ui-view class="ply-main-container container"></main>
+      </md-content>
+    <footer ng-include="'app/views/templates/footer.html'" class="footer">
+      <alert class="ply-alert-container" ng-repeat="alert in allAlerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+    </footer>
+  </div>
+    <!-- Customer IO -->
+    <script type="text/javascript">
+      var _cio = _cio || [];
+
+      (function() {
+        var a,b,c;a=function(f){return function(){_cio.push([f].
+        concat(Array.prototype.slice.call(arguments,0)))}};b=["identify",
+        "track"];for(c=0;c<b.length;c++){_cio[b[c]]=a(b[c])};
+        var t = document.createElement('script'),
+            s = document.getElementsByTagName('script')[0];
+        t.async = true;
+        t.id    = 'cio-tracker';
+        t.setAttribute('data-site-id', 'a003ae985929496a12c5');
+        t.src = 'https://assets.customer.io/assets/track.js';
+        s.parentNode.insertBefore(t, s);
+      })();
+    </script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/5658debf5ced5f6455f43649/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+    <!-- facebook -->
+    <style>
+        #ad_root {
+           display: none;
+           font-size: 14px;
+           height: 250px;
+           line-height: 16px;
+           position: relative;
+           width: 300px;
+         }
+         .thirdPartyMediaClass {
+           height: 157px;
+           width: 300px;
+         }
+         .thirdPartyTitleClass {
+           font-weight: 600;
+           font-size: 16px;
+           margin: 8px 0 4px 0;
+           overflow: hidden;
+           text-overflow: ellipsis;
+           white-space: nowrap;
+         }
+         .thirdPartyBodyClass {
+           display: -webkit-box;
+           height: 32px;
+           -webkit-line-clamp: 2;
+           overflow: hidden;
+         }
+         .thirdPartyCallToActionClass {
+           color: #326891;
+           font-family: sans-serif;
+           font-weight: 600;
+           margin-top: 8px;
+         }
+       </style>
+       <script>
+         window.fbAsyncInit = function() {
+           FB.Event.subscribe(
+             'ad.loaded',
+             function(placementId) {
+               console.log('Audience Network ad loaded');
+               document.getElementById('ad_root').style.display = 'block';
+             }
+           );
+           FB.Event.subscribe(
+             'ad.error',
+             function(errorCode, errorMessage, placementId) {
+               console.log('Audience Network error (' + errorCode + ') ' + errorMessage);
+             }
+           );
+         };
+         (function(d, s, id) {
+           var js, fjs = d.getElementsByTagName(s)[0];
+           if (d.getElementById(id)) return;
+           js = d.createElement(s); js.id = id;
+           js.src = "//connect.facebook.net/en_US/sdk/xfbml.ad.js#xfbml=1&version=v2.5&appId=541650972649460";
+           fjs.parentNode.insertBefore(js, fjs);
+         }(document, 'script', 'facebook-jssdk'));
+       </script>
+       <div class="fb-ad" data-placementid="541650972649460_684080488406507" data-format="native" data-nativeadid="ad_root" data-testmode="false"></div>
+       <div id="ad_root">
+         <a class="fbAdLink">
+           <div class="fbAdMedia thirdPartyMediaClass"></div>
+           <div class="fbAdTitle thirdPartyTitleClass"></div>
+           <div class="fbAdBody thirdPartyBodyClass"></div>
+           <div class="fbAdCallToAction thirdPartyCallToActionClass"></div>
+         </a>
+       </div>
+    <!-- end - facebook -->
+
+      <script>
+        window.PLY_ENV = '<%= htmlWebpackPlugin.options.env %>';
+      </script>
+</body>
+</html>
