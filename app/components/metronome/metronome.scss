@@ -34,19 +34,19 @@ body,
   background-size: contain;
   background-position: top center;
   height: 90.29%;
-  
+
   /* Vendor prefix hell... CSS preprocessor to the rescue? */
   transform-origin: 50% 100%;
   -webkit-transform-origin: 50% 100%;
   -ms-transform-origin: 50% 100%;
   -moz-transform-origin: 50% 100%;
   -o-transform-origin: 50% 100%;
-  
+
   transition-timing-function: ease-in-out;
   -webkit-transition-timing-function: ease-in-out;
   -moz-transition-timing-function: ease-in-out;
   -o-transition-timing-function: ease-in-out;
-  
+
   transform: rotate(-0.6deg);
   -webkit-transform: rotate(-0.6deg);
   -moz-transform: rotate(-0.6deg);
@@ -86,7 +86,7 @@ body,
   background-position: center center;
   position: absolute;
   left: 0 !important;
-  
+
   transition: 0.5s bottom ease-out;
   -webkit-transition: 0.5s bottom ease-out;
   -moz-transition: 0.5s bottom ease-out;

@@ -26,6 +26,9 @@ import './pages/favorites';
 import './pages/tuner';
 import './pages/admin';
 
+// React
+import './react/ply-react.module';
+
 // CSS
 import 'angular-material/angular-material.css';
 import 'angular-material-icons/angular-material-icons.css';
@@ -79,6 +82,8 @@ angular.module('playalongWebApp', [
   'PlyFavorites',
   'PlyTuner',
   'PlyAdmin',
+
+  'PlyReact',
 
   'plyFormElements',
   'ngMdIcons',

@@ -7,23 +7,25 @@
         <form name="chordSearchForm" class="ply-search-form" novalidate>
           <div layout="row" layout-wrap>
             <div flex-sm="100" flex-gt-sm="25">
-              <ply-radio-button-group
-                ply-radio-data="home.ChordSearchModel.searchByOptions"
-                ply-on-change="home.ChordSearchModel.onSearchByChanged">
-              </ply-radio-button-group>
+              <react-component
+                name="RadioButtons"
+                props="home.ChordSearchModel.searchBy"
+               />
             </div>
             <div flex-sm="100" flex-gt-sm="60">
+              <!-- <react-component
+                name="TextInput"
+                props="home.ChordSearchModel.searchInput"
+               /> -->
               <md-input-container>
                 <input
                   md-maxlength="50"
                   placeholder="Search Here"
                   required name="searchInput"
-                  ng-change="home.ChordSearchModel.onSearchInputChanged"
                   ng-model="home.ChordSearchModel.searchConfig.searchInput"
                   auto-direction
                 />
                 <div ng-messages="chordSearchForm.searchInput.$error">
-                  <!-- TODO - Messages from texts object -->
                   <div ng-if="chordSearchForm.searchInput.$dirty && chordSearchForm.searchInput.$invalid && chordSearchForm.searchInput.$error" ng-message="required">{{'globals.errors.REQUIRED' | translate}}</div>
                 </div>
               </md-input-container>
