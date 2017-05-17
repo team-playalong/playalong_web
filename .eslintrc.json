@@ -4,6 +4,7 @@
     "ecmaVersion": 5
   },
   "globals": {
+    "window": true,
     "app": true,
     "angular": false,
     "mockData": true,

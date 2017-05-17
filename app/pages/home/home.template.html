@@ -1,7 +1,5 @@
 <div  class="md-padding" id="home"
       translate-namespace="home">
-
-
   <section>
     <md-card layout-align="center">
       <md-card-content>
@@ -9,25 +7,30 @@
         <form name="chordSearchForm" class="ply-search-form" novalidate>
           <div layout="row" layout-wrap>
             <div flex-sm="100" flex-gt-sm="25">
-              <md-input-container>
-                <ply-radio-button-group
-                  ply-radio-data="home.searchByOptions"
-                  ply-model="home.searchConfig.searchBy">
-
-                </ply-radio-button-group>
-              </md-input-container>
+              <react-component
+                name="RadioButtons"
+                props="home.ChordSearchModel.searchBy"
+               />
             </div>
             <div flex-sm="100" flex-gt-sm="60">
+              <!-- <react-component
+                name="TextInput"
+                props="home.ChordSearchModel.searchInput"
+               /> -->
               <md-input-container>
-                <input md-maxlength="50"
-                placeholder="Search Here" required name="searchInput" ng-model="home.searchConfig.searchInput" auto-direction />
+                <input
+                  md-maxlength="50"
+                  placeholder="Search Here"
+                  required name="searchInput"
+                  ng-model="home.ChordSearchModel.searchConfig.searchInput"
+                  auto-direction
+                />
                 <div ng-messages="chordSearchForm.searchInput.$error">
-                  <!-- TODO - Messages from texts object -->
                   <div ng-if="chordSearchForm.searchInput.$dirty && chordSearchForm.searchInput.$invalid && chordSearchForm.searchInput.$error" ng-message="required">{{'globals.errors.REQUIRED' | translate}}</div>
                 </div>
               </md-input-container>
             </div>
-            <div flex hide show-gt-sm>
+            <div flex hide-sm>
               <md-button class="md-raised md-accent" type="submit" ng-click="home.searchChords()"
               aria-label="Go"
               id="plySearchButton"
@@ -50,7 +53,7 @@
   </section>
 
   <!-- search results -->
-  <section  ng-include="'views/topChords.html'"
+  <section  ng-include="'./app/views/topChords.html'"
         ng-if="!home.searchResults"
         ng-controller="TopchordsCtrl as top"></section>
   <section>
