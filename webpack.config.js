@@ -66,8 +66,10 @@ module.exports = {
             loader: 'css-loader',
             options: {
               sourceMap: IS_DEV,
+              importLoaders: 1,
             },
           },
+          'postcss-loader',
         ],
       },
 
@@ -86,7 +88,6 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               sourceMap: IS_DEV,
-              includePaths: [dirAssets],
             },
           },
         ],

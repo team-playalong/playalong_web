@@ -13,21 +13,21 @@
                />
             </div>
             <div flex-sm="100" flex-gt-sm="60">
-              <react-component
+              <!-- <react-component
                 name="TextInput"
                 props="home.ChordSearchModel.searchInput"
-               />
-              <!-- <md-input-container>
+               /> -->
+              <md-input-container>
                 <input
                   md-maxlength="50"
                   placeholder="Search Here"
                   required name="searchInput"
                   ng-model="home.ChordSearchModel.searchConfig.searchInput"
                   auto-direction
-                /> -->
-                <!-- <div ng-messages="chordSearchForm.searchInput.$error">
+                />
+                <div ng-messages="chordSearchForm.searchInput.$error">
                   <div ng-if="chordSearchForm.searchInput.$dirty && chordSearchForm.searchInput.$invalid && chordSearchForm.searchInput.$error" ng-message="required">{{'globals.errors.REQUIRED' | translate}}</div>
-                </div> -->
+                </div>
               </md-input-container>
             </div>
             <div flex hide-sm>
