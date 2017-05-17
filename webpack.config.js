@@ -32,7 +32,6 @@ module.exports = {
     new webpack.DefinePlugin({
       IS_DEV: IS_DEV,
     }),
-
     new webpack.ProvidePlugin({
       // jQuery
       $: 'jquery',
@@ -47,6 +46,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, '/app/index.ejs'),
       title: 'Playalong',
+      env: process.env.NODE_ENV,
     }),
   ],
   module: {
@@ -66,8 +66,10 @@ module.exports = {
             loader: 'css-loader',
             options: {
               sourceMap: IS_DEV,
+              importLoaders: 1,
             },
           },
+          'postcss-loader',
         ],
       },
 
@@ -86,7 +88,6 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               sourceMap: IS_DEV,
-              includePaths: [dirAssets],
             },
           },
         ],

@@ -1,5 +1,5 @@
 var PLY_CONFIG = {
-    env: 'dev',
+    env: window.PLY_ENV,
     defaultLocale: 'en',
 };
 export default PLY_CONFIG;

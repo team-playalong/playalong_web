@@ -97,7 +97,7 @@ class HomeCtrl {
       .catch(error => {
         // Try searching with an upper case for the first letter of each word
         if (numAttempts < 2) {
-          this.ChordSearchModel.onSearchInputChanged(this.uppercaseFirstLetter(this.ChordSearchModel.searchConfig.searchInput));
+          this.ChordSearchModel.searchConfig.searchInput = (this.uppercaseFirstLetter(this.ChordSearchModel.searchConfig.searchInput));
           this.searchChords(numAttempts + 1);
         }
         else {

@@ -39,20 +39,20 @@
 }
 
 #noteViewContainer{
-  margin: 0 auto; 
+  margin: 0 auto;
   position:relative;
-  height:75px; 
+  height:75px;
   text-align: center;
   width:150px;
 }
 
 #tuneArrowLeft{
-    left:10px; 
+    left:10px;
     top:40px;
-    width:30px; 
-    height:20px; 
+    width:30px;
+    height:20px;
     position:relative;
-    margin: 0 auto; 
+    margin: 0 auto;
     float:left;
 
     border-left: 20px solid white;
@@ -63,11 +63,11 @@
 
 #tuneArrowRight{
 
-    left:60px; 
-    top:40px; 
-    width:30px; 
-    height:20px; 
-    position:relative; 
+    left:60px;
+    top:40px;
+    width:30px;
+    height:20px;
+    position:relative;
     margin: 0 auto;
 
     border-right: 20px solid white;
@@ -213,7 +213,7 @@
   height: 115px;
   -webkit-transform: translate(30px, 20px);
   transform: translate(30px, 20px);
- 
+
 }
 
 #tick_-1 {
@@ -224,7 +224,7 @@
   -webkit-transform: translate(-30px, 20px);
   transform: translate(-30px, 20px);
 
-  
+
 }
 
 #tick_2 {
@@ -266,7 +266,7 @@
   -webkit-transform: translate(-90px, 35px);
   transform: translate(-90px, 35px);
 
-  
+
 }
 
 #tick_4 {
@@ -286,7 +286,7 @@
   height: 70px;
   -webkit-transform: translate(-120px, 42.5px);
   transform: translate(-120px, 42.5px);
- 
+
 }
 #tick_5 {
   background-color:#ccc;
@@ -304,7 +304,7 @@
   height: 55px;
   -webkit-transform: translate(-150px, 50px);
   transform: translate(-150px, 50px);
-  
+
 }
 #tick_6 {
   background-color:#ccc;
@@ -313,7 +313,7 @@
   height: 40px;
   -webkit-transform: translate(180px, 57.5px);
   transform: translate(180px, 57.5px);
- 
+
 }
 #tick_-6 {
   background-color:#ccc;
@@ -322,7 +322,7 @@
   height: 40px;
   -webkit-transform: translate(-180px, 57.5px);
   transform: translate(-180px, 57.5px);
-  
+
 }
 #tick_7 {
   background-color:#ccc;
@@ -342,7 +342,7 @@
   transform: translate(-210px, 65px);
 }
 #needle2 {
-  
+
   display:none;
   top: 35px;
   left: 198px;
@@ -353,7 +353,7 @@
 
   -webkit-transition: all 0.1s ease-in-out;
   -moz-transition: all 0.1s ease-in-out;
-  
+
   /*padding: 4px;*/
   margin: 0;
   border: 1px solid black;
