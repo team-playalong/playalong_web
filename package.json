@@ -71,7 +71,7 @@
     "angular-cookies": "^1.5.8",
     "angular-dragdrop": "~1.0.12",
     "angular-gage": "^0.1.0",
-    "angular-local-storage": "^0.5.2",
+    "angular-local-storage": "^0.6.0",
     "angular-material": "^1.1.4",
     "angular-material-icons": "^0.7.0",
     "angular-mocks": "^1.5.8",
