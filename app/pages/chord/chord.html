@@ -3,7 +3,11 @@
     <md-card  layout-padding layout-align="center"
               autoscroll speed="{{autoscrollSpeed}}"
               ng-class="{'text-align-right' : isRtl}">
-      <autoscroll-widget speed="autoscrollSpeed" enabled="{{autoscrollEnabled}}"></autoscroll-widget>
+      <react-component
+        name="AutoScroll"
+        props="home.ChordModel.autoScroll"
+       />
+      <!-- <ply-autoscroll-widget speed="autoscrollSpeed" enabled="{{autoscrollEnabled}}"></ply-autoscroll-widget> -->
       <md-card-content class="ply-chord-container">
         <div layout="row" layout-align="{{!!isRtl ? 'end' : 'start'}} center">
           <div flex="30">
