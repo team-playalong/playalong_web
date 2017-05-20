@@ -17,7 +17,6 @@ autoscroll.$inject = ['$window', '$interval'];
       },
     };
   }
- /*jshint unused:true*/
 
 AutoscrollCtrl.$inject = ['$interval', '$window', '$state'];
 function AutoscrollCtrl($interval, $window, $state) {
