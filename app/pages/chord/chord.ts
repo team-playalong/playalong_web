@@ -1,9 +1,13 @@
 ChordCtrl.$inject = [
   '$scope', '$rootScope', '$state', 'chords', '$stateParams',
   'Toast', 'login' , 'Common', '$timeout', 'PlyTooltip', 'transposer', '$sce',
-  'EqualChordsMap',
+  'EqualChordsMap', 'ChordModel',
 ];
-export function ChordCtrl($scope, $rootScope, $state, chords, $stateParams, toast, login, Common, $timeout, plyTooltip, transposer, $sce: ng.ISCEService, EqualChordsMap) {
+export function ChordCtrl(
+  $scope, $rootScope, $state, chords, $stateParams, toast, login, Common, $timeout,
+  plyTooltip, transposer, $sce: ng.ISCEService, EqualChordsMap, ChordModel,
+) {
+  $scope.ChordModel = ChordModel;
   $scope.login = login;
   $scope.initCtrl = function() {
     if (!!window.mixpanel) {
