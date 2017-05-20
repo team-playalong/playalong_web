@@ -13,8 +13,8 @@
     "clean": "rm -rf bower_components && rm -rf node_modules && npm cache clean"
   },
   "devDependencies": {
-    "@types/node": "^7.0.18",
     "@types/jasmine": "^2.5.47",
+    "@types/node": "^7.0.18",
     "@types/react": "^15.0.24",
     "@types/react-dom": "^15.5.0",
     "@types/webpack-env": "^1.13.0",
@@ -56,7 +56,8 @@
     "static": "^2.0.0",
     "style-loader": "^0.17.0",
     "ts-loader": "^2.0.3",
-    "tslint": "^4.5.1",
+    "tslint": "^5.2.0",
+    "tsutils": "^2.0.0",
     "typescript": "^2.2.1",
     "url-loader": "^0.5.8",
     "vinyl-fs": "2.4.4",
@@ -64,6 +65,7 @@
     "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
+    "@types/angular": "^1.6.17",
     "Guitar-Tuner-Webapp": "https://github.com/oankarberg/Guitar-Tuner-Webapp.git",
     "angular": "^1.5.8",
     "angular-animate": "^1.4.12",
