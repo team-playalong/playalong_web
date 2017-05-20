@@ -10,6 +10,7 @@ interface Window {
 	AudioContext: any;
 	__REDUX_DEVTOOLS_EXTENSION_COMPOSE__: any;
 	PLY_ENV: string;
+	JustGage: any;
 }
 
 interface Navigator {

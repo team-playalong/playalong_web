@@ -1,4 +1,4 @@
-@import '_ply.vars.scss';
+@import 'ply.vars';
 
 #chord {
 	position: relative;
@@ -7,10 +7,13 @@
     .ply-icon-favorites {
       color: $ply-pink;
       .fa {
-      	font-size: $ply-icon-xl;	
+      	font-size: $ply-icon-xl;
       }
-      
+
     }
+	}
+	.ply-autoscroll {
+		z-index: 1;
 	}
 	.ply-spinner-wrapper {
 		min-height: 300px;
