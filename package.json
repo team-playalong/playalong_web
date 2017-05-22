@@ -13,7 +13,6 @@
     "clean": "rm -rf bower_components && rm -rf node_modules && npm cache clean"
   },
   "devDependencies": {
-    "@types/angular": "^1.6.17",
     "@types/jasmine": "^2.5.47",
     "@types/node": "^7.0.18",
     "@types/react": "^15.0.24",

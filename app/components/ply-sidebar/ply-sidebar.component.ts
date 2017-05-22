@@ -1,4 +1,4 @@
-const plySidebar: ng.IComponentOptions = {
+const plySidebar = {
   controller: 'SidebarCtrl',
   controllerAs: 'vm',
   template: `

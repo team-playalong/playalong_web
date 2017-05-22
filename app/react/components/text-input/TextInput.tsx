@@ -11,7 +11,7 @@ function setErrorText(props) {
 
 const TextInput = (props) => {
 
-  const handleChange = (e, newValue) => { 
+  const handleChange = (e, newValue) => {
     props.onChange(e.target.value);
   };
 
@@ -21,6 +21,7 @@ const TextInput = (props) => {
       <div>
         <label htmlFor={id}>{props.label || ''}</label>
         <TextField
+          name={props.name || 'textInput'}
           hintText={props.placeholder}
           errorText={setErrorText(props)}
           value={props.value}
