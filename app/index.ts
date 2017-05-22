@@ -17,7 +17,7 @@ import './components/ply-toolbar';
 import './services/ply-utils';
 import './components/ply-sidebar/ply-sidebar.component';
 import './components/text-size-slider/angular-text-slider';
-import './pages/home/home';
+import './pages/home';
 import './components/ply-form-elements/ply-form-elements.module';
 import './pages/chord';
 import './pages/ply-weekly-chart';

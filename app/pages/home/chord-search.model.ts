@@ -1,36 +1,39 @@
 class ChordSearchModel {
-  public searchBy = {
-    radioName: 'radio',
-    inputs: [
-      {
-        // label: 'home.ARTIST',
-        label: 'Artist',
-        value: 'artist',
-      },
-      {
-        // label: 'home.SONG_NAME',
-        label: 'Title',
-        value: 'title',
-      },
-    ],
-    onRadioChanged: newVal => this.searchConfig.searchBy = newVal,
-    onSearchInputChanged: () => {},
-  };
-  public searchConfig = {
-    searchBy: this.searchBy.inputs[0].value,
+  radioInputs = [
+    {
+      label: 'Artist',
+      value: 'artist',
+    },
+    {
+      label: 'Title',
+      value: 'title',
+    }
+  ];
+
+  searchConfig = {
+    searchBy: this.radioInputs[0].value,
     searchInput: '',
   };
-
-  public searchInput = {
-    value: this.searchConfig.searchInput,
+  searchInput = {
+    value: 'asd',
     placeholder: 'Enter Text...',
-    onChange: newVal => this.searchConfig.searchInput = newVal,
     required: true,
   };
 
+  setSearchInput = newVal => this.searchConfig.searchInput = newVal;
+  setSearchBy = newVal => this.searchConfig.searchBy = newVal;
 
+  // searchBy: {
+  //   radioName: 'radio',
+  //   inputs: ,
+  //   onRadioChanged:
+  //   onSearchInputChanged: () => {},
+  // };
 
+  //
 
-}
+  //
+  //
+};
 
 export default ChordSearchModel;

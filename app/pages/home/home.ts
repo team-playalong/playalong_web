@@ -1,6 +1,3 @@
-import topchordsCtrl from './topchords';
-import ChordSearchModel from './chord-search.model';
-
 function PlyHome() {
   return {
     templateUrl: './app/pages/home/home.template.html',
@@ -16,7 +13,10 @@ class HomeCtrl {
   public resultMessage;
   public plyOnChange;
 
-  constructor(public $rootScope, public chords, public $translate, public $q, public ChordSearchModel: ChordSearchModel) {}
+  constructor(
+    public $rootScope, public chords, public $translate,
+    public $q, public ChordSearchModel, public ChordSearchService,
+  ) {}
 
   $onInit() {
     if (!!window.mixpanel) {
@@ -118,10 +118,7 @@ class HomeCtrl {
 }
 HomeCtrl.$inject = [
   '$rootScope', 'chords', '$translate', '$q', 'ChordSearchModel',
+  'ChordSearchService'
 ];
 
-angular.module('PlyHome', [])
-.controller('HomeCtrl', HomeCtrl)
-.controller('TopchordsCtrl', topchordsCtrl)
-.service('ChordSearchModel', ChordSearchModel)
-.directive('plyHome', PlyHome);
+export { PlyHome, HomeCtrl };

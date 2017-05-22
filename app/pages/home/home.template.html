@@ -7,16 +7,21 @@
         <form name="chordSearchForm" class="ply-search-form" novalidate>
           <div layout="row" layout-wrap>
             <div flex-sm="100" flex-gt-sm="25">
-              <react-component
-                name="RadioButtons"
-                props="home.ChordSearchModel.searchBy"
-               />
+              <radio-buttons
+                inputs="home.ChordSearchModel.radioInputs"
+                on-radio-changed="home.ChordSearchService.onRadioChanged"
+              >
+              </radio-buttons>
             </div>
             <div flex-sm="100" flex-gt-sm="60">
-              <!-- <react-component
-                name="TextInput"
-                props="home.ChordSearchModel.searchInput"
-               /> -->
+
+              <!-- TODO - Fix it -->
+              <!-- <text-input
+                value="home.ChordSearchModel.searchInput.value"
+                placeholder="home.ChordSearchModel.searchInput.placeholder"
+                on-change="home.ChordSearchService.onSearchInputChanged"
+              >
+              </text-input> -->
               <md-input-container>
                 <input
                   md-maxlength="50"

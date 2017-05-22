@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
-import RadioButtons from '../../react/components/RadioButtons';
+import RadioButtons from '../../react/components/radio-buttons/RadioButtons';
 
 export const plyRadioButtonGroup = {
   bindings: {
