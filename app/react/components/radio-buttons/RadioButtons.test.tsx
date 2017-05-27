@@ -1,3 +1,9 @@
+import RadioButtons from './RadioButtons';
+
+test('RadioButtons is defined', () => {
+  expect(RadioButtons).toBeDefined();
+});
+
 // TODO - Make it work
 //
 // import * as React from 'react';

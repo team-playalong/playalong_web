@@ -2,7 +2,8 @@
   "name": "playalongweb",
   "private": false,
   "scripts": {
-    "test": "karma start --single-run",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "start": "NODE_ENV=dev webpack-dev-server --port 3000 --progress --config webpack.config.dev.js",
     "tslint": "tslint './app/**/*.ts' --fix",
     "eslint": "eslint --fix test",
@@ -14,6 +15,7 @@
   },
   "devDependencies": {
     "@types/jasmine": "^2.5.47",
+    "@types/jest": "^19.2.3",
     "@types/node": "^7.0.18",
     "@types/react": "^15.0.24",
     "@types/react-dom": "^15.5.0",
@@ -25,6 +27,7 @@
     "css-loader": "^0.28.1",
     "cssnext": "^1.8.4",
     "ejs-loader": "^0.3.0",
+    "enzyme": "^2.8.2",
     "eslint": "^3.0.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-plugin-import": "^2.2.0",
@@ -51,10 +54,12 @@
     "postcss-cssnext": "^2.11.0",
     "postcss-import": "^10.0.0",
     "postcss-loader": "^2.0.5",
+    "react-addons-test-utils": "^15.5.1",
     "sass-loader": "^6.0.3",
     "serve": "^5.1.5",
     "static": "^2.0.0",
     "style-loader": "^0.17.0",
+    "ts-jest": "^20.0.4",
     "ts-loader": "^2.0.3",
     "tslint": "^5.2.0",
     "tsutils": "^2.0.0",
@@ -110,5 +115,25 @@
     "textangular": "^1.5.9",
     "tslint-config-airbnb": "^5.0.0",
     "tslint-config-standard": "^4.0.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testMatch": [
+      "**/app/react/**/*.test.(ts|tsx)"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "json",
+      "ts",
+      "tsx"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "bower_components",
+      "shared"
+    ]
   }
 }
