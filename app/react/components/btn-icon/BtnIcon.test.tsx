@@ -1,3 +1,22 @@
+import BtnIcon from './BtnIcon';
+import { shallow } from 'enzyme';
+
+let wrapper;
+let props = {
+  icon: 'test.svg',
+  click: jest.fn(),
+};
+
+beforeEach(() => {
+  wrapper = shallow(<DigTextInput {...props} />);
+});
+
+test('Should always be true', () => {
+  expect(true).toBe(true);
+});
+
+
+
 // import * as React from 'react';
 // import { shallow } from 'enzyme';
 // import { expect } from 'chai';
