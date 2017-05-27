@@ -4,6 +4,7 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
+    "watch": "npm-run-all --parallel test:watch start",
     "start": "NODE_ENV=dev webpack-dev-server --port 3000 --progress --config webpack.config.dev.js",
     "tslint": "tslint './app/**/*.ts' --fix",
     "eslint": "eslint --fix test",
@@ -14,6 +15,7 @@
     "clean": "rm -rf bower_components && rm -rf node_modules && npm cache clean"
   },
   "devDependencies": {
+    "@types/enzyme": "^2.8.0",
     "@types/jasmine": "^2.5.47",
     "@types/jest": "^19.2.3",
     "@types/node": "^7.0.18",
