@@ -3,6 +3,7 @@
   "rules": {
     "class-name": true,
     "no-extra-boolean-cast": false,
+    "no-param-reassign": false,
     "no-duplicate-variable": true,
     "no-eval": true,
     "no-increment-decrement": false,

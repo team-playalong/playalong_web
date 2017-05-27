@@ -1,4 +1,4 @@
-
+import * as angular from 'angular';
 /**
  * @ngdoc service
  * @name playalongservicesApp.transposer

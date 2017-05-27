@@ -1,3 +1,5 @@
+import * as angular from 'angular';
+
 ChordCtrl.$inject = [
   '$scope', '$rootScope', '$state', 'chords', '$stateParams',
   'Toast', 'login' , 'Common', '$timeout', 'PlyTooltip', 'transposer', '$sce',

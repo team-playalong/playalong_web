@@ -1,3 +1,5 @@
+import * as angular from 'angular';
+
 import plyAvatarMenu from './avatar-menu/ply-avatar-menu.component';
 import { PlylanguagepickerCtrl, LanguageModalDialogController } from './ply-language-picker/plylanguagepicker';
 import plyLanguagePickerDirective from './ply-language-picker/plylanguagepicker.component';

@@ -1,5 +1,5 @@
 // Third Parties
-import 'angular';
+import * as angular from 'angular';
 import 'angular-material';
 import 'angular-ui-router';
 import 'angularfire';

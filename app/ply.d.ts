@@ -1,5 +1,3 @@
-/// <reference path="../typings/index.d.ts" />
-
 interface Window {
 	mixpanel: any;
   ga: any;
@@ -19,4 +17,7 @@ interface Navigator {
 	mozGetUserMedia: any;
 }
 
+declare interface ObjectConstructor {
+    assign(...objects: Object[]): any;
+}
 declare var buzz: any;

@@ -1,3 +1,4 @@
+import * as angular from 'angular';
 import { plyRadioButtonGroup } from './ply-radio-button';
 import plyTextInput from './ply-text-input';
 

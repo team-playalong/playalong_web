@@ -1,3 +1,4 @@
+import * as angular from 'angular';
 import { autoscroll, AutoscrollCtrl } from './autoscroll.directive';
 import AutoScroll from './AutoScroll';
 
