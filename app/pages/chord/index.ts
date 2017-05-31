@@ -15,5 +15,5 @@ angular.module('PlyChord', [
 .constant('ChordTranposeMap', ChordTranposeMap)
 .service('ChordModel', ChordModel)
 .service('transposer', transposer)
-.directive('plyFavoriteBtn', plyFavoriteBtn)
+.component('plyFavoriteBtn', plyFavoriteBtn)
 .component('plyChord', chordComponent);

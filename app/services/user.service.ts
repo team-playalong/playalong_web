@@ -8,8 +8,9 @@ function user(config, PlyFirebase, $q, login) {
           message: 'user is not logged in',
         });
       }
+
       params = params || {};
-      //Get the user's favorite section
+      // Get the user's favorite section
       params.chordObj = params.chordObj || {};
       const favoritesRelPath = 'users/' + params.userKey + '/favorites/';
 
@@ -19,7 +20,7 @@ function user(config, PlyFirebase, $q, login) {
           resolve(data);
         });
       }
-      else { //Need to add a new record to the users favorites
+      else { // Need to add a new record to the users favorites
         PlyFirebase.insert(favoritesRelPath, {
           chordKey: params.chordObj.chordKey,
           artist: params.chordObj.artist,

@@ -112,6 +112,7 @@
     "react-redux": "^5.0.4",
     "react-svg-gauge": "^1.0.4",
     "react-tap-event-plugin": "^2.0.1",
+    "react-tooltip": "^3.3.0",
     "redux": "^3.6.0",
     "redux-immutable-state-invariant": "^2.0.0",
     "redux-thunk": "^2.2.0",
@@ -127,11 +128,11 @@
       "**/app/react/**/*.test.tsx"
     ],
     "moduleFileExtensions": [
+      "tsx",
       "js",
       "jsx",
       "json",
-      "ts",
-      "tsx"
+      "ts"
     ],
     "moduleDirectories": [
       "node_modules",
