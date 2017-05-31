@@ -11,8 +11,12 @@ const props = {
   click: jest.fn(),
 };
 
+function getWrapper() {
+  return shallow(<Rating {...props} />);
+}
+
 beforeEach(() => {
-  wrapper = shallow(<Rating {...props} />);
+  wrapper = getWrapper();
 });
 
 test('Rating should have a readonly class', () => {
@@ -30,8 +34,8 @@ test('Rating should fill stars according to value', () => {
   expect(options.length).toBe(props.value);
 });
 
-test.only('Rating should respond to click on one of the options', () => {
-  const ev = {};
-  wrapper.simulate('click', ev);
-  expect(props.click.mock.calls[0][0]).toBe(ev);
+test('Rating should respond to click on one of the options', () => {
+  props.readonly = false;
+  getWrapper().find('li').first().simulate('click');
+  expect(props.click.mock.calls[0][0]).toBe(1);
 });

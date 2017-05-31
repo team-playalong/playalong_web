@@ -82,6 +82,9 @@ body {
 	    &.filled {
 	      color: $ply-yellow;
 	    }
+			&.non-clickable {
+				cursor: default;
+			}
 	  }
 	}
 

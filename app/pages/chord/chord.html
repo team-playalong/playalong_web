@@ -60,7 +60,12 @@
         <div  class="ply-chord-rating"
               ng-if="chordRating">
           <h5 tranlate=".RATE_MESSAGE"></h5>
-          <rating readonly="ratingAttempts >= 2" value="chordRating"></rating>
+          <rating value="chordRating" click="ratingChanged" readonly="hasRated"></rating>
+          <p class='help-block'
+              ng-if='chord.countRating && !hasRated'>
+              <span>{{::chord.countRating}}</span>
+              <span translate=".COUNT_RATING_MESSAGE"></span>
+          </p>
         </div>
         <ply-disqus ply-disqus-url="chord" ply-disqus-id="{{chord.$id}}"></ply-disqus>
       </md-card-content>
