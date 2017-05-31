@@ -6,12 +6,6 @@ interface RatingProps {
   max: number;
 }
 
-// <p class='help-block'
-//    ng-if='chord.countRating && !hasRated'>
-//    <span>{{::chord.countRating}}</span>
-//    <span translate=".COUNT_RATING_MESSAGE"></span>
-// </p>
-
 const defaults = { max: 5, readonly: false };
 function renderRatingOptions(props) {
   const options = [];
@@ -41,5 +35,7 @@ const Rating = (props: RatingProps = defaults) => {
 
   );
 };
+
+export const props = ['readonly', 'max', 'value'];
 
 export default Rating;
