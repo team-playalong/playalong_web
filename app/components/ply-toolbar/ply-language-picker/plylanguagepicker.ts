@@ -1,3 +1,4 @@
+import * as angular from 'angular';
 LanguageModalDialogController.$inject = [
   '$mdDialog', '$translate', '$rootScope', 'PlyStorage',
 ];

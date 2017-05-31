@@ -1,3 +1,4 @@
+import * as angular from 'angular';
 const adminWeeklyChart: ng.IComponentOptions = {
   template: `
     <div  class="md-padding" id="adminWeeklyChart"

@@ -1,7 +1,8 @@
+import * as angular from 'angular';
 const viewsPefix = 'app/views';
 
 RouteConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
-function RouteConfig($stateProvider: angular.ui.IStateProvider, $urlRouterProvider) {
+function RouteConfig($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('home', {
       url: '/home',

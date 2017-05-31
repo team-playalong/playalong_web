@@ -1,3 +1,4 @@
+import * as angular from 'angular';
 import topchordsCtrl from './topchords';
 import ChordSearchModel from './chord-search.model';
 import ChordSearchService from './chord-search.service';

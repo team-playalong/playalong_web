@@ -1,3 +1,4 @@
+import * as angular from 'angular';
 import { chordComponent, ChordCtrl } from './chord';
 import { EqualChordsMap, transposer, ChordTranposeMap } from './transposer';
 import ChordModel from './chord.model';

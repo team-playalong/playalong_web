@@ -1,3 +1,4 @@
+import * as angular from 'angular';
 
 resetPassword.$inject = ['login', '$mdDialog'];
 function resetPassword(login, $mdDialog) {

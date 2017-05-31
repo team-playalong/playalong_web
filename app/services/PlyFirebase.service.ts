@@ -26,7 +26,7 @@ function PlyFirebase($firebaseObject) {
 
   if (!apps || !apps.length) {
     initializeApp(config);
-  }
+}
 
   const getRef = (path: string) => database().ref(path);
   const authentication = auth();

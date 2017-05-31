@@ -1,3 +1,4 @@
+import * as angular from 'angular';
 import { weeklyChartCtrl, plyWeeklyChart } from './ply-weekly-chart';
 import WeeklyChart from './weeklyChart.service';
 

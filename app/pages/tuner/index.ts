@@ -1,3 +1,4 @@
+import * as angular from 'angular';
 import './AudioContextMonkeyPatch';
 
 import { TunerCtrl, plyTuner } from './tuner.component';

@@ -1,3 +1,5 @@
+import * as angular from 'angular';
+
 import PlyTooltip from './plytooltip';
 import Common from './common';
 import Toast from './toast';

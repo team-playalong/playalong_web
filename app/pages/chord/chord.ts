@@ -1,11 +1,14 @@
+import * as angular from 'angular';
+
 ChordCtrl.$inject = [
   '$scope', '$rootScope', '$state', 'chords', '$stateParams',
   'Toast', 'login' , 'Common', '$timeout', 'PlyTooltip', 'transposer', '$sce',
-  'EqualChordsMap', 'ChordModel',
+  'EqualChordsMap', 'ChordModel', '$translate',
 ];
 export function ChordCtrl(
   $scope, $rootScope, $state, chords, $stateParams, toast, login, Common, $timeout,
   plyTooltip, transposer, $sce: ng.ISCEService, EqualChordsMap, ChordModel,
+  $translate,
 ) {
   $scope.ChordModel = ChordModel;
   $scope.login = login;
@@ -52,6 +55,20 @@ export function ChordCtrl(
         <img src="guitar-chords/${chordFormatted}.png" height="100" width="85" alt="No chord Available" />
       </div>
     `);
+  };
+
+  $scope.ratingChanged = val => {
+    // Rate chord in the db
+    chords.rateChord($scope.chord.$id || $scope.chord.chordKey, val)
+    .then(() => {
+      $scope.hasRated = true;
+      $scope.chordRating = val;
+      $translate(['chord.RATING_SUCCESS'])
+      .then(translations => {
+        toast.showSimpleToast(translations['chord.RATING_SUCCESS'] || 'Thanks For Rating');
+      });
+
+    });
   };
 
   function addChordImages(chordContent = '') {

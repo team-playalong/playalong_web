@@ -1,4 +1,4 @@
-
+import * as angular from 'angular';
 chords.$inject = ['config', '$q', 'PlyFirebase', '$firebaseObject', 'Common'];
 function chords(config, $q: ng.IQService, PlyFirebase, $firebaseObject, Common) {
   const chordsRef = PlyFirebase.getRef('chords');
