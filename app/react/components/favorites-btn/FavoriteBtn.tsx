@@ -4,59 +4,55 @@ import BtnIcon from '../btn-icon/BtnIcon';
 
 interface FavoriteBtnProps {
   isFavorite: boolean;
+  click?: any;
+}
+
+interface FavoriteBtnState {
+  isFavorite: boolean;
 }
 
 const defaults = {};
+const REMOVE_MESSAGE = 'Remove From Favorites';
+const ADD_MESSAGE = 'Add To Favorites';
+const styles = {
+  fontSize: '25px',
+  color: '#FF4081',
+};
 
-function FavoriteBtn(props) {
-  return (
-    <span>
-      <BtnIcon
-        icon={props.isFavorite ? 'heart' : 'heart-o'}
-      />
-    </span>
-  );
+class FavoriteBtn extends React.Component < FavoriteBtnProps, FavoriteBtnState > {
+  constructor(props) {
+    super(props);
+    this.onFavoritesClicked = this.onFavoritesClicked.bind(this);
+  }
+
+  componentWillMount() {
+    this.setState({
+      isFavorite: !!this.props.isFavorite,
+    });
+  }
+
+  onFavoritesClicked() {
+    this.setState({
+      isFavorite: !this.state.isFavorite,
+    });
+    if (typeof this.props.click === 'function') {
+      this.props.click(this.props.isFavorite);
+    }
+  }
+
+  render() {
+    return (
+      <span style={styles}>
+        <BtnIcon
+          tooltip={this.state.isFavorite ? REMOVE_MESSAGE : ADD_MESSAGE}
+          icon={this.state.isFavorite ? 'heart' : 'heart-o'}
+          click={this.onFavoritesClicked}
+
+        />
+      </span>
+    );
+  }
 }
 
-export const props = ['display', 'isFavorite'];
+export const props = ['isFavorite', 'click'];
 export default FavoriteBtn;
-
-//
-//
-// plyFavoriteBtn.$inject = ['login'];
-// function plyFavoriteBtn(login) {
-//   return {
-//     template: `
-//       <md-button class="md-mini ply-icon-favorites"
-//           ng-click="toggleFavorites()"
-//           aria-label="favorites">
-//
-//         <i class="fa fa-heart" ng-if="isFavorite">
-//           <md-tooltip>{{'favorites.REMOVE_MESSAGE' | translate}}</md-tooltip>
-//         </i>
-//         <i class="fa fa-heart-o" ng-if="!isFavorite">
-//           <md-tooltip>{{'favorites.ADD_MESSAGE' | translate}}</md-tooltip>
-//         </i>
-//         <span hide-sm translate="favorites.PAGE_TITLE"></span>
-//       </md-button>
-//     `,
-//     controller: 'PlyfavoritebtnCtrl',
-//     restrict: 'E',
-//     scope: {
-//       chord: '=',
-//     },
-//     link: function postLink(scope, element) {
-//       if (!login.isLoggedIn()) {
-//         element.css('display', 'none');
-//       }
-//       scope.$on('plyUserLoggedIn', function(){
-//         element.css('display', 'block');
-//       });
-//       scope.$on('plyUserLoggedOut', function() {
-//         element.css('display', 'none');
-//       });
-//     },
-//   };
-// }
-//
-// export default plyFavoriteBtn;

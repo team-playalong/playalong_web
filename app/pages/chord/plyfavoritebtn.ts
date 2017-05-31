@@ -1,20 +1,15 @@
-plyFavoriteBtn.$inject = ['login'];
-function plyFavoriteBtn(login) {
-  return {
-    template: `
-      <favorite-btn
-        ng-if="login.isLoggedIn()"
-        ng-click="toggleFavorites()"
-        isFavorite="isFavorite"
-      >
-      </favorite-btn>
-    `,
-    controller: 'PlyfavoritebtnCtrl',
-    restrict: 'E',
-    scope: {
-      chord: '=',
-    },
-  };
-}
+const plyFavoriteBtn = {
+  template: `
+    <favorite-btn
+      click="$ctrl.toggleFavorites"
+      isFavorite="$ctrl.isFavorite"
+    >
+    </favorite-btn>
+  `,
+  controller: 'PlyfavoritebtnCtrl',
+  bindings: {
+    chord: '<',
+  },
+};
 
 export default plyFavoriteBtn;

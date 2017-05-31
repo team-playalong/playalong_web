@@ -1,29 +1,31 @@
 PlyfavoritebtnCtrl.$inject = ['$scope', 'user', 'login', 'Toast'];
 function PlyfavoritebtnCtrl($scope, user, login, toast) {
+  const $ctrl = this;
+
   function resetValues() {
-    $scope.favorites = undefined;
+    $ctrl.favorites = undefined;
   }
 
-  $scope.toggleFavorites = function() {
+  $ctrl.toggleFavorites = function() {
 
     if (!login.isLoggedIn()) {
       resetValues();
       return;
     }
     const params = {
-      isAddFlag: !$scope.isFavorite,
+      isAddFlag: !$ctrl.isFavorite,
       chordObj: {
-        chordKey: $scope.chord.chordKey,
-        artist: $scope.chord.artist,
-        title: $scope.chord.title,
+        chordKey: $ctrl.chord.chordKey,
+        artist: $ctrl.chord.artist,
+        title: $ctrl.chord.title,
       },
       userKey: login.getUser().userKey,
     };
     user.addRemoveFavorites(params)
     .then(function() {
       let message;
-      $scope.isFavorite = !$scope.isFavorite;
-      if ($scope.isFavorite) {
+      $ctrl.isFavorite = !$ctrl.isFavorite;
+      if ($ctrl.isFavorite) {
         message = 'favorites.ADDED_MESSAGE';
       }
       else {
@@ -35,23 +37,23 @@ function PlyfavoritebtnCtrl($scope, user, login, toast) {
   };
 
   function checkIsFavorite() {
-    user.isChordFavorite(login.getUser().userKey, $scope.chord.$id || $scope.chord.chordKey)
+    user.isChordFavorite(login.getUser().userKey, $ctrl.chord.$id || $ctrl.chord.chordKey)
     .then(function(isFavorite) {
-      $scope.isFavorite = !!isFavorite;
+      $ctrl.isFavorite = !!isFavorite;
     });
   }
   function checkForChord() {
-    if (!$scope.chord) {
+    if (!$ctrl.chord) {
       $scope.$watch('chord', function(newValue) {
       if (!!newValue) {
         newValue.chordKey = newValue.chordKey || newValue.$id;
-        $scope.chord = newValue;
+        $ctrl.chord = newValue;
         checkIsFavorite();
       }
     });
     }
     else {
-      if ($scope.isFavorite === undefined) {
+      if ($ctrl.isFavorite === undefined) {
         checkIsFavorite();
       }
     }
