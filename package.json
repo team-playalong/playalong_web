@@ -127,11 +127,11 @@
       "**/app/react/**/*.test.tsx"
     ],
     "moduleFileExtensions": [
+      "tsx",
       "js",
       "jsx",
       "json",
-      "ts",
-      "tsx"
+      "ts"
     ],
     "moduleDirectories": [
       "node_modules",

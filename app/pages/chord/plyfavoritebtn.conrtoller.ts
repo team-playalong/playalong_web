@@ -2,7 +2,7 @@ PlyfavoritebtnCtrl.$inject = ['$scope', 'user', 'login', 'Toast'];
 function PlyfavoritebtnCtrl($scope, user, login, toast) {
   function resetValues() {
     $scope.favorites = undefined;
-  };
+  }
 
   $scope.toggleFavorites = function() {
 
@@ -39,7 +39,7 @@ function PlyfavoritebtnCtrl($scope, user, login, toast) {
     .then(function(isFavorite) {
       $scope.isFavorite = !!isFavorite;
     });
-  };
+  }
   function checkForChord() {
     if (!$scope.chord) {
       $scope.$watch('chord', function(newValue) {
@@ -55,7 +55,7 @@ function PlyfavoritebtnCtrl($scope, user, login, toast) {
         checkIsFavorite();
       }
     }
-  };
+  }
 
   if (!login.isLoggedIn()) {
     $scope.$on('plyUserLoggedIn', checkForChord);

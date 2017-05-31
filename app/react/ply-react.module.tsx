@@ -4,6 +4,7 @@ import * as angular from 'angular';
 import RadioButtons from './components/radio-buttons/RadioButtons';
 import TextInput from './components/text-input/TextInput';
 import Rating, { props as RatingProps} from './components/rating/Rating';
+import FavoriteBtn, { props as FavoriteBtnProps} from './components/favorites-btn/FavoriteBtn';
 
 function addReactComponent(component) {
   return ['reactDirective', reactDirective => reactDirective(component)];
@@ -20,4 +21,7 @@ angular.module('PlyReact', [
 })
 .directive('rating', function(reactDirective) {
   return reactDirective(Rating, RatingProps);
+})
+.directive('favoriteBtn', function(reactDirective) {
+  return reactDirective(FavoriteBtn, FavoriteBtnProps);
 });
