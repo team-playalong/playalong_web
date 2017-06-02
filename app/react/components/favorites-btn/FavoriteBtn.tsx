@@ -7,11 +7,6 @@ interface FavoriteBtnProps {
   click?: any;
 }
 
-interface FavoriteBtnState {
-  isFavorite: boolean;
-  click: any;
-}
-
 const defaults = {};
 const REMOVE_MESSAGE = 'Song in favorites';
 const ADD_MESSAGE = 'Click to add to favorites';
@@ -20,40 +15,17 @@ const styles = {
   color: '#FF4081',
 };
 
-class FavoriteBtn extends React.Component < FavoriteBtnProps, FavoriteBtnState > {
-  constructor(props) {
-    super(props);
-    this.onFavoritesClicked = this.onFavoritesClicked.bind(this);
-  }
+function FavoriteBtn(props: FavoriteBtnProps) {
+  return (
+    <span style={styles}>
+      <BtnIcon
+        tooltip={props.isFavorite ? REMOVE_MESSAGE : ADD_MESSAGE}
+        icon={props.isFavorite ? 'heart' : 'heart-o'}
+        click={() => props.click(props.isFavorite)}
 
-  componentWillMount() {
-    this.setState({
-      isFavorite: !!this.props.isFavorite,
-    });
-  }
-
-  onFavoritesClicked() {
-    this.setState({
-      isFavorite: !this.state.isFavorite,
-    });
-    if (typeof this.props.click === 'function') {
-      this.props.click(this.props.isFavorite);
-    }
-  }
-
-  render() {
-    return (
-      <span style={styles}>
-        <BtnIcon
-          tooltip={this.props.isFavorite ? REMOVE_MESSAGE : ADD_MESSAGE}
-          icon={this.props.isFavorite ? 'heart' : 'heart-o'}
-          click={() => this.props.click(this.props.isFavorite)}
-
-        />
-      </span>
-    );
-  }
+      />
+    </span>
+  );
 }
-
 export const props = ['isFavorite', 'click'];
 export default FavoriteBtn;
