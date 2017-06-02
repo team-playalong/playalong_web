@@ -10,6 +10,7 @@ const styles = {
     width: '20%',
     display: 'flex',
     'align-items': 'center',
+    'justify-content': 'center',
   },
 };
 const defaults = {
@@ -25,7 +26,7 @@ const defaults = {
 interface AutoScrollProps {
   onSpeedChanged: any;
   speed: number;
-};
+}
 
 class AutoScroll extends React.Component<AutoScrollProps, {}> {
 

@@ -9,11 +9,12 @@ interface FavoriteBtnProps {
 
 interface FavoriteBtnState {
   isFavorite: boolean;
+  click: any;
 }
 
 const defaults = {};
-const REMOVE_MESSAGE = 'Remove From Favorites';
-const ADD_MESSAGE = 'Add To Favorites';
+const REMOVE_MESSAGE = 'Song in favorites';
+const ADD_MESSAGE = 'Click to add to favorites';
 const styles = {
   fontSize: '25px',
   color: '#FF4081',
@@ -44,9 +45,9 @@ class FavoriteBtn extends React.Component < FavoriteBtnProps, FavoriteBtnState >
     return (
       <span style={styles}>
         <BtnIcon
-          tooltip={this.state.isFavorite ? REMOVE_MESSAGE : ADD_MESSAGE}
-          icon={this.state.isFavorite ? 'heart' : 'heart-o'}
-          click={this.onFavoritesClicked}
+          tooltip={this.props.isFavorite ? REMOVE_MESSAGE : ADD_MESSAGE}
+          icon={this.props.isFavorite ? 'heart' : 'heart-o'}
+          click={() => this.props.click(this.props.isFavorite)}
 
         />
       </span>
