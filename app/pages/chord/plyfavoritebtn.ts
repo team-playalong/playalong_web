@@ -2,7 +2,7 @@ const plyFavoriteBtn = {
   template: `
     <favorite-btn
       click="$ctrl.toggleFavorites"
-      isFavorite="$ctrl.isFavorite"
+      is-favorite="$ctrl.isFavorite"
     >
     </favorite-btn>
   `,

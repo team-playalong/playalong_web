@@ -44,7 +44,7 @@ function PlyfavoritebtnCtrl($scope, user, login, toast) {
   }
   function checkForChord() {
     if (!$ctrl.chord) {
-      $scope.$watch('chord', function(newValue) {
+      $scope.$watch(() => $ctrl.chord, function(newValue) {
       if (!!newValue) {
         newValue.chordKey = newValue.chordKey || newValue.$id;
         $ctrl.chord = newValue;
