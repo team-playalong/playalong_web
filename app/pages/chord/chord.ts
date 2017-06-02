@@ -25,7 +25,7 @@ export function ChordCtrl(
     chords.increaseChordHitCount($scope.chord.$id || $scope.chord.chordKey);
     $scope.plyTooltip = plyTooltip;
     $scope.isRtl = Common.isRtlContent($scope.chord.content);
-
+    $scope.chordContentClass = 'ply-chord-container-content';
     $scope.chordFab = {
       topDirections: ['left', 'up'],
       bottomDirections: ['down', 'right'],

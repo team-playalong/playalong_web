@@ -15,8 +15,9 @@
             <md-tooltip md-direction="top">
               {{'chord.FONTSIZE_CHANGE' | translate}}
             </md-tooltip>
-            <text-size-slider element-class="ply-chord-container-content" min="12" max="24" unit="px" step="0">
-            </text-size-slider>
+            <!-- <text-size-slider element-class="ply-chord-container-content" min="12" max="24" unit="px" step="0">
+            </text-size-slider> -->
+            <text-slider element-class="chordContentClass" on-slider-changed="handleSliderChange" size="textSize"></text-slider>
           </div>
           <div flex="40">
             <span ng-if="transposition">
