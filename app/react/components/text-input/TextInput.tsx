@@ -2,6 +2,17 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import TextField from 'material-ui/TextField';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { generateUuid } from '../../helpers/uuid';
+import { invokeIfFunction } from '../../helpers/common';
+
+interface TextInputProps {
+  id?: string;
+  name?: string;
+  label?: string;
+  value: string;
+  placeholder?: string;
+  onChange?: any;
+}
 
 function setErrorText(props) {
   return props.required && !props.value ?
@@ -9,27 +20,37 @@ function setErrorText(props) {
     null;
 }
 
-const TextInput = (props) => {
+const defaultProps = {
+  placeholder: '',
+  name: 'textInput',
+  id: generateUuid(),
+};
+
+function TextInput(props: TextInputProps) {
 
   const handleChange = (e, newValue) => {
-    props.onChange(e.target.value);
+    invokeIfFunction(props.onChange, e.target.value);
   };
 
-  const id = props.id || Date.now();
+  props = Object.assign({}, defaultProps, props);
+
   return (
     <MuiThemeProvider>
       <div>
-        <label htmlFor={id}>{props.label || ''}</label>
+        <label htmlFor={props.id}>{props.label || ''}</label>
         <TextField
-          name={props.name || 'textInput'}
+          id={props.id}
+          name={name}
+          defaultValue={props.value}
           hintText={props.placeholder}
           errorText={setErrorText(props)}
-          value={props.value}
+
           onChange={handleChange}
         />
       </div>
     </MuiThemeProvider>
   );
-};
+}
 
+export const props = [];
 export default TextInput;

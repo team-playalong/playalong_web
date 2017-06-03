@@ -20,5 +20,5 @@ test('TextInput should have a label', () => {
 
 test('TextInput should have a value', () => {
   const input = wrapper.find('TextField').first();
-  expect(input.props().value).toBe(props.value);
+  expect(input.props().defaultValue).toBe(props.value);
 });
