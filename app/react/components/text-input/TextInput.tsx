@@ -2,6 +2,8 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import TextField from 'material-ui/TextField';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import THEME from '../../helpers/theme';
+
 import { generateUuid } from '../../helpers/uuid';
 import { invokeIfFunction } from '../../helpers/common';
 
@@ -24,6 +26,7 @@ const defaultProps = {
   placeholder: '',
   name: 'textInput',
   id: generateUuid(),
+  label: 'Search Here:',
 };
 
 function TextInput(props: TextInputProps) {
@@ -35,16 +38,15 @@ function TextInput(props: TextInputProps) {
   props = Object.assign({}, defaultProps, props);
 
   return (
-    <MuiThemeProvider>
+    <MuiThemeProvider muiTheme={THEME}>
       <div>
-        <label htmlFor={props.id}>{props.label || ''}</label>
+        <label htmlFor={props.id}>{props.label}</label>&nbsp;&nbsp;
         <TextField
           id={props.id}
           name={name}
           defaultValue={props.value}
           hintText={props.placeholder}
           errorText={setErrorText(props)}
-
           onChange={handleChange}
         />
       </div>
@@ -52,5 +54,5 @@ function TextInput(props: TextInputProps) {
   );
 }
 
-export const props = [];
+export const props = ['label', 'placeholder', 'onChange'];
 export default TextInput;

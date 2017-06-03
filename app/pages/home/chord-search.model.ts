@@ -15,6 +15,7 @@ class ChordSearchModel {
     searchInput: '',
   };
   searchInput = {
+    label: 'Search Here...',
     value: '',
     placeholder: 'Enter Text...',
     required: true,

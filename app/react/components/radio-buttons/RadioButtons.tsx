@@ -2,6 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import THEME from '../../helpers/theme';
 
 const RadioButtons = props => {
 
@@ -21,7 +22,7 @@ const RadioButtons = props => {
   });
 
   return (
-    <MuiThemeProvider>
+    <MuiThemeProvider muiTheme={THEME}>
       <div>
         {!!props.legend && <label>{props.legend}</label>}
         <RadioButtonGroup

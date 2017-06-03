@@ -17,7 +17,7 @@ class HomeCtrl {
     public $rootScope, public chords, public $translate,
     public $q, public ChordSearchModel, public ChordSearchService,
   ) {}
-
+  
   $onInit() {
     if (!!window.mixpanel) {
       window.mixpanel.track('ply_page_view_home');
@@ -118,7 +118,7 @@ class HomeCtrl {
 }
 HomeCtrl.$inject = [
   '$rootScope', 'chords', '$translate', '$q', 'ChordSearchModel',
-  'ChordSearchService'
+  'ChordSearchService',
 ];
 
 export { PlyHome, HomeCtrl };
