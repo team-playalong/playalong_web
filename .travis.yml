@@ -6,6 +6,7 @@ before_script:
 script:
 - npm run build
 after_success:
-  - firebase deploy --token $FIREBASE_TOKEN
+- firebase use default
+- firebase deploy --token $FIREBASE_TOKEN
 env:
 - PORT=3000
