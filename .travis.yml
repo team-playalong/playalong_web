@@ -5,10 +5,7 @@ before_script:
 - npm install
 script:
 - npm run build
-deploy:
-  provider: firebase
-  token:
-    secure: "eLMJH5sbCvfThPa+Z1qcYtVRgZd9TBvrHD6fPUe3Pn76AnApuceNdaA30tPxm5bnEm6efzvTU4vaWb+7JZ9CdP/KzMtKB0SHHmi3DptysZBEmgqHe0qBiAWEv7S0fuXhWr+7+DSyzyqOqeKXUIN6WLyqzTK7x0zlE5qtkBqk1h+ifgTqPkWR2aWk9bfFPp6+IzXRSLUDPCOBbvny0yoRqQbcsuy+ssO8DqIyNFbXSz9FR7AEQusFL936HRW26IYPUHUfWH4MuGiSQnzOiaFUfIIeiPfeNkNugZ8enz9EbndU+vODcDDpvvoHc7KEQtsFdHdwJ79knpw83FJJrdabLrsnMsutgHn97Aidv5aSDB3JLkxqB2IjWs67n4AzCcf3H2EpzM6ZnZPlcje/j6uXNcae8YNYOqYJtigr+on7yvH+/H1SXsEBQaZIWFYkIiET6mVjMXP50ZWvoe4mgmhi+0b7rxNuqPoYqug/yAm/YH/Cv6UkBVAtfmw0MqeemkOWOGd6v4aSoczQF1E1i9acWlkmjYSCTfDvktUa6APgEjKnDHpPdKEOJdP5jBr4DsrpkD8K5iTMjYDbO8Bt40MAxe4CKGOjUpJ8XypCCfRKQTy+IjQCwSQr1S91MKhTJ0GJRQObRetrky7osYxB+UeYLJ8GTrNKMIu86O4dwsux54s="
-  project: "playalong-prod"
+after_success:
+  - firebase deploy --token $FIREBASE_TOKEN
 env:
 - PORT=3000
