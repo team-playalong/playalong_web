@@ -79,7 +79,7 @@ function PlyFirebase($firebaseObject) {
           resolve(res);
         });
     });
-  };
+  }
 
   function removeWithQuery(relPath = '', fieldName = '', operator = '', fieldValue = '') {
     fieldName = fieldName.trim();
@@ -102,7 +102,7 @@ function PlyFirebase($firebaseObject) {
         })
         .catch(error => reject(error));
     });
-  };
+  }
 
   function insert(relPath = '', dataObj) {
     return new Promise((resolve, reject) => {
@@ -118,7 +118,7 @@ function PlyFirebase($firebaseObject) {
       }
     });
 
-  };
+  }
 
   function getNode(params) {
     return new Promise((resolve, reject) => {
@@ -139,7 +139,7 @@ function PlyFirebase($firebaseObject) {
           reject({ message: 'Node does not exist', error });
         });
     });
-  };
+  }
 
   function signOut() {
     return authentication.signOut();

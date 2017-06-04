@@ -35,4 +35,5 @@ const RadioButtons = props => {
   );
 };
 
+export const props = ['inputs', 'onRadioChanged'];
 export default RadioButtons;
