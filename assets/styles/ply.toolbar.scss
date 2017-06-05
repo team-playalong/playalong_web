@@ -1,11 +1,16 @@
 @import '_ply.vars.scss';
 
-.ply-avatar-menu {
+.ply-avatar-menu,
+ply-avatar-menu {
 	.login-email-container {
 		height: 150px;
 	}
 	.ply-login-btn {
 		margin-top: 20px;
+	}
+	.ply-topnav-login-btn {
+		height: 60px;
+		width: 60px;
 	}
 	.ply-topnav-login-btn-icon {
 		height: 50px;
