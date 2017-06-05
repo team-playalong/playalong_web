@@ -90,7 +90,7 @@
         <main ui-view class="ply-main-container container"></main>
       </md-content>
     <footer ng-include="'app/views/templates/footer.html'" class="footer">
-      <alert class="ply-alert-container" ng-repeat="alert in allAlerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+      <alert class="ply-alert-container" ng-repeat="alert in allAlerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg || ''}}</alert>
     </footer>
   </div>
     <!-- Customer IO -->

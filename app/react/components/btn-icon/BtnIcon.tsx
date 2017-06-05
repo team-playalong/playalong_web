@@ -29,4 +29,5 @@ function BtnIcon(props: BtnIconProps) {
   );
 }
 
+export const props = ['icon', 'click', 'tooltip'];
 export default BtnIcon;

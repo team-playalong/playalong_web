@@ -6,6 +6,7 @@ interface TextSliderProps {
   onSliderChanged?: any;
   min?: number;
   max?: number;
+  tooltip?: string;
 }
 
 interface TextSliderState {
@@ -13,10 +14,11 @@ interface TextSliderState {
 }
 
 class TextSlider extends React.Component<TextSliderProps, TextSliderState> {
-  defaultProps = {
+  defaultProps: TextSliderProps = {
     min: 12,
     max: 24,
     size: 14,
+    tooltip: 'Change Font Size',
   };
 
   constructor(props) {
@@ -71,6 +73,7 @@ class TextSlider extends React.Component<TextSliderProps, TextSliderState> {
     };
     return (
       <span
+        data-tip={this.props.tooltip}
         className='text-size-slider'
         style={styles.wrapper}>
         <span className='small-letter' style={styles.minValue}>A</span>

@@ -48,12 +48,13 @@ const plyWeeklyChart = {
 						<md-list ng-repeat="song in $ctrl.weeklyChartData.songs | orderBy:'rank'">
 							<div layout="row" layout-wrap layout-align="start center">
 								<span flex="5" layout-padding class="weekly-chart-position-difference">
-
 									<ng-md-icon class="ply-fab-icon" ng-if="song.positionDifference === null || song.positionDifference === undefined" size="30" style="fill: #FFC107;"  icon="wb_sunny"></ng-md-icon>
-									<span ng-if="song.positionDifference !== null && song.positionDifference !== undefined">
-										<md-tooltip md-direction="top">
-											{{song.positionDifference}}
-										</md-tooltip>
+									<span
+										ng-if="song.positionDifference !== null && song.positionDifference !== undefined"
+										data-tip="{{song.positionDifference}}"
+									>
+										<!-- TODO - Remove it. Loading this for tooltip support -->
+										<btn-icon></btn-icon>
 										<ng-md-icon class="ply-fab-icon" ng-if="song.positionDifference < 0" style="fill: #F44336;" size="30" icon="arrow_downward"></ng-md-icon>
 										<ng-md-icon class="ply-fab-icon" ng-if="song.positionDifference > 0" style="fill: #8BC34A;" size="30" icon="arrow_upwards"></ng-md-icon>
 										<ng-md-icon class="ply-fab-icon" ng-if="song.positionDifference === 0"  icon="arrow_forward" style="fill: #FF9800;" size="30"></ng-md-icon>

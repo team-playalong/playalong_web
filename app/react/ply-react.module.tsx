@@ -8,6 +8,7 @@ import Rating, { props as RatingProps} from './components/rating/Rating';
 import FavoriteBtn, { props as FavoriteBtnProps} from './components/favorites-btn/FavoriteBtn';
 import TextSlider, { props as TextSliderProps} from './components/text-slider/TextSlider';
 import Button, { props as ButtonProps} from './components/button/Button';
+import BtnIcon, { props as BtnIconProps} from './components/btn-icon/BtnIcon';
 
 angular.module('PlyReact', [
   'react',
@@ -17,4 +18,5 @@ angular.module('PlyReact', [
 .component('textInput', react2angular(TextInput, TextInputProps as any))
 .component('favoriteBtn', react2angular(FavoriteBtn, FavoriteBtnProps as any))
 .component('textSlider', react2angular(TextSlider, TextSliderProps as any))
-.component('plyButton', react2angular(Button, ButtonProps as any));
+.component('plyButton', react2angular(Button, ButtonProps as any))
+.component('btnIcon', react2angular(BtnIcon, BtnIconProps as any));
