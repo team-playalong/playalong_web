@@ -9,7 +9,7 @@
     "tslint": "tslint './app/**/*.ts' --fix",
     "eslint": "eslint --fix test",
     "deploy": "firebase use default && firebase deploy",
-    "prebuild": "npm i",
+    "prebuild": "npm i && jest",
     "build": "webpack -p --progress --config webpack.config.build.js",
     "ci": "npm run build && npm run deploy",
     "clean": "rm -rf bower_components && rm -rf node_modules && npm cache clean"

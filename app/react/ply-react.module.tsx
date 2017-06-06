@@ -9,6 +9,7 @@ import FavoriteBtn, { props as FavoriteBtnProps} from './components/favorites-bt
 import TextSlider, { props as TextSliderProps} from './components/text-slider/TextSlider';
 import Button, { props as ButtonProps} from './components/button/Button';
 import BtnIcon, { props as BtnIconProps} from './components/btn-icon/BtnIcon';
+import Youtube, { props as YoutubeProps} from './components/youtube/Youtube';
 
 angular.module('PlyReact', [
   'react',
@@ -19,4 +20,5 @@ angular.module('PlyReact', [
 .component('favoriteBtn', react2angular(FavoriteBtn, FavoriteBtnProps as any))
 .component('textSlider', react2angular(TextSlider, TextSliderProps as any))
 .component('plyButton', react2angular(Button, ButtonProps as any))
-.component('btnIcon', react2angular(BtnIcon, BtnIconProps as any));
+.component('btnIcon', react2angular(BtnIcon, BtnIconProps as any))
+.component('plyYoutube', react2angular(Youtube, YoutubeProps as any));

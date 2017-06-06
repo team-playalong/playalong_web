@@ -10,7 +10,6 @@ function MainCtrl($scope, $timeout, $mdSidenav, $mdUtil, paths, $state, login, $
     $rootScope.paths = paths;
     $scope.user = login.getUser();
     $scope.toggleSidebar = $scope.buildToggler('left');
-    $scope.allAlerts = [];
     $scope.mainCtrlConfig = {
       alertTimeout: 3000,
     };
@@ -29,10 +28,6 @@ function MainCtrl($scope, $timeout, $mdSidenav, $mdUtil, paths, $state, login, $
         });
     }, 0);
     return debounceFn;
-  };
-
-  $scope.closeAlert = function(index) {
-    $scope.allAlerts.splice(index, 1);
   };
 
   $rootScope.goToChordPage = function(chord) {

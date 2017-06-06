@@ -53,9 +53,7 @@ import ChordResult from './components/chord-result/chord-result.component';
 
 // Directives
 import plySpinner from './components/ply-spinner/plyspinner';
-import plyYoutube from './components/ply-youtube/ply-youtube.module';
 import compile from './directives/compile';
-import starRating from './directives/star-rating';
 
 // Services
 import PlyFirebase from './services/PlyFirebase.service';
@@ -95,8 +93,6 @@ angular.module('playalongWebApp', [
 ])
 .component('chordResult', ChordResult)
 .directive('plySpinner', plySpinner)
-.directive('starRating', starRating)
-.directive('plyYoutube', plyYoutube)
 .directive('compile', compile)
 .controller('MainCtrl', main)
 .service('PlyFirebase', PlyFirebase)
