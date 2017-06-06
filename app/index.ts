@@ -16,7 +16,6 @@ import 'angular-local-storage';
 import './components/ply-toolbar';
 import './services/ply-utils';
 import './components/ply-sidebar/ply-sidebar.component';
-import './components/text-size-slider/angular-text-slider';
 import './pages/home';
 import './components/ply-form-elements/ply-form-elements.module';
 import './pages/chord';
@@ -88,7 +87,6 @@ angular.module('playalongWebApp', [
   'ui.bootstrap',
   'ngAnimate',
   'LocalStorageModule',
-  'textSizeSlider',
   // 'MetronomeApp',
 ])
 .component('chordResult', ChordResult)
