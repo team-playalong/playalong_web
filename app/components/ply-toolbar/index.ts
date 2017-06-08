@@ -4,7 +4,6 @@ import plyAvatarMenu from './avatar-menu/ply-avatar-menu.component';
 import { PlylanguagepickerCtrl, LanguageModalDialogController } from './ply-language-picker/plylanguagepicker';
 import plyLanguagePickerDirective from './ply-language-picker/plylanguagepicker.component';
 import loginCtrl from './login';
-import plyLogo from './logo';
 
 function plyToolbar() {
   return {
@@ -19,5 +18,4 @@ angular.module('PlyToolbar', [])
 .component('plyAvatarMenu', plyAvatarMenu)
 .controller('PlylanguagepickerCtrl', PlylanguagepickerCtrl)
 .controller('LoginCtrl', loginCtrl)
-.controller('LanguageModalDialogController', LanguageModalDialogController)
-.component('plyLogo', plyLogo);
+.controller('LanguageModalDialogController', LanguageModalDialogController);

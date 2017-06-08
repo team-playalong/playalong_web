@@ -10,6 +10,7 @@ import TextSlider, { props as TextSliderProps} from './components/text-slider/Te
 import Button, { props as ButtonProps} from './components/button/Button';
 import BtnIcon, { props as BtnIconProps} from './components/btn-icon/BtnIcon';
 import Youtube, { props as YoutubeProps} from './components/youtube/Youtube';
+import PlyLogo, { props as PlyLogoProps} from './components/logo/Logo';
 
 angular.module('PlyReact', [
   'react',
@@ -21,4 +22,6 @@ angular.module('PlyReact', [
 .component('textSlider', react2angular(TextSlider, TextSliderProps as any))
 .component('plyButton', react2angular(Button, ButtonProps as any))
 .component('btnIcon', react2angular(BtnIcon, BtnIconProps as any))
-.component('plyYoutube', react2angular(Youtube, YoutubeProps as any));
+.component('plyYoutube', react2angular(Youtube, YoutubeProps as any))
+.component('plyLogo', react2angular(PlyLogo, PlyLogoProps as any))
+;
