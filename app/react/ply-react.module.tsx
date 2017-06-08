@@ -22,6 +22,7 @@ angular.module('PlyReact', [
 .component('textSlider', react2angular(TextSlider, TextSliderProps as any))
 .component('plyButton', react2angular(Button, ButtonProps as any))
 .component('btnIcon', react2angular(BtnIcon, BtnIconProps as any))
+.component('plyBtnIcon', react2angular(BtnIcon, BtnIconProps as any))
 .component('plyYoutube', react2angular(Youtube, YoutubeProps as any))
 .component('plyLogo', react2angular(PlyLogo, PlyLogoProps as any))
 ;

@@ -26,6 +26,7 @@ export function LanguageModalDialogController($mdDialog, $translate, $rootScope,
         dir: locale === 'he' ? 'rtl' : 'ltr',
         locale,
       };
+      $rootScope.$broadcast('ply_dirChanged');
     }
     vm.cancel();
   };

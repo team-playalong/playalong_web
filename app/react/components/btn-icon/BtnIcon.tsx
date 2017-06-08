@@ -7,13 +7,20 @@ interface BtnIconProps {
   icon: string;
   click?: any;
   tooltip?: string;
+  size?: string;
 }
 
 const styles = {
   cursor: 'pointer',
+  padding: '5px',
+  verticalAlign: 'middle',
+  fontSize: 'initial',
 };
 
 function BtnIcon(props: BtnIconProps) {
+  if (props.size) {
+    styles.fontSize = props.size + 'px';
+  }
 
   return (
     <span>
@@ -29,5 +36,5 @@ function BtnIcon(props: BtnIconProps) {
   );
 }
 
-export const props = ['icon', 'click', 'tooltip'];
+export const props = ['icon', 'click', 'tooltip', 'size'];
 export default BtnIcon;

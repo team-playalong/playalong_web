@@ -9,7 +9,7 @@ function MainCtrl($scope, $timeout, $mdSidenav, $mdUtil, paths, $state, login, $
 
     $rootScope.paths = paths;
     $scope.user = login.getUser();
-    $scope.toggleSidebar = $scope.buildToggler('left');
+    $rootScope.toggleSidebar = $scope.buildToggler('left');
     $scope.mainCtrlConfig = {
       alertTimeout: 3000,
     };
