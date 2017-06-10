@@ -2,6 +2,9 @@ import 'ngreact';
 import * as angular from 'angular';
 import { react2angular } from 'react2angular';
 
+// Modules
+import './components/styled';
+
 import RadioButtons, { props as RadioButtonsProps } from './components/radio-buttons/RadioButtons';
 import TextInput, { props as TextInputProps } from './components/text-input/TextInput';
 import Rating, { props as RatingProps} from './components/rating/Rating';
@@ -14,6 +17,7 @@ import PlyLogo, { props as PlyLogoProps} from './components/logo/Logo';
 
 angular.module('PlyReact', [
   'react',
+  'PlyStyled',
 ])
 .component('rating', react2angular(Rating, RatingProps as any))
 .component('radioButtons', react2angular(RadioButtons, RadioButtonsProps as any))
