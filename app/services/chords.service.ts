@@ -56,9 +56,8 @@ function chords(config, $q: ng.IQService, PlyFirebase, $firebaseObject, Common) 
   }
 
   function searchChordsBy(searchBy, searchText) {
-    console.log(`Searching ${searchBy} by ${searchText}`);
     return new Promise((resolve, reject) => {
-      //TODO - data validation
+      // TODO - data validation
       chordsRef
       .orderByChild(searchBy)
       .startAt(searchText)

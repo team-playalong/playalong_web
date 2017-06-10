@@ -51,7 +51,6 @@ import main from './main';
 import ChordResult from './components/chord-result/chord-result.component';
 
 // Directives
-import plySpinner from './components/ply-spinner/plyspinner';
 import compile from './directives/compile';
 
 // Services
@@ -60,6 +59,7 @@ import customerIoHelper from './services/customeriohelper';
 import loginSrv from './services/login.service';
 import chords from './services/chords.service';
 import PlyNotifier from './services/ply-notifier.service';
+import Spinner from './services/spinner.service';
 
 import user from './services/user.service';
 
@@ -90,7 +90,6 @@ angular.module('playalongWebApp', [
   // 'MetronomeApp',
 ])
 .component('chordResult', ChordResult)
-.directive('plySpinner', plySpinner)
 .directive('compile', compile)
 .controller('MainCtrl', main)
 .service('PlyFirebase', PlyFirebase)
@@ -99,6 +98,7 @@ angular.module('playalongWebApp', [
 .service('customerIoHelper', customerIoHelper)
 .service('chords', chords)
 .service('PlyNotifier', PlyNotifier)
+.service('Spinner', Spinner)
 .constant('paths', paths)
 .constant('Facebook', Facebook)
 .constant('config', config)

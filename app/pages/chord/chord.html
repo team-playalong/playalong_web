@@ -48,7 +48,7 @@
           <img src="{{chord.imagePath}}" alt="no image">
         </figure>
         <div class="ply-spinner-wrapper">
-          <ply-spinner trigger-start-event="startChordSpinner" trigger-stop-event="stopChordSpinner"></ply-spinner>
+          <ply-spinner is-active="isChordSpinnerActive"></ply-spinner>
 
           <div ng-show="chordContent" class="ply-chord-container-content direction-initial" compile="chordContent"></div>
         </div>

@@ -100,16 +100,16 @@ export function ChordCtrl(
   }
   else {
     if (!$scope.chord || !$scope.chord.content) { // After refresh
-      $rootScope.startSpin();
+      $scope.isChordSpinnerActive = true;
       chords.getChordById({ chordId: $stateParams.chordKey })
       .then(result => {
         if (result) {
           $scope.chord = result;
           $scope.initCtrl();
-          $rootScope.stopSpin();
         }
       })
-      .catch($rootScope.stopSpin);
+      .catch($rootScope.stopSpin)
+      .then(() => $scope.isChordSpinnerActive = false);
     }
     else {
       $scope.initCtrl();

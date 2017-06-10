@@ -1,5 +1,5 @@
-weeklyChartCtrl.$inject = ['WeeklyChart', '$rootScope'];
-function weeklyChartCtrl(WeeklyChart, $rootScope) {
+weeklyChartCtrl.$inject = ['WeeklyChart', '$rootScope', 'Spinner'];
+function weeklyChartCtrl(WeeklyChart, $rootScope, Spinner) {
 	const $ctrl = this;
 
 	$ctrl.buildSubheaderMessage = weeklyChartData => {
@@ -23,14 +23,14 @@ function weeklyChartCtrl(WeeklyChart, $rootScope) {
 	};
 
 	$ctrl.$onInit = () => {
-		$rootScope.startSpin();
+		Spinner.start();
 		$rootScope.currPage = 'weeklyChart.PAGE_TITLE';
 		WeeklyChart.getLatestChart()
 		.then(result => {
 			$ctrl.weeklyChartData = $ctrl.formatData(result);
-			$rootScope.stopSpin();
+			Spinner.stop();
 		})
-		.catch(error => $rootScope.stopSpin());
+		.catch(Spinner.stop);
 	};
 }
 

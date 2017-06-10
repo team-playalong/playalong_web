@@ -8,7 +8,7 @@ const plyToolbar = {
 
 class ToolbarCtrl {
   static $inject = ['$rootScope'];
-  private setBackArrow = () => getNestedProperty(this, '$rootScope.app.dir') === 'rtl' ? 'arrow-left' : 'arrow-right';
+  private setBackArrow = () => getNestedProperty(this, '$rootScope.app.dir') === 'rtl' ? 'arrow-right' : 'arrow-left';
 
   menu = {
     icon: 'bars',

@@ -1,7 +1,8 @@
 import './config/config.constants';
 
-function MainCtrl($scope, $timeout, $mdSidenav, $mdUtil, paths, $state, login, $rootScope) {
+function MainCtrl($scope, $timeout, $mdSidenav, $mdUtil, paths, $state, login, $rootScope, Spinner) {
   $scope.Math = Math;
+  $scope.Spinner = Spinner;
   $scope.initCtrl = function() {
     if (!!window.mixpanel) {
       window.mixpanel.track('ply_page_load');
@@ -41,13 +42,6 @@ function MainCtrl($scope, $timeout, $mdSidenav, $mdUtil, paths, $state, login, $
 
   };
 
-  $rootScope.startSpin = function(eventName) {
-    $scope.$broadcast(eventName || 'startSpin');
-  };
-  $rootScope.stopSpin = function(eventName) {
-    $scope.$broadcast(eventName || 'stopSpin');
-  };
-
   $rootScope.$on('plyUserLoggedIn', (scope, data) => {
     if (window.ga && data && data.uid) {
       window.ga('set', 'userId', `data.uid_${data.firstName}_${data.lastName}`); // Set the user ID using signed-in user_id.
@@ -58,7 +52,7 @@ function MainCtrl($scope, $timeout, $mdSidenav, $mdUtil, paths, $state, login, $
 }
 MainCtrl.$inject = [
     '$scope', '$timeout', '$mdSidenav', '$mdUtil',
-    'paths', '$state', 'login', '$rootScope',
+    'paths', '$state', 'login', '$rootScope', 'Spinner',
   ];
 
 export default MainCtrl;

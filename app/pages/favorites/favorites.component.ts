@@ -39,9 +39,9 @@ const PlyFavorites = {
 };
 
 FavoritesCtrl.$inject = [
-	'login', 'user', '$rootScope', '$scope', 'Toast',
+	'login', 'user', '$rootScope', '$scope', 'Toast', 'Spinner',
 ];
-function FavoritesCtrl(login, user, $rootScope, $scope, toast) {
+function FavoritesCtrl(login, user, $rootScope, $scope, toast, Spinner) {
   const vm = this;
   if (!!window.mixpanel) {
     window.mixpanel.track('ply_page_view_favorites');
@@ -71,15 +71,15 @@ function FavoritesCtrl(login, user, $rootScope, $scope, toast) {
     vm.favorites = null;
 		vm.userModel = login.getUser();
 		if (vm.userModel && vm.userModel.userKey) {
-			$rootScope.startSpin();
+			Spinner.start();
 			user.getFavorites(vm.userModel.userKey)
   		.then(function(data) {
   			if (data) {
   				vm.favorites = data;
   			}
-        $rootScope.stopSpin();
+        Spinner.stop();
   		})
-        .catch($rootScope.stopSpin);
+      .catch(Spinner.stop);
 		}
 
 	};

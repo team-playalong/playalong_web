@@ -83,7 +83,7 @@
         layout="column" class="ply-app"
         id="plyApp"
         ng-class="{'hebrew-sans': app.dir === 'rtl'}">
-    <ply-spinner id="plyMainSpinner" trigger-start-event="startSpin" trigger-stop-event="stopSpin"></ply-spinner>
+    <ply-spinner is-active="Spinner.isSpinnerActive"></ply-spinner>
     <ply-sidebar></ply-sidebar>
     <ply-toolbar></ply-toolbar>
       <md-content id="plyContent" flex>

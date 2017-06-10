@@ -14,6 +14,7 @@ import Button, { props as ButtonProps} from './components/button/Button';
 import BtnIcon, { props as BtnIconProps} from './components/btn-icon/BtnIcon';
 import Youtube, { props as YoutubeProps} from './components/youtube/Youtube';
 import PlyLogo, { props as PlyLogoProps} from './components/logo/Logo';
+import PlySpinner, { props as PlySpinnerProps} from './components/spinner/Spinner';
 
 angular.module('PlyReact', [
   'react',
@@ -29,4 +30,5 @@ angular.module('PlyReact', [
 .component('plyBtnIcon', react2angular(BtnIcon, BtnIconProps as any))
 .component('plyYoutube', react2angular(Youtube, YoutubeProps as any))
 .component('plyLogo', react2angular(PlyLogo, PlyLogoProps as any))
+.component('plySpinner', react2angular(PlySpinner, PlySpinnerProps as any))
 ;
