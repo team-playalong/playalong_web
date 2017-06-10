@@ -15,6 +15,7 @@ module.exports = {
     vendor: [
       'jquery',
       'lodash',
+      'react-hot-loader/patch',
     ],
     bundle: path.join(dirApp, 'index'),
   },
@@ -48,13 +49,17 @@ module.exports = {
       title: 'Playalong',
       env: process.env.NODE_ENV,
     }),
+    new webpack.HotModuleReplacementPlugin(), // Enable HMR
   ],
+  devServer: {
+    hot: true,
+  },
   module: {
     rules: [
       // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
-     {
+      {
         test: /\.tsx?$/,
-        loader: 'ts-loader',
+        loaders: ['react-hot-loader/webpack', 'ts-loader'],
         exclude: /(node_modules)/,
       },
       // STYLES
