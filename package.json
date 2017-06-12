@@ -31,7 +31,7 @@
     "cssnext": "^1.8.4",
     "ejs-loader": "^0.3.0",
     "enzyme": "^2.8.2",
-    "eslint": "^3.0.0",
+    "eslint": "^4.0.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jasmine": "^2.2.0",
