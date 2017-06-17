@@ -136,7 +136,7 @@ function PlyFirebase($firebaseObject) {
 
         })
         .catch(error => {
-          reject({ message: 'Node does not exist', error });
+          reject({ error, message: 'Node does not exist' });
         });
     });
   }
@@ -147,8 +147,6 @@ function PlyFirebase($firebaseObject) {
 
   return {
     authentication,
-    googleProvider: new auth.GoogleAuthProvider(),
-    facebookProvider: new auth.FacebookAuthProvider(),
     getRef,
     insert,
     selectSimpleQuery,
@@ -156,6 +154,8 @@ function PlyFirebase($firebaseObject) {
     signOut,
     getNode,
     selecteByAggregate,
+    googleProvider: new auth.GoogleAuthProvider(),
+    facebookProvider: new auth.FacebookAuthProvider(),
   };
 }
 

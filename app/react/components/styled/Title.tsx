@@ -12,7 +12,7 @@ interface PlyTitleProps {
 }
 
 // class TextSlider extends React.Component<TextSliderProps, TextSliderState> {
-const PlyTitle: React.StatelessComponent<{}> = (props: PlyTitleProps) => {
+const PlyTitle = props => {
   return (
     <TitleComp>{props.text}</TitleComp>
   );

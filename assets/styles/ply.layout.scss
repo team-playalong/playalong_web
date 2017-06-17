@@ -1,13 +1,1 @@
 @import 'ply.vars';
-
-@media (max-width: $ply-small-screen - 1) {
-	[hide-sm] {
-		display: none;
-	}
-}
-
-@media (min-width: $ply-small-screen + 1) {
-	[hide-gt-sm] {
-		display: none;
-	}
-}

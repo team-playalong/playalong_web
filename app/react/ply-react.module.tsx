@@ -5,16 +5,16 @@ import { react2angular } from 'react2angular';
 // Modules
 import './components/styled';
 
-import RadioButtons, { props as RadioButtonsProps } from './components/radio-buttons/RadioButtons';
-import TextInput, { props as TextInputProps } from './components/text-input/TextInput';
-import Rating, { props as RatingProps} from './components/rating/Rating';
+import RadioButtons, { props as RadioButtonsProps } from 'playalong-components/components/RadioButtons';
+import TextInput, { props as TextInputProps } from 'playalong-components/components/TextInput';
+import Rating, { props as RatingProps} from 'playalong-components/components/Rating';
 import FavoriteBtn, { props as FavoriteBtnProps} from './components/favorites-btn/FavoriteBtn';
-import TextSlider, { props as TextSliderProps} from './components/text-slider/TextSlider';
-import Button, { props as ButtonProps} from './components/button/Button';
+import TextSlider, { props as TextSliderProps} from 'playalong-components/components/TextSlider';
+import Button, { props as ButtonProps} from 'playalong-components/components/Button';
 import BtnIcon, { props as BtnIconProps} from './components/btn-icon/BtnIcon';
-import Youtube, { props as YoutubeProps} from './components/youtube/Youtube';
+import Youtube, { props as YoutubeProps} from 'playalong-components/components/Youtube';
 import PlyLogo, { props as PlyLogoProps} from './components/logo/Logo';
-import PlySpinner, { props as PlySpinnerProps} from './components/spinner/Spinner';
+import PlySpinner, { props as PlySpinnerProps} from 'playalong-components/components/Spinner';
 
 angular.module('PlyReact', [
   'react',
