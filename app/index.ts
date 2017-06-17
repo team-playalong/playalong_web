@@ -17,7 +17,6 @@ import './components/ply-toolbar';
 import './services/ply-utils';
 import './components/ply-sidebar/ply-sidebar.component';
 import './pages/home';
-import './components/ply-form-elements/ply-form-elements.module';
 import './pages/chord';
 import './pages/ply-weekly-chart';
 import './pages/builder';
@@ -82,7 +81,6 @@ angular.module('playalongWebApp', [
 
   'PlyReact',
 
-  'plyFormElements',
   'ngMdIcons',
   'ui.bootstrap',
   'ngAnimate',

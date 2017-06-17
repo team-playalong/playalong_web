@@ -4,10 +4,8 @@ import { EqualChordsMap, transposer, ChordTranposeMap } from './transposer';
 import ChordModel from './chord.model';
 import plyFavoriteBtn from './plyfavoritebtn';
 import PlyfavoritebtnCtrl from './plyfavoritebtn.conrtoller';
-import '../../components/ply-autoscroll';
 
 angular.module('PlyChord', [
-  'PlyAutoscroll',
 ])
 .controller('ChordCtrl', ChordCtrl)
 .controller('PlyfavoritebtnCtrl', PlyfavoritebtnCtrl)

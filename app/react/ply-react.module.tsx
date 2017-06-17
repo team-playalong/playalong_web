@@ -15,6 +15,7 @@ import BtnIcon, { props as BtnIconProps} from './components/btn-icon/BtnIcon';
 import Youtube, { props as YoutubeProps} from 'playalong-components/components/Youtube';
 import PlyLogo, { props as PlyLogoProps} from './components/logo/Logo';
 import PlySpinner, { props as PlySpinnerProps} from 'playalong-components/components/Spinner';
+import AutoScroll, { props as AutoScrollProps } from 'playalong-components/components/AutoScroll';
 
 angular.module('PlyReact', [
   'react',
@@ -31,4 +32,5 @@ angular.module('PlyReact', [
 .component('plyYoutube', react2angular(Youtube, YoutubeProps as any))
 .component('plyLogo', react2angular(PlyLogo, PlyLogoProps as any))
 .component('plySpinner', react2angular(PlySpinner, PlySpinnerProps as any))
+.component('plyAutoScroll', react2angular(AutoScroll, AutoScrollProps as any))
 ;

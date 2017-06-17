@@ -5206,6 +5206,10 @@ jquery-ui@^1.12.1:
   version "1.12.1"
   resolved "https://registry.yarnpkg.com/jquery-ui/-/jquery-ui-1.12.1.tgz#bcb4045c8dd0539c134bc1488cdd3e768a7a9e51"
 
+jquery@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
+
 jquery@~3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.1.1.tgz#347c1c21c7e004115e0a4da32cece041fad3c8a3"
@@ -7026,19 +7030,23 @@ pkginfo@0.4.0, pkginfo@0.x.x:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/pkginfo/-/pkginfo-0.4.0.tgz#349dbb7ffd38081fcadc0853df687f0c7744cd65"
 
-playalong-components@^0.3.5:
-  version "0.3.5"
-  resolved "https://registry.yarnpkg.com/playalong-components/-/playalong-components-0.3.5.tgz#d711dbf522d8459d11f4cffc629b57dec766b9cf"
+playalong-components@^0.3.6:
+  version "0.3.6"
+  resolved "https://registry.yarnpkg.com/playalong-components/-/playalong-components-0.3.6.tgz#02b6a87e26530c5ef9c680ad01c139ecdf53d8cc"
   dependencies:
     chokidar "^1.7.0"
     font-awesome "^4.7.0"
+    jquery "^3.2.1"
+    jquery-ui "^1.12.1"
     material-ui "^0.18.3"
     npm-run-all "^4.0.2"
     react "^15.5.4"
     react-docgen "^2.15.0"
     react-dom "^15.5.4"
     react-fontawesome "^1.6.1"
+    react-svg-gauge "^1.0.4"
     react-tap-event-plugin "^2.0.1"
+    react-tooltip "^3.3.0"
     styled-components "^2.0.1"
 
 pleeease-filters@^1.0.0:
