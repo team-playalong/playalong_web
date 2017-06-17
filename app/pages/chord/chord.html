@@ -1,14 +1,8 @@
 <div  class="md-padding" id="chord" ng-cloak
       translate-namespace="chord">
     <md-card  layout-padding layout-align="center"
-              autoscroll speed="{{ChordModel.autoScroll.speed}}"
               ng-class="{'text-align-right' : isRtl}">
-      <react-component
-        hide-sm
-        name="AutoScroll"
-        class="ply-autoscroll"
-        props="ChordModel.autoScroll"
-     />
+      <ply-auto-scroll></ply-auto-scroll>
       <md-card-content class="ply-chord-container">
         <div layout="row" layout-align="{{!!isRtl ? 'end' : 'start'}} center">
           <div flex="30">
