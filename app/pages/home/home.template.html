@@ -13,7 +13,7 @@
               >
               </radio-buttons>
             </div>
-            <div flex-sm="100" flex-gt-sm="60">
+            <div flex="60">
               <text-input
                 label="home.ChordSearchModel.searchInput.label"
                 placeholder="home.ChordSearchModel.searchInput.placeholder"
@@ -21,7 +21,7 @@
               >
               </text-input>
             </div>
-            <div flex hide-gt-sm>
+            <div flex hide-sm>
               <ply-button
                 label="'Go'"
                 click="home.searchChords"
@@ -29,8 +29,8 @@
               <ply-button>
             </div>
           </div>
-          <div layout="row" layout-align="center left" hide-sm>
-            <ply-button
+          <div layout="row" layout-align="center left" hide-gt-sm>
+            <ply-button flex
               label="'Go'"
               click="home.searchChords"
             >
