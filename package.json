@@ -64,7 +64,7 @@
     "sass-loader": "^6.0.3",
     "serve": "^5.1.5",
     "static": "^2.0.0",
-    "style-loader": "^0.17.0",
+    "style-loader": "^0.18.0",
     "ts-jest": "^20.0.4",
     "ts-loader": "^2.0.3",
     "tslint": "^5.4.2",
