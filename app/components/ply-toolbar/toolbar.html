@@ -1,20 +1,25 @@
 <md-toolbar class="ply-topnav" translate-cloak
             translate-namespace="toolbar">
-  <div class="md-toolbar-tools" layout="row" layout-align="center">
+  <div class="md-toolbar-tools" layout="row" layout-align="center center">
     <div flex="60" class="ply-ellipsis">
-      <md-button class="md-icon-button" aria-label="Settings">
-        <ng-md-icon ng-click="toggleSidebar()" icon="menu" size="30"></ng-md-icon>
-      </md-button>
-
+      <ply-btn-icon
+        icon="$ctrl.menu.icon"
+        click="$ctrl.menu.click"
+        size="30"
+      >
+      </ply-btn-icon>
       <span class="clickable" ui-sref="home">
         <ply-logo></ply-logo>
-        <!-- <img ng-src="{{paths.images.logo}}" class="ply-logo" alt="Playalong" /> -->
-
       </span>
-      <ng-md-icon hide-sm class="ply-topnav-back clickable" layout-align="center center" onclick="history.back()" icon="{{$root.app.dir === 'rtl' ? 'arrow_forward' : 'arrow_back'}}" size="30"></ng-md-icon>
+      <ply-btn-icon
+        icon="$ctrl.back.icon"
+        click="$ctrl.back.click"
+        size="25"
+      >
+      </ply-btn-icon>
       <span hide-sm class="ply-ellipsis">
         <span translate=".APP_NAME"></span>
-        <span>| {{currPage | translate}}</span>
+        <span>| {{$root.currPage | translate}}</span>
       </span>
     </div>
 
@@ -26,6 +31,6 @@
       <ply-avatar-menu></ply-avatar-menu>
 
     </div>
-    <ply-language-picker flex="5"></ply-language-picker>
+    <!-- <ply-language-picker flex="5"></ply-language-picker> -->
   </div>
 </md-toolbar>

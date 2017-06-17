@@ -30,7 +30,7 @@
 		      text-input-model="ctrl.password">
 		    </ply-text-input>
 			</div>
-			<div flex="1" layout-align="center center" >
+			<div flex="1" layout-align="center center">
 				<md-button
 					class="md-raised md-hue-1 ply-login-btn"
 				  ng-click="ctrl.loginEmail(ctrl.email, ctrl.password)"
@@ -57,17 +57,21 @@
 		<div ng-if="!ctrl.login.isLoggedIn()" layout="row" layout-padding flex="1">
   		<span flex="20" class="ply-topnav-login-title" translate=".LOGIN_WITH"></span>
   		<span flex="1" layout-align="start start">
-	  		<md-button class="md-icon-button ply-topnav-login-btn"
-	  		            aria-label="Google"
-	  		            ng-click="ctrl.loginSocial('google')">
-	  		  <md-tooltip md-direction="down">Google</md-tooltip>
+	  		<md-button
+					class="md-icon-button ply-topnav-login-btn"
+	  		  aria-label="Google"
+	  		  ng-click="ctrl.loginSocial('google')"
+					data-tip="Google"
+				>
 	  		  <img src="assets/images/social-circle-google-plus.svg" class="ply-topnav-login-btn-icon" alt="Google Plus" />
 	  		</md-button>
-	  		<md-button  class="md-icon-button ply-topnav-login-btn"
-	  		            aria-label="Facebook"
-	  		            ng-click="ctrl.loginSocial('facebook')">
-	  		  <md-tooltip md-direction="down" >Facebook</md-tooltip>
-	  		    <img src="assets/images/social-facebook-circle.svg" class="ply-topnav-login-btn-icon" alt="Facebook" />
+	  		<md-button
+					class="md-icon-button ply-topnav-login-btn"
+	  		  aria-label="Facebook"
+	  		  ng-click="ctrl.loginSocial('facebook')"
+					data-tip="Facebook"
+				>
+		    	<img src="assets/images/social-facebook-circle.svg" class="ply-topnav-login-btn-icon" alt="Facebook" />
 	  		</md-button>
 
   		</span>

@@ -1,11 +1,14 @@
+import * as angular from 'angular';
+
 ChordCtrl.$inject = [
   '$scope', '$rootScope', '$state', 'chords', '$stateParams',
   'Toast', 'login' , 'Common', '$timeout', 'PlyTooltip', 'transposer', '$sce',
-  'EqualChordsMap', 'ChordModel',
+  'EqualChordsMap', 'ChordModel', '$translate',
 ];
 export function ChordCtrl(
   $scope, $rootScope, $state, chords, $stateParams, toast, login, Common, $timeout,
   plyTooltip, transposer, $sce: ng.ISCEService, EqualChordsMap, ChordModel,
+  $translate,
 ) {
   $scope.ChordModel = ChordModel;
   $scope.login = login;
@@ -22,7 +25,7 @@ export function ChordCtrl(
     chords.increaseChordHitCount($scope.chord.$id || $scope.chord.chordKey);
     $scope.plyTooltip = plyTooltip;
     $scope.isRtl = Common.isRtlContent($scope.chord.content);
-
+    $scope.chordContentClass = 'ply-chord-container-content';
     $scope.chordFab = {
       topDirections: ['left', 'up'],
       bottomDirections: ['down', 'right'],
@@ -54,6 +57,20 @@ export function ChordCtrl(
     `);
   };
 
+  $scope.ratingChanged = val => {
+    // Rate chord in the db
+    chords.rateChord($scope.chord.$id || $scope.chord.chordKey, val)
+    .then(() => {
+      $scope.hasRated = true;
+      $scope.chordRating = val;
+      $translate(['chord.RATING_SUCCESS'])
+      .then(translations => {
+        toast.showSimpleToast(translations['chord.RATING_SUCCESS'] || 'Thanks For Rating');
+      });
+
+    });
+  };
+
   function addChordImages(chordContent = '') {
     let newChordContent = chordContent;
     const regex = /(<span class="chord">)([^<]+)(<\/span>)/g;
@@ -83,16 +100,16 @@ export function ChordCtrl(
   }
   else {
     if (!$scope.chord || !$scope.chord.content) { // After refresh
-      $rootScope.startSpin();
+      $scope.isChordSpinnerActive = true;
       chords.getChordById({ chordId: $stateParams.chordKey })
       .then(result => {
         if (result) {
           $scope.chord = result;
           $scope.initCtrl();
-          $rootScope.stopSpin();
         }
       })
-      .catch($rootScope.stopSpin);
+      .catch($rootScope.stopSpin)
+      .then(() => $scope.isChordSpinnerActive = false);
     }
     else {
       $scope.initCtrl();

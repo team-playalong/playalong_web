@@ -1,3 +1,4 @@
+import * as angular from 'angular';
 import { chordComponent, ChordCtrl } from './chord';
 import { EqualChordsMap, transposer, ChordTranposeMap } from './transposer';
 import ChordModel from './chord.model';
@@ -14,5 +15,5 @@ angular.module('PlyChord', [
 .constant('ChordTranposeMap', ChordTranposeMap)
 .service('ChordModel', ChordModel)
 .service('transposer', transposer)
-.directive('plyFavoriteBtn', plyFavoriteBtn)
+.component('plyFavoriteBtn', plyFavoriteBtn)
 .component('plyChord', chordComponent);

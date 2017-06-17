@@ -5,10 +5,8 @@ before_script:
 - npm install
 script:
 - npm run build
-deploy:
-  provider: firebase
-  token:
-    secure: "1/ek8_98cIzBsacDuVqmndzXx6UVTSBjsahNxYjpboLx8MEudVrK5jSpoR30zcRFq6"
-  project: "default"
+after_success:
+- firebase use default
+- firebase deploy --token $FIREBASE_TOKEN
 env:
 - PORT=3000

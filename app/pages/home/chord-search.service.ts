@@ -5,6 +5,7 @@ class ChordSearchService {
 
   public onRadioChanged = newVal => this.ChordSearchModel.setSearchBy(newVal);
   public onSearchInputChanged = newVal => this.ChordSearchModel.setSearchInput(newVal);
-};
+}
+ChordSearchService.$inject = ['ChordSearchModel'];
 
 export default ChordSearchService;

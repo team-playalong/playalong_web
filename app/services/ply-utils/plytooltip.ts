@@ -1,5 +1,4 @@
-'use strict';
-
+import * as angular from 'angular';
 /**
  * @ngdoc service
  * @name playalongWebApp.plyTooltip

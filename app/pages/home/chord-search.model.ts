@@ -7,7 +7,7 @@ class ChordSearchModel {
     {
       label: 'Title',
       value: 'title',
-    }
+    },
   ];
 
   searchConfig = {
@@ -15,7 +15,8 @@ class ChordSearchModel {
     searchInput: '',
   };
   searchInput = {
-    value: 'asd',
+    label: 'Search Here...',
+    value: '',
     placeholder: 'Enter Text...',
     required: true,
   };
@@ -29,11 +30,6 @@ class ChordSearchModel {
   //   onRadioChanged:
   //   onSearchInputChanged: () => {},
   // };
-
-  //
-
-  //
-  //
-};
+}
 
 export default ChordSearchModel;

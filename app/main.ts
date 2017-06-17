@@ -1,7 +1,8 @@
 import './config/config.constants';
 
-function MainCtrl($scope, $timeout, $mdSidenav, $mdUtil, paths, $state, login, $rootScope) {
+function MainCtrl($scope, $timeout, $mdSidenav, $mdUtil, paths, $state, login, $rootScope, Spinner) {
   $scope.Math = Math;
+  $scope.Spinner = Spinner;
   $scope.initCtrl = function() {
     if (!!window.mixpanel) {
       window.mixpanel.track('ply_page_load');
@@ -9,8 +10,7 @@ function MainCtrl($scope, $timeout, $mdSidenav, $mdUtil, paths, $state, login, $
 
     $rootScope.paths = paths;
     $scope.user = login.getUser();
-    $scope.toggleSidebar = $scope.buildToggler('left');
-    $scope.allAlerts = [];
+    $rootScope.toggleSidebar = $scope.buildToggler('left');
     $scope.mainCtrlConfig = {
       alertTimeout: 3000,
     };
@@ -31,10 +31,6 @@ function MainCtrl($scope, $timeout, $mdSidenav, $mdUtil, paths, $state, login, $
     return debounceFn;
   };
 
-  $scope.closeAlert = function(index) {
-    $scope.allAlerts.splice(index, 1);
-  };
-
   $rootScope.goToChordPage = function(chord) {
     if (typeof chord === 'object') {
       $scope.chord = chord;
@@ -44,13 +40,6 @@ function MainCtrl($scope, $timeout, $mdSidenav, $mdUtil, paths, $state, login, $
       $state.go('chord', { chordKey: chord });
     }
 
-  };
-
-  $rootScope.startSpin = function(eventName) {
-    $scope.$broadcast(eventName || 'startSpin');
-  };
-  $rootScope.stopSpin = function(eventName) {
-    $scope.$broadcast(eventName || 'stopSpin');
   };
 
   $rootScope.$on('plyUserLoggedIn', (scope, data) => {
@@ -63,7 +52,7 @@ function MainCtrl($scope, $timeout, $mdSidenav, $mdUtil, paths, $state, login, $
 }
 MainCtrl.$inject = [
     '$scope', '$timeout', '$mdSidenav', '$mdUtil',
-    'paths', '$state', 'login', '$rootScope',
+    'paths', '$state', 'login', '$rootScope', 'Spinner',
   ];
 
 export default MainCtrl;

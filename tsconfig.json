@@ -10,7 +10,8 @@
     "moduleResolution": "node",
     "removeComments": false,
     "suppressImplicitAnyIndexErrors": true,
-    "jsx": "react"
+    "jsx": "react",
+    "lib": [ "es2015", "dom" ]
   },
   "exclude": [
     "node_modules",

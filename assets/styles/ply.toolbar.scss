@@ -1,33 +1,44 @@
-@import '_ply.vars.scss';
+@import '_ply.vars';
 
-.ply-avatar-menu {
+.ply-avatar-menu,
+ply-avatar-menu {
 	.login-email-container {
 		height: 150px;
 	}
+
 	.ply-login-btn {
 		margin-top: 20px;
 	}
+
+	.ply-topnav-login-btn {
+		height: 60px;
+		width: 60px;
+	}
+
 	.ply-topnav-login-btn-icon {
 		height: 50px;
 		width: 50px;
 	}
 }
-//Toolbar
+
+// Toolbar
 .ply-topnav {
 	position: fixed;
-	top:0;
+	top: 0;
 	z-index: 10;
-  .ply-topnav-back {
-    margin: 0 10px;
-    vertical-align: inherit;
-  }
+
+	.ply-topnav-back {
+		margin: 0 10px;
+		vertical-align: inherit;
+	}
 
 	.ply-topnav-login {
 		.ply-topnav-login-title {
 			font-size: $LABEL-FONT-SIZE;
 		}
+
 		.ply-topnav-login-btn {
-			padding:0;
+			padding: 0;
 			width: 25px;
 		}
 		.ply-topnav-login-avatar {
@@ -42,11 +53,6 @@
 			width: 100%;
 			height: 100%;
 		}
-	}
-	.ply-logo {
-		height: $PLY-LOGO-SIZE;
-		width: $PLY-LOGO-SIZE;
-		margin-right: 10px;
 	}
 }
 //End Toolbar

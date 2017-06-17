@@ -26,7 +26,7 @@ function PlyFirebase($firebaseObject) {
 
   if (!apps || !apps.length) {
     initializeApp(config);
-  }
+}
 
   const getRef = (path: string) => database().ref(path);
   const authentication = auth();
@@ -79,7 +79,7 @@ function PlyFirebase($firebaseObject) {
           resolve(res);
         });
     });
-  };
+  }
 
   function removeWithQuery(relPath = '', fieldName = '', operator = '', fieldValue = '') {
     fieldName = fieldName.trim();
@@ -102,7 +102,7 @@ function PlyFirebase($firebaseObject) {
         })
         .catch(error => reject(error));
     });
-  };
+  }
 
   function insert(relPath = '', dataObj) {
     return new Promise((resolve, reject) => {
@@ -118,7 +118,7 @@ function PlyFirebase($firebaseObject) {
       }
     });
 
-  };
+  }
 
   function getNode(params) {
     return new Promise((resolve, reject) => {
@@ -136,10 +136,10 @@ function PlyFirebase($firebaseObject) {
 
         })
         .catch(error => {
-          reject({ message: 'Node does not exist', error });
+          reject({ error, message: 'Node does not exist' });
         });
     });
-  };
+  }
 
   function signOut() {
     return authentication.signOut();
@@ -147,8 +147,6 @@ function PlyFirebase($firebaseObject) {
 
   return {
     authentication,
-    googleProvider: new auth.GoogleAuthProvider(),
-    facebookProvider: new auth.FacebookAuthProvider(),
     getRef,
     insert,
     selectSimpleQuery,
@@ -156,6 +154,8 @@ function PlyFirebase($firebaseObject) {
     signOut,
     getNode,
     selecteByAggregate,
+    googleProvider: new auth.GoogleAuthProvider(),
+    facebookProvider: new auth.FacebookAuthProvider(),
   };
 }
 

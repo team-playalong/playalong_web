@@ -1,3 +1,4 @@
+import * as angular from 'angular';
 LanguageModalDialogController.$inject = [
   '$mdDialog', '$translate', '$rootScope', 'PlyStorage',
 ];
@@ -25,6 +26,7 @@ export function LanguageModalDialogController($mdDialog, $translate, $rootScope,
         dir: locale === 'he' ? 'rtl' : 'ltr',
         locale,
       };
+      $rootScope.$broadcast('ply_dirChanged');
     }
     vm.cancel();
   };

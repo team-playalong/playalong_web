@@ -3,7 +3,7 @@
   <section>
     <md-card layout-align="center">
       <md-card-content>
-        <h1 class="md-title" translate=".SEARCH_TITLE"></h1>
+        <ply-title text="home.texts.title"></ply-title>
         <form name="chordSearchForm" class="ply-search-form" novalidate>
           <div layout="row" layout-wrap>
             <div flex-sm="100" flex-gt-sm="25">
@@ -13,39 +13,28 @@
               >
               </radio-buttons>
             </div>
-            <div flex-sm="100" flex-gt-sm="60">
-
-              <!-- TODO - Fix it -->
-              <!-- <text-input
-                value="home.ChordSearchModel.searchInput.value"
+            <div flex="60">
+              <text-input
+                label="home.ChordSearchModel.searchInput.label"
                 placeholder="home.ChordSearchModel.searchInput.placeholder"
                 on-change="home.ChordSearchService.onSearchInputChanged"
               >
-              </text-input> -->
-              <md-input-container>
-                <input
-                  md-maxlength="50"
-                  placeholder="Search Here"
-                  required name="searchInput"
-                  ng-model="home.ChordSearchModel.searchConfig.searchInput"
-                  auto-direction
-                />
-                <div ng-messages="chordSearchForm.searchInput.$error">
-                  <div ng-if="chordSearchForm.searchInput.$dirty && chordSearchForm.searchInput.$invalid && chordSearchForm.searchInput.$error" ng-message="required">{{'globals.errors.REQUIRED' | translate}}</div>
-                </div>
-              </md-input-container>
+              </text-input>
             </div>
             <div flex hide-sm>
-              <md-button class="md-raised md-accent" type="submit" ng-click="home.searchChords()"
-              aria-label="Go"
-              id="plySearchButton"
-              translate=".SEARCH_BOTTON"></md-button>
+              <ply-button
+                label="'Go'"
+                click="home.searchChords"
+              >
+              <ply-button>
             </div>
           </div>
           <div layout="row" layout-align="center left" hide-gt-sm>
-            <md-button flex class="md-raised md-accent" type="submit" ng-click="home.searchChords()"
-            aria-label="Go"
-            translate=".SEARCH_BOTTON"></md-button>
+            <ply-button flex
+              label="'Go'"
+              click="home.searchChords"
+            >
+            <ply-button>
           </div>
           <div layout="row">
             <div flex>

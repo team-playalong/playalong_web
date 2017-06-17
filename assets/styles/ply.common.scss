@@ -82,6 +82,9 @@ body {
 	    &.filled {
 	      color: $ply-yellow;
 	    }
+			&.non-clickable {
+				cursor: default;
+			}
 	  }
 	}
 
@@ -105,15 +108,6 @@ md-toast {
 	background-color: #727272;
 	color: #FFFFFF;
 	position: fixed;
-}
-
-ply-spinner {
-	md-progress-circular {
-		z-index:1000;
-		position: absolute;
-		top:50%;
-		left:50%;
-	}
 }
 
 .eager-share-app {

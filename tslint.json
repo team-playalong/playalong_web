@@ -3,12 +3,14 @@
   "rules": {
     "class-name": true,
     "no-extra-boolean-cast": false,
+    "no-param-reassign": false,
     "no-duplicate-variable": true,
     "no-eval": true,
     "no-increment-decrement": false,
     "no-internal-module": true,
     "no-trailing-whitespace": false,
     "import-name": false,
+    "member-ordering": false,
     "no-var-keyword": true,
     "brace-style": [
       true,

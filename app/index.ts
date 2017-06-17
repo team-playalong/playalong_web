@@ -1,5 +1,5 @@
 // Third Parties
-import 'angular';
+import * as angular from 'angular';
 import 'angular-material';
 import 'angular-ui-router';
 import 'angularfire';
@@ -16,7 +16,6 @@ import 'angular-local-storage';
 import './components/ply-toolbar';
 import './services/ply-utils';
 import './components/ply-sidebar/ply-sidebar.component';
-import './components/text-size-slider/angular-text-slider';
 import './pages/home';
 import './components/ply-form-elements/ply-form-elements.module';
 import './pages/chord';
@@ -52,10 +51,7 @@ import main from './main';
 import ChordResult from './components/chord-result/chord-result.component';
 
 // Directives
-import plySpinner from './components/ply-spinner/plyspinner';
-import plyYoutube from './components/ply-youtube/ply-youtube.module';
 import compile from './directives/compile';
-import starRating from './directives/star-rating';
 
 // Services
 import PlyFirebase from './services/PlyFirebase.service';
@@ -63,6 +59,7 @@ import customerIoHelper from './services/customeriohelper';
 import loginSrv from './services/login.service';
 import chords from './services/chords.service';
 import PlyNotifier from './services/ply-notifier.service';
+import Spinner from './services/spinner.service';
 
 import user from './services/user.service';
 
@@ -90,13 +87,9 @@ angular.module('playalongWebApp', [
   'ui.bootstrap',
   'ngAnimate',
   'LocalStorageModule',
-  'textSizeSlider',
   // 'MetronomeApp',
 ])
 .component('chordResult', ChordResult)
-.directive('plySpinner', plySpinner)
-.directive('starRating', starRating)
-.directive('plyYoutube', plyYoutube)
 .directive('compile', compile)
 .controller('MainCtrl', main)
 .service('PlyFirebase', PlyFirebase)
@@ -105,6 +98,7 @@ angular.module('playalongWebApp', [
 .service('customerIoHelper', customerIoHelper)
 .service('chords', chords)
 .service('PlyNotifier', PlyNotifier)
+.service('Spinner', Spinner)
 .constant('paths', paths)
 .constant('Facebook', Facebook)
 .constant('config', config)

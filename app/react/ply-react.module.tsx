@@ -1,18 +1,34 @@
 import 'ngreact';
+import * as angular from 'angular';
+import { react2angular } from 'react2angular';
 
-import RadioButtons from './components/radio-buttons/RadioButtons';
-import TextInput from './components/text-input/TextInput';
+// Modules
+import './components/styled';
 
-function addReactComponent(component) {
-  return ['reactDirective', reactDirective => reactDirective(component)];
-}
+import RadioButtons, { props as RadioButtonsProps } from 'playalong-components/components/RadioButtons';
+import TextInput, { props as TextInputProps } from 'playalong-components/components/TextInput';
+import Rating, { props as RatingProps} from 'playalong-components/components/Rating';
+import FavoriteBtn, { props as FavoriteBtnProps} from './components/favorites-btn/FavoriteBtn';
+import TextSlider, { props as TextSliderProps} from 'playalong-components/components/TextSlider';
+import Button, { props as ButtonProps} from 'playalong-components/components/Button';
+import BtnIcon, { props as BtnIconProps} from './components/btn-icon/BtnIcon';
+import Youtube, { props as YoutubeProps} from 'playalong-components/components/Youtube';
+import PlyLogo, { props as PlyLogoProps} from './components/logo/Logo';
+import PlySpinner, { props as PlySpinnerProps} from 'playalong-components/components/Spinner';
 
 angular.module('PlyReact', [
   'react',
+  'PlyStyled',
 ])
-.directive('radioButtons', function(reactDirective) {
-  return reactDirective(RadioButtons, ['inputs', 'onRadioChanged']);
-})
-.directive('textInput', function(reactDirective) {
-  return reactDirective(TextInput, ['value', 'onChange', 'required']);
-});
+.component('rating', react2angular(Rating, RatingProps as any))
+.component('radioButtons', react2angular(RadioButtons, RadioButtonsProps as any))
+.component('textInput', react2angular(TextInput, TextInputProps as any))
+.component('favoriteBtn', react2angular(FavoriteBtn, FavoriteBtnProps as any))
+.component('textSlider', react2angular(TextSlider, TextSliderProps as any))
+.component('plyButton', react2angular(Button, ButtonProps as any))
+.component('btnIcon', react2angular(BtnIcon, BtnIconProps as any))
+.component('plyBtnIcon', react2angular(BtnIcon, BtnIconProps as any))
+.component('plyYoutube', react2angular(Youtube, YoutubeProps as any))
+.component('plyLogo', react2angular(PlyLogo, PlyLogoProps as any))
+.component('plySpinner', react2angular(PlySpinner, PlySpinnerProps as any))
+;

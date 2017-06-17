@@ -6,8 +6,7 @@
       <h1 class="md-title"  translate=".TITLE"></h1>
 
       <div class="ply-search-results-wrapper">
-        <ply-spinner trigger-start-event="startTopChordsSpinner" trigger-stop-event="stopTopChordsSpinner"></ply-spinner>
-
+        <ply-spinner is-active="top.isTopChordsSpinnerActive"></ply-spinner>
         <md-list
           ng-if="top.topChords && top.topChords.length"
           ng-repeat="chord in top.topChords | orderBy: '-creationDate' track by $index"

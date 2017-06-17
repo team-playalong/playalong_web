@@ -16,6 +16,7 @@ class HomeCtrl {
   constructor(
     public $rootScope, public chords, public $translate,
     public $q, public ChordSearchModel, public ChordSearchService,
+    public Spinner,
   ) {}
 
   $onInit() {
@@ -41,6 +42,10 @@ class HomeCtrl {
       }
     });
   }
+
+  texts = {
+    title: 'Find Your Song',
+  };
 
   formatResultMessage = () => {
     return new Promise((resolve, reject) => {
@@ -79,7 +84,7 @@ class HomeCtrl {
     .then(message => {
       this.resultMessage = message;
 
-      this.$rootScope.startSpin('stopSearchChordsSpinner');
+      this.Spinner.stop();
     });
   }
 
@@ -87,7 +92,7 @@ class HomeCtrl {
 
   searchChords = (numAttempts = 1) => {
     if (numAttempts > 2) { return; }
-    this.$rootScope.startSpin('startSearchChordsSpinner');
+    this.Spinner.start();
     this.searchResults = [];
     this.chords.searchChordsBy(this.ChordSearchModel.searchConfig.searchBy, this.ChordSearchModel.searchConfig.searchInput)
       .then((data) => {
@@ -118,7 +123,7 @@ class HomeCtrl {
 }
 HomeCtrl.$inject = [
   '$rootScope', 'chords', '$translate', '$q', 'ChordSearchModel',
-  'ChordSearchService'
+  'ChordSearchService', 'Spinner',
 ];
 
 export { PlyHome, HomeCtrl };
