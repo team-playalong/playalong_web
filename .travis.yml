@@ -2,9 +2,9 @@ sudo: false
 language: node_js
 node_js: 7.1.0
 before_script:
-- npm install
+- npm i -g yarn
 script:
-- npm run build
+- yarn build
 after_success:
 - firebase use default
 - firebase deploy --token $FIREBASE_TOKEN
