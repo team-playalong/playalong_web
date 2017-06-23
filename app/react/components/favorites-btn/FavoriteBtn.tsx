@@ -1,6 +1,6 @@
 import * as React from 'react';
 import FontAwesome from 'react-fontawesome';
-import BtnIcon from '../btn-icon/BtnIcon';
+import Icon, { props as IconProps} from 'playalong-components/components/Icon';
 
 interface FavoriteBtnProps {
   isFavorite: boolean;
@@ -18,7 +18,7 @@ const styles = {
 function FavoriteBtn(props: FavoriteBtnProps) {
   return (
     <span style={styles}>
-      <BtnIcon
+      <Icon
         tooltip={props.isFavorite ? REMOVE_MESSAGE : ADD_MESSAGE}
         icon={props.isFavorite ? 'heart' : 'heart-o'}
         click={() => props.click(props.isFavorite)}

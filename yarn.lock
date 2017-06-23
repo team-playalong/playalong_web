@@ -335,9 +335,9 @@ angular-gage@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/angular-gage/-/angular-gage-0.1.0.tgz#db580f249cb5c27e1bb35e0127454b825d5a7904"
 
-angular-local-storage@^0.5.2:
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/angular-local-storage/-/angular-local-storage-0.5.2.tgz#7079beb0aa5ca91386d223125efefd13ca0ecd0c"
+angular-local-storage@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/angular-local-storage/-/angular-local-storage-0.6.0.tgz#4dba9772fef752070de5a93e202be886b299c686"
 
 angular-material-icons@^0.7.0:
   version "0.7.1"
@@ -7030,11 +7030,12 @@ pkginfo@0.4.0, pkginfo@0.x.x:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/pkginfo/-/pkginfo-0.4.0.tgz#349dbb7ffd38081fcadc0853df687f0c7744cd65"
 
-playalong-components@^0.3.6:
-  version "0.3.6"
-  resolved "https://registry.yarnpkg.com/playalong-components/-/playalong-components-0.3.6.tgz#02b6a87e26530c5ef9c680ad01c139ecdf53d8cc"
+playalong-components@^0.3.9:
+  version "0.3.9"
+  resolved "https://registry.yarnpkg.com/playalong-components/-/playalong-components-0.3.9.tgz#8f83954f7b7deb6465739b84e205b7a2f2e5222c"
   dependencies:
     chokidar "^1.7.0"
+    flag-icon-css "^2.8.0"
     font-awesome "^4.7.0"
     jquery "^3.2.1"
     jquery-ui "^1.12.1"
@@ -9312,11 +9313,12 @@ stubs@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/stubs/-/stubs-3.0.0.tgz#e8d2ba1fa9c90570303c030b6900f7d5f89abe5b"
 
-style-loader@^0.17.0:
-  version "0.17.0"
-  resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.17.0.tgz#e8254bccdb7af74bd58274e36107b4d5ab4df310"
+style-loader@^0.18.0:
+  version "0.18.2"
+  resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.18.2.tgz#cc31459afbcd6d80b7220ee54b291a9fd66ff5eb"
   dependencies:
     loader-utils "^1.0.2"
+    schema-utils "^0.3.0"
 
 styled-components@^2.0.1:
   version "2.1.0"
@@ -9713,23 +9715,17 @@ tslint-config-airbnb@^5.0.0:
     tslint-microsoft-contrib "^5.0.0"
     vrsource-tslint-rules "^5.1.0"
 
-tslint-config-standard@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/tslint-config-standard/-/tslint-config-standard-4.0.0.tgz#d456112ec81ebadaa00beb0d8f30e7864538cd3d"
+tslint-config-standard@^6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/tslint-config-standard/-/tslint-config-standard-6.0.1.tgz#a04ba0a794759e877287056f549b081e47a56d6c"
   dependencies:
-    tslint-eslint-rules "^3.2.3"
+    tslint-eslint-rules "^4.0.0"
 
 tslint-consistent-codestyle@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/tslint-consistent-codestyle/-/tslint-consistent-codestyle-1.4.0.tgz#f8d3ece4cbf6d8815b9410e9d0f248f891963575"
   dependencies:
     tsutils "^2.2.0"
-
-tslint-eslint-rules@^3.2.3:
-  version "3.5.1"
-  resolved "https://registry.yarnpkg.com/tslint-eslint-rules/-/tslint-eslint-rules-3.5.1.tgz#e43efdcdd760d6285600031720f972c92f4a058a"
-  dependencies:
-    doctrine "^0.7.2"
 
 tslint-eslint-rules@^4.0.0:
   version "4.1.1"

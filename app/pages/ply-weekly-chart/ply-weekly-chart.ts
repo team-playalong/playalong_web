@@ -54,7 +54,7 @@ const plyWeeklyChart = {
 										data-tip="{{song.positionDifference}}"
 									>
 										<!-- TODO - Remove it. Loading this for tooltip support -->
-										<btn-icon></btn-icon>
+										<ply-icon></ply-icon>
 										<ng-md-icon class="ply-fab-icon" ng-if="song.positionDifference < 0" style="fill: #F44336;" size="30" icon="arrow_downward"></ng-md-icon>
 										<ng-md-icon class="ply-fab-icon" ng-if="song.positionDifference > 0" style="fill: #8BC34A;" size="30" icon="arrow_upwards"></ng-md-icon>
 										<ng-md-icon class="ply-fab-icon" ng-if="song.positionDifference === 0"  icon="arrow_forward" style="fill: #FF9800;" size="30"></ng-md-icon>

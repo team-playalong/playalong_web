@@ -14,7 +14,12 @@ const PlyFavorites = {
               <md-list-item class="md-2-line clickable"  ng-repeat="favorite in fav.favorites track by $index" >
                 <div  class="md-list-item-text"
                       ng-click="goToChordPage(favorite.chordKey)">
-                  <ng-md-icon class="pull-right" ng-click="fav.removeFavorite($event, favorite)" icon="delete" size="30"></ng-md-icon>
+                  <ply-icon
+                    class="pull-right"
+                    click="fav.removeFavorite"
+                    size="25"
+                    icon="'trash'"
+                  ></ply-icon>
                   <h3 ng-bind="favorite.artist"></h3>
                   <p ng-bind="favorite.title"></p>
                 </div>

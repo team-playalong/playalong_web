@@ -46,6 +46,7 @@ PlylanguagepickerCtrl.$inject = [
 ];
 export function PlylanguagepickerCtrl($scope, $mdDialog, $mdMedia, $rootScope) {
   const vm = this;
+  vm.flag = 'il';
 
   vm.getFlagClass = function() {
     let res = 'il';

@@ -2,21 +2,21 @@
             translate-namespace="toolbar">
   <div class="md-toolbar-tools" layout="row" layout-align="center center">
     <div flex="60" class="ply-ellipsis">
-      <ply-btn-icon
+      <ply-icon
         icon="$ctrl.menu.icon"
         click="$ctrl.menu.click"
         size="30"
       >
-      </ply-btn-icon>
+      </ply-icon>
       <span class="clickable" ui-sref="home">
         <ply-logo></ply-logo>
       </span>
-      <ply-btn-icon
+      <ply-icon
         icon="$ctrl.back.icon"
         click="$ctrl.back.click"
         size="25"
       >
-      </ply-btn-icon>
+      </ply-icon>
       <span hide-sm class="ply-ellipsis">
         <span translate=".APP_NAME"></span>
         <span>| {{$root.currPage | translate}}</span>
@@ -31,6 +31,6 @@
       <ply-avatar-menu></ply-avatar-menu>
 
     </div>
-    <!-- <ply-language-picker flex="5"></ply-language-picker> -->
+    <ply-language-picker flex="5"></ply-language-picker>
   </div>
 </md-toolbar>
