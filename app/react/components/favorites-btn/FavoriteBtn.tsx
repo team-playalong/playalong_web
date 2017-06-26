@@ -1,6 +1,6 @@
 import * as React from 'react';
 import FontAwesome from 'react-fontawesome';
-import Icon, { props as IconProps} from 'playalong-components/components/Icon';
+import Icon, { props as IconProps } from 'playalong-components/components/Icon';
 
 interface FavoriteBtnProps {
   isFavorite: boolean;
