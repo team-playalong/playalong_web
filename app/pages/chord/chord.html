@@ -29,14 +29,16 @@
             <h4 ng-bind="chord.title"></h4>
           </div>
         </div>
-        <div  layout="row" class="direction-initial"
+        
+        <!-- TODO - Return after resoving youtube errors -->
+        <!-- <div  layout="row" class="direction-initial"
               ng-if="!!chord.youtubeLink">
           <div flex>
             <ply-youtube
               video-id="chord.youtubeLink">
             </ply-youtube>
           </div>
-        </div>
+        </div> -->
         <figure hide>
           <figcaption ng-bind="chord.imagePath"></figcaption>
           <img src="{{chord.imagePath}}" alt="no image">

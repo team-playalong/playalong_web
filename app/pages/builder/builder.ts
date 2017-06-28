@@ -2,7 +2,10 @@ BuilderCtrl.$inject = [
   '$scope', 'chords', '$timeout', '$stateParams',
   '$rootScope', 'Toast', 'login', 'RegexStore', '$state', 'PlyNotifier',
 ];
-function BuilderCtrl($scope, chords, $timeout, $stateParams, $rootScope, toast, login, RegexStore, $state, PlyNotifier) {
+function BuilderCtrl(
+  $scope, chords, $timeout, $stateParams, $rootScope, toast, login,
+  RegexStore, $state, PlyNotifier,
+) {
   if (!!window.mixpanel) {
       window.mixpanel.track('ply_page_view_builder');
     }
@@ -62,12 +65,15 @@ function BuilderCtrl($scope, chords, $timeout, $stateParams, $rootScope, toast, 
     return $scope.flags.isPreviewMode ? 'Edit' : 'Preview';
   };
 
-  $scope.handleSwitchModes = function() {
+  $scope.handleSwitchModes = val => {
+    $scope.flags.isPreviewMode = val;
     if ($scope.flags.isPreviewMode && $scope.chord && $scope.chord.content) {
       $scope.scanForChords($scope.chord.content);
     }
   };
-  $scope.handleApproveChange = function() {
+
+  $scope.handleApproveChange = isApproved => {
+    $scope.chord.approved = isApproved;
     const toastText = $scope.chord && $scope.chord.approved ?
                       'Chord approved' : 'Chord not approved';
     toast.showSimpleToast(toastText);
@@ -76,6 +82,7 @@ function BuilderCtrl($scope, chords, $timeout, $stateParams, $rootScope, toast, 
   $scope.createDisabled = function() {
     return !$scope.chord.artist || !$scope.chord.title || !$scope.chord.content;
   };
+
 }
 
 export default BuilderCtrl;
