@@ -72,7 +72,7 @@
     "typescript": "^2.2.1",
     "url-loader": "^0.5.8",
     "vinyl-fs": "2.4.4",
-    "webpack": "^2.5.0",
+    "webpack": "^3.0.0",
     "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
