@@ -1,3 +1,5 @@
+import Toast from '../../services/ply-utils/Toast';
+
 const PlyFavorites = {
 
   controller: 'FavoritesCtrl',
@@ -39,9 +41,9 @@ const PlyFavorites = {
 };
 
 FavoritesCtrl.$inject = [
-	'login', 'user', '$rootScope', '$scope', 'Toast', 'Spinner',
+	'login', 'user', '$rootScope', '$scope', 'Spinner',
 ];
-function FavoritesCtrl(login, user, $rootScope, $scope, toast, Spinner) {
+function FavoritesCtrl(login, user, $rootScope, $scope, Spinner) {
   const vm = this;
   if (!!window.mixpanel) {
     window.mixpanel.track('ply_page_view_favorites');
@@ -61,7 +63,7 @@ function FavoritesCtrl(login, user, $rootScope, $scope, toast, Spinner) {
     };
     user.addRemoveFavorites(params)
     .then(() => {
-      toast.showToastByTranslation('favorites.REMOVED_MESSAGE');
+      Toast.showToastByTranslation('favorites.REMOVED_MESSAGE');
       vm.init();
     });
   };

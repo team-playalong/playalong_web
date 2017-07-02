@@ -7,14 +7,14 @@ import './components/styled';
 
 import RadioButtons, { props as RadioButtonsProps } from 'playalong-components/components/RadioButtons';
 import TextInput, { props as TextInputProps } from 'playalong-components/components/TextInput';
-import Rating, { props as RatingProps} from 'playalong-components/components/Rating';
-import FavoriteBtn, { props as FavoriteBtnProps} from './components/favorites-btn/FavoriteBtn';
-import TextSlider, { props as TextSliderProps} from 'playalong-components/components/TextSlider';
-import Button, { props as ButtonProps} from 'playalong-components/components/Button';
-import BtnIcon, { props as BtnIconProps} from './components/btn-icon/BtnIcon';
-import Youtube, { props as YoutubeProps} from 'playalong-components/components/Youtube';
-import PlyLogo, { props as PlyLogoProps} from './components/logo/Logo';
-import PlySpinner, { props as PlySpinnerProps} from 'playalong-components/components/Spinner';
+import Rating, { props as RatingProps } from 'playalong-components/components/Rating';
+import FavoriteBtn, { props as FavoriteBtnProps } from './components/favorites-btn/FavoriteBtn';
+import TextSlider, { props as TextSliderProps } from 'playalong-components/components/TextSlider';
+import Button, { props as ButtonProps } from 'playalong-components/components/Button';
+import BtnIcon, { props as BtnIconProps } from './components/btn-icon/BtnIcon';
+import Youtube, { props as YoutubeProps } from 'playalong-components/components/Youtube';
+import PlyLogo, { props as PlyLogoProps } from './components/logo/Logo';
+import PlySpinner, { props as PlySpinnerProps } from 'playalong-components/components/Spinner';
 import AutoScroll, { props as AutoScrollProps } from 'playalong-components/components/AutoScroll';
 import PlyToggle from 'playalong-components/components/Toggle';
 

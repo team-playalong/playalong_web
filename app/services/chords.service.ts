@@ -1,6 +1,11 @@
 import * as angular from 'angular';
-chords.$inject = ['config', '$q', 'PlyFirebase', '$firebaseObject', 'Common'];
-function chords(config, $q: ng.IQService, PlyFirebase, $firebaseObject, Common) {
+import Common from './ply-utils/common';
+
+chords.$inject = [
+  'config', '$q', 'PlyFirebase', '$firebaseObject',
+];
+
+function chords(config, $q: ng.IQService, PlyFirebase, $firebaseObject) {
   const chordsRef = PlyFirebase.getRef('chords');
   // var chordsData = $firebaseArray(ref);
 
@@ -19,7 +24,7 @@ function chords(config, $q: ng.IQService, PlyFirebase, $firebaseObject, Common) 
 
   function extractApprovedChords(rawData) {
     const result = [];
-    //Currently Workaround
+    // Currently Workaround
     angular.forEach(rawData, function(value, chordKey) {
       if (value.approved) {
         value.chordKey = chordKey;
@@ -32,9 +37,9 @@ function chords(config, $q: ng.IQService, PlyFirebase, $firebaseObject, Common) 
 
   function addChord(chordObj) {
     return new Promise((resolve, reject) => {
-      //TODO validate data
+      // TODO validate data
 
-      //initialize data
+      // initialize data
       chordObj.hitCount = 0;
       chordObj.rating = 1;
       chordObj.countRating = 0;

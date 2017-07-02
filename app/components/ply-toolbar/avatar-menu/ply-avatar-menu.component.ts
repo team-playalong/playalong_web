@@ -39,8 +39,8 @@ function changePassword(login, $mdDialog) {
 	};
 }
 
-ctrl.$inject = ['$mdDialog', 'login', 'paths', 'Toast', '$translate', 'PlyNotifier'];
-function ctrl($mdDialog, login, paths, toast, $translate, PlyNotifier) {
+ctrl.$inject = ['$mdDialog', 'login', 'paths', '$translate', 'PlyNotifier'];
+function ctrl($mdDialog, login, paths, $translate, PlyNotifier) {
 	const ctrl = this;
 	ctrl.login = login;
 	ctrl.paths = paths;

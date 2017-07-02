@@ -1,4 +1,7 @@
 import * as angular from 'angular';
+
+import RegexStore from '../../services/ply-utils/regexstore';
+
 /**
  * @ngdoc service
  * @name playalongservicesApp.transposer
@@ -65,8 +68,8 @@ export const EqualChordsMap = {
 	'D#': 'Eb',
 };
 
-transposer.$inject = ['ChordTranposeMap', 'EqualChordsMap', 'RegexStore'];
-export function transposer(ChordTranposeMap, EqualChordsMap, RegexStore) {
+transposer.$inject = ['ChordTranposeMap', 'EqualChordsMap'];
+export function transposer(ChordTranposeMap, EqualChordsMap) {
 	const getEqualChord = function(chord) {
 		return EqualChordsMap[chord] || chord;
 	};
