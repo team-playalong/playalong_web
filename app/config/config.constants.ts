@@ -1,6 +1,4 @@
-'use strict';
-
-export const paths = {
+export const Paths = {
 	images: {
 		logo: 'assets/images/plyIcon.png',
 		emptyAvatar: './images/avatar.png',

@@ -1,4 +1,4 @@
-export default class Spinner {
+class Spinner {
   public isSpinnerActive;
 
   start() {
@@ -9,3 +9,5 @@ export default class Spinner {
     this.isSpinnerActive = false;
   }
 }
+
+export default Spinner;

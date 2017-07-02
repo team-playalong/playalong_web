@@ -2,10 +2,10 @@ import * as angular from 'angular';
 import Common from './ply-utils/common';
 
 chords.$inject = [
-  'config', '$q', 'PlyFirebase', '$firebaseObject',
+  '$q', 'PlyFirebase', '$firebaseObject',
 ];
 
-function chords(config, $q: ng.IQService, PlyFirebase, $firebaseObject) {
+function chords($q: ng.IQService, PlyFirebase, $firebaseObject) {
   const chordsRef = PlyFirebase.getRef('chords');
   // var chordsData = $firebaseArray(ref);
 

@@ -1,4 +1,5 @@
 import Toast from '../../services/ply-utils/Toast';
+import Spinner from '../../services/spinner.service';
 
 const PlyFavorites = {
 
@@ -41,9 +42,9 @@ const PlyFavorites = {
 };
 
 FavoritesCtrl.$inject = [
-	'login', 'user', '$rootScope', '$scope', 'Spinner',
+	'login', 'user', '$rootScope', '$scope',
 ];
-function FavoritesCtrl(login, user, $rootScope, $scope, Spinner) {
+function FavoritesCtrl(login, user, $rootScope, $scope) {
   const vm = this;
   if (!!window.mixpanel) {
     window.mixpanel.track('ply_page_view_favorites');
@@ -69,19 +70,20 @@ function FavoritesCtrl(login, user, $rootScope, $scope, Spinner) {
   };
 
 	$rootScope.currPage = 'favorites.PAGE_TITLE';
+  vm.Spinner = new Spinner();
 	vm.init = () => {
     vm.favorites = null;
 		vm.userModel = login.getUser();
 		if (vm.userModel && vm.userModel.userKey) {
-			Spinner.start();
+			vm.Spinner.start();
 			user.getFavorites(vm.userModel.userKey)
   		.then(function(data) {
   			if (data) {
   				vm.favorites = data;
   			}
-        Spinner.stop();
+        vm.Spinner.stop();
   		})
-      .catch(Spinner.stop);
+      .catch(vm.Spinner.stop);
 		}
 
 	};

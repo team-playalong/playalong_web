@@ -1,4 +1,6 @@
 import PLY_CONFIG from '../env';
+import { Paths, Facebook } from './config.constants';
+import Config from './config';
 
 wysiwygConfig.$inject = ['$provide'];
 export function wysiwygConfig($provide) {
@@ -14,16 +16,16 @@ export function wysiwygConfig($provide) {
 }
 
 translateConfig.$inject = [
-  '$translateProvider', 'config', 'localStorageServiceProvider',
+  '$translateProvider', 'localStorageServiceProvider',
 
 ];
-export function translateConfig($translateProvider, config, localStorageServiceProvider) {
+export function translateConfig($translateProvider, localStorageServiceProvider) {
   const lang = PLY_CONFIG.defaultLocale || 'en';
   $translateProvider
     .addInterpolation('$translateMessageFormatInterpolation')
     .useSanitizeValueStrategy('sanitize')
     .useStaticFilesLoader({
-      prefix: config.paths.firebaseProd + 'i18n/',
+      prefix: Config.paths.firebaseProd + 'i18n/',
       suffix: '.json',
     })
     .preferredLanguage(lang);
@@ -47,9 +49,8 @@ export function translateConfig($translateProvider, config, localStorageServiceP
 
 runConfig.$inject = [
   '$rootScope', '$state' , '$window', '$stateParams',
-  'paths', 'Facebook',
 ];
-export function runConfig($rootScope, $state, $window, $stateParams, paths, Facebook) {
+export function runConfig($rootScope, $state, $window, $stateParams) {
   $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
     // We can catch the error thrown when the $requireAuth promise is rejected
     // and redirect the user back to the home page
@@ -75,6 +76,6 @@ export function runConfig($rootScope, $state, $window, $stateParams, paths, Face
 
   $rootScope.$state = $state;
   $rootScope.$stateParams = $stateParams;
-  $rootScope.paths = paths;
+  $rootScope.paths = Paths;
   $rootScope.Facebook = Facebook;
 }

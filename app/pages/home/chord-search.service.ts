@@ -1,11 +1,9 @@
 import ChordSearchModel from './chord-search.model';
 
 class ChordSearchService {
-  constructor(private ChordSearchModel: ChordSearchModel) {}
 
-  public onRadioChanged = newVal => this.ChordSearchModel.setSearchBy(newVal);
-  public onSearchInputChanged = newVal => this.ChordSearchModel.setSearchInput(newVal);
+  public onRadioChanged = newVal => ChordSearchModel.setSearchBy(newVal);
+  public onSearchInputChanged = newVal => ChordSearchModel.setSearchInput(newVal);
 }
-ChordSearchService.$inject = ['ChordSearchModel'];
 
-export default ChordSearchService;
+export default new ChordSearchService();

@@ -1,3 +1,6 @@
+import Spinner from '../../services/spinner.service';
+import ChordSearchModel from './chord-search.model';
+
 function PlyHome() {
   return {
     templateUrl: './app/pages/home/home.template.html',
@@ -12,12 +15,16 @@ class HomeCtrl {
   public searchResults;
   public resultMessage;
   public plyOnChange;
+  public Spinner;
+  public ChordSearchModel;
 
   constructor(
     public $rootScope, public chords, public $translate,
-    public $q, public ChordSearchModel, public ChordSearchService,
-    public Spinner,
-  ) {}
+    public $q,
+  ) {
+    this.Spinner = new Spinner();
+    this.ChordSearchModel = ChordSearchModel;
+  }
 
   $onInit() {
     if (!!window.mixpanel) {
@@ -122,8 +129,7 @@ class HomeCtrl {
   /*jshint unused:true*/
 }
 HomeCtrl.$inject = [
-  '$rootScope', 'chords', '$translate', '$q', 'ChordSearchModel',
-  'ChordSearchService', 'Spinner',
+  '$rootScope', 'chords', '$translate', '$q',
 ];
 
 export { PlyHome, HomeCtrl };

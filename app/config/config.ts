@@ -1,6 +1,6 @@
 import PLY_CONFIG from '../env';
 
-const config = {
+const Config = {
   env: PLY_CONFIG.env,
   paths: {
     firebaseDev: 'https://playalong.firebaseio.com/',
@@ -14,6 +14,6 @@ const config = {
 };
 
 // This is an addition to the reference in order to create two envs
-config.paths.firebase = config.env === 'dev' ? config.paths.firebaseDev : config.paths.firebaseProd;
+Config.paths.firebase = Config.env === 'dev' ? Config.paths.firebaseDev : Config.paths.firebaseProd;
 
-export default config;
+export default Config;

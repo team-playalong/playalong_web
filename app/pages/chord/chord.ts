@@ -2,15 +2,17 @@ import * as angular from 'angular';
 
 import Common from '../../services/ply-utils/common';
 import Toast from '../../services/ply-utils/Toast';
+import ChordModel from './chord.model';
+import Transposer, { EqualChordsMap } from './Transposer';
 
 ChordCtrl.$inject = [
   '$scope', '$rootScope', '$state', 'chords', '$stateParams',
-  'login' , '$timeout', 'transposer', '$sce',
-  'EqualChordsMap', 'ChordModel', '$translate',
+  'login' , '$timeout', '$sce',
+  '$translate',
 ];
 export function ChordCtrl(
   $scope, $rootScope, $state, chords, $stateParams, login, $timeout,
-  transposer, $sce: ng.ISCEService, EqualChordsMap, ChordModel,
+  $sce: ng.ISCEService, EqualChordsMap,
   $translate,
 ) {
   $scope.ChordModel = ChordModel;
@@ -125,7 +127,7 @@ export function ChordCtrl(
 
     angular.forEach(chords, function(value){
       const oldText = angular.element(value).text();
-      const newText = transposer.transpose(oldText, numTones);
+      const newText = Transposer.transpose(oldText, numTones);
       angular.element(value).text(newText);
     });
 

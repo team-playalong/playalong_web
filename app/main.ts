@@ -1,14 +1,15 @@
-import './config/config.constants';
+import Spinner from './services/spinner.service';
+import { Paths } from './config/config.constants';
 
-function MainCtrl($scope, $timeout, $mdSidenav, $mdUtil, paths, $state, login, $rootScope, Spinner) {
+function MainCtrl($scope, $timeout, $mdSidenav, $mdUtil, $state, login, $rootScope) {
   $scope.Math = Math;
-  $scope.Spinner = Spinner;
+  $scope.Spinner = new Spinner();
   $scope.initCtrl = function() {
     if (!!window.mixpanel) {
       window.mixpanel.track('ply_page_load');
     }
 
-    $rootScope.paths = paths;
+    $rootScope.paths = Paths;
     $scope.user = login.getUser();
     $rootScope.toggleSidebar = $scope.buildToggler('left');
     $scope.mainCtrlConfig = {
@@ -52,7 +53,7 @@ function MainCtrl($scope, $timeout, $mdSidenav, $mdUtil, paths, $state, login, $
 }
 MainCtrl.$inject = [
     '$scope', '$timeout', '$mdSidenav', '$mdUtil',
-    'paths', '$state', 'login', '$rootScope', 'Spinner',
+    '$state', 'login', '$rootScope',
   ];
 
 export default MainCtrl;

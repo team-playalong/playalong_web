@@ -1,4 +1,4 @@
-export default class ChordModel {
+class ChordModel {
   public autoScroll = {
     onSpeedChanged: value => {
       if (value) {
@@ -11,4 +11,6 @@ export default class ChordModel {
     },
     speed: 0,
   };
-};
+}
+
+export default new ChordModel();

@@ -1,4 +1,5 @@
 import * as angular from 'angular';
+import { Paths } from '../../../config/config.constants';
 
 resetPassword.$inject = ['login', '$mdDialog'];
 function resetPassword(login, $mdDialog) {
@@ -39,11 +40,11 @@ function changePassword(login, $mdDialog) {
 	};
 }
 
-ctrl.$inject = ['$mdDialog', 'login', 'paths', '$translate', 'PlyNotifier'];
-function ctrl($mdDialog, login, paths, $translate, PlyNotifier) {
+ctrl.$inject = ['$mdDialog', 'login', '$translate', 'PlyNotifier'];
+function ctrl($mdDialog, login, $translate, PlyNotifier) {
 	const ctrl = this;
 	ctrl.login = login;
-	ctrl.paths = paths;
+	ctrl.paths = Paths;
 
 	ctrl.$onInit = () => {
 		ctrl.passwordText = 'password';
