@@ -1,5 +1,7 @@
-PlyfavoritebtnCtrl.$inject = ['$scope', 'user', 'login', 'Toast'];
-function PlyfavoritebtnCtrl($scope, user, login, toast) {
+import Toast from '../../services/ply-utils/Toast';
+
+PlyfavoritebtnCtrl.$inject = ['$scope', 'user', 'login'];
+function PlyfavoritebtnCtrl($scope, user, login) {
   const $ctrl = this;
 
   function resetValues() {
@@ -31,7 +33,7 @@ function PlyfavoritebtnCtrl($scope, user, login, toast) {
       else {
         message = 'favorites.REMOVED_MESSAGE';
       }
-      toast.showToastByTranslation(message);
+      Toast.showToastByTranslation(message);
     });
 
   };

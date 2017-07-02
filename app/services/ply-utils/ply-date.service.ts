@@ -1,7 +1,4 @@
 class PlyDate {
-	static $inject = ['$mdToast', '$translate'];
-	constructor(private $mdToast, private $translate) {}
-
 	public getAllWeekNumbers() {
 		const allWeekNumbers = [];
 		for (let i = 1; i < 55; ++i) {
@@ -16,4 +13,4 @@ class PlyDate {
 	}
 }
 
-export default PlyDate;
+export default new PlyDate();

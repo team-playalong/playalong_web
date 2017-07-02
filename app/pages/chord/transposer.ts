@@ -1,4 +1,7 @@
 import * as angular from 'angular';
+
+import RegexStore from '../../services/ply-utils/regexstore';
+
 /**
  * @ngdoc service
  * @name playalongservicesApp.transposer
@@ -7,7 +10,7 @@ import * as angular from 'angular';
  * Service in the playalongservicesApp.
  */
 
-export const ChordTranposeMap = {
+const ChordTranposeMap = {
 	F: {
 		prev: 'E',
 		next: 'F#',
@@ -65,29 +68,24 @@ export const EqualChordsMap = {
 	'D#': 'Eb',
 };
 
-transposer.$inject = ['ChordTranposeMap', 'EqualChordsMap', 'RegexStore'];
-export function transposer(ChordTranposeMap, EqualChordsMap, RegexStore) {
-	const getEqualChord = function(chord) {
-		return EqualChordsMap[chord] || chord;
-	};
+class Transposer {
+	public getEqualChord = chord => EqualChordsMap[chord] || chord;
 
-	const transpose = function(chord, numTones) {
+	public transpose = (chord, numTones) => {
 		const oldChord = angular.copy(chord);
 		const chordRegex = RegexStore.get('basicChord');
-		//Extract what needs to be transposed
+		// Extract what needs to be transposed
 		chord = chord.match(chordRegex);
 
-		if (!chord || !numTones || typeof numTones !== 'number')
-		{
+		if (!chord || !numTones || typeof numTones !== 'number') {
 			return null;
 		}
 		const direction = numTones < 0 ? 'prev' : 'next';
 		numTones = Math.abs(numTones);
 
 		for (let i = 0; i < numTones; i++) {
-			chord = getEqualChord(chord);
-			if (ChordTranposeMap[chord] && ChordTranposeMap[chord][direction])
-			{
+			chord = this.getEqualChord(chord);
+			if (ChordTranposeMap[chord] && ChordTranposeMap[chord][direction]) {
 				chord = ChordTranposeMap[chord][direction];
 			}
 			else {
@@ -98,9 +96,7 @@ export function transposer(ChordTranposeMap, EqualChordsMap, RegexStore) {
 
 		return oldChord.replace(RegexStore.get('basicChord'), chord);
 
-	};
-	return {
-		transpose,
-		getEqualChord,
-	};
+	}
 }
+
+export default new Transposer();

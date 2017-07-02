@@ -1,12 +1,5 @@
-/**
-* @ngdoc service
-* @name playalongservicesApp.customerIoHelper
-* @description
-* # customerIoHelper
-* Service in the playalongservicesApp.
-*/
-function customerIoHelper() {
-  const identifyUser = function(userModel) {
+class CustomerIoHelper {
+  public identifyUser = userModel => {
     if (!userModel || !userModel.uid || !window._cio) { return false; }
     window._cio.identify({
       // Required attributes
@@ -23,10 +16,7 @@ function customerIoHelper() {
     });
 
     return true;
-  };
-  return {
-    identifyUser,
-  };
+  }
 }
 
-export default customerIoHelper;
+export default new CustomerIoHelper();

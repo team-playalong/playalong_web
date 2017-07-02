@@ -40,8 +40,6 @@ import '../assets/styles/main.scss';
 import RouteConfig from './config/config.route';
 import configThemes from './config/config.themes';
 import { wysiwygConfig, translateConfig, sceConfig, runConfig } from './config/config.run';
-import { Facebook, paths } from './config/config.constants';
-import config from './config/config';
 
 // Controllers
 import main from './main';
@@ -54,11 +52,9 @@ import compile from './directives/compile';
 
 // Services
 import PlyFirebase from './services/PlyFirebase.service';
-import customerIoHelper from './services/customeriohelper';
 import loginSrv from './services/login.service';
 import chords from './services/chords.service';
 import PlyNotifier from './services/ply-notifier.service';
-import Spinner from './services/spinner.service';
 
 import user from './services/user.service';
 
@@ -85,7 +81,6 @@ angular.module('playalongWebApp', [
   'ui.bootstrap',
   'ngAnimate',
   'LocalStorageModule',
-  // 'MetronomeApp',
 ])
 .component('chordResult', ChordResult)
 .directive('compile', compile)
@@ -93,13 +88,8 @@ angular.module('playalongWebApp', [
 .service('PlyFirebase', PlyFirebase)
 .service('user', user)
 .service('login', loginSrv)
-.service('customerIoHelper', customerIoHelper)
 .service('chords', chords)
 .service('PlyNotifier', PlyNotifier)
-.service('Spinner', Spinner)
-.constant('paths', paths)
-.constant('Facebook', Facebook)
-.constant('config', config)
 .config(RouteConfig)
 .config(configThemes)
 .config(wysiwygConfig)

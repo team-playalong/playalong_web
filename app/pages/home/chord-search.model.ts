@@ -23,13 +23,6 @@ class ChordSearchModel {
 
   setSearchInput = newVal => this.searchConfig.searchInput = newVal;
   setSearchBy = newVal => this.searchConfig.searchBy = newVal;
-
-  // searchBy: {
-  //   radioName: 'radio',
-  //   inputs: ,
-  //   onRadioChanged:
-  //   onSearchInputChanged: () => {},
-  // };
 }
 
-export default ChordSearchModel;
+export default new ChordSearchModel();

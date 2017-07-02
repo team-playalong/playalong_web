@@ -1,6 +1,9 @@
-weeklyChartCtrl.$inject = ['WeeklyChart', '$rootScope', 'Spinner'];
-function weeklyChartCtrl(WeeklyChart, $rootScope, Spinner) {
+import Spinner from '../../services/spinner.service';
+
+weeklyChartCtrl.$inject = ['WeeklyChart', '$rootScope'];
+function weeklyChartCtrl(WeeklyChart, $rootScope) {
 	const $ctrl = this;
+	const _Spinner = new Spinner();
 
 	$ctrl.buildSubheaderMessage = weeklyChartData => {
 		return `
@@ -23,14 +26,14 @@ function weeklyChartCtrl(WeeklyChart, $rootScope, Spinner) {
 	};
 
 	$ctrl.$onInit = () => {
-		Spinner.start();
+		_Spinner.start();
 		$rootScope.currPage = 'weeklyChart.PAGE_TITLE';
 		WeeklyChart.getLatestChart()
 		.then(result => {
 			$ctrl.weeklyChartData = $ctrl.formatData(result);
-			Spinner.stop();
+			_Spinner.stop();
 		})
-		.catch(Spinner.stop);
+		.catch(_Spinner.stop);
 	};
 }
 

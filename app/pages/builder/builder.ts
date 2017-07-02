@@ -1,10 +1,13 @@
+import RegexStore from '../../services/ply-utils/regexstore';
+import Toast from '../../services/ply-utils/Toast';
+
 BuilderCtrl.$inject = [
   '$scope', 'chords', '$timeout', '$stateParams',
-  '$rootScope', 'Toast', 'login', 'RegexStore', '$state', 'PlyNotifier',
+  '$rootScope', 'login', '$state', 'PlyNotifier',
 ];
 function BuilderCtrl(
-  $scope, chords, $timeout, $stateParams, $rootScope, toast, login,
-  RegexStore, $state, PlyNotifier,
+  $scope, chords, $timeout, $stateParams, $rootScope, login,
+  $state, PlyNotifier,
 ) {
   if (!!window.mixpanel) {
       window.mixpanel.track('ply_page_view_builder');
@@ -27,7 +30,7 @@ function BuilderCtrl(
       if (result) {
         // We now have a reference to the entire chord object
         result.$bindTo($scope, 'chord').then(function() {
-          toast.showToastByTranslation('builder.alerts.START_EDIT');
+          Toast.showToastByTranslation('builder.alerts.START_EDIT');
         });
       }
     });
@@ -76,7 +79,7 @@ function BuilderCtrl(
     $scope.chord.approved = isApproved;
     const toastText = $scope.chord && $scope.chord.approved ?
                       'Chord approved' : 'Chord not approved';
-    toast.showSimpleToast(toastText);
+    Toast.showSimpleToast(toastText);
   };
 
   $scope.createDisabled = function() {

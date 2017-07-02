@@ -1,10 +1,5 @@
-/**
- * @ngdoc service
- * @name playalongWebApp.toast
- * @description
- * # toast
- * API for making toast (popup) messages
- */
+import $mdToast from 'angular-material/angular-material.min';
+import $translate from 'angular-translate';
 
 class Toast {
 
@@ -13,11 +8,9 @@ class Toast {
 		position: 'bottom left',
 	};
 
-	constructor(private $mdToast, private $translate) {}
-
 	public showSimpleToast(content, delayMs: number = this.conf.delay) {
-		this.$mdToast.show(
-			this.$mdToast.simple()
+		$mdToast.show(
+			$mdToast.simple()
 				.content(content)
 				.position(this.conf.position)
 				.hideDelay(delayMs),
@@ -25,7 +18,7 @@ class Toast {
 	}
 
 	public showToastByTranslation(transKey) {
-		this.$translate([transKey])
+		$translate([transKey])
 		.then(translations => {
 			if (translations[transKey]) {
 				this.showSimpleToast(translations[transKey]);
@@ -34,6 +27,4 @@ class Toast {
 	}
 }
 
-Toast.$inject = ['$mdToast', '$translate'];
-
-export default Toast;
+export default new Toast();

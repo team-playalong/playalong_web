@@ -1,5 +1,5 @@
-user.$inject = ['config', 'PlyFirebase', '$q', 'login'];
-function user(config, PlyFirebase, $q, login) {
+user.$inject = ['PlyFirebase', '$q', 'login'];
+function user(PlyFirebase, $q, login) {
 
   function addRemoveFavorites(params) {
     return new Promise((resolve, reject) => {

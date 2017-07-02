@@ -1,13 +1,18 @@
 import * as angular from 'angular';
 
+import Common from '../../services/ply-utils/common';
+import Toast from '../../services/ply-utils/Toast';
+import ChordModel from './chord.model';
+import Transposer, { EqualChordsMap } from './Transposer';
+
 ChordCtrl.$inject = [
   '$scope', '$rootScope', '$state', 'chords', '$stateParams',
-  'Toast', 'login' , 'Common', '$timeout', 'PlyTooltip', 'transposer', '$sce',
-  'EqualChordsMap', 'ChordModel', '$translate',
+  'login' , '$timeout', '$sce',
+  '$translate',
 ];
 export function ChordCtrl(
-  $scope, $rootScope, $state, chords, $stateParams, toast, login, Common, $timeout,
-  plyTooltip, transposer, $sce: ng.ISCEService, EqualChordsMap, ChordModel,
+  $scope, $rootScope, $state, chords, $stateParams, login, $timeout,
+  $sce: ng.ISCEService, EqualChordsMap,
   $translate,
 ) {
   $scope.ChordModel = ChordModel;
@@ -23,7 +28,6 @@ export function ChordCtrl(
     $scope.toggleAutoscroll();
     $scope.chord.chordKey = $scope.chord.chordKey || angular.copy($stateParams.chordKey) ;
     chords.increaseChordHitCount($scope.chord.$id || $scope.chord.chordKey);
-    $scope.plyTooltip = plyTooltip;
     $scope.isRtl = Common.isRtlContent($scope.chord.content);
     $scope.chordContentClass = 'ply-chord-container-content';
     $scope.chordFab = {
@@ -65,7 +69,7 @@ export function ChordCtrl(
       $scope.chordRating = val;
       $translate(['chord.RATING_SUCCESS'])
       .then(translations => {
-        toast.showSimpleToast(translations['chord.RATING_SUCCESS'] || 'Thanks For Rating');
+        Toast.showSimpleToast(translations['chord.RATING_SUCCESS'] || 'Thanks For Rating');
       });
 
     });
@@ -123,7 +127,7 @@ export function ChordCtrl(
 
     angular.forEach(chords, function(value){
       const oldText = angular.element(value).text();
-      const newText = transposer.transpose(oldText, numTones);
+      const newText = Transposer.transpose(oldText, numTones);
       angular.element(value).text(newText);
     });
 

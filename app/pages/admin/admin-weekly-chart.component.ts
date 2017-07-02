@@ -1,4 +1,7 @@
 import * as angular from 'angular';
+
+import PlyDate from '../../services/ply-utils/ply-date.service';
+
 const adminWeeklyChart: ng.IComponentOptions = {
   template: `
     <div  class="md-padding" id="adminWeeklyChart"
@@ -29,8 +32,8 @@ const adminWeeklySearchArea = {
   controller: adminWeeklySearchAreaCtrl,
 };
 
-adminWeeklySearchAreaCtrl.$inject = ['chords', 'PlyDate'];
-function adminWeeklySearchAreaCtrl(chords, PlyDate) {
+adminWeeklySearchAreaCtrl.$inject = ['chords'];
+function adminWeeklySearchAreaCtrl(chords) {
   this.allYears = PlyDate.getAllYears();
   this.allWeekNumbers = PlyDate.getAllWeekNumbers();
   this.searchConfig = {

@@ -1,130 +1,133 @@
-  login.$inject = ['$q', 'config', 'customerIoHelper', '$rootScope', 'PlyFirebase'];
-  function login($q: ng.IQService, config, customerIoHelper, $rootScope, PlyFirebase) {
+import CustomerIoHelper from './Customeriohelper';
+import Config from '../config/config';
 
-    let userModel;
-    let authModel;
+login.$inject = ['$q', '$rootScope', 'PlyFirebase'];
+function login($q: ng.IQService, $rootScope, PlyFirebase) {
 
-    function getProviderData() {
-      if (authModel && authModel.providerData && authModel.providerData.length) {
-        return authModel.providerData[0];
-      }
+  let userModel;
+  let authModel;
+
+  function getProviderData() {
+    if (authModel && authModel.providerData && authModel.providerData.length) {
+      return authModel.providerData[0];
     }
+  }
 
-    PlyFirebase.authentication.onAuthStateChanged(function(authData) {
-      if (authData === null) {
-        userModel = null;
-        authModel = null;
-      }
-      else {
-        authModel = authData;
-        //Check if user is signed up
-        const usersRef = PlyFirebase.getRef('users');
-        usersRef.orderByChild('uid').equalTo(authData.uid).on('value', function(snapshot) {
-          const rawData = snapshot.val();
-
-          if (!rawData) {
-            //Add it
-            let email, firstName, lastName, fullName;
-            const providerData = getProviderData();
-            switch (providerData.providerId) {
-              case 'google.com':
-              case 'facebook.com':
-                email = providerData.email;
-                fullName = providerData.displayName.split(' ');
-                firstName = fullName[0];
-                lastName = fullName[1];
-              break;
-              case 'password':
-              email = providerData.email;
-              firstName = '';
-              lastName = '';
-              break;
-              default:
-              break;
-            }
-
-            userModel = {
-              //TODO - Validations and extract by platform
-              uid: authData.uid,
-              email,
-              firstName,
-              lastName,
-              userType: 'normal',
-              creationDate: new Date().getTime() / 1000,
-            };
-            usersRef.push(userModel);
-          }
-          else {
-
-            userModel = rawData[Object.keys(rawData)[0]];
-
-            //Append the key to the model
-            userModel.userKey = Object.keys(rawData)[0];
-
-          }
-          $rootScope.$broadcast('plyUserLoggedIn', userModel);
-
-          //Identify against customerIo
-          customerIoHelper.identifyUser(userModel);
-          if (!!window.mixpanel) {
-            window.mixpanel.identify(userModel.uid);
-            window.mixpanel.people.set({
-                $email: userModel.email,    // only special properties need the $
-                $created: userModel.creationDate || new Date(),
-                $last_login: new Date(),
-                firstName: userModel.firstName || '',       // Add any attributes you'd like to use in the email subject or body.
-                lastName: userModel.lastName || '',
-                userType: userModel.userType || 'normal',
-              });
-            window.mixpanel.track('ply_user_login');
-          }
-        });
-      }
-    });
-
-    function loginEmail(email: string, password: string) {
-      return new Promise((resolve, reject) => {
-        PlyFirebase.authentication.signInWithEmailAndPassword(email, password)
-          .then((userData) => resolve(userData))
-          .catch(error => reject(error));
-      });
+  PlyFirebase.authentication.onAuthStateChanged(function(authData) {
+    if (authData === null) {
+      userModel = null;
+      authModel = null;
     }
+    else {
+      authModel = authData;
+      //Check if user is signed up
+      const usersRef = PlyFirebase.getRef('users');
+      usersRef.orderByChild('uid').equalTo(authData.uid).on('value', function(snapshot) {
+        const rawData = snapshot.val();
 
-    function loginSocial(platform: string) {
-      return new Promise((resolve, reject) => {
+        if (!rawData) {
+          //Add it
+          let email, firstName, lastName, fullName;
+          const providerData = getProviderData();
+          switch (providerData.providerId) {
+            case 'google.com':
+            case 'facebook.com':
+            email = providerData.email;
+            fullName = providerData.displayName.split(' ');
+            firstName = fullName[0];
+            lastName = fullName[1];
+            break;
+            case 'password':
+            email = providerData.email;
+            firstName = '';
+            lastName = '';
+            break;
+            default:
+            break;
+          }
 
-        let provider;
-        switch (platform) {
-          case 'facebook':
-            provider = PlyFirebase.facebookProvider;
-            break;
-          case 'google':
-            provider = PlyFirebase.googleProvider;
-            break;
-          default:
-            provider = PlyFirebase.googleProvider;
-            break;
+          userModel = {
+            //TODO - Validations and extract by platform
+            uid: authData.uid,
+            email,
+            firstName,
+            lastName,
+            userType: 'normal',
+            creationDate: new Date().getTime() / 1000,
+          };
+          usersRef.push(userModel);
         }
-        provider.addScope('email');
+        else {
 
-        PlyFirebase.authentication.signInWithPopup(provider)
-        .then(authData => {
-            // User successfully logged in
-          userModel = authData.user;
-          resolve(authData);
-        })
-        .catch((error) => reject(error));
+          userModel = rawData[Object.keys(rawData)[0]];
+
+          //Append the key to the model
+          userModel.userKey = Object.keys(rawData)[0];
+
+        }
+        $rootScope.$broadcast('plyUserLoggedIn', userModel);
+
+        //Identify against customerIo
+        CustomerIoHelper.identifyUser(userModel);
+        if (!!window.mixpanel) {
+          window.mixpanel.identify(userModel.uid);
+          window.mixpanel.people.set({
+            $email: userModel.email,    // only special properties need the $
+            $created: userModel.creationDate || new Date(),
+            $last_login: new Date(),
+            firstName: userModel.firstName || '',       // Add any attributes you'd like to use in the email subject or body.
+            lastName: userModel.lastName || '',
+            userType: userModel.userType || 'normal',
+          });
+          window.mixpanel.track('ply_user_login');
+        }
       });
     }
+  });
 
-    const getUser = () => userModel;
+  function loginEmail(email: string, password: string) {
+    return new Promise((resolve, reject) => {
+      PlyFirebase.authentication.signInWithEmailAndPassword(email, password)
+      .then((userData) => resolve(userData))
+      .catch(error => reject(error));
+    });
+  }
 
-    const isLoggedIn = () => !!userModel;
+  function loginSocial(platform: string) {
+    return new Promise((resolve, reject) => {
 
-    function logout() {
-      PlyFirebase.signOut()
-        .then(() => $rootScope.$broadcast('plyUserLoggedOut'));
-    };
+      let provider;
+      switch (platform) {
+        case 'facebook':
+        provider = PlyFirebase.facebookProvider;
+        break;
+        case 'google':
+        provider = PlyFirebase.googleProvider;
+        break;
+        default:
+        provider = PlyFirebase.googleProvider;
+        break;
+      }
+      provider.addScope('email');
+
+      PlyFirebase.authentication.signInWithPopup(provider)
+      .then(authData => {
+        // User successfully logged in
+        userModel = authData.user;
+        resolve(authData);
+      })
+      .catch((error) => reject(error));
+    });
+  }
+
+  const getUser = () => userModel;
+
+  const isLoggedIn = () => !!userModel;
+
+  function logout() {
+    PlyFirebase.signOut()
+    .then(() => $rootScope.$broadcast('plyUserLoggedOut'));
+  }
 
   const getAuth = () => authModel;
 
@@ -137,25 +140,25 @@
   function isSuperUser() {
     return  getUser() && getUser().userType &&
     (this.getUser().userType.indexOf('superuser') !== -1 || this.getUser().userType.indexOf('admin') !== -1) ;
-  };
+  }
 
   function createUser(email: string, password: string) {
     return new Promise((resolve, reject) => {
       PlyFirebase.authentication.createUserWithEmailAndPassword(email, password)
-        .then(userData => resolve(userData))
-        .catch(error => reject(error));
-      });
+      .then(userData => resolve(userData))
+      .catch(error => reject(error));
+    });
   }
 
   function resetPassword(email: string) {
     return new Promise((resolve, reject) => {
 
       PlyFirebase.authentication.sendPasswordResetEmail(email)
-        .then(() => {
-          console.log(`Reset password sent to ${email}`);
-          resolve();
-        })
-        .catch(error => reject(error));
+      .then(() => {
+        console.log(`Reset password sent to ${email}`);
+        resolve();
+      })
+      .catch(error => reject(error));
     });
   }
 

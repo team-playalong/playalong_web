@@ -1,18 +1,10 @@
-	/**
-	 * @ngdoc service
-	 * @name playalongWebApp.Common
-	 * @description
-	 * # Common
-	 * Factory in the playalongWebApp.
-	 */
+import RegexStore from './regexstore';
 
 class Common {
-	constructor(private RegexStore) {}
-
 	public isRtlContent(content) {
 		// enough to find 3 non-english characters and we're good :)
 		if (!content) { return false; }
-		const matching = content.match(this.RegexStore.get('hebrew'));
+		const matching = content.match(RegexStore.get('hebrew'));
 		return !!matching && matching.length >= 3;
 	}
 
@@ -33,6 +25,4 @@ class Common {
 	}
 }
 
-Common.$inject = ['RegexStore'];
-
-export default Common;
+export default new Common();
