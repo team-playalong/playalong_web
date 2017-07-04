@@ -38,6 +38,7 @@ const ChordResult = {
   controller: ChordResultCtrl,
 };
 
+// Yo
 ChordResultCtrl.$inject = ['$rootScope'];
 function ChordResultCtrl($rootScope) {
 
