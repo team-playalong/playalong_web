@@ -69,10 +69,6 @@ function TunerCtrl(login, $scope, $timeout, $state, $rootScope) {
   $ctrl.timer = 'Pausad';
 
   $ctrl.$onInit = () => {
-    if (!!window.mixpanel) {
-      window.mixpanel.track('ply_page_view_tuner');
-    }
-
     $rootScope.$on('$stateChangeStart',
       function(event, toState, toParams, fromState, fromParams){
        if (fromState.name === 'tuner') {

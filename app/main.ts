@@ -5,10 +5,7 @@ function MainCtrl($scope, $timeout, $mdSidenav, $mdUtil, $state, login, $rootSco
   $scope.Math = Math;
   $scope.Spinner = new Spinner();
   $scope.initCtrl = function() {
-    if (!!window.mixpanel) {
-      window.mixpanel.track('ply_page_load');
-    }
-
+    
     $rootScope.paths = Paths;
     $scope.user = login.getUser();
     $rootScope.toggleSidebar = $scope.buildToggler('left');

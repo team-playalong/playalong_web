@@ -1,5 +1,4 @@
 interface Window {
-	mixpanel: any;
   ga: any;
   PLY_CONFIG: any;
 	firebase: any;

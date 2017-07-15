@@ -46,10 +46,6 @@ FavoritesCtrl.$inject = [
 ];
 function FavoritesCtrl(login, user, $rootScope, $scope) {
   const vm = this;
-  if (!!window.mixpanel) {
-    window.mixpanel.track('ply_page_view_favorites');
-  }
-
   vm.removeFavorite = ($event, favorite) => {
     $event.preventDefault();
     $event.stopPropagation();

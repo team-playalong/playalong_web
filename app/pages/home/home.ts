@@ -27,9 +27,6 @@ class HomeCtrl {
   }
 
   $onInit() {
-    if (!!window.mixpanel) {
-      window.mixpanel.track('ply_page_view_home');
-    }
     this.$rootScope.currPage = 'home.PAGE_TITLE';
 
     // Workaround due to translations

@@ -9,9 +9,6 @@ function BuilderCtrl(
   $scope, chords, $timeout, $stateParams, $rootScope, login,
   $state, PlyNotifier,
 ) {
-  if (!!window.mixpanel) {
-      window.mixpanel.track('ply_page_view_builder');
-    }
   $scope.login = login;
   $rootScope.currPage = 'Chord Builder';
   $scope.chordRef = null; // Will reference the chord for Firebase process.binding
