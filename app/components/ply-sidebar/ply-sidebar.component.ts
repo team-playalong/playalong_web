@@ -46,6 +46,7 @@ function SidebarCtrl($mdSidenav, login) {
       text: 'sidebar.menu.CHORD_BUILDER',
       ref: 'builder.new',
       icon: 'pencil',
+      isAdmin: true,
     },
     {
       text: 'sidebar.menu.FAVORITES',

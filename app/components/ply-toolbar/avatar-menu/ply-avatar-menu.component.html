@@ -16,7 +16,9 @@
   <md-menu-content class="ply-avatar-menu"
   	ng-style="ctrl.setMenuStyles()">
 
-    <div ng-if="!ctrl.login.isLoggedIn()" layout="row" layout-sm="column" layout-padding>
+
+		<!-- TODO - stabilize -->
+    <!-- <div ng-if="!ctrl.login.isLoggedIn()" layout="row" layout-sm="column" layout-padding>
 		  <div flex="1">
 				<ply-text-input
 		      text-input-label="'.EMAIL'"
@@ -53,7 +55,7 @@
 				</md-button>
 			</div>
 
-		</div>
+		</div> -->
 		<div ng-if="!ctrl.login.isLoggedIn()" layout="row" layout-padding flex="1">
   		<span flex="20" class="ply-topnav-login-title" translate=".LOGIN_WITH"></span>
   		<span flex="1" layout-align="start start">
