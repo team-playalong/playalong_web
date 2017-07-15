@@ -108,7 +108,7 @@
     "justgage": "^1.2.2",
     "material-ui": "^0.18.1",
     "ngreact": "^0.4.0",
-    "playalong-components": "^0.4.0",
+    "playalong-components": "^0.2.0",
     "prop-types": "^15.5.10",
     "rangy": "^1.3.0",
     "react": "^15.5.4",
