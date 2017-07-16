@@ -5,6 +5,8 @@ import { react2angular } from 'react2angular';
 // Modules
 import './components/styled';
 
+// Native Components
+import PlyChordResult, { props as PlyChordResultProps } from './components/chord-result/chord-result';
 import RadioButtons, { props as RadioButtonsProps } from 'playalong-components/components/RadioButtons';
 import TextInput, { props as TextInputProps } from 'playalong-components/components/TextInput';
 import Rating, { props as RatingProps } from 'playalong-components/components/Rating';
@@ -23,7 +25,9 @@ angular.module('PlyReact', [
   'react',
   'PlyStyled',
 ])
-.component('rating', react2angular(Rating, RatingProps as any))
+// Native Components
+.component('plyChordResult', react2angular(PlyChordResult, PlyChordResultProps as any))
+.component('plyRating', react2angular(Rating, RatingProps as any))
 .component('radioButtons', react2angular(RadioButtons, RadioButtonsProps as any))
 .component('textInput', react2angular(TextInput, TextInputProps as any))
 .component('favoriteBtn', react2angular(FavoriteBtn, FavoriteBtnProps as any))

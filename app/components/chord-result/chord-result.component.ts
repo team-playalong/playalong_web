@@ -14,7 +14,7 @@ const ChordResult = {
 			  <h3 ng-bind="$ctrl.chord.artist"></h3>
 			  <p ng-bind="$ctrl.chord.title"></p>
 			  <p ng-if="$ctrl.chord.hitCount" translate="home.HIT_COUNT" translate-values="{hitCount: $ctrl.chord.hitCount}"></p>
-        <rating readonly="true" value="$ctrl.chord.rating"></rating>
+        <ply-rating readonly="true" value="$ctrl.chord.rating"></ply-rating>
         <div ng-if="$ctrl.isShowRank()">
           <md-input-container >
             Rank
