@@ -1,7 +1,15 @@
 const ChordResult = {
   template: `
   	<md-list-item class="md-2-line clickable">
-			<img ng-src="{{$ctrl.chord.imagePath}}" class="md-avatar" ng-if="$ctrl.chord.imagePath" />
+      <ply-image
+        class="margin-right-10"
+        src="$ctrl.chord.imagePath"
+        type="'avatar'"
+        height="'80px'"
+        width="'80px'"
+        ng-if="$ctrl.chord.imagePath"
+      >
+      </ply-image>
 			<div class="md-list-item-text" ng-click="$ctrl.redirect($ctrl.chord)">
 			  <h3 ng-bind="$ctrl.chord.artist"></h3>
 			  <p ng-bind="$ctrl.chord.title"></p>
@@ -38,7 +46,6 @@ const ChordResult = {
   controller: ChordResultCtrl,
 };
 
-// Yo
 ChordResultCtrl.$inject = ['$rootScope'];
 function ChordResultCtrl($rootScope) {
 
