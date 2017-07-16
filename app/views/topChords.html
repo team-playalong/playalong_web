@@ -2,18 +2,17 @@
       translate-namespace="topChords">
   <md-card layout-align="center" class="ply-search-results" >
     <md-card-content>
-
       <h1 class="md-title"  translate=".TITLE"></h1>
-
       <div class="ply-search-results-wrapper">
         <ply-spinner is-active="top.isTopChordsSpinnerActive"></ply-spinner>
         <md-list
           ng-if="top.topChords && top.topChords.length"
           ng-repeat="chord in top.topChords | orderBy: '-creationDate' track by $index"
         >
-          <chord-result
-            chord="chord">
-          </chord-result>
+          <ply-chord-result
+            chord="chord"
+            click="$root.goToChordPage"
+            ></ply-chord-result>
       </div>
 
     </md-card-content>

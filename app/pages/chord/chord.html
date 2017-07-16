@@ -2,7 +2,8 @@
       translate-namespace="chord">
     <md-card  layout-padding layout-align="center"
               ng-class="{'text-align-right' : isRtl}">
-      <ply-auto-scroll></ply-auto-scroll>
+      <!-- TODO - Fix drag issue -->
+      <!-- <ply-auto-scroll></ply-auto-scroll> -->
       <md-card-content class="ply-chord-container">
         <div layout="row" layout-align="{{!!isRtl ? 'end' : 'start'}} center">
           <div flex="30">
@@ -29,7 +30,7 @@
             <h4 ng-bind="chord.title"></h4>
           </div>
         </div>
-        
+
         <!-- TODO - Return after resoving youtube errors -->
         <!-- <div  layout="row" class="direction-initial"
               ng-if="!!chord.youtubeLink">
@@ -52,7 +53,7 @@
         <div  class="ply-chord-rating"
               ng-if="chordRating">
           <h5 tranlate=".RATE_MESSAGE"></h5>
-          <rating value="chordRating" click="ratingChanged" readonly="hasRated"></rating>
+          <ply-rating value="chordRating" click="ratingChanged" readonly="hasRated"></ply-rating>
           <p class='help-block'
               ng-if='chord.countRating && !hasRated'>
               <span>{{::chord.countRating}}</span>
