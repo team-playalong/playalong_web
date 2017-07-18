@@ -109,8 +109,11 @@ module.exports = {
 
       // JS
       {
-        test: /\.js$/,
-        use: [{ loader: 'ng-annotate-loader' }],
+        test: /[/\\\\]app\/react\/[/\\\\].+\\.(js|jsx)$/,
+        use: [
+          { loader: 'ng-annotate-loader' },
+          { loader: 'babel-loader' }
+        ],
         exclude: /(node_modules)/,
       },
       // IMAGES
