@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 import FontAwesome from 'react-fontawesome';
 import ReactTooltip from 'react-tooltip';
 
-interface BtnIconProps {
-  icon: string;
-  click?: any;
-  tooltip?: string;
-  size?: string;
-}
+// TODO
+// interface BtnIconProps {
+//   icon: string;
+//   click?: any;
+//   tooltip?: string;
+//   size?: string;
+// }
 
 const styles = {
   cursor: 'pointer',
@@ -17,7 +18,7 @@ const styles = {
   fontSize: 'initial',
 };
 
-function BtnIcon(props: BtnIconProps) {
+function BtnIcon(props) {
   if (props.size) {
     styles.fontSize = props.size + 'px';
   }

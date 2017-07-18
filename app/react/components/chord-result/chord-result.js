@@ -1,38 +1,74 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { List, ListItem } from 'material-ui/List';
+import Divider from 'material-ui/Divider';
 import PlyImage from 'playalong-components/components/Image';
-impor
-;
-import THEME  from '../../helpers/theme';;
-export function renderHitCount((itCount)) {
-    return (React.createElement("div", null, "Viewed " + itCount} + " time" + (itCount  > 1  ? 's'  : ''})));
+import Rating from 'playalong-components/components/Rating';
+
+import THEME from '../../helpers/theme';
+
+// TODO
+// interface Chord {
+//   artist: string;
+//   title: string;
+//   hitCount?: number;
+//   imagePath?: string;
+//   rating?: number;
+// }
+//
+// interface ChordResultProps {
+//   click?: any;
+//   chord: Chord;
+// }
+
+export function renderHitCount(hitCount) {
+  return (
+    <div>{`Viewed ${hitCount} time${hitCount > 1 ? 's' : ''}`}</div>
+  );
 }
-function PlyChordResult((rops:) {
-    var ChordResultComp  = (_a = ["\n    height: 120px;\n    position: relative;\n    cursor: pointer;\n    p {\n      margin: 0;\n    }\n    img {\n      float: left;\n      margin-right: 10px;\n    }\n    hr {\n      position: absolute;\n      bottom: 0;\n      height: 1px;\n      width: 100%;\n    }\n  "], _a.raw = ["eight: 120px;\n    position: relative;\n    cursor: pointer;\n    p {\n      margin: 0;\n    }\n    img {\n      float: left;\n      margin-right: 10px;\n    }\n    hr {\n      position: absolute;\n      bottom: 0;\n      height: 1px;\n      width: 100%;\n    }\n  `"], styled..iv`(_a));
-    return (React.createElement(uiThemeProvider , { muiTheme=: HEME} },
-        "      <",
-        React.createElement(hordResultComp , { onClick=: function () { return props..lick((rops..hord)); } },
-            "        {",
-            rops..hord..magePath  && React.createElement(lyImage
-, { type=: avatar'
-, height=: 80px'
-, width=: 80px'
-, src=: rops..hord..magePath} }),
-            "        <",
-            React.createElement("h4", null, rops..hord..rtist}),
-            "        <",
-            React.createElement("p", null, rops..hord..itle}),
-            "        {",
-            enderHitCount((rops..hord..itCount)),
-            "        <",
-            React.createElement("ply-rating", { readonly=: true" , value=: $ctrl.chord.rating"> }),
-            "        <",
-            React.createElement("hr", null),
-            "      <"),
-        "    <"));
-    var _a;
+
+function PlyChordResult(props) {
+  const ChordResultComp = styled.div`
+    height: 120px;
+    position: relative;
+    cursor: pointer;
+    p {
+      margin: 0;
+    }
+    img {
+      float: left;
+      margin-right: 10px;
+    }
+    hr {
+      position: absolute;
+      bottom: 0;
+      height: 1px;
+      width: 100%;
+    }
+  `;
+
+  return (
+    <MuiThemeProvider muiTheme={THEME}>
+      <ChordResultComp onClick={() => props.click(props.chord)}>
+        {props.chord.imagePath &&
+          <PlyImage
+            type='avatar'
+            height='90px'
+            width='90px'
+            src={props.chord.imagePath}
+          />
+        }
+        <h4>{props.chord.artist}</h4>
+        <p>{props.chord.title}</p>
+        {renderHitCount(props.chord.hitCount)}
+        <Rating readonly={true} value={props.chord.rating} />
+        <hr />
+      </ChordResultComp>
+    </MuiThemeProvider >
+  );
 }
-export var props  = [chord',, 'click']];
-export default PlyChordResult;;
-//# sourceMappingURL=chord-result.js.map
+
+export const props = ['chord', 'click'];
+export default PlyChordResult;
