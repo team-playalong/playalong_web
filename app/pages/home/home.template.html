@@ -65,12 +65,10 @@
           <span translate=".REQUEST_SONG"></span>
           <a href="mailto:contact@playalong.io?subject=Please get me my beautiful song!" target="_blank" translate=".HERE"></a>
         </h5>
-
-        <md-list ng-repeat="result in home.searchResults track by $index">
-          <chord-result
-            chord="result">
-          </chord-result>
-        </md-list>
+        <ply-chord-result-list
+          chords="home.searchResults"
+          click="$root.goToChordPage"
+          ></ply-chord-result-list>
       </md-card-content>
     </md-card>
   </section>

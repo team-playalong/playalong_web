@@ -8,7 +8,7 @@ import './components/styled';
 // Native Components
 import PlyChordResultList from './components/chord-result-list/chord-result-list';
 import RadioButtons, { props as RadioButtonsProps } from 'playalong-components/components/RadioButtons';
-import TextInput, { props as TextInputProps } from 'playalong-components/components/TextInput';
+import TextInput from 'playalong-components/components/TextInput';
 import Rating, { props as RatingProps } from 'playalong-components/components/Rating';
 import FavoriteBtn, { props as FavoriteBtnProps } from './components/favorites-btn/FavoriteBtn';
 import TextSlider, { props as TextSliderProps } from 'playalong-components/components/TextSlider';
@@ -31,7 +31,7 @@ angular.module('PlyReact', [
 // playalong-components
 .component('plyRating', react2angular(Rating, RatingProps ))
 .component('radioButtons', react2angular(RadioButtons, RadioButtonsProps ))
-.component('textInput', react2angular(TextInput, TextInputProps ))
+.component('textInput', react2angular(TextInput))
 .component('favoriteBtn', react2angular(FavoriteBtn, FavoriteBtnProps ))
 .component('textSlider', react2angular(TextSlider, TextSliderProps ))
 .component('plyButton', react2angular(Button, ButtonProps ))

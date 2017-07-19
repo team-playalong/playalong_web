@@ -1,4 +1,5 @@
 import * as angular from 'angular';
+import Toast from '../../services/ply-utils/toast';
 
 import PlyDate from '../../services/ply-utils/ply-date.service';
 
@@ -89,8 +90,8 @@ const adminWeeklyChordResults: ng.IComponentOptions = {
   },
 };
 
-adminWeeklyChartCtrl.$inject = ['Toast', 'WeeklyChart'];
-function adminWeeklyChartCtrl(toast, WeeklyChart) {
+adminWeeklyChartCtrl.$inject = ['WeeklyChart'];
+function adminWeeklyChartCtrl(WeeklyChart) {
   const vm = this;
   this.weeklyChart = {
     year: 2016,
@@ -150,7 +151,7 @@ function adminWeeklyChartCtrl(toast, WeeklyChart) {
       delete wc.$$hashKey;
     }
     WeeklyChart.createWeeklyChart(wc)
-    .then(result => toast.showSimpleToast('Weekly Chart Added Successfully!'));
+    .then(result => Toast.showSimpleToast('Weekly Chart Added Successfully!'));
   };
 }
 

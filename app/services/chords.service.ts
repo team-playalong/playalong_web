@@ -60,7 +60,8 @@ function chords($q: ng.IQService, PlyFirebase, $firebaseObject) {
     });
   }
 
-  function searchChordsBy(searchBy, searchText) {
+  function searchChordsBy(searchBy = 'artist', searchText) {
+    console.log(`Search ${searchText} by ${searchBy}`);
     return new Promise((resolve, reject) => {
       // TODO - data validation
       chordsRef
@@ -69,7 +70,7 @@ function chords($q: ng.IQService, PlyFirebase, $firebaseObject) {
       .endAt(`${searchText}~`)
       .once('value')
       .then((snapshot) => {
-        //Extract the object
+        // Extract the object
         const rawData = snapshot.val();
         if (!rawData) {
           reject(`No results for query ${searchText} searching by ${searchBy}`);
@@ -82,13 +83,13 @@ function chords($q: ng.IQService, PlyFirebase, $firebaseObject) {
 
   function getTopCommon(limitTo, field = 'hitCount') {
     return new Promise((resolve, reject) => {
-      //TODO - data validation
+      // TODO - data validation
       chordsRef
         .orderByChild(field)
         .limitToLast(limitTo)
         .once('value')
         .then(snapshot => {
-          //Extract the object
+          // Extract the object
           const rawData = snapshot.val();
           if (!rawData) {
             reject('No results for query getTopChords');
@@ -122,7 +123,7 @@ function chords($q: ng.IQService, PlyFirebase, $firebaseObject) {
         const countRating = snapshot.val().countRating || 1;
         let rating = snapshot.val().rating || 1;
 
-        //New weighted average
+        // New weighted average
         rating = ((rating * countRating) + (newRating * 1)) / (countRating + 1);
         rating = Math.round(rating);
         rating = Math.min(rating, 5);
@@ -131,7 +132,7 @@ function chords($q: ng.IQService, PlyFirebase, $firebaseObject) {
         return resolve();
       })
       .catch((error) => reject(error));
-      //TODO - add the rating to the user as well
+      // TODO - add the rating to the user as well
     });
   }
 
