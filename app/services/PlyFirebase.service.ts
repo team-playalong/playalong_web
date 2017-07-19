@@ -1,4 +1,4 @@
-import PLY_CONFIG from '../env';
+import PLY_CONFIG, { Environments } from '../env';
 import { apps } from 'firebase/app';
 import { initializeApp, auth, database } from 'firebase';
 
@@ -7,7 +7,7 @@ function PlyFirebase($firebaseObject) {
 
   // Initialize Firebase
   let config;
-  if (PLY_CONFIG.env === 'development') {
+  if (PLY_CONFIG.env === Environments.DEVELOPMENT) {
     config = {
       apiKey: 'AIzaSyApdtKEld9C-Hbkr62_o4tOPeZl_qiFfTY',
       authDomain: 'playalong.firebaseapp.com',

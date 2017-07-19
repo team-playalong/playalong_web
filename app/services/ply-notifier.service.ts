@@ -1,4 +1,4 @@
-import PLY_CONFIG from '../env';
+import PLY_CONFIG, { Environments } from '../env';
 
 const devPrefix = 'http://localhost:3000';
 const prodPrefix = 'https://playalong-notifier.herokuapp.com';
@@ -13,7 +13,7 @@ class PlyNotifier {
 	private urlPrefix;
 
 	constructor(public $http) {
-		if (PLY_CONFIG.env === 'development') {
+		if (PLY_CONFIG.env === Environments.DEVELOPMENT) {
 			this.urlPrefix = devPrefix;
 		}
 		else {
