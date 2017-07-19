@@ -14,6 +14,6 @@ const Config = {
 };
 
 // This is an addition to the reference in order to create two envs
-Config.paths.firebase = Config.env === 'dev' ? Config.paths.firebaseDev : Config.paths.firebaseProd;
+Config.paths.firebase = Config.env === 'development' ? Config.paths.firebaseDev : Config.paths.firebaseProd;
 
 export default Config;

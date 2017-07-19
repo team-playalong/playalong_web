@@ -7,7 +7,7 @@ function PlyFirebase($firebaseObject) {
 
   // Initialize Firebase
   let config;
-  if (PLY_CONFIG.env === 'dev') {
+  if (PLY_CONFIG.env === 'development') {
     config = {
       apiKey: 'AIzaSyApdtKEld9C-Hbkr62_o4tOPeZl_qiFfTY',
       authDomain: 'playalong.firebaseapp.com',

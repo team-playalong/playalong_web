@@ -7,5 +7,5 @@ import PlyTitle, { props as PlyTitleProps } from './Title';
 angular.module('PlyStyled', [
   'react',
 ])
-.component('plyTitle', react2angular(PlyTitle, PlyTitleProps as any))
+.component('plyTitle', react2angular(PlyTitle, PlyTitleProps))
 ;

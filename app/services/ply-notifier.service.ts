@@ -13,7 +13,7 @@ class PlyNotifier {
 	private urlPrefix;
 
 	constructor(public $http) {
-		if (PLY_CONFIG.env === 'dev') {
+		if (PLY_CONFIG.env === 'development') {
 			this.urlPrefix = devPrefix;
 		}
 		else {
