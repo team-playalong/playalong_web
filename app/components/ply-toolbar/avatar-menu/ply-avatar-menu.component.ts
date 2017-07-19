@@ -63,7 +63,7 @@ function ctrl($mdDialog, login, $translate, PlyNotifier) {
 
 	ctrl.setMenuStyles = () => {
 		const result = {
-			minHeight: '400px',
+			minHeight: '85px',
 		};
 
 		if (login.isLoggedIn()) {
