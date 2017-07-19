@@ -2,8 +2,6 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { List, ListItem } from 'material-ui/List';
-import Divider from 'material-ui/Divider';
 import PlyImage from 'playalong-components/components/Image';
 import Rating from 'playalong-components/components/Rating';
 

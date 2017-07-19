@@ -8,7 +8,7 @@ var dirReact = path.join(__dirname, 'app/react');
 
 
 // Is the current build a development build
-var IS_DEV = (process.env.NODE_ENV === 'dev');
+var IS_DEV = (process.env.NODE_ENV === 'development');
 
 module.exports = {
   entry: {
@@ -109,9 +109,8 @@ module.exports = {
 
       // JS
       {
-        test: /[/\\\\]app\/react\/[/\\\\].+\\.(js|jsx)$/,
+        test: /.*(app\/react).*(js|jsx)$/,
         use: [
-          { loader: 'ng-annotate-loader' },
           {
             loader: 'babel-loader',
             options: {

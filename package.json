@@ -6,7 +6,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "watch": "npm-run-all --parallel test:watch start",
-    "start": "NODE_ENV=dev webpack-dev-server --port 3000 --progress --config webpack.config.dev.js",
+    "start": "NODE_ENV=development webpack-dev-server --port 3000 --progress --config webpack.config.dev.js",
     "tslint": "tslint './app/**/*.ts' --fix",
     "eslint": "eslint --fix test",
     "deploy": "firebase use default && firebase deploy",
@@ -43,7 +43,7 @@
     "eslint-plugin-flowtype": "^2.35.0",
     "eslint-plugin-import": "^2.3.0",
     "eslint-plugin-jasmine": "^2.3.1",
-    "eslint-plugin-jsx-a11y": "^6.0.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-protractor": "^1.34.2",
     "eslint-plugin-react": "^7.1.0",
     "file-loader": "^0.11.1",
@@ -137,7 +137,7 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "app/react/**/*.{js,jsx}"
+      "<rootDir>/app/react/**/*.{js,jsx}"
     ],
     "setupFiles": [
       "<rootDir>/config/polyfills.js"
