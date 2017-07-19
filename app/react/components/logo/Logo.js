@@ -1,11 +1,18 @@
 import * as React from 'react';
 import styled from 'styled-components';
-var logoSrc = '../../../../assets/images/plyIcon.png';
-var LogoImg = (_a = ["\n  height: 50px;\n  width: 50px;\n  margin-right: 10px;\n"], _a.raw = ["\n  height: 50px;\n  width: 50px;\n  margin-right: 10px;\n"], styled.img(_a));
+
+const logoSrc = '../../../../assets/images/plyIcon.png';
+const LogoImg = styled.img`
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+`;
+
 function PlyLogo() {
-    return (React.createElement(LogoImg, { src: logoSrc }));
+  return (
+    <LogoImg src={logoSrc}></LogoImg>
+  );
 }
-export var props = [];
+
+export const props = [];
 export default PlyLogo;
-var _a;
-//# sourceMappingURL=Logo.js.map
