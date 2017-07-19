@@ -1,4 +1,4 @@
-import Toast from '../../services/ply-utils/Toast';
+import Toast from '../../services/ply-utils/toast';
 import Spinner from '../../services/spinner.service';
 
 const PlyFavorites = {

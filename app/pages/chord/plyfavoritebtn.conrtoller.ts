@@ -1,4 +1,4 @@
-import Toast from '../../services/ply-utils/Toast';
+import Toast from '../../services/ply-utils/toast';
 
 PlyfavoritebtnCtrl.$inject = ['$scope', 'user', 'login'];
 function PlyfavoritebtnCtrl($scope, user, login) {

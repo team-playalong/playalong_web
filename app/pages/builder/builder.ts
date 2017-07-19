@@ -1,5 +1,5 @@
 import RegexStore from '../../services/ply-utils/regexstore';
-import Toast from '../../services/ply-utils/Toast';
+import Toast from '../../services/ply-utils/toast';
 
 BuilderCtrl.$inject = [
   '$scope', 'chords', '$timeout', '$stateParams',

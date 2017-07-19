@@ -1,9 +1,9 @@
 import * as angular from 'angular';
 
 import Common from '../../services/ply-utils/common';
-import Toast from '../../services/ply-utils/Toast';
+import Toast from '../../services/ply-utils/toast';
 import ChordModel from './chord.model';
-import Transposer, { EqualChordsMap } from './Transposer';
+import Transposer, { EqualChordsMap } from './transposer';
 
 ChordCtrl.$inject = [
   '$scope', '$rootScope', '$state', 'chords', '$stateParams',

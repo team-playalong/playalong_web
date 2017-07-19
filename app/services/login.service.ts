@@ -1,4 +1,4 @@
-import CustomerIoHelper from './Customeriohelper';
+import CustomerIoHelper from './customeriohelper';
 import Config from '../config/config';
 
 login.$inject = ['$q', '$rootScope', 'PlyFirebase'];
