@@ -2,25 +2,24 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { List, ListItem } from 'material-ui/List';
-import Divider from 'material-ui/Divider';
 import PlyImage from 'playalong-components/components/Image';
 import Rating from 'playalong-components/components/Rating';
 
 import THEME from '../../helpers/theme';
 
-interface Chord {
-  artist: string;
-  title: string;
-  hitCount?: number;
-  imagePath?: string;
-  rating?: number;
-}
-
-interface ChordResultProps {
-  click?: any;
-  chord: Chord;
-}
+// TODO
+// interface Chord {
+//   artist: string;
+//   title: string;
+//   hitCount?: number;
+//   imagePath?: string;
+//   rating?: number;
+// }
+//
+// interface ChordResultProps {
+//   click?: any;
+//   chord: Chord;
+// }
 
 export function renderHitCount(hitCount) {
   return (
@@ -28,7 +27,7 @@ export function renderHitCount(hitCount) {
   );
 }
 
-function PlyChordResult(props: ChordResultProps) {
+function PlyChordResult(props) {
   const ChordResultComp = styled.div`
     height: 120px;
     position: relative;

@@ -1,4 +1,4 @@
-import PLY_CONFIG from '../env';
+import PLY_CONFIG, { Environments } from '../env';
 
 const Config = {
   env: PLY_CONFIG.env,
@@ -14,6 +14,6 @@ const Config = {
 };
 
 // This is an addition to the reference in order to create two envs
-Config.paths.firebase = Config.env === 'dev' ? Config.paths.firebaseDev : Config.paths.firebaseProd;
+Config.paths.firebase = Config.env === Environments.DEVELOPMENT ? Config.paths.firebaseDev : Config.paths.firebaseProd;
 
 export default Config;

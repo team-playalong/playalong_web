@@ -8,7 +8,7 @@ var dirReact = path.join(__dirname, 'app/react');
 
 
 // Is the current build a development build
-var IS_DEV = (process.env.NODE_ENV === 'dev');
+var IS_DEV = (process.env.NODE_ENV === 'development');
 
 module.exports = {
   entry: {
@@ -109,8 +109,19 @@ module.exports = {
 
       // JS
       {
-        test: /\.js$/,
-        use: [{ loader: 'ng-annotate-loader' }],
+        test: /.*(app\/react).*(js|jsx)$/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+
+              // This is a feature of `babel-loader` for webpack (not Babel itself).
+              // It enables caching results in ./node_modules/.cache/babel-loader/
+              // directory for faster rebuilds.
+              cacheDirectory: true,
+            },
+          }
+        ],
         exclude: /(node_modules)/,
       },
       // IMAGES

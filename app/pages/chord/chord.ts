@@ -56,7 +56,7 @@ export function ChordCtrl(
     const chordFormatted = encodeURIComponent(chord.trim());
     return $sce.trustAsHtml(`
       <div>
-        <img src="guitar-chords/${chordFormatted}.png" height="100" width="85" alt="No chord Available" />
+        <img src="assets/images/guitar-chords/${chordFormatted}.png" height="100" width="85" alt="No chord Available" />
       </div>
     `);
   };
