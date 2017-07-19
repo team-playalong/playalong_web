@@ -5,14 +5,18 @@
       <h1 class="md-title"  translate=".TITLE"></h1>
       <div class="ply-search-results-wrapper">
         <ply-spinner is-active="top.isTopChordsSpinnerActive"></ply-spinner>
-        <md-list
+        <ply-chord-result-list
+          chords="top.topChords"
+          click="$root.goToChordPage"
+          ></ply-chord-result-list>
+        <!-- <md-list
           ng-if="top.topChords && top.topChords.length"
           ng-repeat="chord in top.topChords | orderBy: '-creationDate' track by $index"
         >
           <ply-chord-result
             chord="chord"
             click="$root.goToChordPage"
-            ></ply-chord-result>
+            ></ply-chord-result> -->
       </div>
 
     </md-card-content>

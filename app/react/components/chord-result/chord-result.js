@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+import { func, object } from 'prop-types';
 import styled from 'styled-components';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import PlyImage from 'playalong-components/components/Image';
@@ -68,5 +68,8 @@ function PlyChordResult(props) {
   );
 }
 
-export const props = ['chord', 'click'];
+PlyChordResult.propTypes = {
+  chord: object,
+  click: func,
+};
 export default PlyChordResult;
