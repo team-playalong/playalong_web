@@ -116,7 +116,10 @@ function adminWeeklyChartCtrl(WeeklyChart) {
 
     ],
   };
-  this.availableRanks = [1, 2, 3, 4, 5];
+  this.availableRanks = [1, 2, 3, 4, 5]
+    .map(rank => {
+      return { label: rank, value: rank };
+    });
   this.updateRank = ({ chordKey, rank }) => {
     for (const currSong of this.weeklyChart.songs) {
       if (currSong.chordKey === chordKey) {

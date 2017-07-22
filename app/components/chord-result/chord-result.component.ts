@@ -16,7 +16,13 @@ const ChordResult = {
 			  <p ng-if="$ctrl.chord.hitCount" translate="home.HIT_COUNT" translate-values="{hitCount: $ctrl.chord.hitCount}"></p>
         <ply-rating readonly="true" value="$ctrl.chord.rating"></ply-rating>
         <div ng-if="$ctrl.isShowRank()">
-          <md-input-container >
+          <label>Rank</label>
+          <ply-dropdown
+            options="$ctrl.availableRanks"
+            value="$ctrl.chord.rank"
+            change="$ctrl.onRankChange"
+          ></ply-dropdown>
+          <!-- <md-input-container >
             Rank
             <md-select
               class="ply-search-form-select"
@@ -27,7 +33,7 @@ const ChordResult = {
                 {{rank}}
               </md-option>
             </md-select>
-          </md-input-container>
+          </md-input-container> -->
           <md-button ng-disabled="!$ctrl.chord.rank" class="md-raised" type="submit" ng-click="$ctrl.rankChangeHandler($ctrl.chord)"
             aria-label="Go"
             translate=".SEARCH_BOTTON">
@@ -46,8 +52,8 @@ const ChordResult = {
   controller: ChordResultCtrl,
 };
 
-ChordResultCtrl.$inject = ['$rootScope'];
-function ChordResultCtrl($rootScope) {
+ChordResultCtrl.$inject = ['$rootScope', '$timeout'];
+function ChordResultCtrl($rootScope, $timeout) {
 
   this.isShowRank = () => this.availableRanks && this.availableRanks.length;
 
@@ -57,6 +63,12 @@ function ChordResultCtrl($rootScope) {
     }
 
 	};
+
+  this.onRankChange = (e, key, rank) => {
+    $timeout(() => {
+      this.chord.rank = rank;
+    });
+  };
 }
 
 export default ChordResult;
