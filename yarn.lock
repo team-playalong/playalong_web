@@ -7478,9 +7478,9 @@ pkginfo@0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/pkginfo/-/pkginfo-0.4.0.tgz#349dbb7ffd38081fcadc0853df687f0c7744cd65"
 
-playalong-components@^0.1.17:
-  version "0.1.17"
-  resolved "https://registry.yarnpkg.com/playalong-components/-/playalong-components-0.1.17.tgz#6f82db152de2d68273fac6c97f8c8f9d435dbaf0"
+playalong-components@^0.1.19:
+  version "0.1.19"
+  resolved "https://registry.yarnpkg.com/playalong-components/-/playalong-components-0.1.19.tgz#dbb7eb20d3fb29587e6d56d9cbc9ae0509ff27ed"
   dependencies:
     chokidar "^1.7.0"
     draft-js "^0.10.1"

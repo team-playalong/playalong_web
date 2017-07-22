@@ -17,9 +17,12 @@ import BtnIcon, { props as BtnIconProps } from './components/btn-icon/BtnIcon';
 import Youtube, { props as YoutubeProps } from 'playalong-components/components/Youtube';
 import PlyLogo, { props as PlyLogoProps } from './components/logo/Logo';
 import PlySpinner, { props as PlySpinnerProps } from 'playalong-components/components/Spinner';
+
+// playalong-components
 import AutoScroll, { props as AutoScrollProps } from 'playalong-components/components/AutoScroll';
 import PlyToggle from 'playalong-components/components/Toggle';
 import PlyImage from 'playalong-components/components/Image';
+import PlyDropdown from 'playalong-components/components/Dropdown';
 
 angular.module('PlyReact', [
   'react',
@@ -42,4 +45,6 @@ angular.module('PlyReact', [
 .component('plySpinner', react2angular(PlySpinner, PlySpinnerProps ))
 .component('plyAutoScroll', react2angular(AutoScroll, AutoScrollProps ))
 .component('plyToggle', react2angular(PlyToggle))
-.component('plyImage', react2angular(PlyImage));
+.component('plyImage', react2angular(PlyImage))
+.component('plyDropdown', react2angular(PlyDropdown))
+;

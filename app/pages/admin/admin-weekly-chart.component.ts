@@ -33,10 +33,18 @@ const adminWeeklySearchArea = {
   controller: adminWeeklySearchAreaCtrl,
 };
 
-adminWeeklySearchAreaCtrl.$inject = ['chords'];
-function adminWeeklySearchAreaCtrl(chords) {
-  this.allYears = PlyDate.getAllYears();
-  this.allWeekNumbers = PlyDate.getAllWeekNumbers();
+adminWeeklySearchAreaCtrl.$inject = ['chords', '$timeout'];
+function adminWeeklySearchAreaCtrl(chords, $timeout) {
+  this.allYears = PlyDate
+    .getAllYears()
+    .map(year => {
+      return { label: year + '', value: year };
+    });
+  this.allWeekNumbers = PlyDate
+    .getAllWeekNumbers()
+    .map(week => {
+      return { label: week + '', value: week };
+    });
   this.searchConfig = {
     searchBy: 'artist',
   };
@@ -65,6 +73,14 @@ function adminWeeklySearchAreaCtrl(chords) {
     this.searchResults = null;
     this.rankChangeHandler(song);
   };
+
+  this.onYearChange = (e, label, val) => {
+    $timeout(() => this.weeklyChart.year = val);
+  };
+  this.onWeekNumberChange = (e, label, val) => {
+    $timeout(() => this.weeklyChart.weekNumber = val);
+  };
+
 }
 
 const adminWeeklyChordResults: ng.IComponentOptions = {
@@ -94,7 +110,7 @@ adminWeeklyChartCtrl.$inject = ['WeeklyChart'];
 function adminWeeklyChartCtrl(WeeklyChart) {
   const vm = this;
   this.weeklyChart = {
-    year: 2016,
+    year: 2017,
     weekNumber: 20,
     songs: [
 

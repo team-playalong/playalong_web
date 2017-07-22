@@ -8,24 +8,22 @@
       <form name="adminWeeklyChartForm" class="ply-search-form" novalidate>
         <div layout="row" layout-wrap>
           <div flex="50">
-            <md-input-container>
-              Year
-              <md-select class="ply-search-form-select" placeholder="..." ng-model="$ctrl.weeklyChart.year">
-                <md-option ng-repeat="year in $ctrl.allYears" value="{{year}}">
-                  {{year}}
-                </md-option>
-              </md-select>
-            </md-input-container>
+            <label for="yearDropdown">Year</label>
+            <ply-dropdown
+              id="yearDropdown"
+              options="$ctrl.allYears"
+              value="$ctrl.weeklyChart.year"
+              change="$ctrl.onYearChange"
+            ></ply-dropdown>
           </div>
           <div flex="50">
-            <md-input-container>
-              Week Number
-              <md-select class="ply-search-form-select" placeholder="..." ng-model="$ctrl.weeklyChart.weekNumber">
-                <md-option ng-repeat="weekNumber in $ctrl.allWeekNumbers" value="{{weekNumber}}">
-                  {{weekNumber}}
-                </md-option>
-              </md-select>
-            </md-input-container>
+            <label for="weekNumberDropdown">Week Number</label>
+            <ply-dropdown
+              id="weekNumberDropdown"
+              options="$ctrl.allWeekNumbers"
+              value="$ctrl.weeklyChart.weekNumber"
+              change="$ctrl.onWeekNumberChange"
+            ></ply-dropdown>
           </div>
         </div>
         <div layout="row" layout-wrap>
