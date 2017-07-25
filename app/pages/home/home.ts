@@ -1,6 +1,11 @@
 import Spinner from '../../services/spinner.service';
 import ChordSearchModel from './chord-search.model';
 
+enum SearchByOptions {
+  ARTIST = 'artist',
+  TITLE = 'title',
+}
+
 function PlyHome() {
   return {
     templateUrl: './app/pages/home/home.template.html',
@@ -42,7 +47,7 @@ class HomeCtrl {
     }, 200);
 
     this.$rootScope.$on('$stateChangeSuccess',
-    /*jshint unused:false */
+
     (event, toState, toParams, fromState, fromParams) => {
       if (toState.title) {
         this.$rootScope.currPage = toState.title;
@@ -97,11 +102,15 @@ class HomeCtrl {
 
   uppercaseFirstLetter = str => str.split(' ').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
 
-  searchChords = (numAttempts = 1) => {
+  searchChords = ({
+    searchBy = SearchByOptions.ARTIST,
+    searchInput = '',
+    numAttempts = 1,
+  }) => {
     if (numAttempts > 2) { return; }
     this.Spinner.start();
     this.searchResults = [];
-    this.chords.searchChordsBy(this.ChordSearchModel.searchConfig.searchBy, this.ChordSearchModel.searchConfig.searchInput)
+    this.chords.searchChordsBy(searchBy, searchInput)
       .then((data) => {
         this.handleChordResults(data);
         this.chordsFinallyHandler();
@@ -109,8 +118,8 @@ class HomeCtrl {
       .catch(error => {
         // Try searching with an upper case for the first letter of each word
         if (numAttempts < 2) {
-          this.ChordSearchModel.searchConfig.searchInput = (this.uppercaseFirstLetter(this.ChordSearchModel.searchConfig.searchInput));
-          this.searchChords(numAttempts + 1);
+          searchInput = (this.uppercaseFirstLetter(searchInput));
+          this.searchChords({ searchBy, searchInput, numAttempts: numAttempts + 1 });
         }
         else {
           this.searchResults = [];
@@ -120,13 +129,6 @@ class HomeCtrl {
 
       });
   }
-
-  // For spinner event listening
-  triggerSearchChords = () => {
-    this.searchChords();
-  }
-
-  /*jshint unused:true*/
 }
 HomeCtrl.$inject = [
   '$rootScope', 'chords', '$translate', '$q',
