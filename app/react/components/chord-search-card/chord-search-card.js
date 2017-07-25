@@ -64,15 +64,20 @@ class PlyChordSearchCard extends React.Component {
     form: {
       display: 'flex',
       alignItems: 'center',
+      justifyContent: 'center',
+      flexFlow: 'row wrap',
     },
     radioButtons: {
       flex: '1',
+      paddingBottom: '10px',
     },
     searchInput: {
       flex: '4',
+      paddingBottom: '10px',
     },
     searchButton: {
       flex: '1',
+      paddingBottom: '10px',
     },
   }
 
@@ -99,7 +104,7 @@ class PlyChordSearchCard extends React.Component {
                 <span style={this.styles.searchInput}>
                   <TextInput
                     name="searchInput"
-                    placeholder={'Search Here...'}
+                    placeholder={'...'}
                     onChange={this.searchInputChanged}
                   />
                 </span>
