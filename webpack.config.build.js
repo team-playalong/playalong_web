@@ -4,7 +4,7 @@ var CleanWebpackPlugin = require('clean-webpack-plugin');
 var webpackConfig = require('./webpack.config');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
-webpackConfig.devtool = 'cheap-module-source-map';
+webpackConfig.devtool = 'eval';
 
 webpackConfig.plugins.push(new webpack.optimize.CommonsChunkPlugin({ names: ['vendor', 'manifest'] }));
 

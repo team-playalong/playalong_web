@@ -51,7 +51,6 @@ class PlyChordSearchCard extends React.Component {
   ]
 
   searchButtonClicked() {
-    console.log('searchButtonClicked');
     if (typeof this.props.onChordSearchClicked === 'function') {
       this.props.onChordSearchClicked({
         searchBy: this.state.searchBy,

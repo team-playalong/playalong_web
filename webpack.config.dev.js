@@ -1,7 +1,6 @@
 var webpackConfig = require('./webpack.config');
 
-webpackConfig.devtool = 'eval';
-
+webpackConfig.devtool = 'cheap-module-source-map';
 webpackConfig.output = {
     pathinfo: true,
     publicPath: '/',
