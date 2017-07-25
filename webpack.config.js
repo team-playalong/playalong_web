@@ -54,7 +54,14 @@ module.exports = {
       // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
       {
         test: /\.tsx?$/,
-        loaders: ['ts-loader'],
+        use: [
+          {
+            loader: 'ts-loader',
+            options: {
+              sourceMap: IS_DEV,
+            },
+          },
+        ],
         exclude: /(node_modules)/,
       },
       // STYLES
@@ -114,7 +121,7 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-
+              sourceMap: IS_DEV,
               // This is a feature of `babel-loader` for webpack (not Babel itself).
               // It enables caching results in ./node_modules/.cache/babel-loader/
               // directory for faster rebuilds.
