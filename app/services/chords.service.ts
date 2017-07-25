@@ -60,6 +60,17 @@ function chords($q: ng.IQService, PlyFirebase, $firebaseObject) {
     });
   }
 
+  function objectToChordArray(obj = {}) {
+		const res = [];
+		let currObj;
+		for (const curr in obj) {
+			currObj = Object.assign({}, { $id: curr, chordKey: curr }, obj[curr]);
+		  res.push(currObj);
+		}
+
+		return res;
+	}
+
   function searchChordsBy(searchBy = 'artist', searchText) {
     console.log(`Search ${searchText} by ${searchBy}`);
     return new Promise((resolve, reject) => {
@@ -75,7 +86,7 @@ function chords($q: ng.IQService, PlyFirebase, $firebaseObject) {
         if (!rawData) {
           reject(`No results for query ${searchText} searching by ${searchBy}`);
         }
-        const result = Common.objectToArray(rawData).filter(curr => !!curr.approved);
+        const result = objectToChordArray(rawData).filter(curr => !!curr.approved);
         resolve(result);
       });
     });
